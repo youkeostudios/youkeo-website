@@ -2075,11 +2075,33 @@ h1, h2, h3, h4, h5 {
   .t-duo { height: 400px; }
   .t-pair { width: 200px; }
   .t-video-card { width: 200px; }
+  .hero-h1-thin {
+    font-size: 32px;
+  }
+  .hero-h1-bold {
+    font-size: 38px;
+  }
+  .hero-h1 {
+    margin-bottom: 16px;
+  }
+  .hero-sub {
+    font-size: 14px;
+    margin-bottom: 24px;
+  }
+  .hero-content {
+    padding: 0 20px;
+  }
   .hero-stats {
     gap: 0;
   }
+  .hero-stat {
+    padding: 16px 12px;
+  }
   .hero-stat-num {
-    font-size: 24px;
+    font-size: 22px;
+  }
+  .hero-stat-label {
+    font-size: 9px;
   }
   .track-row {
     grid-template-columns: 1fr;
