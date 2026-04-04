@@ -151,9 +151,11 @@ document.addEventListener('DOMContentLoaded', () => {
       svcFeatures.innerHTML  = d.features.map(f => `<li>${f}</li>`).join('');
       svcPrice.innerHTML     = d.price;
       svcCta.textContent     = d.cta;
+      svcCta.onclick         = () => gtag('event', 'cta_click', { button_text: d.cta, service: key, location: 'service_overlay', page: 'home' });
       svcBackdrop.classList.add('open');
       svcBackdrop.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
+      gtag('event', 'service_overlay_open', { service: key, page: 'home' });
     }
 
     function closeServiceOverlay() {
@@ -164,7 +166,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     document.querySelectorAll('.service-card[data-service]').forEach(card => {
       card.style.cursor = 'pointer';
-      card.addEventListener('click', () => openServiceOverlay(card.dataset.service));
+      card.addEventListener('click', () => {
+        gtag('event', 'service_card_click', { service: card.dataset.service, page: 'home' });
+        openServiceOverlay(card.dataset.service);
+      });
     });
 
     svcClose.addEventListener('click', closeServiceOverlay);
