@@ -2,6 +2,17 @@
    YOUKEO STUDIOS — Main Script
    ============================================================ */
 
+/* ─── Hero video: force autoplay on mobile ───────────────── */
+(function() {
+  const v = document.querySelector('.hero-video');
+  if (!v) return;
+  v.muted = true;
+  const tryPlay = () => v.play().catch(() => {});
+  tryPlay();
+  document.addEventListener('touchstart', tryPlay, { once: true });
+  document.addEventListener('touchend',   tryPlay, { once: true });
+})();
+
 document.addEventListener('DOMContentLoaded', () => {
 
   /* ─── NAV: scroll — elevate shadow on scroll ─────────────── */
