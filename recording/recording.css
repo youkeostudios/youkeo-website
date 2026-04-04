@@ -1,0 +1,225 @@
+/* ============================================================
+   YOUKEO STUDIOS — Recording Landing Page (page-specific)
+   ============================================================ */
+
+/* ─── Hero override ─────────────────────────────────────── */
+.rec-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* ─── Reviews (top static 3-card grid) ──────────────────── */
+.rec-reviews {
+  background: var(--bg-warm);
+  padding: 80px 24px;
+}
+
+.rec-reviews-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.rec-reviews-inner .section-label {
+  margin-bottom: 8px;
+}
+
+.rec-reviews-inner .section-h2 {
+  margin-bottom: 48px;
+}
+
+.rec-reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  text-align: left;
+}
+
+/* ─── Why Youkeo ─────────────────────────────────────────── */
+.rec-why {
+  background: #fff;
+  padding: 80px 24px;
+}
+
+.rec-why-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.rec-why-inner .section-label {
+  margin-bottom: 8px;
+}
+
+.rec-why-inner .section-h2 {
+  margin-bottom: 48px;
+}
+
+.rec-why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.rec-why-card {
+  background: var(--bg-warm);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 32px 28px;
+  text-align: left;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.rec-why-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 45, 107, 0.3);
+}
+
+.rec-why-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: rgba(255, 45, 107, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.rec-why-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  margin: 0 0 12px;
+}
+
+.rec-why-desc {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* ─── Pricing ────────────────────────────────────────────── */
+.rec-pricing {
+  background: var(--bg-warm);
+  padding: 80px 24px;
+}
+
+.rec-pricing-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.rec-pricing-inner .section-label {
+  margin-bottom: 8px;
+}
+
+.rec-pricing-inner .section-h2 {
+  margin-bottom: 12px;
+}
+
+.rec-pricing-sub {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  color: var(--muted);
+  margin: 0 auto 48px;
+  max-width: 480px;
+}
+
+.rec-pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.rec-pricing-note {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: 24px;
+  text-align: center;
+}
+
+.rec-pricing-note span {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ─── Responsive ─────────────────────────────────────────── */
+
+/* Tablet: 2-col reviews, 1-col why/pricing */
+@media (max-width: 900px) {
+  .rec-reviews-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .rec-why-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .rec-pricing-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Mobile: single column everything */
+@media (max-width: 640px) {
+  .rec-reviews {
+    padding: 56px 20px;
+  }
+
+  .rec-reviews-inner .section-h2 {
+    margin-bottom: 32px;
+  }
+
+  .rec-reviews-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .rec-why {
+    padding: 56px 20px;
+  }
+
+  .rec-why-inner .section-h2 {
+    margin-bottom: 32px;
+  }
+
+  .rec-why-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .rec-why-card {
+    padding: 24px 20px;
+  }
+
+  .rec-pricing {
+    padding: 56px 20px;
+  }
+
+  .rec-pricing-inner .section-h2 {
+    margin-bottom: 10px;
+  }
+
+  .rec-pricing-sub {
+    font-size: 14px;
+    margin-bottom: 32px;
+  }
+
+  .rec-pricing-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
