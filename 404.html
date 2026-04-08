@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page Not Found – Youkeo Studios</title>
+  <meta name="robots" content="noindex, follow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800;900&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #0a0a0a;
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 24px;
+    }
+
+    .logo {
+      font-family: 'Inter', sans-serif;
+      font-weight: 900;
+      font-size: 1.2rem;
+      letter-spacing: 0.08em;
+      color: #fff;
+      text-decoration: none;
+      margin-bottom: 64px;
+    }
+
+    .logo span { color: #E8365D; }
+
+    .error-code {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(100px, 20vw, 180px);
+      font-weight: 900;
+      line-height: 1;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(255,255,255,0.15);
+      letter-spacing: -4px;
+      margin-bottom: 8px;
+      user-select: none;
+    }
+
+    .label {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #E8365D;
+      margin-bottom: 24px;
+    }
+
+    h1 {
+      font-family: 'Inter', sans-serif;
+      font-size: clamp(1.5rem, 4vw, 2.2rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+
+    p {
+      color: rgba(255,255,255,0.5);
+      font-size: 1rem;
+      line-height: 1.7;
+      max-width: 400px;
+      margin-bottom: 48px;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #E8365D;
+      color: #fff;
+      text-decoration: none;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+      padding: 14px 28px;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
+
+    .btn-primary:hover { background: #c92d50; }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-family: 'Inter', sans-serif;
+      font-weight: 500;
+      font-size: 0.85rem;
+      padding: 14px 28px;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 4px;
+      transition: border-color 0.2s, color 0.2s;
+    }
+
+    .btn-secondary:hover {
+      border-color: rgba(255,255,255,0.4);
+      color: #fff;
+    }
+
+    .divider {
+      width: 40px;
+      height: 1px;
+      background: rgba(255,255,255,0.1);
+      margin: 64px auto 32px;
+    }
+
+    .quick-links {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .quick-links a {
+      color: rgba(255,255,255,0.35);
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+    }
+
+    .quick-links a:hover { color: #E8365D; }
+  </style>
+</head>
+<body>
+
+  <a href="/" class="logo">YOUKEO<span>.</span></a>
+
+  <div class="error-code">404</div>
+  <div class="label">Page not found</div>
+
+  <h1>This page doesn't exist.<br>Your music should.</h1>
+  <p>The link you followed may be broken or the page may have moved. Head back and let's get you into the studio.</p>
+
+  <div class="btn-group">
+    <a href="/" class="btn-primary">
+      Back to Home
+      <svg width="14" height="14" fill="none" viewBox="0 0 24 24">
+        <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+    <a href="https://wa.me/919619192992" class="btn-secondary" target="_blank" rel="noopener">
+      Book a Session
+    </a>
+  </div>
+
+  <div class="divider"></div>
+
+  <nav class="quick-links" aria-label="Quick links">
+    <a href="/">Home</a>
+    <a href="/recording/">Recording</a>
+    <a href="/pricing/">Pricing</a>
+    <a href="https://wa.me/919619192992" target="_blank" rel="noopener">Contact</a>
+  </nav>
+
+</body>
+</html>
