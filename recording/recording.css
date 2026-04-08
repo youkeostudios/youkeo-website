@@ -166,6 +166,17 @@
   max-width: 1024px;
 }
 
+/* ─── Testimonials (override for recording page) ────────── */
+.testimonials-header {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.t-masonry {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
 /* ─── Responsive ─────────────────────────────────────────── */
 
 /* Tablet: 2-col reviews, 1-col why/pricing */
