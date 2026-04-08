@@ -267,6 +267,23 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox && closeLightbox(); });
 
+  /* ─── Testimonials: autoplay videos on section view ──────── */
+  const testimonialsSection = document.getElementById('testimonials');
+
+  if (testimonialsSection) {
+    const videoObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll('.t-video-cover').forEach(video => {
+            video.play().catch(() => {});
+          });
+        }
+      });
+    }, { threshold: 0.3 });
+
+    videoObserver.observe(testimonialsSection);
+  }
+
   /* ─── Drag-to-scroll testimonials ───────────────────────── */
   const slider = document.querySelector('.t-masonry');
   let isDown = false, startX, scrollLeft;
