@@ -871,7 +871,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .testimonials-header {
-  max-width: 1200px;
+  max-width: 1024px;
   margin: 0 auto 24px;
 }
 
@@ -910,7 +910,7 @@ h1, h2, h3, h4, h5 {
   scrollbar-width: none;
   cursor: grab;
   padding-bottom: 8px;
-  max-width: 1200px;
+  max-width: 1024px;
   margin: 0 auto;
 }
 .t-masonry::-webkit-scrollbar { display: none; }

@@ -21,7 +21,7 @@
 }
 
 .rec-reviews-inner {
-  max-width: 1200px;
+  max-width: 1024px;
   margin: 0 auto;
   text-align: center;
 }
@@ -48,7 +48,7 @@
 }
 
 .rec-why-inner {
-  max-width: 1100px;
+  max-width: 1024px;
   margin: 0 auto;
   text-align: center;
 }
@@ -115,7 +115,7 @@
 }
 
 .rec-pricing-inner {
-  max-width: 1100px;
+  max-width: 1024px;
   margin: 0 auto;
   text-align: center;
 }
@@ -154,6 +154,16 @@
 .rec-pricing-note span {
   color: var(--accent);
   font-weight: 600;
+}
+
+/* ─── FAQ (override for recording page) ────────────────── */
+#faq .faq-header {
+  max-width: 1024px;
+  margin: 0 auto 48px;
+}
+
+#faq .faq-list {
+  max-width: 1024px;
 }
 
 /* ─── Responsive ─────────────────────────────────────────── */
