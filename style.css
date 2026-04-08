@@ -871,7 +871,8 @@ h1, h2, h3, h4, h5 {
 }
 
 .testimonials-header {
-  margin-bottom: 24px;
+  max-width: 1200px;
+  margin: 0 auto 24px;
 }
 
 .t-scroll-hint-row {
@@ -909,6 +910,8 @@ h1, h2, h3, h4, h5 {
   scrollbar-width: none;
   cursor: grab;
   padding-bottom: 8px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 .t-masonry::-webkit-scrollbar { display: none; }
 .t-masonry.is-dragging { cursor: grabbing; user-select: none; }
