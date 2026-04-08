@@ -706,27 +706,35 @@
 <section id="cta">
   <div class="cta-header">
     <span class="section-label">Contact</span>
-    <h2 class="section-h2">Your song is<br><span class="cta-muted-line">one message away.</span></h2>
+    <h2 class="section-h2">Ready to book<br><span class="cta-muted-line">your session?</span></h2>
   </div>
 
   <div class="cta-rows">
-    <div class="cta-row">
-      <a href="https://wa.me/919619192992?text=Hi%2C%20I%20want%20to%20book%20a%20recording%20session%20at%20Youkeo%20Studios" target="_blank" rel="noopener" class="btn btn-primary" onclick="gtag('event','contact_click',{method:'whatsapp',location:'cta_section',page:'recording'})">
-        <svg width="20" height="20" viewBox="0 0 32 32" fill="none">
-          <path d="M23.5 8.5C21.7 6.7 19.3 5.7 16.7 5.7 11.3 5.7 6.9 10.1 6.9 15.5c0 1.7.4 3.3 1.3 4.8L6.8 25.3l5.2-1.4c1.4.8 3 1.2 4.7 1.2 5.4 0 9.8-4.4 9.8-9.8 0-2.6-1-5-2.8-6.8zM16.7 23.6c-1.5 0-2.9-.4-4.1-1.1l-.3-.2-3.1.8.8-3-.2-.3c-.8-1.3-1.2-2.7-1.2-4.3 0-4.5 3.6-8.1 8.1-8.1 2.2 0 4.2.8 5.7 2.4 1.5 1.5 2.4 3.6 2.4 5.7-.1 4.5-3.7 8.1-8.1 8.1zm4.5-6.1c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.2-.5-.5-1-1.1-1.4-1.7-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.5.1-.1.1-.2.2-.4 0-.1 0-.3 0-.4 0-.1-.5-1.2-.7-1.7-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.2-.2.2-.8.8-.8 1.9s.8 2.2.9 2.4c.1.2 1.6 2.4 3.8 3.4.5.2 1 .4 1.4.5.6.2 1.1.1 1.6.1.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.2-.2-.3-.4-.4z" fill="currentColor"/>
-        </svg>
-        WhatsApp Us Now
-      </a>
-    </div>
 
-    <div class="cta-row">
-      <a href="tel:+919619192992" class="btn btn-secondary" onclick="gtag('event','contact_click',{method:'phone',location:'cta_section',page:'recording'})">
-        <svg width="20" height="20" fill="none" viewBox="0 0 24 24">
-          <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1C10.17 21 3 13.83 3 5a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z" fill="currentColor"/>
-        </svg>
-        Call Us
-      </a>
-    </div>
+    <!-- WhatsApp -->
+    <a href="https://wa.me/919619192992?text=Hi%2C%20I%20want%20to%20book%20a%20recording%20session%20at%20Youkeo%20Studios" target="_blank" rel="noopener" class="cta-row" onclick="gtag('event','contact_click',{method:'whatsapp',location:'cta_section',page:'recording'})">
+      <span class="cta-row-num">01</span>
+      <div class="cta-row-mid">
+        <span class="cta-row-type">WhatsApp</span>
+        <span class="cta-row-value">+91 96 1919 2992</span>
+      </div>
+      <svg class="cta-row-arrow" width="22" height="22" fill="none" viewBox="0 0 24 24">
+        <path d="M7 17L17 7M17 7H7M17 7v10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+
+    <!-- Phone -->
+    <a href="tel:+919619192992" class="cta-row" onclick="gtag('event','contact_click',{method:'phone',location:'cta_section',page:'recording'})">
+      <span class="cta-row-num">02</span>
+      <div class="cta-row-mid">
+        <span class="cta-row-type">Phone</span>
+        <span class="cta-row-value">+91 96 1919 2992</span>
+      </div>
+      <svg class="cta-row-arrow" width="22" height="22" fill="none" viewBox="0 0 24 24">
+        <path d="M7 17L17 7M17 7H7M17 7v10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+
   </div>
 </section>
 
