@@ -2,6 +2,26 @@
    YOUKEO STUDIOS — Main Script
    ============================================================ */
 
+/* ─── Google Ads Conversion Tracking ────────────────────── */
+function trackWhatsApp() {
+  gtag('event', 'conversion', {
+    'send_to': 'AW-17982763316/enjPCImSjJgcELTi7P5C'
+  });
+}
+
+function trackPhone() {
+  gtag('event', 'conversion', {
+    'send_to': 'AW-17982763316/VHX9CIySjJgcELTi7P5C'
+  });
+}
+
+function trackEmail() {
+  gtag('event', 'conversion', {
+    'send_to': 'AW-17982763316/fYB9CI-SjJgcELTi7P5C'
+  });
+}
+/* ────────────────────────────────────────────────────────── */
+
 /* ─── Hero video: force autoplay on mobile ───────────────── */
 (function() {
   const v = document.querySelector('.hero-video');
