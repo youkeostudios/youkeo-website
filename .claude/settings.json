@@ -1,7 +1,15 @@
 {
   "permissions": {
     "allow": [
-      "Bash(git rm:*)"
+      "Bash(git rm:*)",
+      "Bash(gh repo *)",
+      "Bash(gh api *)",
+      "Read(//Users/nishchaybeharam/.claude/skills/**)",
+      "Bash(npx -y skills add coreyhaines31/marketingskills)",
+      "Bash(npx -y skills add --help)",
+      "Bash(npx -y skills --help)",
+      "Bash(npx -y skills add coreyhaines31/marketingskills -y --agent claude-code)",
+      "WebSearch"
     ]
   }
 }
