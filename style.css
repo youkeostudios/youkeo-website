@@ -105,6 +105,17 @@ h1, h2, h3, h4, h5 {
   color: #fff;
 }
 
+.btn-ghost {
+  background: transparent;
+  color: var(--text);
+  border: 1.5px solid var(--border);
+}
+.btn-ghost:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  opacity: 1;
+}
+
 /* ─── SECTION LABEL ──────────────────────────────────────── */
 .section-label {
   display: inline-block;
@@ -112,7 +123,7 @@ h1, h2, h3, h4, h5 {
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--accent);
+  color: #666;
   margin-bottom: 14px;
   font-family: 'Poppins', sans-serif;
 }
@@ -659,7 +670,7 @@ h1, h2, h3, h4, h5 {
 .pricing-card-icon {
   width: 38px;
   height: 38px;
-  background: var(--accent-dim);
+  background: rgba(0,0,0,0.05);
   border-radius: 9px;
   display: flex;
   align-items: center;
@@ -678,7 +689,7 @@ h1, h2, h3, h4, h5 {
   font-size: 26px;
   font-weight: 900;
   font-family: 'Inter', sans-serif;
-  color: var(--accent);
+  color: #000;
   letter-spacing: -0.02em;
   line-height: 1;
   margin-bottom: 6px;
@@ -1572,7 +1583,7 @@ h1, h2, h3, h4, h5 {
 }
 
 .faq-question.open {
-  color: var(--accent);
+  color: var(--text);
 }
 
 .faq-icon {
@@ -1591,9 +1602,9 @@ h1, h2, h3, h4, h5 {
 }
 
 .faq-question.open .faq-icon {
-  border-color: var(--accent);
-  background: var(--accent-dim);
-  color: var(--accent);
+  border-color: #333;
+  background: rgba(0,0,0,0.05);
+  color: #333;
 }
 
 .faq-answer-wrap {
@@ -1758,6 +1769,14 @@ h1, h2, h3, h4, h5 {
   color: var(--muted);
 }
 
+.cta-reassurance {
+  text-align: center;
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 32px;
+  letter-spacing: 0.01em;
+}
+
 .cta-rows {
   max-width: 720px;
   margin: 0 auto;
@@ -1844,7 +1863,7 @@ h1, h2, h3, h4, h5 {
 
 .footer-main {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr;
   gap: 48px;
   align-items: start;
   margin-bottom: 64px;
@@ -1887,7 +1906,7 @@ h1, h2, h3, h4, h5 {
 .footer-info p,
 .footer-info a {
   font-size: 13px;
-  color: #555;
+  color: #AAAAAA;
   font-family: 'Poppins', sans-serif;
   line-height: 1.9;
   transition: color 0.2s;
@@ -1899,7 +1918,7 @@ h1, h2, h3, h4, h5 {
 
 .footer-col-label {
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: #fff;
@@ -1916,12 +1935,29 @@ h1, h2, h3, h4, h5 {
 
 .footer-nav-links a {
   font-size: 14px;
-  color: #555;
+  color: #AAAAAA;
   font-family: 'Poppins', sans-serif;
   transition: color 0.2s;
 }
 .footer-nav-links a:hover {
   color: #fff;
+}
+
+.footer-social {
+  display: flex;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.footer-social-link {
+  color: rgba(255,255,255,0.5);
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+.footer-social-link:hover {
+  color: #E8184A;
 }
 
 .footer-wordmark {
@@ -1949,14 +1985,14 @@ h1, h2, h3, h4, h5 {
   display: flex;
   align-items: center;
   gap: 10px;
-  background: #25D366;
+  background: #E8184A;
   color: #fff;
   font-size: 14px;
   font-weight: 600;
   font-family: 'Poppins', sans-serif;
   padding: 14px 22px 14px 16px;
   border-radius: 100px;
-  box-shadow: 0 4px 24px rgba(37, 211, 102, 0.20);
+  box-shadow: 0 4px 24px rgba(232, 24, 74, 0.30);
   cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
   text-decoration: none;

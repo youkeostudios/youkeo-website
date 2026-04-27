@@ -14,6 +14,230 @@
   overflow: hidden;
 }
 
+.rec-hero .hero-h1-thin {
+  font-size: clamp(28px, 4.8vw, 58px);
+  font-weight: 800;
+}
+
+.rec-hero .hero-h1 {
+  margin-bottom: 12px;
+}
+
+.rec-hero .hero-sub {
+  margin-bottom: 24px;
+}
+
+.rec-hero .hero-cta-trust {
+  margin-top: 16px;
+}
+
+.hero-stat-stars {
+  color: #FBBF24;
+}
+
+/* ─── Hero pricing strip ─────────────────────────────────── */
+.hero-pricing-strip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin-top: 16px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 14px;
+  padding: 12px 20px;
+  backdrop-filter: blur(8px);
+}
+
+.hero-pricing-tier {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 0 20px;
+}
+
+.hero-pricing-tier--featured .hero-pricing-price {
+  color: #fff;
+}
+
+.hero-pricing-label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 11px;
+  color: rgba(255,255,255,0.5);
+  white-space: nowrap;
+}
+
+.hero-pricing-price {
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  font-weight: 800;
+  color: rgba(255,255,255,0.75);
+  letter-spacing: -0.02em;
+}
+
+.hero-pricing-unit {
+  font-size: 11px;
+  font-weight: 500;
+  opacity: 0.7;
+}
+
+.hero-pricing-divider {
+  width: 1px;
+  height: 32px;
+  background: rgba(255,255,255,0.12);
+  flex-shrink: 0;
+}
+
+@media (max-width: 520px) {
+  .hero-pricing-strip {
+    padding: 10px 14px;
+  }
+  .hero-pricing-tier {
+    padding: 0 12px;
+  }
+  .hero-pricing-label {
+    font-size: 10px;
+  }
+  .hero-pricing-price {
+    font-size: 15px;
+  }
+}
+
+/* ─── Hero CTA trust line ────────────────────────────────── */
+.hero-cta-trust {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 14px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  color: rgba(255,255,255,0.65);
+}
+
+.hero-cta-stars {
+  color: #FBBF24;
+  letter-spacing: 1px;
+  font-size: 12px;
+}
+
+.hero-cta-rating {
+  color: rgba(255,255,255,0.85);
+  font-weight: 500;
+}
+
+.hero-cta-dot {
+  opacity: 0.4;
+}
+
+/* ─── How it works ───────────────────────────────────────── */
+.rec-how {
+  background: #fff;
+  padding: 80px 24px;
+}
+
+.rec-how-inner {
+  max-width: 1024px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.rec-how-inner .section-label {
+  margin-bottom: 8px;
+}
+
+.rec-how-inner .section-h2 {
+  margin-bottom: 56px;
+}
+
+.rec-how-steps {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0;
+}
+
+.rec-how-step {
+  flex: 1;
+  max-width: 280px;
+  text-align: center;
+  padding: 0 16px;
+}
+
+.rec-how-num {
+  font-family: 'Inter', sans-serif;
+  font-size: 80px;
+  font-weight: 900;
+  color: #E5E5E5;
+  line-height: 1;
+  margin-bottom: 8px;
+  letter-spacing: -0.04em;
+  user-select: none;
+}
+
+.rec-how-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  font-weight: 800;
+  color: #000;
+  margin: 0 0 10px;
+}
+
+.rec-how-desc {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #3a3a3a;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.rec-how-connector {
+  width: 48px;
+  height: 2px;
+  background: var(--border);
+  margin-top: 28px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 720px) {
+  .rec-how-steps {
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+  }
+  .rec-how-connector {
+    width: 2px;
+    height: 32px;
+    margin: 0;
+  }
+  .rec-how-step {
+    max-width: 100%;
+  }
+}
+
+/* ─── Hero CTA button (recording-page specific) ───────────── */
+.rec-hero-cta-btn {
+  min-height: 54px;
+  padding: 16px 30px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  box-shadow: 0 10px 28px rgba(255, 45, 107, 0.35);
+}
+
+.rec-hero-cta-btn:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.rec-hero-cta-btn svg {
+  width: 22px;
+  height: 22px;
+}
+
 /* ─── Reviews (top static 3-card grid) ──────────────────── */
 .rec-reviews {
   background: var(--bg-warm);
@@ -103,7 +327,7 @@
 .rec-why-desc {
   font-family: 'Poppins', sans-serif;
   font-size: 14px;
-  color: var(--muted);
+  color: #1a1a1a;
   line-height: 1.7;
   margin: 0;
 }
@@ -136,6 +360,60 @@
   max-width: 480px;
 }
 
+/* ─── Pricing chooser helper ─────────────────────────────── */
+.rec-pricing-chooser {
+  max-width: 680px;
+  margin: 0 auto 40px;
+  padding: 20px 24px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  text-align: left;
+}
+
+.rec-pricing-chooser-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 12px;
+}
+
+.rec-pricing-chooser-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.rec-pricing-chooser-options strong {
+  color: var(--text);
+}
+
+/* ─── Pricing card typical spend ────────────────────────── */
+.pricing-card-typical {
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  color: #666;
+  font-weight: 500;
+  margin-top: 6px;
+}
+
+/* ─── Pricing card tagline ───────────────────────────────── */
+.pricing-card-tagline {
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  color: var(--muted);
+  margin: 4px 0 16px;
+  font-style: italic;
+  line-height: 1.4;
+}
+
 .rec-pricing-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -152,8 +430,274 @@
 }
 
 .rec-pricing-note span {
-  color: var(--accent);
+  color: #333;
   font-weight: 600;
+}
+
+
+/* ─── Pricing card "what's included" bullets ──────────────── */
+.pricing-card-includes {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 24px;
+  text-align: left;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  line-height: 1.6;
+  color: #1a1a1a;
+}
+
+.pricing-card-includes li {
+  padding: 6px 0 6px 22px;
+  position: relative;
+}
+
+.pricing-card-includes li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 6px;
+  color: #333;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* ─── "Not for you if" filter block ───────────────────────── */
+.rec-not-for-you {
+  max-width: 640px;
+  margin: 0 auto 40px;
+  padding: 24px 28px;
+  background: #000;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  text-align: left;
+}
+
+.rec-not-for-you-label {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 12px;
+  letter-spacing: -0.01em;
+}
+
+.rec-not-for-you-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.6);
+}
+
+.rec-not-for-you-list li {
+  padding: 5px 0 5px 24px;
+  position: relative;
+}
+
+.rec-not-for-you-list li::before {
+  content: "✗";
+  position: absolute;
+  left: 0;
+  top: 5px;
+  color: #E8184A;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+/* ─── Hero social proof (video testimonial under hero) ────── */
+.rec-hero-social {
+  background: #fff;
+  padding: 64px 24px;
+  text-align: center;
+}
+
+.rec-hero-social-inner {
+  max-width: 360px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.rec-hero-social-badge {
+  display: inline-block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: rgba(255, 45, 107, 0.1);
+  border: 1px solid rgba(255, 45, 107, 0.25);
+  padding: 6px 14px;
+  border-radius: 999px;
+}
+
+.rec-hero-social-card {
+  width: 100%;
+}
+
+.rec-hero-social-card .t-video-card {
+  aspect-ratio: 9 / 16;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12);
+}
+
+.rec-hero-social-card .t-video-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.rec-hero-social-card .t-video-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.2);
+  transition: background 0.2s;
+}
+
+.rec-hero-social-card .t-video-card:hover .t-video-overlay {
+  background: rgba(0,0,0,0.1);
+}
+
+.rec-hero-social-card .t-play-btn {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: rgba(255, 45, 107, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 28px rgba(255, 45, 107, 0.45);
+  transition: transform 0.2s;
+}
+
+.rec-hero-social-card .t-video-card:hover .t-play-btn {
+  transform: scale(1.1);
+}
+
+
+/* ─── Sticky WhatsApp bubble ──────────────────────────────── */
+.sticky-whatsapp {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #25D366;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  z-index: 999;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  text-decoration: none;
+}
+
+.sticky-whatsapp:hover,
+.sticky-whatsapp:focus-visible {
+  transform: scale(1.06);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.32);
+}
+
+.sticky-whatsapp svg {
+  display: block;
+}
+
+@media (max-width: 640px) {
+  .rec-hero-cta-btn {
+    width: min(100%, 320px);
+    justify-content: center;
+    padding: 15px 22px;
+  }
+}
+
+/* ─── CTA positioning line ───────────────────────────────── */
+.cta-positioning-line {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  text-align: center;
+  max-width: 560px;
+  margin: 0 auto 32px;
+  letter-spacing: -0.02em;
+  line-height: 1.4;
+}
+
+/* ─── CTA "what happens" steps ──────────────────────────── */
+.cta-what-happens {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  max-width: 720px;
+  margin: 32px auto 40px;
+  background: var(--bg-warm);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px 28px;
+}
+
+.cta-what-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  flex: 1;
+  padding: 0 16px;
+}
+
+.cta-what-num {
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 800;
+  color: #000;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.cta-what-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.cta-what-divider {
+  width: 1px;
+  height: 40px;
+  background: var(--border);
+  flex-shrink: 0;
+  align-self: center;
+}
+
+@media (max-width: 640px) {
+  .cta-what-happens {
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+  }
+  .cta-what-divider {
+    width: 40px;
+    height: 1px;
+    align-self: auto;
+  }
+  .cta-what-step {
+    padding: 0;
+  }
 }
 
 /* ─── FAQ (override for recording page) ────────────────── */
@@ -167,9 +711,21 @@
 }
 
 /* ─── Testimonials (override for recording page) ────────── */
+#testimonials {
+  background: #000;
+}
+
 .testimonials-header {
   max-width: 1024px;
   margin: 0 auto;
+}
+
+.testimonials-header .section-label {
+  color: rgba(255,255,255,0.5);
+}
+
+.testimonials-header .section-h2 {
+  color: #fff;
 }
 
 .t-masonry {
@@ -270,5 +826,14 @@
   .rec-pricing-grid {
     grid-template-columns: 1fr;
     gap: 16px;
+  }
+
+  .rec-hero-social {
+    padding: 36px 20px 24px;
+  }
+
+  .rec-not-for-you {
+    padding: 20px 22px;
+    margin-bottom: 32px;
   }
 }
