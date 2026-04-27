@@ -2246,3 +2246,49 @@ h1, h2, h3, h4, h5 {
     justify-content: center;
   }
 }
+
+/* ============================================================
+   SMALL PHONES (≤390px) — iPhone SE, older Androids
+   ============================================================ */
+@media (max-width: 390px) {
+  :root {
+    --section-pad: 52px 16px;
+  }
+
+  /* Nav pill — tighter side gap */
+  #nav-wrapper {
+    padding: 0 12px;
+  }
+
+  /* Hero text — prevent overflow on 320–375px screens */
+  .hero-h1-thin  { font-size: 26px; }
+  .hero-h1-bold  { font-size: 30px; }
+  .hero-sub      { font-size: 13px; margin-bottom: 20px; }
+  .hero-content  { padding: 0 16px; }
+
+  /* Hero stats bar — reduce number + label sizes */
+  .hero-stat       { padding: 12px 6px; }
+  .hero-stat-num   { font-size: 18px; }
+  .hero-stat-label { font-size: 8px; letter-spacing: 0.04em; }
+
+  /* Buttons — tighter padding so they don't clip */
+  .btn { padding: 12px 20px; font-size: 14px; }
+
+  /* Pricing cards — reduce inner padding */
+  .pricing-card { padding: 22px 18px; }
+
+  /* Founder stats */
+  .founder-stat     { padding: 16px 14px; }
+  .founder-stat-num { font-size: 24px; }
+
+  /* Location map — shorter on small screens */
+  .location-map { min-height: 320px; }
+
+  /* CTA section */
+  #cta           { padding: 52px 16px; }
+  .cta-row       { padding: 14px 14px; gap: 10px; }
+  .cta-row-value { font-size: 14px; }
+
+  /* Footer */
+  #footer { padding: 36px 16px 24px; }
+}

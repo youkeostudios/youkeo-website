@@ -542,6 +542,7 @@
 }
 
 .rec-hero-social-card .t-video-card {
+  width: 100%;
   aspect-ratio: 9 / 16;
   border-radius: 16px;
   overflow: hidden;
@@ -835,5 +836,41 @@
   .rec-not-for-you {
     padding: 20px 22px;
     margin-bottom: 32px;
+  }
+}
+
+/* ─── Small phones (≤390px) ──────────────────────────────── */
+@media (max-width: 390px) {
+  /* Pricing strip — prevent overflow at 320px */
+  .hero-pricing-strip {
+    padding: 8px 10px;
+  }
+  .hero-pricing-tier {
+    padding: 0 8px;
+  }
+  .hero-pricing-label {
+    font-size: 9px;
+  }
+  .hero-pricing-price {
+    font-size: 14px;
+  }
+
+  /* Review + why + pricing cards — tighter padding */
+  .rec-why-card {
+    padding: 20px 16px;
+  }
+  .rec-reviews {
+    padding: 48px 16px;
+  }
+  .rec-why {
+    padding: 48px 16px;
+  }
+  .rec-pricing {
+    padding: 48px 16px;
+  }
+
+  /* How it works section */
+  .rec-how {
+    padding: 56px 16px;
   }
 }
