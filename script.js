@@ -118,8 +118,8 @@ document.addEventListener('DOMContentLoaded', () => {
         'Experienced engineer guiding every take',
         'Recorded, edited & session files delivered',
       ],
-      price: 'Starting from <strong>₹800/hr</strong> · ₹1,200/hr for repeat sessions',
-      cta: 'Book a Session',
+      price: '<strong>₹1,200/hr</strong> · first session ₹800/hr so you can try the room risk-free',
+      cta: 'Check Availability',
     },
     production: {
       label: 'Music Production',
@@ -138,13 +138,13 @@ document.addEventListener('DOMContentLoaded', () => {
     promotion: {
       label: 'Release & Promotion',
       title: 'Get Your Music Heard & Playlisted',
-      desc: 'Recording a great track is only half the battle. We help you distribute to all major platforms — Spotify, Apple Music, JioSaavn and more — and run targeted Meta Ads to reach real listeners who actually care about your music.',
+      desc: 'Recording a great track is only half the battle. We help you distribute to all major platforms — Spotify, Apple Music, JioSaavn and more — and run paid promotion that brings real listeners, not bot streams. You keep 100% of your royalties.',
       features: [
+        '100% royalties retained by you',
         'Distribution to 150+ streaming platforms',
         'Spotify & Apple Music playlist pitching',
-        'Meta Ads campaign setup & management',
+        'Paid promotion that reaches real listeners, not bots',
         'Weekly performance reports',
-        'Artist profile optimisation',
       ],
       price: 'Starting from <strong>₹2,000/mo</strong>',
       cta: 'Launch Your Release',
