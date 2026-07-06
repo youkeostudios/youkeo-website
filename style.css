@@ -411,6 +411,17 @@ h1, h2, h3, h4, h5 {
   gap: 14px;
 }
 
+.hero-cta-secondary {
+  font-size: 13px;
+  color: rgba(255,255,255,0.78);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  transition: color 0.2s ease;
+}
+.hero-cta-secondary:hover { color: #fff; }
+
 .hero-offer {
   font-size: 12px;
   color: var(--accent);
