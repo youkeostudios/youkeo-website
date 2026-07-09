@@ -642,6 +642,20 @@ h1, h2, h3, h4, h5 {
   min-width: 0;
 }
 
+/* 3-up "Pick where you are" bundle grid (reuses .pricing-card).
+   Double-class specificity so it beats the responsive .pricing-grid re-declarations. */
+.pricing-grid.pricing-grid--bundles {
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
+  max-width: 1000px;
+  margin: 0 auto;
+}
+@media (max-width: 1024px) {
+  .pricing-grid.pricing-grid--bundles { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 640px) {
+  .pricing-grid.pricing-grid--bundles { grid-template-columns: 1fr; }
+}
+
 .pricing-card {
   background: var(--bg);
   border: 1px solid var(--border);
