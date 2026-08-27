@@ -38,15 +38,17 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ─── NAV: scroll — elevate shadow on scroll ─────────────── */
   const nav = document.getElementById('nav');
 
-  function handleNavScroll() {
-    if (window.scrollY > 40) {
-      nav.style.boxShadow = '0 8px 48px rgba(0,0,0,0.12)';
-    } else {
-      nav.style.boxShadow = '0 4px 32px rgba(0,0,0,0.08)';
+  if (nav) {
+    function handleNavScroll() {
+      if (window.scrollY > 40) {
+        nav.style.boxShadow = '0 8px 48px rgba(0,0,0,0.12)';
+      } else {
+        nav.style.boxShadow = '0 4px 32px rgba(0,0,0,0.08)';
+      }
     }
+    window.addEventListener('scroll', handleNavScroll, { passive: true });
+    handleNavScroll();
   }
-  window.addEventListener('scroll', handleNavScroll, { passive: true });
-  handleNavScroll();
 
 
   /* ─── NAV: mobile hamburger ──────────────────────────────── */
@@ -118,7 +120,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Experienced engineer guiding every take',
         'Recorded, edited & session files delivered',
       ],
-      price: '<strong>₹1,200/hr</strong> · first session ₹800/hr so you can try the room risk-free',
+      price: '<div class="svc-price-row-single"><div class="svc-price-main">₹1,200<span class="svc-price-unit">/hour</span></div><div class="svc-price-badge">Soundproofed Booth · Engineer Included</div></div>',
       cta: 'Check Availability',
     },
     production: {
@@ -132,8 +134,22 @@ document.addEventListener('DOMContentLoaded', () => {
         'Genre-specific sound design',
         'Unlimited revisions until you\'re happy',
       ],
-      price: 'Starting from <strong>₹8,000</strong> per track',
+      price: '<div class="svc-price-row-single"><div class="svc-price-main">₹12,000<span class="svc-price-unit">/song</span></div><div class="svc-price-badge">Custom Beat · Arrangement · Sound Design</div></div>',
       cta: 'Send an Idea',
+    },
+    mixing: {
+      label: 'Mixing & Mastering',
+      title: 'Stereo & Stem Mixing + Streaming Master',
+      desc: 'Give your vocals and instruments clarity, power, punch, and spatial depth. Whether recorded at Youkeo or elsewhere, we balance, tune, and master your music so it competes seamlessly on Spotify, Apple Music, and YouTube across all speaker systems.',
+      features: [
+        'Vocal tuning, time alignment & de-essing',
+        'Dynamic balancing, EQ & stereo enhancement',
+        'Analog-style warmth & acoustic depth',
+        'Streaming-ready master for Spotify & Apple Music',
+        '2 revision rounds included',
+      ],
+      price: '<div class="svc-price-grid-tiers"><div class="svc-tier-col"><div class="svc-tier-name">Master &amp; Polish</div><div class="svc-tier-price">₹2,000</div><div class="svc-tier-sub">Mastering only</div></div><div class="svc-tier-col featured"><div class="svc-tier-name">Stereo Mix &amp; Master</div><div class="svc-tier-price">₹5,000</div><div class="svc-tier-sub">Vocals + beat bounce</div></div><div class="svc-tier-col"><div class="svc-tier-name">Stem Mix &amp; Master</div><div class="svc-tier-price">₹12,000</div><div class="svc-tier-sub">Full multitrack stems</div></div></div>',
+      cta: 'Send Stems / Audio',
     },
     promotion: {
       label: 'Release & Promotion',
@@ -146,7 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
         'Paid promotion that reaches real listeners, not bots',
         'Weekly performance reports',
       ],
-      price: 'Starting from <strong>₹2,000/mo</strong>',
+      price: '<div class="svc-price-row-single"><div class="svc-price-main">₹26,000<span class="svc-price-unit">/package</span></div><div class="svc-price-badge">Consultation Included in Production to Final</div></div>',
       cta: 'Launch Your Release',
     },
   };
@@ -184,7 +200,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.body.style.overflow = '';
     }
 
-    document.querySelectorAll('.service-card[data-service]').forEach(card => {
+    document.querySelectorAll('[data-service]').forEach(card => {
       card.style.cursor = 'pointer';
       card.addEventListener('click', () => {
         gtag('event', 'service_card_click', { service: card.dataset.service, page: 'home' });
@@ -196,6 +212,22 @@ document.addEventListener('DOMContentLoaded', () => {
     svcBackdrop.addEventListener('click', e => { if (e.target === svcBackdrop) closeServiceOverlay(); });
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeServiceOverlay(); });
   }
+
+  /* ─── Services: Design Switcher (Preview Tool) ───────────── */
+  const switchBtns = document.querySelectorAll('.btn-design-switch');
+  const serviceLayouts = document.querySelectorAll('.services-layout');
+
+  switchBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const targetId = btn.dataset.target;
+      switchBtns.forEach(b => b.classList.remove('active'));
+      serviceLayouts.forEach(layout => layout.classList.remove('active'));
+
+      btn.classList.add('active');
+      const targetEl = document.getElementById(targetId);
+      if (targetEl) targetEl.classList.add('active');
+    });
+  });
 
   /* ─── FAQ: accordion ─────────────────────────────────────── */
   const faqItems = document.querySelectorAll('.faq-item');
@@ -280,6 +312,13 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.t-video-card').forEach(card => {
       card.addEventListener('click', () => {
         if (!slider || !slider._dragged) openLightbox(card.dataset.video);
+      });
+    });
+    document.querySelectorAll('.track-row[data-video], .track-listen[data-video]').forEach(el => {
+      el.addEventListener('click', (e) => {
+        e.preventDefault();
+        const videoUrl = el.dataset.video || el.closest('[data-video]')?.dataset.video;
+        if (videoUrl) openLightbox(videoUrl);
       });
     });
     vlClose.addEventListener('click', closeLightbox);

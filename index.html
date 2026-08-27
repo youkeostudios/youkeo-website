@@ -149,11 +149,11 @@
             "name": "Vocal Recording",
             "description": "Professional vocal recording with industry-standard microphones and acoustic treatment."
           },
-          "price": "800",
+          "price": "1200",
           "priceCurrency": "INR",
           "priceSpecification": {
             "@type": "UnitPriceSpecification",
-            "price": "800",
+            "price": "1200",
             "priceCurrency": "INR",
             "unitText": "per hour"
           }
@@ -163,9 +163,9 @@
           "itemOffered": {
             "@type": "Service",
             "name": "Mixing & Mastering",
-            "description": "Professional audio mixing and mastering for streaming-ready tracks."
+            "description": "Professional audio mixing and mastering for streaming-ready tracks. Master & Polish is ₹2,000, Stereo Mix & Master starts at ₹5,000, and Stem Mix & Master is ₹12,000."
           },
-          "price": "4000",
+          "price": "2000",
           "priceCurrency": "INR"
         },
         {
@@ -175,7 +175,7 @@
             "name": "Music Production",
             "description": "Full music production including arrangement, sound design, and production."
           },
-          "price": "8000",
+          "price": "12000",
           "priceCurrency": "INR"
         }
       ]
@@ -244,7 +244,7 @@
         "name": "How much does recording cost at Youkeo Studios?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Recording at Youkeo Studios is ₹1,200 per hour. Your first session is ₹800 per hour so you can try the room risk-free. A complete recording-to-final package (2 hours recording + mix & master) starts at ₹14,000 per song."
+          "text": "Recording at Youkeo Studios is ₹1,200 per hour (engineer included). We also offer two complete packages: Recording to Final (₹14,000 per song; includes 2 hours of recording + mixing & mastering) and Production to Final (₹26,000 per song; includes custom beat production + 2 hours of recording + mixing & mastering). À la carte: Music Production ₹12,000, Stereo Mix & Master ₹5,000, Stem Mix & Master ₹12,000, Master & Polish ₹2,000."
         }
       },
       {
@@ -407,15 +407,15 @@
   <div class="hero-stats" aria-label="Studio highlights">
     <div class="hero-stat">
       <div class="hero-stat-num">200+</div>
-      <div class="hero-stat-label">Sessions Recorded</div>
+      <div class="hero-stat-label">Artists Recorded</div>
     </div>
     <div class="hero-stat">
       <div class="hero-stat-num">1M+</div>
-      <div class="hero-stat-label">Spotify Streams</div>
+      <div class="hero-stat-label">Streams on Tracks Here</div>
     </div>
     <div class="hero-stat">
-      <div class="hero-stat-num">200+</div>
-      <div class="hero-stat-label">Artists Recorded</div>
+      <div class="hero-stat-num">5.0 ★</div>
+      <div class="hero-stat-label">Google Rating (25+ Reviews)</div>
     </div>
   </div>
 
@@ -437,7 +437,7 @@
     <!-- VERIFY: confirm the per-track stream counts (O Sajna 1M+, Dooriyan 300k+, Aarzoo 100k+) are literally true before launch -->
 
     <!-- Track 1: O Sajna -->
-    <div class="track-row">
+    <div class="track-row" data-video="https://www.youtube.com/watch?v=qgHA_3Kr-ac" style="cursor: pointer;">
       <img class="track-artwork" src="https://cdn.youkeostudios.com/artworks/o-sajna.webp" alt="O Sajna album artwork – Swapnil Chaudhary, recorded at Youkeo Studios Navi Mumbai" />
       <div class="track-info">
         <div class="track-name">O Sajna</div>
@@ -447,16 +447,16 @@
           <span class="track-streams-label">Streams</span>
         </div>
       </div>
-      <a href="https://www.youtube.com/watch?v=qgHA_3Kr-ac" target="_blank" rel="noopener" class="track-listen" onclick="gtag('event','track_click',{track:'O Sajna',artist:'Swapnil Chaudhary',page:'home'})">
+      <button type="button" class="track-listen" data-video="https://www.youtube.com/watch?v=qgHA_3Kr-ac" onclick="gtag('event','track_click',{track:'O Sajna',artist:'Swapnil Chaudhary',page:'home'})">
         Listen Now
         <svg width="14" height="14" fill="none" viewBox="0 0 24 24">
           <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-      </a>
+      </button>
     </div>
 
     <!-- Track 2: Dooriyan -->
-    <div class="track-row">
+    <div class="track-row" data-video="https://www.youtube.com/watch?v=wSDTy-vXuIg" style="cursor: pointer;">
       <img class="track-artwork" src="https://cdn.youkeostudios.com/artworks/dooriyaan.webp" alt="Dooriyan album artwork – Gravero, Rhyo & Kinara, recorded at Youkeo Studios" />
       <div class="track-info">
         <div class="track-name">Dooriyan</div>
@@ -466,16 +466,16 @@
           <span class="track-streams-label">Streams</span>
         </div>
       </div>
-      <a href="https://www.youtube.com/watch?v=wSDTy-vXuIg" target="_blank" rel="noopener" class="track-listen" onclick="gtag('event','track_click',{track:'Dooriyan',artist:'Gravero, Rhyo & Kinara',page:'home'})">
+      <button type="button" class="track-listen" data-video="https://www.youtube.com/watch?v=wSDTy-vXuIg" onclick="gtag('event','track_click',{track:'Dooriyan',artist:'Gravero, Rhyo & Kinara',page:'home'})">
         Listen Now
         <svg width="14" height="14" fill="none" viewBox="0 0 24 24">
           <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-      </a>
+      </button>
     </div>
 
     <!-- Track 3: Aarzoo -->
-    <div class="track-row">
+    <div class="track-row" data-video="https://www.youtube.com/watch?v=8gFLby0U0LE" style="cursor: pointer;">
       <img class="track-artwork" src="https://cdn.youkeostudios.com/artworks/aarzoo.webp" alt="Aarzoo album artwork – Shoonya & Kinara, 100k+ Spotify streams, Youkeo Studios" />
       <div class="track-info">
         <div class="track-name">Aarzoo</div>
@@ -485,12 +485,12 @@
           <span class="track-streams-label">Streams</span>
         </div>
       </div>
-      <a href="https://www.youtube.com/watch?v=8gFLby0U0LE" target="_blank" rel="noopener" class="track-listen" onclick="gtag('event','track_click',{track:'Aarzoo',artist:'Shoonya & Kinara',page:'home'})">
+      <button type="button" class="track-listen" data-video="https://www.youtube.com/watch?v=8gFLby0U0LE" onclick="gtag('event','track_click',{track:'Aarzoo',artist:'Shoonya & Kinara',page:'home'})">
         Listen Now
         <svg width="14" height="14" fill="none" viewBox="0 0 24 24">
           <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
-      </a>
+      </button>
     </div>
 
   </div>
@@ -501,63 +501,205 @@
      SERVICES
      ============================================================ -->
 <section id="services">
-  <div class="services-header">
-    <span class="section-label">What we do</span>
-    <h2 class="section-h2">From first take<br>to final release.</h2>
+  <div class="services-container">
+
+    <!-- Design Switcher (Preview Tool) -->
+    <div class="services-design-switch">
+      <span class="switch-label">Preview Layout:</span>
+      <button type="button" class="btn-design-switch active" data-target="services-layout-bento">Option 1: Bento Grid</button>
+      <button type="button" class="btn-design-switch" data-target="services-layout-split">Option 2: Editorial Split</button>
+    </div>
+
+    <!-- Layout 1: Centered 3-Column Bento Grid -->
+    <div id="services-layout-bento" class="services-layout active">
+      <div class="services-header services-header--center">
+        <span class="section-label">What we do</span>
+        <h2 class="section-h2">From first take<br>to final release.</h2>
+        <p class="services-sub">The room, the gear, and the team to take your idea from a voice memo into a streaming release.</p>
+      </div>
+
+      <div class="services-grid-bento">
+        <!-- 01. Recording -->
+        <div class="service-bento-card" data-service="recording">
+          <div class="bento-card-top">
+            <span class="bento-num">01</span>
+            <div class="bento-icon-wrap">
+              <svg width="22" height="22" fill="none" viewBox="0 0 24 24">
+                <rect x="9" y="2" width="6" height="11" rx="3" stroke="#FF2D6B" stroke-width="2"/>
+                <path d="M5 10a7 7 0 0014 0M12 17v4M8 21h8" stroke="#FF2D6B" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+          </div>
+          <div class="bento-card-body">
+            <span class="bento-tag">Vocal &amp; Live Room</span>
+            <h3 class="bento-title">Recording</h3>
+            <p class="bento-desc">A soundproofed booth, Neumann U87 mic, zero-latency monitoring, and an engineer guiding every take.</p>
+          </div>
+          <div class="bento-card-footer">
+            <span class="bento-link">
+              Explore Details
+              <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </div>
+
+        <!-- 02. Music Production -->
+        <div class="service-bento-card" data-service="production">
+          <div class="bento-card-top">
+            <span class="bento-num">02</span>
+            <div class="bento-icon-wrap">
+              <svg width="22" height="22" fill="none" viewBox="0 0 24 24">
+                <path d="M9 18V5l12-2v13" stroke="#FF2D6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="6" cy="18" r="3" stroke="#FF2D6B" stroke-width="2"/>
+                <circle cx="18" cy="16" r="3" stroke="#FF2D6B" stroke-width="2"/>
+              </svg>
+            </div>
+          </div>
+          <div class="bento-card-body">
+            <span class="bento-tag">Custom Beats &amp; Arranging</span>
+            <h3 class="bento-title">Music Production</h3>
+            <p class="bento-desc">From rough voice memos to full arrangements, custom sound design, and streaming-ready production.</p>
+          </div>
+          <div class="bento-card-footer">
+            <span class="bento-link">
+              Explore Details
+              <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </div>
+
+        <!-- 03. Mixing & Mastering -->
+        <div class="service-bento-card" data-service="mixing">
+          <div class="bento-card-top">
+            <span class="bento-num">03</span>
+            <div class="bento-icon-wrap">
+              <svg width="22" height="22" fill="none" viewBox="0 0 24 24">
+                <path d="M4 6h16M4 12h16M4 18h16" stroke="#FF2D6B" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="8" cy="6" r="2" fill="#FF2D6B"/>
+                <circle cx="16" cy="12" r="2" fill="#FF2D6B"/>
+                <circle cx="10" cy="18" r="2" fill="#FF2D6B"/>
+              </svg>
+            </div>
+          </div>
+          <div class="bento-card-body">
+            <span class="bento-tag">Post-Production &amp; Polish</span>
+            <h3 class="bento-title">Mixing &amp; Mastering</h3>
+            <p class="bento-desc">Vocal tuning, stereo width, dynamic balance, and analog mastering that translates on all speakers and streaming platforms.</p>
+          </div>
+          <div class="bento-card-footer">
+            <span class="bento-link">
+              Explore Details
+              <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Layout 2: 2-Column Editorial Split -->
+    <div id="services-layout-split" class="services-layout">
+      <div class="services-split-grid">
+        
+        <!-- Left: Sticky Narrative -->
+        <div class="services-split-left">
+          <span class="section-label">What we do</span>
+          <h2 class="section-h2">From first take<br>to final release.</h2>
+          <p class="services-split-desc">Whether you walk in with a single lyric or a fully recorded demo, we give you the room, the sound, and the team to compete on Spotify.</p>
+          
+          <div class="services-trust-badges">
+            <div class="trust-badge-item">
+              <span class="trust-badge-icon">✓</span>
+              <span>Neumann U87 &amp; Treated Booth</span>
+            </div>
+            <div class="trust-badge-item">
+              <span class="trust-badge-icon">✓</span>
+              <span>100% Royalties Kept by You</span>
+            </div>
+            <div class="trust-badge-item">
+              <span class="trust-badge-icon">✓</span>
+              <span>1M+ Streams on Tracks Here</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Stacked Service Rows -->
+        <div class="services-split-right">
+          
+          <!-- Row 1: Recording -->
+          <div class="service-split-row" data-service="recording">
+            <div class="split-row-icon">
+              <svg width="22" height="22" fill="none" viewBox="0 0 24 24">
+                <rect x="9" y="2" width="6" height="11" rx="3" stroke="#FF2D6B" stroke-width="2"/>
+                <path d="M5 10a7 7 0 0014 0M12 17v4M8 21h8" stroke="#FF2D6B" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="split-row-content">
+              <div class="split-row-header">
+                <h3 class="split-row-title">Vocal &amp; Instrument Recording</h3>
+                <span class="split-row-arrow">→</span>
+              </div>
+              <p class="split-row-desc">Treated live room, Neumann U87 mic, zero-latency monitoring, and an experienced engineer guiding every take.</p>
+              <div class="split-row-meta">
+                <span>₹1,200/hr</span>
+                <span>Engineer Included</span>
+                <span>Stems Same Day</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 2: Production -->
+          <div class="service-split-row" data-service="production">
+            <div class="split-row-icon">
+              <svg width="22" height="22" fill="none" viewBox="0 0 24 24">
+                <path d="M9 18V5l12-2v13" stroke="#FF2D6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="6" cy="18" r="3" stroke="#FF2D6B" stroke-width="2"/>
+                <circle cx="18" cy="16" r="3" stroke="#FF2D6B" stroke-width="2"/>
+              </svg>
+            </div>
+            <div class="split-row-content">
+              <div class="split-row-header">
+                <h3 class="split-row-title">Music Production &amp; Beats</h3>
+                <span class="split-row-arrow">→</span>
+              </div>
+              <p class="split-row-desc">Turn phone voice memos and chords into complete, radio-ready arrangements with custom genre sound design.</p>
+              <div class="split-row-meta">
+                <span>From ₹12,000</span>
+                <span>Full Arrangement</span>
+                <span>Unlimited Revisions</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Row 3: Mixing & Mastering -->
+          <div class="service-split-row" data-service="mixing">
+            <div class="split-row-icon">
+              <svg width="22" height="22" fill="none" viewBox="0 0 24 24">
+                <path d="M4 6h16M4 12h16M4 18h16" stroke="#FF2D6B" stroke-width="2" stroke-linecap="round"/>
+                <circle cx="8" cy="6" r="2" fill="#FF2D6B"/>
+                <circle cx="16" cy="12" r="2" fill="#FF2D6B"/>
+                <circle cx="10" cy="18" r="2" fill="#FF2D6B"/>
+              </svg>
+            </div>
+            <div class="split-row-content">
+              <div class="split-row-header">
+                <h3 class="split-row-title">Mixing &amp; Mastering</h3>
+                <span class="split-row-arrow">→</span>
+              </div>
+              <p class="split-row-desc">Vocal tuning, stereo width, dynamic balance, and streaming-ready analog mastering that competes on any sound system.</p>
+              <div class="split-row-meta">
+                <span>Stereo from ₹5,000</span>
+                <span>Stem Mix ₹12,000</span>
+                <span>Mastering Included</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
   </div>
-
-  <div class="services-grid">
-
-    <!-- Recording -->
-    <div class="service-card" data-service="recording">
-      <div class="service-card-img-placeholder"></div>
-      <div class="service-card-overlay"></div>
-      <div class="service-card-content">
-        <div class="service-card-name">Recording</div>
-        <div class="service-card-desc">A treated room, a Neumann U87, and an engineer who helps you get the take you're proud of.</div>
-        <span class="service-card-link">
-          Read More
-          <svg width="14" height="14" fill="none" viewBox="0 0 24 24">
-            <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
-      </div>
-    </div>
-
-    <!-- Music Production -->
-    <div class="service-card" data-service="production">
-      <div class="service-card-img-placeholder"></div>
-      <div class="service-card-overlay"></div>
-      <div class="service-card-content">
-        <div class="service-card-name">Music Production</div>
-        <div class="service-card-desc">Your melody, your vibe — fleshed out into a full arrangement and mixed for Spotify. No idea too rough.</div>
-        <span class="service-card-link">
-          Read More
-          <svg width="14" height="14" fill="none" viewBox="0 0 24 24">
-            <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
-      </div>
-    </div>
-
-    <!-- Release & Promotion -->
-    <div class="service-card" data-service="promotion">
-      <div class="service-card-img-placeholder"></div>
-      <div class="service-card-overlay"></div>
-      <div class="service-card-content">
-        <div class="service-card-name">Release &amp; Promotion</div>
-        <div class="service-card-desc">Get on Spotify, pitch editorial playlists, and run ads that bring real listeners — not just streams from bots.</div>
-        <span class="service-card-link">
-          Read More
-          <svg width="14" height="14" fill="none" viewBox="0 0 24 24">
-            <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
-      </div>
-    </div>
-
-  </div>
-
 </section>
 
 
@@ -571,7 +713,7 @@
     <p class="pricing-sub">No hidden fees. No packages that don't make sense. Pay for what you need, nothing more.</p>
   </div>
 
-  <div class="pricing-scroll"><div class="pricing-grid">
+  <div class="pricing-scroll"><div class="pricing-grid pricing-grid--bundles">
 
     <!-- Recording -->
     <div class="pricing-card">
@@ -582,13 +724,40 @@
         </svg>
       </div>
       <div class="pricing-card-name">Recording</div>
-      <div class="pricing-card-from">Per hour, engineer included</div>
+      <div class="pricing-card-from">Starting from</div>
       <div class="pricing-card-price">₹1,200<span class="pricing-card-unit">/hr</span></div>
-      <div class="pricing-card-price-note">First session ₹800/hr — try the room risk-free</div>
-      <a href="#cta" class="btn btn-ghost" onclick="gtag('event','cta_click',{button_text:'Check Availability',service:'recording',location:'pricing_cards',page:'home'})">Check Availability</a>
+      <div class="pricing-card-price-note">Pay only for the hours you use. Engineer included.</div>
+      <ul class="pricing-card-includes">
+        <li>Neumann mic + soundproofed vocal booth</li>
+        <li>Real-time zero-latency headphone monitoring</li>
+        <li>Experienced engineer guiding every take</li>
+        <li>Raw stems &amp; rough mix delivered same day</li>
+      </ul>
+      <a href="https://wa.me/919619192992?text=Hi%2C%20I%27d%20like%20to%20book%20a%20recording%20session%20at%20Youkeo%20Studios%20(%E2%82%B91%2C200%2Fhr).%0APreferred%20date%2Ftime%3A%20" target="_blank" rel="noopener" class="btn btn-ghost" onclick="gtag('event','cta_click',{button_text:'Check Availability',service:'recording',location:'pricing_cards',page:'home'}); trackWhatsApp();">Check Availability</a>
     </div>
 
-    <!-- Music Production -->
+    <!-- Recording to Final — featured -->
+    <div class="pricing-card featured">
+      <div class="pricing-card-badge">Most Popular</div>
+      <div class="pricing-card-icon">
+        <svg width="22" height="22" fill="none" viewBox="0 0 24 24">
+          <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="#1a1a1a" stroke-width="2" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="pricing-card-name">Recording to Final</div>
+      <div class="pricing-card-from">Complete package</div>
+      <div class="pricing-card-price">₹14,000<span class="pricing-card-unit">/song</span></div>
+      <div class="pricing-card-price-note">Includes 2 hrs recording + mixing &amp; mastering.</div>
+      <ul class="pricing-card-includes">
+        <li>2 hours in the studio to record vocals</li>
+        <li>Pro vocal tuning, comping &amp; beat balancing</li>
+        <li>Streaming-ready master for Spotify &amp; Apple</li>
+        <li>2 revision rounds included</li>
+      </ul>
+      <a href="https://wa.me/919619192992?text=Hi%2C%20I%27d%20like%20to%20book%20the%20Recording%20to%20Final%20package%20(%E2%82%B914%2C000).%0ABeat%20ready%3A%20Yes%20%2F%20No%0APreferred%20date%3A%20" target="_blank" rel="noopener" class="btn btn-primary" onclick="gtag('event','cta_click',{button_text:'Check Availability',service:'recording_to_final',location:'pricing_cards',page:'home'}); trackWhatsApp();">Check Availability</a>
+    </div>
+
+    <!-- Production to Final -->
     <div class="pricing-card">
       <div class="pricing-card-icon">
         <svg width="22" height="22" fill="none" viewBox="0 0 24 24">
@@ -597,63 +766,29 @@
           <circle cx="18" cy="16" r="3" stroke="#1a1a1a" stroke-width="2"/>
         </svg>
       </div>
-      <div class="pricing-card-name">Music Production</div>
-      <div class="pricing-card-from">Starting from</div>
-      <div class="pricing-card-price">₹8,000</div>
-      <div class="pricing-card-price-note">Beat, arrangement &amp; production</div>
-      <a href="#cta" class="btn btn-ghost" onclick="gtag('event','cta_click',{button_text:'Send an Idea',service:'music_production',location:'pricing_cards',page:'home'})">Send an Idea</a>
-    </div>
-
-    <!-- Mixing & Mastering -->
-    <div class="pricing-card">
-      <div class="pricing-card-icon">
-        <svg width="22" height="22" fill="none" viewBox="0 0 24 24">
-          <path d="M4 6h16M4 12h16M4 18h16" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"/>
-          <circle cx="8" cy="6" r="2" fill="#1a1a1a"/>
-          <circle cx="16" cy="12" r="2" fill="#1a1a1a"/>
-          <circle cx="10" cy="18" r="2" fill="#1a1a1a"/>
-        </svg>
-      </div>
-      <div class="pricing-card-name">Mixing &amp; Mastering</div>
-      <div class="pricing-card-from">Starting from</div>
-      <div class="pricing-card-price">₹4,000</div>
-      <div class="pricing-card-price-note">2-track mix · stem mix from ₹8,000</div>
-      <a href="#cta" class="btn btn-ghost" onclick="gtag('event','cta_click',{button_text:'Submit Your Track',service:'mixing_mastering',location:'pricing_cards',page:'home'})">Submit Your Track</a>
-    </div>
-
-    <!-- Recording to Final — featured -->
-    <div class="pricing-card featured">
-      <div class="pricing-card-badge">Most Popular</div>
-      <div class="pricing-card-icon">
-        <svg width="22" height="22" fill="none" viewBox="0 0 24 24">
-          <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6L12 2z" stroke="#1a1a1a" stroke-width="2" stroke-linejoin="round"/>
-        </svg>
-      </div>
-      <div class="pricing-card-name">Recording to Final</div>
-      <div class="pricing-card-from">Complete package</div>
-      <div class="pricing-card-price">₹14,000<span class="pricing-card-unit">/song</span></div>
-      <div class="pricing-card-price-note">Includes 2 hrs recording + mix &amp; master</div>
-      <a href="#cta" class="btn btn-primary" onclick="gtag('event','cta_click',{button_text:'Start Your Song',service:'recording_to_final',location:'pricing_cards',page:'home'})">Start Your Song</a>
-    </div>
-
-    <!-- Release & Promotion -->
-    <div class="pricing-card">
-      <div class="pricing-card-icon">
-        <svg width="22" height="22" fill="none" viewBox="0 0 24 24">
-          <path d="M22 12h-4l-3 9L9 3l-3 9H2" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </div>
-      <div class="pricing-card-name">Release &amp; Promotion</div>
-      <div class="pricing-card-from">Starting from</div>
-      <div class="pricing-card-price">₹2,000<span class="pricing-card-unit">/mo</span></div>
-      <div class="pricing-card-price-note">Distribution, playlisting &amp; paid promotion — 100% royalties kept by you</div>
-      <a href="#cta" class="btn btn-ghost" onclick="gtag('event','cta_click',{button_text:'Launch Your Release',service:'promotion',location:'pricing_cards',page:'home'})">Launch Your Release</a>
+      <div class="pricing-card-name">Production to Final</div>
+      <div class="pricing-card-from">Complete song build</div>
+      <div class="pricing-card-price">₹26,000<span class="pricing-card-unit">/song</span></div>
+      <div class="pricing-card-price-note">Beat production + 2 hrs recording + mix &amp; master.</div>
+      <ul class="pricing-card-includes">
+        <li>Custom beat &amp; arrangement around your lyrics</li>
+        <li>2 hours vocal recording with engineer</li>
+        <li>Full multitrack stem mix &amp; analog master</li>
+        <li>Release strategy &amp; playlist pitching guidance</li>
+      </ul>
+      <a href="https://wa.me/919619192992?text=Hi%2C%20I%27m%20interested%20in%20the%20Production%20to%20Final%20package%20(%E2%82%B926%2C000).%0ASong%20idea%20%2F%20genre%3A%20" target="_blank" rel="noopener" class="btn btn-ghost" onclick="gtag('event','cta_click',{button_text:'Check Availability',service:'production_to_final',location:'pricing_cards',page:'home'}); trackWhatsApp();">Check Availability</a>
     </div>
 
   </div></div><!-- /.pricing-grid /.pricing-scroll -->
 
   <div class="pricing-footer">
-    <p class="pricing-note">Want a full breakdown? <a href="pricing/index.html" class="pricing-full-link" onclick="gtag('event','nav_click',{destination:'pricing_page',location:'pricing_section',page:'home'})">See full pricing →</a></p>
+    <div class="pricing-teaser-bar">
+      <span>Prefer à la carte? <strong>Studio Time</strong> from ₹1,200/hr · <strong>Music Production</strong> ₹12,000 · <strong>Stereo Mixing</strong> ₹5,000</span>
+      <a href="pricing/index.html" class="pricing-teaser-link" onclick="gtag('event','nav_click',{destination:'pricing_page',location:'pricing_section',page:'home'})">
+        See Full Pricing Breakdown →
+      </a>
+    </div>
+    <p class="pricing-note">Every package includes 2 hrs studio time &amp; 2 free revisions. No hidden fees.</p>
   </div>
 </section>
 
@@ -1251,7 +1386,7 @@
       </div>
       <div class="faq-answer-wrap">
         <div class="faq-answer">
-          <p>Recording at Youkeo Studios is <strong>₹1,200/hr</strong>. Your <strong>first session is ₹800/hr</strong> so you can try the room risk-free. Our most popular package — Recording to Final — is ₹14,000 per song and includes 2 hours of recording plus professional mix & master.</p>
+          <p>Recording is <strong>₹1,200/hr</strong> (engineer included). We also offer two complete packages: <strong>Recording to Final</strong> (₹14,000 per song; includes 2 hours of recording + mixing &amp; mastering) and <strong>Production to Final</strong> (₹26,000 per song; includes custom beat production + 2 hours of recording + mixing &amp; mastering).</p>
         </div>
       </div>
     </div>
@@ -1299,7 +1434,7 @@
       </div>
       <div class="faq-answer-wrap">
         <div class="faq-answer">
-          <p>Yes. Mixing starts from <strong>₹4,000</strong> for a 2-track mix (stems from ₹8,000). Mastering is included in our Recording to Final package. Everything is delivered streaming-ready for Spotify, Apple Music, and all major platforms.</p>
+          <p>Yes. Standalone Stereo Mixing &amp; Mastering starts at <strong>₹5,000</strong>, and full Multitrack / Stem Mixing &amp; Mastering starts at <strong>₹12,000</strong>. We also offer mastering-only (Master &amp; Polish) for <strong>₹2,000</strong>. All files are delivered streaming-ready for platforms like Spotify and Apple Music.</p>
         </div>
       </div>
     </div>
