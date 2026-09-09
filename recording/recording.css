@@ -879,6 +879,7 @@
    2026 REDESIGN — align landing page with homepage
    ============================================================ */
 body { min-width: 320px; overflow-x: hidden; color: #f5f2f7; background: #09090e; font-family: 'Plus Jakarta Sans',sans-serif; }
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 .site-header { background: linear-gradient(to bottom,rgba(9,8,14,.9),rgba(9,8,14,.34),transparent); }
 .section-label { color: #c9c1ff; font: 700 11px/1 'Plus Jakarta Sans',sans-serif; letter-spacing: .15em; text-transform: uppercase; }
 .section-h2 { color: #fff; font: 800 clamp(3rem,5.4vw,5.6rem)/.94 'Plus Jakarta Sans',sans-serif; letter-spacing: -.07em; }
@@ -1006,4 +1007,46 @@ body { min-width: 320px; overflow-x: hidden; color: #f5f2f7; background: #09090e
   .rec-not-for-you { padding: 20px; }
   .rec-reviews-grid { grid-template-columns: 1fr; }
   .cta-what-happens { padding: 20px; }
+}
+
+/* Compact phones: keep the first screen focused on the booking action. */
+@media (max-width: 430px) {
+  .site-header { padding-inline: 16px; }
+  .component-navbar { padding-block: 14px; }
+  .logo { font-size: 18px; letter-spacing: .1em; }
+  .nav-right { gap: 10px; }
+  .btn-signup { height: 42px; padding-inline: 18px; font-size: 11px; }
+  .nav-hamburger { gap: 4px; padding: 5px 0 5px 5px; }
+  .nav-hamburger span { width: 18px; }
+
+  .rec-hero { padding: 88px 16px 18px; }
+  .rec-hero .hero-content { width: 100%; margin: 0; }
+  .rec-hero .hero-h1 { max-width: 340px; margin-bottom: 14px; }
+  .rec-hero .hero-h1-thin { font-size: clamp(2.25rem,10.8vw,2.75rem); line-height: .94; letter-spacing: -.065em; }
+  .rec-hero .hero-sub { max-width: 330px; margin-bottom: 20px; font-size: .875rem; line-height: 1.5; }
+  .rec-hero-cta-btn { min-height: 52px; padding: 14px 18px; font-size: 13px; }
+  .rec-hero-cta-btn svg { width: 21px !important; height: 21px !important; }
+  .hero-cta-trust { margin-top: 12px; gap: 5px; font-size: 11px; }
+  .hero-cta-stars { font-size: 10px; }
+
+  .hero-pricing-strip { grid-template-columns: repeat(3,minmax(0,1fr)); gap: 0; margin-top: 22px; padding: 9px 4px; border-radius: 16px; }
+  .hero-pricing-tier { display: flex; min-height: 82px; padding: 8px 6px; gap: 7px; justify-content: center; }
+  .hero-pricing-tier + .hero-pricing-divider + .hero-pricing-tier { border-left: 1px solid rgba(213,210,240,.14); }
+  .hero-pricing-label { min-height: 30px; font-size: 10.5px; line-height: 1.35; text-align: center; }
+  .hero-pricing-price { font-size: 15px; line-height: 1.15; text-align: center; }
+  .hero-pricing-unit { display: block; margin-top: 2px; font-size: 9px; }
+  .hero-pricing-divider { display: none; }
+
+  .rec-hero .hero-stats { display: none; }
+  #whatsapp-btn,
+  .sticky-whatsapp { display: none; }
+}
+
+@media (max-width: 350px) {
+  .hero-pricing-strip { grid-template-columns: 1fr; padding: 5px 14px; }
+  .hero-pricing-tier { display: grid; grid-template-columns: minmax(0,1fr) auto; min-height: 48px; padding: 7px 0; }
+  .hero-pricing-tier + .hero-pricing-divider + .hero-pricing-tier { border-left: 0; border-top: 1px solid rgba(213,210,240,.14); }
+  .hero-pricing-label { min-height: 0; text-align: left; }
+  .hero-pricing-price { font-size: 14px; text-align: right; }
+  .hero-pricing-unit { display: inline; margin: 0; }
 }
