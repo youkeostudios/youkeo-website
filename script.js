@@ -35,22 +35,6 @@ function trackEmail() {
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  /* ─── NAV: scroll — elevate shadow on scroll ─────────────── */
-  const nav = document.getElementById('nav');
-
-  if (nav) {
-    function handleNavScroll() {
-      if (window.scrollY > 40) {
-        nav.style.boxShadow = '0 8px 48px rgba(0,0,0,0.12)';
-      } else {
-        nav.style.boxShadow = '0 4px 32px rgba(0,0,0,0.08)';
-      }
-    }
-    window.addEventListener('scroll', handleNavScroll, { passive: true });
-    handleNavScroll();
-  }
-
-
   /* ─── NAV: mobile hamburger ──────────────────────────────── */
   const hamburger = document.querySelector('.nav-hamburger');
   const mobileMenu = document.querySelector('.nav-mobile-menu');
@@ -209,6 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     svcClose.addEventListener('click', closeServiceOverlay);
+    svcCta.addEventListener('click', closeServiceOverlay);
     svcBackdrop.addEventListener('click', e => { if (e.target === svcBackdrop) closeServiceOverlay(); });
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeServiceOverlay(); });
   }
@@ -247,6 +232,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const otherIcon = other.querySelector('.faq-icon');
         if (otherQ !== question) {
           otherQ.classList.remove('open');
+          otherQ.setAttribute('aria-expanded', 'false');
           otherWrap.style.maxHeight = '0';
           if (otherIcon) otherIcon.textContent = '+';
         }
@@ -255,10 +241,12 @@ document.addEventListener('DOMContentLoaded', () => {
       // Toggle current
       if (isOpen) {
         question.classList.remove('open');
+        question.setAttribute('aria-expanded', 'false');
         answerWrap.style.maxHeight = '0';
         if (icon) icon.textContent = '+';
       } else {
         question.classList.add('open');
+        question.setAttribute('aria-expanded', 'true');
         answerWrap.style.maxHeight = answerWrap.scrollHeight + 'px';
         if (icon) icon.textContent = '−';
       }

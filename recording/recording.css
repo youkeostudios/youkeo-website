@@ -874,3 +874,136 @@
     padding: 56px 16px;
   }
 }
+
+/* ============================================================
+   2026 REDESIGN — align landing page with homepage
+   ============================================================ */
+body { min-width: 320px; overflow-x: hidden; color: #f5f2f7; background: #09090e; font-family: 'Plus Jakarta Sans',sans-serif; }
+.site-header { background: linear-gradient(to bottom,rgba(9,8,14,.9),rgba(9,8,14,.34),transparent); }
+.section-label { color: #c9c1ff; font: 700 11px/1 'Plus Jakarta Sans',sans-serif; letter-spacing: .15em; text-transform: uppercase; }
+.section-h2 { color: #fff; font: 800 clamp(3rem,5.4vw,5.6rem)/.94 'Plus Jakarta Sans',sans-serif; letter-spacing: -.07em; }
+
+.rec-hero { align-items: flex-start; justify-content: center; min-height: 760px; padding: 120px clamp(24px,7vw,110px) 90px; text-align: left; }
+.rec-hero .hero-overlay { background: linear-gradient(90deg,rgba(8,8,14,.94) 0%,rgba(8,8,14,.72) 48%,rgba(8,8,14,.2) 78%),linear-gradient(0deg,rgba(8,8,14,.9),transparent 42%); }
+.rec-hero .hero-content { width: min(780px,100%); margin: 0; padding: 0; text-align: left; }
+.rec-hero .hero-h1 { max-width: 780px; margin: 0 0 24px; }
+.rec-hero .hero-h1-thin { color: #fff; font: 800 clamp(3.5rem,6vw,6.7rem)/.91 'Plus Jakarta Sans',sans-serif; letter-spacing: -.075em; }
+.rec-hero .hero-sub { max-width: 510px; margin: 0 0 30px; color: #ddd8e2; font: 400 1.08rem/1.55 'Plus Jakarta Sans',sans-serif; }
+.rec-hero .hero-cta-group { display: flex; flex-wrap: wrap; align-items: stretch; gap: 14px; }
+.rec-hero-cta-btn { min-height: 58px; padding: 17px 28px; color: #111016; background: linear-gradient(105deg,#ddd3fb,#efd9e7 42%,#ffd6ad); box-shadow: none; font-family: 'Plus Jakarta Sans',sans-serif; }
+.hero-pricing-strip { max-width: 100%; margin: 0; padding: 9px; border-color: rgba(213,210,240,.25); border-radius: 18px; background: rgba(18,18,27,.72); backdrop-filter: blur(16px); }
+.hero-pricing-tier { min-width: 0; padding: 5px 15px; }
+.hero-pricing-label { color: #bcb7c3; font: 600 11px/1.35 'Plus Jakarta Sans',sans-serif; letter-spacing: .01em; }
+.hero-pricing-price { color: #f7f4f9; font: 800 17px/1.2 'Plus Jakarta Sans',sans-serif; }
+.hero-pricing-tier--featured .hero-pricing-price { color: #d8d0ff; }
+.hero-cta-trust { justify-content: flex-start; margin-top: 19px; color: #c5c0cb; font-family: 'Plus Jakarta Sans',sans-serif; }
+.rec-hero .hero-stats { left: clamp(24px,7vw,110px); right: auto; bottom: 28px; width: min(500px,calc(100% - 48px)); background: rgba(18,18,27,.78); border-color: rgba(213,210,240,.22); }
+
+.rec-hero-social { padding: clamp(76px,8vw,110px) 24px; color: #f5f2f7; background: #0d0c13; }
+.rec-hero-social-inner { max-width: 580px; }
+.rec-hero-social-badge { color: #c9c1ff; background: rgba(201,193,255,.09); border: 1px solid rgba(201,193,255,.2); }
+.rec-hero-social-card .t-video-card { border-radius: 24px; border: 1px solid rgba(213,210,240,.22); }
+
+.rec-why,.rec-how,.rec-pricing,.rec-reviews { padding: clamp(78px,9vw,130px) clamp(20px,7vw,110px); }
+.rec-why { background: linear-gradient(180deg,#0d0c13,#12111a); }
+.rec-how { background: #0a090f; }
+.rec-pricing { background: radial-gradient(ellipse 45% 60% at 100% 20%,rgba(82,67,154,.2),transparent 72%),#15131d; }
+.rec-reviews { background: #111019; }
+.rec-why-inner,.rec-how-inner,.rec-pricing-inner,.rec-reviews-inner,.testimonials-header,.t-masonry { max-width: 1220px; }
+.rec-why-inner .section-label,.rec-how-inner .section-label,.rec-pricing-inner .section-label,.rec-reviews-inner .section-label { margin-bottom: 18px; }
+.rec-why-inner .section-h2,.rec-how-inner .section-h2,.rec-reviews-inner .section-h2 { margin-bottom: 54px; }
+
+.rec-why-grid { gap: 18px; }
+.rec-why-card { position: relative; min-width: 0; padding: 30px; border: 1px solid rgba(213,210,240,.22); border-radius: 24px; color: #f5f2f7; background: linear-gradient(150deg,rgba(47,48,77,.78),rgba(20,20,32,.95)); box-shadow: inset 0 1px rgba(255,255,255,.06); }
+.rec-why-card:hover { border-color: rgba(213,210,240,.5); transform: translateY(-5px); }
+.rec-why-icon { width: 48px; height: 48px; border: 1px solid rgba(201,193,255,.22); border-radius: 50%; background: rgba(201,193,255,.08); }
+.rec-why-icon svg * { stroke: #c9c1ff; }
+.rec-why-title { color: #fff; font: 800 1.25rem/1.25 'Plus Jakarta Sans',sans-serif; }
+.rec-why-desc { color: #bdb8c5; font: 400 13px/1.7 'Plus Jakarta Sans',sans-serif; }
+
+.rec-how-steps { align-items: stretch; gap: 14px; }
+.rec-how-step { max-width: none; padding: 28px; border: 1px solid rgba(213,210,240,.18); border-radius: 22px; background: rgba(213,210,240,.035); text-align: left; }
+.rec-how-num { margin-bottom: 54px; color: #625b78; font: 800 4.2rem/1 'Plus Jakarta Sans',sans-serif; }
+.rec-how-title { color: #fff; font: 800 1.18rem/1.3 'Plus Jakarta Sans',sans-serif; }
+.rec-how-desc { color: #aaa5b1; font: 400 13px/1.7 'Plus Jakarta Sans',sans-serif; }
+.rec-how-connector { align-self: center; width: 28px; background: rgba(201,193,255,.32); }
+
+.rec-pricing-sub { color: #b9b4c1; font: 400 1rem/1.6 'Plus Jakarta Sans',sans-serif; }
+.rec-not-for-you { border-color: rgba(213,210,240,.18); border-radius: 22px; background: rgba(8,8,13,.72); }
+.rec-not-for-you-label { font-family: 'Plus Jakarta Sans',sans-serif; }
+.rec-not-for-you-list { color: #aaa5b1; font-family: 'Plus Jakarta Sans',sans-serif; }
+.rec-not-for-you-list li::before { color: #c9c1ff; }
+.rec-pricing-grid { gap: 18px; align-items: stretch; }
+.rec-pricing .pricing-card { position: relative; display: flex; flex-direction: column; min-width: 0; padding: 28px; border: 1px solid rgba(213,210,240,.24); border-radius: 25px; color: #f5f2f7; background: linear-gradient(150deg,rgba(47,48,77,.85),rgba(20,20,32,.96)); box-shadow: inset 0 1px rgba(255,255,255,.07); }
+.rec-pricing .pricing-card.featured { border-color: rgba(218,211,255,.5); background: linear-gradient(145deg,rgba(77,70,123,.98),rgba(28,25,43,.98)); box-shadow: none; }
+.rec-pricing .pricing-card.featured::before { display: none; }
+.pricing-card-badge { width: fit-content; color: #c9c1ff; background: rgba(201,193,255,.1); }
+.pricing-card-icon { border: 1px solid rgba(201,193,255,.2); background: rgba(201,193,255,.08); }
+.pricing-card-icon svg * { stroke: #c9c1ff; }
+.rec-pricing .pricing-card-name { color: #fff; font-family: 'Plus Jakarta Sans',sans-serif; }
+.pricing-card-tagline,.pricing-card-typical { color: #aaa5b1; font-family: 'Plus Jakarta Sans',sans-serif; }
+.rec-pricing .pricing-card-from { color: #aaa5b1; font-family: 'Plus Jakarta Sans',sans-serif; }
+.rec-pricing .pricing-card-price { color: #fff; font-family: 'Plus Jakarta Sans',sans-serif; }
+.rec-pricing .pricing-card-unit { color: #bbb5c3; }
+.rec-pricing .pricing-card-price-note { color: #c9c1ff; }
+.pricing-card-includes { color: #cbc6d1; font-family: 'Plus Jakarta Sans',sans-serif; }
+.pricing-card-includes li { border-bottom: 1px solid rgba(213,210,240,.12); }
+.pricing-card-includes li::before { color: #c9c1ff; }
+.rec-pricing .pricing-card .btn { margin-top: auto; border-radius: 999px; font-family: 'Plus Jakarta Sans',sans-serif; }
+.rec-pricing .pricing-card .btn-ghost { color: #f5f2f7; border-color: rgba(213,210,240,.3); background: rgba(255,255,255,.035); }
+.rec-pricing .pricing-card .btn-primary { color: #111016; border: 0; background: linear-gradient(105deg,#ddd3fb,#efd9e7 42%,#ffd6ad); }
+.rec-pricing-note { color: #99949f; font-family: 'Plus Jakarta Sans',sans-serif; }
+.rec-pricing-note span { color: #d8d0ff; }
+
+#testimonials { padding: clamp(78px,9vw,130px) clamp(20px,7vw,110px); background: #09090e; }
+.testimonials-header .section-label { color: #c9c1ff; }
+.t-masonry { gap: 16px; }
+.t-video-card { border-color: rgba(213,210,240,.2); border-radius: 22px; }
+.rec-reviews-grid { gap: 18px; }
+.rec-reviews .t-google-card { border: 1px solid rgba(213,210,240,.2); border-radius: 22px; background: rgba(213,210,240,.04); }
+
+#cta { background: radial-gradient(ellipse 55% 95% at 50% 110%,rgba(115,95,205,.35),transparent 70%),#15131d; }
+.cta-what-happens { border-color: rgba(213,210,240,.19); border-radius: 22px; background: rgba(213,210,240,.035); }
+.cta-what-num { color: #c9c1ff; }
+.cta-positioning-line { color: #bcb7c3; }
+#faq { background: #0a090f; }
+
+#footer { background: radial-gradient(ellipse 40% 80% at 100% 0%,rgba(76,65,155,.2),transparent 72%),#09090e; }
+#footer .footer-wordmark { color: rgba(245,242,247,.08); }
+#footer .footer-logomark,#footer .footer-brand-name { color: #fff; }
+#footer .footer-info,#footer .footer-info a { color: #aaa5b1; }
+
+@media (max-width: 900px) {
+  .rec-hero { min-height: 860px; }
+  .rec-why-grid,.rec-pricing-grid { grid-template-columns: 1fr; }
+  .rec-how-steps { flex-direction: column; }
+  .rec-how-connector { width: 2px; height: 28px; margin: 0; }
+  .rec-how-step { width: 100%; max-width: none; }
+}
+@media (max-width: 640px) {
+  .rec-hero { min-height: 0; padding: 104px 20px 24px; justify-content: flex-start; }
+  .rec-hero .hero-content { display: flex; flex-direction: column; }
+  .rec-hero .hero-h1-thin { font-size: clamp(2.7rem,13vw,3.8rem); }
+  .rec-hero .hero-h1 { margin-bottom: 18px; }
+  .rec-hero .hero-sub { margin-bottom: 24px; font-size: .95rem; }
+  .rec-hero .hero-cta-group { display: grid; width: 100%; }
+  .rec-hero-cta-btn { width: 100%; max-width: none; }
+  .hero-cta-trust { order: 1; justify-content: flex-start; margin: 14px 0 0; }
+  .hero-pricing-strip { order: 2; display: grid; grid-template-columns: 1fr; width: 100%; margin-top: 30px; padding: 6px 16px; border-radius: 20px; }
+  .hero-pricing-tier { display: grid; grid-template-columns: minmax(0,1fr) auto; align-items: center; gap: 16px; min-height: 56px; padding: 8px 0; }
+  .hero-pricing-label { min-height: 0; white-space: normal; text-align: left; font-size: 11px; line-height: 1.4; }
+  .hero-pricing-price { text-align: right; font-size: 17px; }
+  .hero-pricing-unit { font-size: 11px; }
+  .hero-pricing-divider { display: block; width: 100%; height: 1px; background: rgba(213,210,240,.14); }
+  .rec-hero .hero-stats { position: relative; inset: auto; width: 100%; margin-top: 14px; padding: 14px 10px; }
+  .rec-hero .hero-stat-label { font-size: 10px; line-height: 1.35; }
+  .rec-why,.rec-how,.rec-pricing,.rec-reviews,#testimonials { padding: 72px 20px; }
+  .rec-why-inner,.rec-how-inner,.rec-pricing-inner,.rec-reviews-inner { text-align: left; }
+  .rec-why-inner .section-h2,.rec-how-inner .section-h2,.rec-reviews-inner .section-h2 { margin-bottom: 34px; }
+  .section-h2 { font-size: clamp(2.55rem,12vw,3.8rem); }
+  .rec-why-card,.rec-how-step,.rec-pricing .pricing-card { padding: 23px; }
+  .rec-how-num { margin-bottom: 34px; }
+  .rec-not-for-you { padding: 20px; }
+  .rec-reviews-grid { grid-template-columns: 1fr; }
+  .cta-what-happens { padding: 20px; }
+}

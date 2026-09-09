@@ -47,7 +47,7 @@
   <!-- ── FONTS ────────────────────────────────────────────────── -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet">
  
   <!-- ── FAVICON ──────────────────────────────────────────────── -->
   <link rel="icon" type="image/jpeg" href="https://cdn.youkeostudios.com/favicon/favicon-black.jpg" />
@@ -248,33 +248,24 @@
 <!-- ============================================================
      NAVBAR
      ============================================================ -->
-<div id="nav-wrapper">
-  <nav id="nav">
-    <a href="../index.html" class="nav-logo" aria-label="Youkeo Studios – Recording Studio Navi Mumbai">
-      <span class="nav-logo-name">YOUKEO</span><span class="nav-logo-dot">.</span>
-    </a>
-    <ul class="nav-links">
-      <li><a href="#why">Why Us</a></li>
-      <li><a href="#pricing">Pricing</a></li>
-      <li><a href="#faq">FAQ</a></li>
-    </ul>
+<header class="site-header">
+  <nav class="component-navbar" aria-label="Primary navigation">
+    <div class="nav-left">
+      <a href="../index.html" class="logo" aria-label="Youkeo Studios – Recording Studio Navi Mumbai">YOUKEO</a>
+      <ul class="nav-links">
+        <li><a href="../index.html" class="nav-item">Home</a></li>
+        <li><a href="#why" class="nav-item">Why us</a></li>
+        <li><a href="#pricing" class="nav-item">Pricing</a></li>
+        <li><a href="#faq" class="nav-item">FAQ</a></li>
+      </ul>
+    </div>
     <div class="nav-right">
-      <a href="tel:+919619192992" class="nav-icon-link" aria-label="Call us" onclick="gtag('event','contact_click',{method:'phone',location:'nav',page:'recording'}); trackPhone();">
-        <svg width="18" height="18" fill="none" viewBox="0 0 24 24">
-          <path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.02-.24c1.12.37 2.33.57 3.57.57a1 1 0 011 1V20a1 1 0 01-1 1C10.17 21 3 13.83 3 5a1 1 0 011-1h3.5a1 1 0 011 1c0 1.25.2 2.45.57 3.57a1 1 0 01-.25 1.02l-2.2 2.2z" fill="currentColor"/>
-        </svg>
-      </a>
-      <a href="mailto:hello@youkeostudios.com" class="nav-icon-link" aria-label="Email us" onclick="gtag('event','contact_click',{method:'email',location:'nav',page:'recording'}); trackEmail();">
-        <svg width="18" height="18" fill="none" viewBox="0 0 24 24">
-          <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </a>
-      <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+      <a href="tel:+919619192992" class="btn-login" onclick="gtag('event','contact_click',{method:'phone',location:'nav',page:'recording'}); trackPhone();">Call us</a>
+      <a href="https://wa.me/919619192992" target="_blank" rel="noopener" class="btn-signup" onclick="gtag('event','contact_click',{method:'whatsapp',location:'nav',page:'recording'}); trackWhatsApp();">WhatsApp</a>
+      <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </nav>
-</div>
+</header>
 
 <div class="nav-mobile-menu" role="navigation" aria-label="Mobile navigation">
   <a href="#why">Why Us</a>
@@ -309,26 +300,26 @@
         </svg>
         Check Availability
       </a>
-      <div class="hero-pricing-strip">
-        <div class="hero-pricing-tier">
-          <span class="hero-pricing-label">Recording only</span>
-          <span class="hero-pricing-price">₹1,200<span class="hero-pricing-unit">/hr</span></span>
-        </div>
-        <div class="hero-pricing-divider"></div>
-        <div class="hero-pricing-tier hero-pricing-tier--featured">
-          <span class="hero-pricing-label">Recording + Mix & Master</span>
-          <span class="hero-pricing-price">₹14,000<span class="hero-pricing-unit">/song</span></span>
-        </div>
-        <div class="hero-pricing-divider"></div>
-        <div class="hero-pricing-tier">
-          <span class="hero-pricing-label">Full Production</span>
-          <span class="hero-pricing-price">₹26,000<span class="hero-pricing-unit">/song</span></span>
-        </div>
-      </div>
     </div>
     <div class="hero-cta-trust">
       <span class="hero-cta-stars">★★★★★</span>
       <span class="hero-cta-rating">5.0 · 38 Google Reviews</span>
+    </div>
+    <div class="hero-pricing-strip" aria-label="Recording packages at a glance">
+      <div class="hero-pricing-tier">
+        <span class="hero-pricing-label">Recording only</span>
+        <span class="hero-pricing-price">₹1,200<span class="hero-pricing-unit">/hr</span></span>
+      </div>
+      <div class="hero-pricing-divider"></div>
+      <div class="hero-pricing-tier hero-pricing-tier--featured">
+        <span class="hero-pricing-label">Recording + Mix &amp; Master</span>
+        <span class="hero-pricing-price">₹14,000<span class="hero-pricing-unit">/song</span></span>
+      </div>
+      <div class="hero-pricing-divider"></div>
+      <div class="hero-pricing-tier">
+        <span class="hero-pricing-label">Full Production</span>
+        <span class="hero-pricing-price">₹26,000<span class="hero-pricing-unit">/song</span></span>
+      </div>
     </div>
   </div>
 
@@ -711,7 +702,7 @@
     <h2 class="section-h2">Ready to book<br><span class="cta-muted-line">your session?</span></h2>
   </div>
 
-  <p class="cta-reassurance">We usually respond within the hour &middot; Open 10am–10pm IST</p>
+  <p class="cta-reassurance">We usually respond within the hour &middot; Open 11am–10pm IST</p>
 
   <div class="cta-what-happens">
     <div class="cta-what-step">
@@ -918,10 +909,10 @@
       <ul class="footer-nav-links">
         <li><a href="./">Vocal Recording</a></li>
         <li><a href="./">Instrument Recording</a></li>
-        <li><a href="#">Music Production</a></li>
-        <li><a href="#">Mixing</a></li>
-        <li><a href="#">Mastering</a></li>
-        <li><a href="#">Music Distribution</a></li>
+        <li><a href="../index.html#services">Music Production</a></li>
+        <li><a href="../index.html#services">Mixing</a></li>
+        <li><a href="../index.html#services">Mastering</a></li>
+        <li><a href="../index.html#services">Music Distribution</a></li>
       </ul>
     </div>
     <div class="footer-col">
