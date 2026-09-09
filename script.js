@@ -35,6 +35,52 @@ function trackEmail() {
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  /* Show the floating contact action once the hero CTA scrolls past the header. */
+  const whatsappButton = document.getElementById('whatsapp-btn');
+  const heroButton = document.querySelector('#hero .hero-cta-group .btn-primary');
+  if (whatsappButton && heroButton) {
+    whatsappButton.classList.add('whatsapp-delayed');
+    whatsappButton.hidden = false;
+    const header = document.querySelector('.site-header');
+    let whatsappFrame = 0;
+    const updateWhatsApp = () => {
+      const visibleTop = header ? Math.max(0, header.getBoundingClientRect().bottom) : 0;
+      const visible = heroButton.getBoundingClientRect().bottom <= visibleTop;
+      whatsappButton.classList.toggle('is-visible', visible);
+      whatsappButton.inert = !visible;
+    };
+    const scheduleWhatsAppUpdate = () => {
+      if (whatsappFrame) return;
+      whatsappFrame = requestAnimationFrame(() => {
+        updateWhatsApp();
+        whatsappFrame = 0;
+      });
+    };
+    updateWhatsApp();
+    window.addEventListener('scroll', scheduleWhatsAppUpdate, { passive: true });
+    window.addEventListener('resize', scheduleWhatsAppUpdate);
+    window.addEventListener('pageshow', scheduleWhatsAppUpdate);
+    window.addEventListener('load', scheduleWhatsAppUpdate);
+    if (document.fonts) document.fonts.ready.then(scheduleWhatsAppUpdate);
+  }
+
+  /* ─── NAV: solid background after leaving the top ───────── */
+  const siteHeader = document.querySelector('.site-header');
+  if (siteHeader) {
+    let headerFrame = 0;
+    const updateHeader = () => {
+      if (headerFrame) return;
+      headerFrame = requestAnimationFrame(() => {
+        const progress = Math.min(1, window.scrollY / 120);
+        siteHeader.style.setProperty('--header-scroll-progress', progress.toFixed(3));
+        siteHeader.classList.toggle('is-scrolled', progress > 0.08);
+        headerFrame = 0;
+      });
+    };
+    updateHeader();
+    window.addEventListener('scroll', updateHeader, { passive: true });
+  }
+
   /* ─── NAV: mobile hamburger ──────────────────────────────── */
   const hamburger = document.querySelector('.nav-hamburger');
   const mobileMenu = document.querySelector('.nav-mobile-menu');
@@ -299,6 +345,11 @@ document.addEventListener('DOMContentLoaded', () => {
   if (lightbox) {
     document.querySelectorAll('.t-video-card').forEach(card => {
       card.addEventListener('click', () => {
+        if (!slider || !slider._dragged) openLightbox(card.dataset.video);
+      });
+      card.addEventListener('keydown', event => {
+        if (event.key !== 'Enter' && event.key !== ' ') return;
+        event.preventDefault();
         if (!slider || !slider._dragged) openLightbox(card.dataset.video);
       });
     });

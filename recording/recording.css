@@ -297,11 +297,10 @@
   border-radius: 16px;
   padding: 32px 28px;
   text-align: left;
-  transition: transform 0.2s, border-color 0.2s;
+  transition: border-color 0.2s;
 }
 
 .rec-why-card:hover {
-  transform: translateY(-4px);
   border-color: rgba(255, 45, 107, 0.3);
 }
 
@@ -880,7 +879,23 @@
    ============================================================ */
 body { min-width: 320px; overflow-x: hidden; color: #f5f2f7; background: #09090e; font-family: 'Plus Jakarta Sans',sans-serif; }
 html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
-.site-header { background: linear-gradient(to bottom,rgba(9,8,14,.9),rgba(9,8,14,.34),transparent); }
+.site-header {
+  --header-scroll-progress: 0;
+  background: linear-gradient(to bottom,rgba(9,8,14,.9),rgba(9,8,14,.34),transparent);
+}
+.site-header::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: var(--header-scroll-progress);
+  background: rgba(9,8,14,.94);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  transition: opacity .08s linear;
+}
+.site-header.is-scrolled { border-bottom: 0; }
 .section-label { color: #c9c1ff; font: 700 11px/1 'Plus Jakarta Sans',sans-serif; letter-spacing: .15em; text-transform: uppercase; }
 .section-h2 { color: #fff; font: 800 clamp(3rem,5.4vw,5.6rem)/.94 'Plus Jakarta Sans',sans-serif; letter-spacing: -.07em; }
 
@@ -892,31 +907,56 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 .rec-hero .hero-sub { max-width: 510px; margin: 0 0 30px; color: #ddd8e2; font: 400 1.08rem/1.55 'Plus Jakarta Sans',sans-serif; }
 .rec-hero .hero-cta-group { display: flex; flex-wrap: wrap; align-items: stretch; gap: 14px; }
 .rec-hero-cta-btn { min-height: 58px; padding: 17px 28px; color: #111016; background: linear-gradient(105deg,#ddd3fb,#efd9e7 42%,#ffd6ad); box-shadow: none; font-family: 'Plus Jakarta Sans',sans-serif; }
-.hero-pricing-strip { max-width: 100%; margin: 0; padding: 9px; border-color: rgba(213,210,240,.25); border-radius: 18px; background: rgba(18,18,27,.72); backdrop-filter: blur(16px); }
-.hero-pricing-tier { min-width: 0; padding: 5px 15px; }
+.hero-pricing-strip { width: min(100%,560px); max-width: 100%; margin: 14px 0 0; padding: 9px; border-color: rgba(213,210,240,.25); border-radius: 18px; background: rgba(18,18,27,.72); backdrop-filter: blur(16px); }
+.hero-pricing-tier { flex: 1 1 0; min-width: 0; padding: 5px 12px; }
 .hero-pricing-label { color: #bcb7c3; font: 600 11px/1.35 'Plus Jakarta Sans',sans-serif; letter-spacing: .01em; }
 .hero-pricing-price { color: #f7f4f9; font: 800 17px/1.2 'Plus Jakarta Sans',sans-serif; }
 .hero-pricing-tier--featured .hero-pricing-price { color: #d8d0ff; }
 .hero-cta-trust { justify-content: flex-start; margin-top: 19px; color: #c5c0cb; font-family: 'Plus Jakarta Sans',sans-serif; }
-.rec-hero .hero-stats { left: clamp(24px,7vw,110px); right: auto; bottom: 28px; width: min(500px,calc(100% - 48px)); background: rgba(18,18,27,.78); border-color: rgba(213,210,240,.22); }
+.rec-hero .hero-stats {
+  left: clamp(24px,7vw,110px);
+  right: auto;
+  bottom: 30px;
+  width: min(440px,calc(100% - 48px));
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+.rec-hero .hero-stat { min-width: 0; flex: 1 1 0; padding: 8px 20px; }
+.rec-hero .hero-stat:first-child { padding-left: 0; align-items: flex-start; text-align: left; }
+.rec-hero .hero-stat:last-child { padding-right: 0; }
+.rec-hero .hero-stat-divider { align-self: center; width: 1px; height: 34px; background: rgba(255,255,255,.24); }
+.rec-hero .hero-stat-num { font-size: 27px; }
+.rec-hero .hero-stat-label { color: rgba(255,255,255,.78); font-size: 11px; line-height: 1.4; letter-spacing: .04em; }
 
-.rec-hero-social { padding: clamp(76px,8vw,110px) 24px; color: #f5f2f7; background: #0d0c13; }
-.rec-hero-social-inner { max-width: 580px; }
+.rec-hero-social { padding: clamp(72px,7vw,96px) 24px; color: #f5f2f7; background: #0d0c13; }
+.rec-hero-social-inner { display: grid; grid-template-columns: minmax(0,1fr) 340px; align-items: center; gap: clamp(52px,8vw,110px); width: min(920px,100%); max-width: 920px; text-align: left; }
+.rec-hero-social-copy { display: flex; flex-direction: column; align-items: flex-start; }
 .rec-hero-social-badge { color: #c9c1ff; background: rgba(201,193,255,.09); border: 1px solid rgba(201,193,255,.2); }
-.rec-hero-social-card .t-video-card { border-radius: 24px; border: 1px solid rgba(213,210,240,.22); }
+.rec-hero-social-kicker { margin-top: 30px; color: #8f8998; font: 700 11px/1 'Plus Jakarta Sans',sans-serif; letter-spacing: .15em; text-transform: uppercase; }
+.rec-hero-social-title { margin: 12px 0 8px; color: #fff; font: 800 clamp(3rem,5vw,4.8rem)/.95 'Plus Jakarta Sans',sans-serif; letter-spacing: -.06em; }
+.rec-hero-social-meta { margin: 0; color: #d5d0da; font: 600 14px/1.5 'Plus Jakarta Sans',sans-serif; }
+.rec-hero-social-prompt { max-width: 320px; margin: 22px 0 0; color: #aaa5b1; font: 400 13px/1.7 'Plus Jakarta Sans',sans-serif; }
+.rec-hero-social-card { width: 340px; justify-self: end; }
+.rec-hero-social-card .t-video-card { width: 100%; border-radius: 24px; border: 1px solid rgba(213,210,240,.22); box-shadow: 0 24px 64px rgba(0,0,0,.28); }
+.rec-hero-social-card .t-play-btn { width: 58px; height: 58px; color: #111016; background: linear-gradient(135deg,#d8d0ff,#f0d8e8 55%,#ffd6ad); box-shadow: 0 10px 30px rgba(128,110,210,.28); }
+.rec-hero-social-card .t-play-btn svg { width: 32px; height: 32px; fill: #111016; }
+.rec-hero-social-card .t-video-info { display: none; }
 
 .rec-why,.rec-how,.rec-pricing,.rec-reviews { padding: clamp(78px,9vw,130px) clamp(20px,7vw,110px); }
 .rec-why { background: linear-gradient(180deg,#0d0c13,#12111a); }
 .rec-how { background: #0a090f; }
-.rec-pricing { background: radial-gradient(ellipse 45% 60% at 100% 20%,rgba(82,67,154,.2),transparent 72%),#15131d; }
-.rec-reviews { background: #111019; }
+.rec-pricing { padding-bottom: 60px; background: radial-gradient(ellipse 45% 60% at 100% 20%,rgba(82,67,154,.2),transparent 72%),#15131d; }
+.rec-reviews { padding-top: 64px; padding-bottom: clamp(72px,7vw,96px); background: #111019; }
 .rec-why-inner,.rec-how-inner,.rec-pricing-inner,.rec-reviews-inner,.testimonials-header,.t-masonry { max-width: 1220px; }
 .rec-why-inner .section-label,.rec-how-inner .section-label,.rec-pricing-inner .section-label,.rec-reviews-inner .section-label { margin-bottom: 18px; }
 .rec-why-inner .section-h2,.rec-how-inner .section-h2,.rec-reviews-inner .section-h2 { margin-bottom: 54px; }
 
 .rec-why-grid { gap: 18px; }
 .rec-why-card { position: relative; min-width: 0; padding: 30px; border: 1px solid rgba(213,210,240,.22); border-radius: 24px; color: #f5f2f7; background: linear-gradient(150deg,rgba(47,48,77,.78),rgba(20,20,32,.95)); box-shadow: inset 0 1px rgba(255,255,255,.06); }
-.rec-why-card:hover { border-color: rgba(213,210,240,.5); transform: translateY(-5px); }
+.rec-why-card:hover { border-color: rgba(213,210,240,.5); }
 .rec-why-icon { width: 48px; height: 48px; border: 1px solid rgba(201,193,255,.22); border-radius: 50%; background: rgba(201,193,255,.08); }
 .rec-why-icon svg * { stroke: #c9c1ff; }
 .rec-why-title { color: #fff; font: 800 1.25rem/1.25 'Plus Jakarta Sans',sans-serif; }
@@ -956,12 +996,27 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 .rec-pricing-note { color: #99949f; font-family: 'Plus Jakarta Sans',sans-serif; }
 .rec-pricing-note span { color: #d8d0ff; }
 
-#testimonials { padding: clamp(78px,9vw,130px) clamp(20px,7vw,110px); background: #09090e; }
+#testimonials { padding: clamp(78px,9vw,130px) clamp(20px,7vw,110px) 72px; background: #09090e; }
 .testimonials-header .section-label { color: #c9c1ff; }
 .t-masonry { gap: 16px; }
 .t-video-card { border-color: rgba(213,210,240,.2); border-radius: 22px; }
-.rec-reviews-grid { gap: 18px; }
-.rec-reviews .t-google-card { border: 1px solid rgba(213,210,240,.2); border-radius: 22px; background: rgba(213,210,240,.04); }
+.rec-reviews-inner .section-h2 { max-width: 900px; margin: 0 auto 42px; font-size: clamp(2.8rem,4.8vw,4.8rem); line-height: .98; }
+.rec-reviews-grid { gap: 18px; align-items: stretch; }
+.rec-reviews .t-google-card { min-height: 280px; padding: 26px; gap: 16px; border: 1px solid rgba(213,210,240,.22); border-radius: 22px; background: rgba(213,210,240,.055); }
+.rec-reviews .t-google-text { color: #d0cbd5; font: 400 14px/1.72 'Plus Jakarta Sans',sans-serif; -webkit-line-clamp: 6; }
+.rec-reviews .t-google-author { margin-top: 4px; }
+.rec-reviews .t-google-name { color: #f5f2f7; font-family: 'Plus Jakarta Sans',sans-serif; font-weight: 700; }
+.rec-reviews .t-google-source { color: #96909f; font-family: 'Plus Jakarta Sans',sans-serif; }
+
+/* Expanded review keeps recording-page dark palette. */
+.co-inner .t-google-card {
+  border: 1px solid rgba(213,210,240,.28);
+  background: #1a1822;
+  box-shadow: 0 28px 80px rgba(0,0,0,.5);
+}
+.co-inner .t-google-text { color: #d0cbd5; }
+.co-inner .t-google-name { color: #f5f2f7; }
+.co-inner .t-google-source { color: #96909f; }
 
 #cta { background: radial-gradient(ellipse 55% 95% at 50% 110%,rgba(115,95,205,.35),transparent 70%),#15131d; }
 .cta-what-happens { border-color: rgba(213,210,240,.19); border-radius: 22px; background: rgba(213,210,240,.035); }
@@ -969,13 +1024,41 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 .cta-positioning-line { color: #bcb7c3; }
 #faq { background: #0a090f; }
 
-#footer { background: radial-gradient(ellipse 40% 80% at 100% 0%,rgba(76,65,155,.2),transparent 72%),#09090e; }
-#footer .footer-wordmark { color: rgba(245,242,247,.08); }
+#footer { padding: 64px clamp(24px,7vw,110px) 24px; background: radial-gradient(ellipse 40% 80% at 100% 0%,rgba(76,65,155,.16),transparent 72%),#09090e; }
+#footer .footer-main { grid-template-columns: minmax(250px,1.25fr) repeat(3,minmax(130px,.65fr)); gap: clamp(32px,5vw,68px); width: min(1220px,100%); margin: 0 auto 44px; }
+#footer .footer-brand-col { max-width: 320px; }
+#footer .footer-brand-logo { width: 176px; margin-bottom: 20px; }
+#footer .footer-tagline { max-width: 290px; margin: 0 0 20px; color: #c5c0cb; font: 400 13px/1.65 'Plus Jakarta Sans',sans-serif; }
+#footer .footer-info { gap: 1px; }
+#footer .footer-info p,#footer .footer-info a { font-size: 12px; line-height: 1.7; }
+#footer .footer-social { margin-top: 18px; }
+#footer .footer-social-link { transform: none; }
+#footer .footer-social-link:hover { transform: none; }
+#footer .footer-col { padding-top: 14px; }
+#footer .footer-col-label { margin-bottom: 18px; }
+#footer .footer-nav-links { gap: 9px; }
+#footer .footer-bottom { width: min(1220px,100%); margin: 0 auto; padding: 20px 260px 0 0; }
 #footer .footer-logomark,#footer .footer-brand-name { color: #fff; }
 #footer .footer-info,#footer .footer-info a { color: #aaa5b1; }
 
 @media (max-width: 900px) {
+  #footer .footer-main { grid-template-columns: repeat(3,minmax(0,1fr)); }
+  #footer .footer-brand-col { grid-column: 1 / -1; max-width: 420px; }
+  #footer .footer-bottom { padding-right: 0; }
+}
+
+@media (max-width: 640px) {
+  #footer { padding: 48px 20px 22px; }
+  #footer .footer-main { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 34px 24px; margin-bottom: 38px; }
+  #footer .footer-brand-col { grid-column: 1 / -1; }
+  #footer .footer-col:last-child { grid-column: 1 / -1; }
+  #footer .footer-bottom { gap: 8px; padding-top: 18px; }
+}
+
+@media (max-width: 900px) {
   .rec-hero { min-height: 860px; }
+  .rec-hero-social-inner { grid-template-columns: minmax(0,1fr) 300px; gap: 40px; }
+  .rec-hero-social-card { width: 300px; }
   .rec-why-grid,.rec-pricing-grid { grid-template-columns: 1fr; }
   .rec-how-steps { flex-direction: column; }
   .rec-how-connector { width: 2px; height: 28px; margin: 0; }
@@ -1006,7 +1089,18 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
   .rec-how-num { margin-bottom: 34px; }
   .rec-not-for-you { padding: 20px; }
   .rec-reviews-grid { grid-template-columns: 1fr; }
+  .rec-reviews { padding-top: 64px; padding-bottom: 64px; }
+  .rec-pricing { padding-bottom: 48px; }
+  .rec-reviews-inner .section-h2 { margin-bottom: 30px; font-size: clamp(2.35rem,11vw,3.25rem); }
+  .rec-reviews .t-google-card { min-height: 0; padding: 22px; }
+  .rec-reviews .t-google-text { -webkit-line-clamp: initial; }
   .cta-what-happens { padding: 20px; }
+  .rec-hero-social-inner { display: flex; width: 100%; max-width: 100%; gap: 30px; text-align: center; }
+  .rec-hero-social-copy { align-items: center; }
+  .rec-hero-social-kicker { margin-top: 22px; }
+  .rec-hero-social-title { font-size: 2.8rem; }
+  .rec-hero-social-prompt { margin-top: 14px; }
+  .rec-hero-social-card { width: min(280px,100%); justify-self: auto; }
 }
 
 /* Compact phones: keep the first screen focused on the booking action. */
@@ -1050,3 +1144,10 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
   .hero-pricing-price { font-size: 14px; text-align: right; }
   .hero-pricing-unit { display: inline; margin: 0; }
 }
+
+.rec-hero-cta-btn,
+.rec-hero-social-card .t-play-btn,
+.rec-pricing .pricing-card .btn-primary { background: #fff; }
+.rec-hero-cta-btn:hover,
+.rec-hero-social-card .t-play-btn:hover,
+.rec-pricing .pricing-card .btn-primary:hover { background: #e6e8f0; }

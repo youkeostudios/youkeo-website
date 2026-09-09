@@ -310,7 +310,7 @@
 <header class="site-header">
   <nav class="component-navbar" aria-label="Primary navigation">
     <div class="nav-left">
-      <a href="#hero" class="logo" aria-label="Youkeo Studios – Recording Studio Navi Mumbai">YOUKEO</a>
+      <a href="#hero" class="logo" aria-label="Youkeo Studios – Recording Studio Navi Mumbai"><img src="/assets/brand/youkeo-white-transparent.svg" alt="Youkeo"></a>
       <ul class="nav-links">
         <li><a class="nav-item" href="#hero">Home</a></li>
         <li><a class="nav-item" href="#services">Services</a></li>
@@ -441,8 +441,9 @@
       </div>
       <button type="button" class="track-listen" data-video="https://www.youtube.com/watch?v=qgHA_3Kr-ac" onclick="gtag('event','track_click',{track:'O Sajna',artist:'Swapnil Chaudhary',page:'home'})">
         Play release
-        <svg width="14" height="14" fill="none" viewBox="0 0 24 24">
-          <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <svg class="track-play-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="9.25" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M10.25 8.75 15.5 12l-5.25 3.25v-6.5Z" fill="currentColor"/>
         </svg>
       </button>
     </article>
@@ -463,8 +464,9 @@
       </div>
       <button type="button" class="track-listen" data-video="https://www.youtube.com/watch?v=wSDTy-vXuIg" onclick="gtag('event','track_click',{track:'Dooriyan',artist:'Gravero, Rhyo & Kinara',page:'home'})">
         Play release
-        <svg width="14" height="14" fill="none" viewBox="0 0 24 24">
-          <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <svg class="track-play-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="9.25" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M10.25 8.75 15.5 12l-5.25 3.25v-6.5Z" fill="currentColor"/>
         </svg>
       </button>
     </article>
@@ -485,8 +487,9 @@
       </div>
       <button type="button" class="track-listen" data-video="https://www.youtube.com/watch?v=8gFLby0U0LE" onclick="gtag('event','track_click',{track:'Aarzoo',artist:'Shoonya & Kinara',page:'home'})">
         Play release
-        <svg width="14" height="14" fill="none" viewBox="0 0 24 24">
-          <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <svg class="track-play-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <circle cx="12" cy="12" r="9.25" stroke="currentColor" stroke-width="1.5"/>
+          <path d="M10.25 8.75 15.5 12l-5.25 3.25v-6.5Z" fill="currentColor"/>
         </svg>
       </button>
     </article>
@@ -1490,7 +1493,7 @@
   <div class="footer-shell">
     <div class="footer-main">
       <div class="footer-brand-col">
-        <a href="#hero" class="footer-logo">YOUKEO.</a>
+        <a href="#hero" class="footer-logo" aria-label="Youkeo Studios"><img src="/assets/brand/youkeo-white-transparent.svg" alt="Youkeo"></a>
         <p class="footer-intro">A recording and music production studio where independent artists come to turn ideas into finished releases.</p>
         <address>Near ICICI Bank, Sector 19<br>Airoli, Navi Mumbai 400708</address>
         <div class="footer-contact">
@@ -1554,6 +1557,7 @@
      ============================================================ -->
 <a
   id="whatsapp-btn"
+  hidden
   href="https://wa.me/919619192992?text=Hi%2C%20I%20want%20to%20book%20a%20session%20at%20Youkeo%20Studios"
   target="_blank"
   rel="noopener"

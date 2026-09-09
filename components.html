@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plain HTML Component System</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg-dark: #0b0b10;
+      --bg-card: #12121a;
+      --accent-purple: #817aff;
+      --accent-purple-hover: #6869e8;
+      --text-main: #f3f4f8;
+      --text-muted: #d8d6df;
+      --text-subtle: #616577;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-glass: rgba(255, 255, 255, 0.16);
+      --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-display: 'Space Grotesk', var(--font-main);
+    }
+
+    body {
+      background:
+        radial-gradient(ellipse 70% 55% at 6% 2%, rgba(74, 61, 155, 0.35), transparent 68%),
+        radial-gradient(ellipse 55% 55% at 94% 4%, rgba(74, 68, 126, 0.3), transparent 68%),
+        radial-gradient(ellipse 60% 45% at 82% 100%, rgba(91, 62, 45, 0.18), transparent 70%),
+        var(--bg-dark);
+      color: var(--text-main);
+      font-family: var(--font-main);
+      min-height: 100vh;
+      padding: 60px 32px 100px 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      display: flex;
+      flex-direction: column;
+      gap: 60px;
+    }
+
+    /* Page Header */
+    .page-header {
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 24px;
+    }
+
+    .page-title {
+      font-family: var(--font-display);
+      font-size: 2.4rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .page-desc {
+      font-size: 1rem;
+      color: var(--text-muted);
+    }
+
+    /* Component Section */
+    .component-box {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .component-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .component-title {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .component-tag {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent-purple);
+      background: rgba(120, 121, 241, 0.12);
+      border: 1px solid rgba(120, 121, 241, 0.25);
+      padding: 4px 10px;
+      border-radius: 9999px;
+    }
+
+    /* Preview Canvas */
+    .preview-card {
+      background:
+        radial-gradient(ellipse 65% 80% at 4% 10%, rgba(83, 72, 170, 0.22), transparent 70%),
+        radial-gradient(ellipse 45% 65% at 100% 100%, rgba(122, 82, 54, 0.16), transparent 70%),
+        var(--bg-card);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      overflow: hidden;
+      padding: 32px;
+    }
+
+    .preview-card.flex-center {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* ============================================================
+       1. NAVBAR COMPONENT
+       ============================================================ */
+    .navbar {
+      width: 100%;
+      padding: 22px 4px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: transparent;
+      border-radius: 0;
+      border: none;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 52px;
+    }
+
+    .logo {
+      font-family: var(--font-display);
+      font-size: 30px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      color: #ffffff;
+      text-decoration: none;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: #f1eff5;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      transition: color 0.15s ease;
+    }
+
+    .nav-item:hover {
+      color: #ffffff;
+    }
+
+    .nav-item svg {
+      width: 12px;
+      height: 12px;
+      stroke: currentColor;
+      stroke-width: 2.8;
+      fill: none;
+      opacity: 0.8;
+    }
+
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    /* Search Pill */
+    .search-box {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(255, 255, 255, 0.36);
+      border-radius: 9999px;
+      padding: 12px 20px 12px 18px;
+      width: 260px;
+    }
+
+    .search-box:focus-within {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.35);
+      width: 210px;
+    }
+
+    .search-box svg {
+      width: 18px;
+      height: 18px;
+      stroke: #f2f0f6;
+      stroke-width: 2.2;
+      fill: none;
+      flex-shrink: 0;
+    }
+
+    .search-box input {
+      background: transparent;
+      border: none;
+      outline: none;
+      font-family: inherit;
+      font-size: 16px;
+      color: #ffffff;
+      width: 100%;
+    }
+
+    .search-box input::placeholder {
+      color: #b8b4c0;
+      font-weight: 500;
+    }
+
+    .btn-login {
+      background: transparent;
+      border: none;
+      color: #f4f2f6;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      padding: 6px 4px;
+      transition: color 0.15s ease;
+    }
+
+    .btn-login:hover {
+      color: #ffffff;
+    }
+
+    .btn-signup {
+      background: #ffffff;
+      color: #0e0e12;
+      border: none;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      height: 50px;
+      padding: 0 28px;
+      border-radius: 9999px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      line-height: 1;
+      transition: background 0.15s ease;
+    }
+
+    .btn-signup:hover {
+      background: #e6e8f0;
+    }
+
+    /* ============================================================
+       2. BUTTON COMPONENTS
+       ============================================================ */
+    /* Primary Pill Button */
+    .btn-primary {
+      background: var(--accent-purple);
+      color: #ffffff;
+      font-family: var(--font-main);
+      font-size: 16px;
+      font-weight: 600;
+      height: 46px;
+      padding: 0 24px;
+      border-radius: 9999px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      line-height: 1;
+      vertical-align: middle;
+      transition: background 0.15s ease;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-purple-hover);
+    }
+
+    /* Secondary Outlined Pill Button */
+    .btn-secondary {
+      background: transparent;
+      color: #ffffff;
+      font-family: var(--font-main);
+      font-size: 16px;
+      font-weight: 600;
+      height: 46px;
+      padding: 0 24px;
+      border-radius: 9999px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      line-height: 1;
+      vertical-align: middle;
+      transition: background 0.15s ease, border-color 0.15s ease;
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* Sunset Gradient Pill Button */
+    .btn-sunset {
+      background: linear-gradient(105deg, #ddd3fb 0%, #efd9e7 42%, #ffd6ad 100%);
+      color: #0e0e12;
+      font-family: var(--font-main);
+      font-size: 25px;
+      font-weight: 700;
+      height: 68px;
+      padding: 0 42px;
+      border-radius: 9999px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      line-height: 1;
+      vertical-align: middle;
+      transition: opacity 0.15s ease;
+    }
+
+    .btn-sunset:hover {
+      opacity: 0.92;
+    }
+
+    /* Size variants */
+    .button-group {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary.btn-sm, .btn-secondary.btn-sm, .btn-sunset.btn-sm {
+      font-size: 14px;
+      height: 40px;
+      padding: 0 16px;
+    }
+
+    .btn-primary.btn-lg, .btn-secondary.btn-lg, .btn-sunset.btn-lg {
+      font-size: 20px;
+      height: 56px;
+      padding: 0 32px;
+    }
+
+    /* ============================================================
+       3. HERO MUSIC CARD
+       ============================================================ */
+    .hero-preview {
+      min-height: 620px;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      gap: 48px;
+      padding: 48px;
+    }
+
+    .hero-title {
+      max-width: 610px;
+      font-size: clamp(3.7rem, 6vw, 5.4rem);
+      font-weight: 800;
+      line-height: 0.95;
+      letter-spacing: -0.065em;
+      background: linear-gradient(110deg, #a9a2ff 0%, #f6dce0 46%, #ffd4a5 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero-copy {
+      max-width: 490px;
+      margin-top: 28px;
+      color: #f3f1f5;
+      font-size: 1.25rem;
+      line-height: 1.35;
+    }
+
+    .music-card-stack {
+      position: relative;
+      width: 365px;
+      height: 500px;
+      margin: 0 auto;
+    }
+
+    .music-card-stack::before,
+    .music-card-stack::after {
+      content: '';
+      position: absolute;
+      inset: 28px 12px 6px;
+      border-radius: 18px;
+      background: linear-gradient(145deg, rgba(230, 230, 237, 0.72), rgba(100, 101, 116, 0.48));
+      transform: rotate(-7deg);
+    }
+
+    .music-card-stack::after {
+      inset: 18px 5px 16px 28px;
+      transform: rotate(7deg);
+      opacity: 0.78;
+    }
+
+    .music-card {
+      position: absolute;
+      z-index: 1;
+      inset: 0 0 auto;
+      padding: 12px;
+      border-radius: 16px;
+      background: #fbfafb;
+      color: #15141a;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.38);
+    }
+
+    .album-art {
+      height: 310px;
+      border-radius: 10px;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 50% 49%, #79a78f 0 7%, transparent 7.5%),
+        radial-gradient(ellipse at 42% 42%, #a92761 0 16%, transparent 16.5%),
+        radial-gradient(ellipse at 60% 42%, #783aaf 0 19%, transparent 19.5%),
+        radial-gradient(ellipse at 50% 59%, #b32957 0 22%, transparent 22.5%),
+        radial-gradient(circle at 50% 50%, #1a4460 0 25%, #021826 60%, #00111d 100%);
+      position: relative;
+    }
+
+    .album-art::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(rgba(255,255,255,.75) 1px, transparent 1.5px);
+      background-size: 38px 46px;
+      opacity: 0.35;
+    }
+
+    .track-meta { padding: 20px 12px 12px; }
+    .track-artist { font-size: 16px; font-weight: 500; }
+    .track-name { margin-top: 22px; font-size: 23px; font-weight: 800; letter-spacing: -0.04em; }
+    .listen-button {
+      margin-top: 34px;
+      min-height: 44px;
+      padding: 0 23px;
+      border: 0;
+      border-radius: 999px;
+      background: #807aff;
+      color: #fff;
+      font: inherit;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    /* ============================================================
+       4. PERKS SECTION
+       ============================================================ */
+    .perks-preview {
+      min-height: 610px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 70px;
+      align-items: center;
+      padding: 50px 62px;
+    }
+
+    .perks-stack { position: relative; height: 470px; }
+    .perks-label {
+      position: absolute;
+      z-index: 2;
+      top: 0;
+      right: 36px;
+      padding: 10px 15px;
+      border-radius: 12px;
+      color: #191620;
+      background: linear-gradient(105deg, #e0d8fa, #fae3dc);
+      font-weight: 800;
+      font-size: 19px;
+    }
+    .perk-card {
+      position: absolute;
+      width: 300px;
+      min-height: 164px;
+      padding: 20px;
+      border: 1px solid rgba(216, 211, 245, 0.32);
+      border-radius: 13px;
+      background: linear-gradient(145deg, rgba(51, 52, 87, .82), rgba(17, 17, 28, .92));
+      box-shadow: inset 0 1px rgba(255,255,255,.06);
+    }
+    .perk-card.unique { top: 28px; left: 0; }
+    .perk-card.epic { top: 242px; left: 80px; }
+    .perk-card.rare { top: 385px; left: 164px; }
+    .perk-card-title { font-size: 21px; font-weight: 700; }
+    .perk-rule { height: 1px; margin: 18px -20px 18px; background: rgba(255,255,255,.18); }
+    .perk-copy { font-size: 15px; line-height: 1.3; color: #f1eff5; }
+    .perk-more { display: block; margin-top: 12px; color: #c9c1ff; font-weight: 700; }
+    .perks-content h3 { font-size: clamp(2.7rem, 4vw, 4.3rem); letter-spacing: -0.06em; line-height: 1; }
+    .perks-content p { margin: 32px 0 42px; font-size: 1.35rem; line-height: 1.35; color: #f0eef3; }
+
+    /* ============================================================
+       5. ARTIST GROWTH / CHART BLOCK
+       ============================================================ */
+    .growth-block {
+      min-height: 510px;
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      align-items: center;
+      gap: 58px;
+      padding: 64px 70px;
+      border: 1px solid rgba(213, 210, 240, 0.34);
+      border-radius: 18px;
+      background:
+        radial-gradient(circle at 7% 90%, rgba(224, 143, 50, 0.26), transparent 35%),
+        radial-gradient(circle at 90% 5%, rgba(122, 111, 225, 0.38), transparent 56%),
+        linear-gradient(125deg, rgba(24, 23, 29, 0.97), rgba(34, 34, 47, 0.95));
+    }
+    .growth-content h3 { max-width: 520px; font-size: clamp(2.8rem, 4.5vw, 4.6rem); line-height: .98; letter-spacing: -.06em; }
+    .growth-content p { max-width: 610px; margin: 36px 0 32px; color: #f3f0f5; font-size: 1.25rem; line-height: 1.45; }
+    .growth-chart { height: 270px; display: flex; align-items: end; gap: 10px; padding: 0 4px 36px; border-bottom: 1px solid rgba(255, 255, 255, .12); }
+    .growth-bar { width: 11px; min-height: 20px; border-radius: 8px 8px 2px 2px; background: linear-gradient(#8c82ff, rgba(107, 99, 244, .1)); box-shadow: 0 0 14px rgba(130, 121, 255, .52); }
+    .growth-years { display: flex; justify-content: space-between; margin-top: 16px; color: #ece9f1; font-size: 16px; }
+
+    /* ============================================================
+       6. FAQ BLOCK — uses native <details>, no JavaScript
+       ============================================================ */
+    .faq-block { min-height: 620px; display: grid; grid-template-columns: .85fr 1.15fr; gap: 70px; padding: 46px 0; }
+    .faq-block h3 { font-size: clamp(3.2rem, 5vw, 4.6rem); letter-spacing: -.06em; }
+    .faq-list { align-self: center; }
+    .faq-item { border-bottom: 1px solid rgba(255, 255, 255, .5); }
+    .faq-item:first-child { border-top: 1px solid rgba(255, 255, 255, .5); }
+    .faq-item summary { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding: 17px 10px; list-style: none; color: #f4f1f6; font-size: 1.16rem; line-height: 1.25; cursor: pointer; }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after { content: '↓'; flex: 0 0 auto; font-size: 1.8rem; line-height: 1; transition: transform .2s ease; }
+    .faq-item[open] summary::after { transform: rotate(180deg); }
+    .faq-item p { max-width: 90%; padding: 0 10px 18px; color: #d8d4df; font-size: .98rem; line-height: 1.5; }
+
+    /* ============================================================
+       7. APP DOWNLOAD BANNER
+       ============================================================ */
+    .download-block { min-height: 610px; position: relative; overflow: hidden; padding: 92px 76px; border-radius: 22px; background: linear-gradient(120deg, #718acf 0%, #1b3447 47%, #090c15 100%); }
+    .download-block::after { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 5% 90%, rgba(178, 190, 255, .52), transparent 38%), linear-gradient(90deg, rgba(13, 15, 25, .1), transparent 55%); pointer-events: none; }
+    .download-content { position: relative; z-index: 2; max-width: 560px; }
+    .download-content h3 { font-size: clamp(3.2rem, 5vw, 5rem); line-height: .98; letter-spacing: -.06em; }
+    .download-content p { margin: 42px 0 76px; font-size: 1.45rem; }
+    .store-row { display: flex; gap: 24px; flex-wrap: wrap; }
+    .store-badge { min-width: 184px; display: inline-flex; align-items: center; gap: 12px; padding: 9px 15px; border: 1px solid rgba(255,255,255,.75); border-radius: 10px; background: #050505; color: #fff; text-decoration: none; line-height: 1.05; }
+    .store-badge strong { display: block; font-size: 22px; }.store-badge small { display: block; font-size: 10px; }
+    .store-symbol { font-size: 30px; }
+    .phone-mosaic { position: absolute; z-index: 1; inset: -70px -80px -120px auto; width: 61%; transform: rotate(-7deg); }
+    .phone { position: absolute; width: 190px; height: 380px; overflow: hidden; border: 4px solid #847cff; border-radius: 30px; background: linear-gradient(145deg, #0a1526, #1e2942); box-shadow: 0 22px 36px rgba(0,0,0,.5); }
+    .phone::before { content: ''; display: block; width: 70px; height: 18px; margin: 8px auto; border-radius: 99px; background: #080b12; }.phone::after { content: 'Featured\A\A New releases\A\A Your library\A\A Discover artists'; white-space: pre-line; display: block; margin: 22px 14px; color: #eceefa; font-size: 13px; line-height: 1.7; }
+    .phone--one { top: -52px; left: 220px; }.phone--two { top: 96px; left: 22px; transform: rotate(17deg); }.phone--three { top: 112px; left: 420px; transform: rotate(-7deg); }.phone--four { top: 320px; left: 234px; transform: rotate(14deg); }
+
+    /* ============================================================
+       8. LIGHT FOOTER
+       ============================================================ */
+    .footer-block { padding: 52px 54px 46px; color: #08080b; border-radius: 4px; background: radial-gradient(circle at 9% 7%, rgba(224, 221, 255, .7), transparent 26%), radial-gradient(circle at 75% 36%, rgba(239, 235, 252, .58), transparent 40%), #fbfafc; }
+    .footer-grid { display: grid; grid-template-columns: 2.25fr 1fr 1.35fr .8fr; gap: 56px; }
+    .footer-logo { font-family: var(--font-display); font-size: 2.5rem; font-weight: 800; letter-spacing: .03em; }.footer-description { max-width: 390px; margin: 30px 0 58px; font-size: 1.18rem; line-height: 1.45; }.footer-kicker { color: #89878d; font-size: 14px; font-weight: 600; text-transform: uppercase; }.footer-socials { display: flex; gap: 16px; margin-top: 22px; }.footer-social { width: 32px; height: 32px; display: grid; place-items: center; border-radius: 50%; color: #fff; background: #08080b; font: 700 16px/1 Arial, sans-serif; text-decoration: none; }.footer-column h4 { padding-bottom: 20px; margin-bottom: 18px; border-bottom: 1px solid #dddddf; color: #89878d; font-size: 14px; font-weight: 500; }.footer-column a { display: block; margin: 0 0 12px; color: #09090c; font-size: 1.15rem; line-height: 1.25; text-decoration: none; }.footer-column a:hover { text-decoration: underline; }.footer-divider { height: 1px; margin: 22px 0; background: #dddddf; }.footer-option + .footer-option { margin-top: 38px; }.footer-option label { display: block; margin-bottom: 12px; color: #89878d; font-size: 14px; }.footer-option select { width: 100%; appearance: auto; padding: 11px 14px; border: 1px solid #d6d4da; border-radius: 10px; color: #111116; background: transparent; font: 16px var(--font-main); }
+
+    /* ============================================================
+       5. RARITY / SCARCITY CARDS GRID
+       ============================================================ */
+    .rarity-section-preview {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 58px;
+      padding: 34px 0 12px;
+    }
+
+    .rarity-header-wrap {
+      max-width: 900px;
+    }
+
+    .rarity-main-title {
+      font-size: 3.55rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #ffffff;
+      line-height: 1.15;
+      margin-bottom: 26px;
+    }
+
+    .rarity-main-desc {
+      font-size: 1.35rem;
+      color: #f0eef3;
+      line-height: 1.4;
+    }
+
+    .rarity-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 56px;
+      width: 100%;
+    }
+
+    .rarity-card {
+      min-height: 307px;
+      background: linear-gradient(150deg, rgba(47, 48, 77, 0.88) 0%, rgba(21, 21, 34, 0.93) 100%);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(213, 210, 240, 0.38);
+      border-radius: 25px;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+      padding: 44px 20px 34px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: background 0.15s ease, border-color 0.15s ease;
+    }
+
+    .rarity-card:hover {
+      background: linear-gradient(180deg, rgba(48, 52, 78, 0.75) 0%, rgba(22, 23, 34, 0.95) 100%);
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .rarity-icon-box {
+      width: 100px;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 26px;
+    }
+
+    .rarity-icon-box svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .rarity-card-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 10px;
+      letter-spacing: -0.01em;
+    }
+
+    .rarity-card-count {
+      font-size: 1.45rem;
+      font-weight: 500;
+      color: #f0eef4;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      body {
+        padding: 40px 20px 80px 20px;
+      }
+      .navbar {
+        flex-direction: column;
+        gap: 20px;
+        align-items: flex-start;
+      }
+      .hero-preview, .perks-preview { grid-template-columns: 1fr; }
+      .hero-preview { text-align: center; }
+      .hero-copy { margin-inline: auto; }
+      .perks-stack { margin: 0 auto; width: 470px; }
+      .growth-block, .faq-block { grid-template-columns: 1fr; }
+      .growth-block { padding: 56px 46px; }
+      .download-block { padding: 68px 48px; }
+      .phone-mosaic { opacity: .55; width: 67%; }
+      .footer-grid { grid-template-columns: 1.5fr 1fr 1.25fr; }.footer-options { grid-column: span 3; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; }.footer-option + .footer-option { margin-top: 0; }
+      .rarity-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 540px) {
+      .rarity-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-preview, .perks-preview { padding: 36px 20px; }
+      .perks-stack { width: 330px; transform: scale(.78); transform-origin: top left; height: 380px; }
+      .growth-block { padding: 44px 26px; }.growth-chart { gap: 6px; }
+      .faq-block { gap: 34px; }.faq-item summary { font-size: 1rem; }
+      .download-block { min-height: 570px; padding: 54px 28px; }.download-content p { margin: 28px 0 46px; font-size: 1.15rem; }.phone-mosaic { display: none; }.store-badge { min-width: 166px; }
+      .footer-block { padding: 42px 28px; }.footer-grid { grid-template-columns: 1fr; gap: 34px; }.footer-description { margin: 22px 0 38px; }.footer-options { grid-column: auto; grid-template-columns: 1fr; gap: 0; }.footer-option + .footer-option { margin-top: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SVG Holographic Gradient Defs -->
+  <svg style="position: absolute; width: 0; height: 0;" aria-hidden="true">
+    <defs>
+      <!-- Prism / Unique Gradients -->
+      <linearGradient id="gemGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#ffffff"/>
+        <stop offset="40%" stop-color="#b8c6db"/>
+        <stop offset="100%" stop-color="#f5d0b9"/>
+      </linearGradient>
+      <linearGradient id="gemGrad2" x1="100%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#c2e9fb"/>
+        <stop offset="50%" stop-color="#a1bafe"/>
+        <stop offset="100%" stop-color="#e2b0ff"/>
+      </linearGradient>
+      <linearGradient id="gemGrad3" x1="0%" y1="100%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#fce4c8"/>
+        <stop offset="60%" stop-color="#ffffff"/>
+        <stop offset="100%" stop-color="#9bf8f8"/>
+      </linearGradient>
+      <!-- Star / Burst Gradients -->
+      <radialGradient id="holoRadial" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#ffffff"/>
+        <stop offset="45%" stop-color="#d4c9f7"/>
+        <stop offset="75%" stop-color="#fbc4ab"/>
+        <stop offset="100%" stop-color="#8fd3f4"/>
+      </radialGradient>
+      <linearGradient id="silverSpoke1" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#ffffff"/>
+        <stop offset="50%" stop-color="#a3b1c6"/>
+        <stop offset="100%" stop-color="#4e5d78"/>
+      </linearGradient>
+      <linearGradient id="silverSpoke2" x1="0%" y1="100%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#f7c8b0"/>
+        <stop offset="50%" stop-color="#dcd6f7"/>
+        <stop offset="100%" stop-color="#ffffff"/>
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <div class="container">
+    
+    <!-- Page Header -->
+    <header class="page-header">
+      <h1 class="page-title">Plain HTML Component System</h1>
+      <p class="page-desc">Self-contained, reusable HTML and CSS components based on the supplied visual system.</p>
+    </header>
+
+    <!-- Component 1: Navbar -->
+    <section class="component-box">
+      <div class="component-header">
+        <h2 class="component-title">1. Navbar Header</h2>
+        <span class="component-tag">Navigation</span>
+      </div>
+
+      <div class="preview-card">
+        <nav class="navbar">
+          <div class="nav-left">
+            <a href="#" class="logo">PIANITY</a>
+            <ul class="nav-links">
+              <li>
+                <a href="#" class="nav-item">
+                  MARKET
+                  <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="nav-item">TOPLIST</a>
+              </li>
+              <li>
+                <a href="#" class="nav-item">
+                  ACTIVITY
+                  <svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div class="nav-right">
+            <div class="search-box">
+              <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+              <input type="text" placeholder="Search..." aria-label="Search">
+            </div>
+            <a href="#" class="btn-login">LOG IN</a>
+            <a href="#" class="btn-signup">SIGN UP</a>
+          </div>
+        </nav>
+      </div>
+    </section>
+
+    <!-- Component 2: Hero Music Card -->
+    <section class="component-box">
+      <div class="component-header">
+        <h2 class="component-title">2. Hero Music Card</h2>
+        <span class="component-tag">Hero</span>
+      </div>
+
+      <div class="preview-card">
+        <div class="hero-preview">
+          <div>
+            <h3 class="hero-title">Make Music<br>Matter</h3>
+            <p class="hero-copy">Join a revolution to reinvent the way you listen to music and engage with artists, through authentic communities.</p>
+          </div>
+          <div class="music-card-stack" aria-label="Example music release card">
+            <article class="music-card">
+              <div class="album-art"></div>
+              <div class="track-meta">
+                <div class="track-artist">La Femme</div>
+                <div class="track-name">Leila</div>
+                <button class="listen-button">Listen Now</button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Component 3: Buttons -->
+    <section class="component-box">
+      <div class="component-header">
+        <h2 class="component-title">3. Buttons (Primary, Outlined & Sunset)</h2>
+        <span class="component-tag">Buttons</span>
+      </div>
+
+      <div class="preview-card flex-center">
+        <div class="button-group">
+          <!-- Primary Purple Button -->
+          <button class="btn-primary">Primary Button</button>
+          
+          <!-- Secondary Outlined Button -->
+          <button class="btn-secondary">Secondary Outlined</button>
+
+          <!-- Sunset Gradient Button -->
+          <button class="btn-sunset">Sign up</button>
+
+          <!-- Small / Large Variants -->
+          <button class="btn-sunset btn-sm">Sign up (SM)</button>
+          <button class="btn-sunset btn-lg">Sign up (LG)</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Component 4: Perks -->
+    <section class="component-box">
+      <div class="component-header">
+        <h2 class="component-title">4. Perks Showcase</h2>
+        <span class="component-tag">Cards & CTA</span>
+      </div>
+
+      <div class="preview-card">
+        <div class="perks-preview">
+          <div class="perks-stack">
+            <div class="perks-label">✦ &nbsp;PERKS</div>
+            <article class="perk-card unique">
+              <div class="perk-card-title">◈ &nbsp;Unique</div>
+              <div class="perk-rule"></div>
+              <p class="perk-copy">Sit in on a studio session (in person or online)<span class="perk-more">+3 perks</span></p>
+            </article>
+            <article class="perk-card epic">
+              <div class="perk-card-title">✳ &nbsp;Epic</div>
+              <div class="perk-rule"></div>
+              <p class="perk-copy">Backstage access to any show of choice<span class="perk-more">+1 perks</span></p>
+            </article>
+            <article class="perk-card rare">
+              <div class="perk-card-title">✦ &nbsp;Rare</div>
+              <div class="perk-rule"></div>
+              <p class="perk-copy">Access to the artists’ Club on Pianity</p>
+            </article>
+          </div>
+          <div class="perks-content">
+            <h3>Enjoy more than music</h3>
+            <p>Buying music on Pianity is the key to access exclusive perks. Enjoy things like backstage access to shows, invites to recording sessions, vinyls and more...</p>
+            <button class="btn-sunset">Browse Perks</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Component 5: Scarcity / Rarity Gem Cards -->
+    <section class="component-box">
+      <div class="component-header">
+        <h2 class="component-title">5. Scarcity & Rare Gems Cards</h2>
+        <span class="component-tag">Cards & Section</span>
+      </div>
+
+      <div class="preview-card">
+        <div class="rarity-section-preview">
+          
+          <div class="rarity-header-wrap">
+            <h3 class="rarity-main-title">Own Rare<br>musical gems</h3>
+            <p class="rarity-main-desc">
+              Just like vinyls, songs on Pianity are released in limited editions. These editions are available in 4 levels of increasing Scarcity. Each scarcity comes with its own set of perks. The rarer the song, the more valuable it is!
+            </p>
+          </div>
+
+          <!-- 4 Cards Grid -->
+          <div class="rarity-grid">
+            
+            <!-- Card 1: Unique -->
+            <div class="rarity-card">
+              <div class="rarity-icon-box">
+                <svg viewBox="0 0 100 100">
+                  <polygon points="50,15 15,75 85,75" fill="url(#gemGrad1)"/>
+                  <polygon points="50,15 50,75 85,75" fill="url(#gemGrad2)" opacity="0.85"/>
+                  <polygon points="50,15 35,50 50,75" fill="url(#gemGrad3)" opacity="0.9"/>
+                  <polygon points="50,15 65,50 50,75" fill="#ffffff" opacity="0.75"/>
+                </svg>
+              </div>
+              <div class="rarity-card-title">Unique</div>
+              <div class="rarity-card-count">1 edition</div>
+            </div>
+
+            <!-- Card 2: Legendary -->
+            <div class="rarity-card">
+              <div class="rarity-icon-box">
+                <svg viewBox="0 0 100 100">
+                  <path d="M50 10 L58 32 L80 25 L72 46 L95 50 L72 54 L80 75 L58 68 L50 90 L42 68 L20 75 L28 54 L5 50 L28 46 L20 25 L42 32 Z" fill="url(#holoRadial)"/>
+                  <circle cx="50" cy="50" r="14" fill="url(#gemGrad1)" opacity="0.9"/>
+                </svg>
+              </div>
+              <div class="rarity-card-title">Legendary</div>
+              <div class="rarity-card-count">10 editions</div>
+            </div>
+
+            <!-- Card 3: Epic -->
+            <div class="rarity-card">
+              <div class="rarity-icon-box">
+                <svg viewBox="0 0 100 100">
+                  <polygon points="50,8 54,42 50,50 46,42" fill="url(#silverSpoke1)"/>
+                  <polygon points="50,92 54,58 50,50 46,58" fill="url(#silverSpoke1)"/>
+                  <polygon points="8,50 42,46 50,50 42,54" fill="url(#silverSpoke2)"/>
+                  <polygon points="92,50 58,46 50,50 58,54" fill="url(#silverSpoke2)"/>
+                  <polygon points="20,20 46,42 50,50 42,46" fill="url(#gemGrad2)"/>
+                  <polygon points="80,80 54,58 50,50 58,54" fill="url(#gemGrad2)"/>
+                  <polygon points="80,20 54,42 50,50 58,46" fill="url(#gemGrad3)"/>
+                  <polygon points="20,80 46,58 50,50 42,54" fill="url(#gemGrad3)"/>
+                </svg>
+              </div>
+              <div class="rarity-card-title">Epic</div>
+              <div class="rarity-card-count">100 editions</div>
+            </div>
+
+            <!-- Card 4: Rare -->
+            <div class="rarity-card">
+              <div class="rarity-icon-box">
+                <svg viewBox="0 0 100 100">
+                  <g stroke="url(#gemGrad3)" stroke-width="2.5" stroke-linecap="round">
+                    <line x1="50" y1="12" x2="50" y2="88"/>
+                    <line x1="12" y1="50" x2="88" y2="50"/>
+                    <line x1="23" y1="23" x2="77" y2="77"/>
+                    <line x1="23" y1="77" x2="77" y2="23"/>
+                    <line x1="34" y1="16" x2="66" y2="84" stroke="url(#silverSpoke1)" stroke-width="2"/>
+                    <line x1="16" y1="34" x2="84" y2="66" stroke="url(#silverSpoke1)" stroke-width="2"/>
+                    <line x1="66" y1="16" x2="34" y2="84" stroke="url(#silverSpoke2)" stroke-width="2"/>
+                    <line x1="16" y1="66" x2="84" y2="34" stroke="url(#silverSpoke2)" stroke-width="2"/>
+                  </g>
+                  <circle cx="50" cy="50" r="7" fill="#ffffff"/>
+                </svg>
+              </div>
+              <div class="rarity-card-title">Rare</div>
+              <div class="rarity-card-count">1000 editions</div>
+            </div>
+
+          </div>
+
+          <!-- Bottom Sunset Button -->
+          <button class="btn-sunset">Sign up</button>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Component 6: Artist Growth / Value Chart -->
+    <section class="component-box">
+      <div class="component-header">
+        <h2 class="component-title">6. Artist Growth Block</h2>
+        <span class="component-tag">Chart & CTA</span>
+      </div>
+
+      <div class="preview-card">
+        <section class="growth-block">
+          <div class="growth-content">
+            <h3>Share the success<br>of up and coming<br>artists!</h3>
+            <p>Due to their rare nature, the value of your Pianity songs can increase over time, in correlation to the artist’s popularity. Imagine if you had supported the creation of the first vinyl of the Rolling Stones 🙂</p>
+            <button class="btn-sunset">Discover new talents</button>
+          </div>
+          <div aria-label="Artist value growth from 2022 to 2027">
+            <div class="growth-chart" aria-hidden="true">
+              <i class="growth-bar" style="height: 24px"></i><i class="growth-bar" style="height: 61px"></i><i class="growth-bar" style="height: 42px"></i><i class="growth-bar" style="height: 41px"></i><i class="growth-bar" style="height: 38px"></i><i class="growth-bar" style="height: 22px"></i><i class="growth-bar" style="height: 34px"></i><i class="growth-bar" style="height: 39px"></i><i class="growth-bar" style="height: 31px"></i><i class="growth-bar" style="height: 23px"></i><i class="growth-bar" style="height: 38px"></i><i class="growth-bar" style="height: 44px"></i><i class="growth-bar" style="height: 84px"></i><i class="growth-bar" style="height: 91px"></i><i class="growth-bar" style="height: 103px"></i><i class="growth-bar" style="height: 96px"></i><i class="growth-bar" style="height: 124px"></i><i class="growth-bar" style="height: 133px"></i><i class="growth-bar" style="height: 141px"></i><i class="growth-bar" style="height: 145px"></i><i class="growth-bar" style="height: 153px"></i><i class="growth-bar" style="height: 182px"></i>
+            </div>
+            <div class="growth-years"><span>2022</span><span>2023</span><span>2024</span><span>2025</span><span>2026</span><span>2027</span></div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- Component 7: FAQ -->
+    <section class="component-box">
+      <div class="component-header">
+        <h2 class="component-title">7. FAQ Accordion</h2>
+        <span class="component-tag">Native HTML</span>
+      </div>
+
+      <div class="preview-card">
+        <section class="faq-block">
+          <h3>FAQ</h3>
+          <div class="faq-list">
+            <details class="faq-item"><summary>What is Pianity all about, and how is it going to change my music experience?</summary><p>Pianity connects music lovers with limited-edition songs and new ways to support the artists they follow.</p></details>
+            <details class="faq-item"><summary>What makes Pianity stand out from other music platforms?</summary><p>Each release is designed to be collectible, connecting ownership with a closer artist community.</p></details>
+            <details class="faq-item"><summary>What’s this ‘Toplist’ everyone’s buzzing about, and how can I join in?</summary><p>The Toplist showcases activity and new discoveries across the community.</p></details>
+            <details class="faq-item"><summary>I’ve heard of ‘Scarcity Levels’. What do they mean for my music collection’s value?</summary><p>Scarcity reflects the number of editions available for each song and the perks attached to it.</p></details>
+            <details class="faq-item"><summary>What are these $PIA tokens, and how do I earn and use them?</summary><p>Tokens support participation in the platform’s artist and collector ecosystem.</p></details>
+            <details class="faq-item"><summary>What’s a ‘Bounty’ and how do I claim one?</summary><p>Bounties are community rewards made available through specific activities and releases.</p></details>
+            <details class="faq-item"><summary>Tell me about the ‘Clubs’ on Pianity. How can they bring me closer to my favorite artists?</summary><p>Artist clubs unlock more direct ways to join an artist’s world.</p></details>
+            <details class="faq-item"><summary>What are these Leaderboards I’ve heard about, and how can I climb to the top?</summary><p>Leaderboards recognise active participation from listeners and collectors.</p></details>
+            <details class="faq-item"><summary>What’s the scoop on these Weekly Rewards, and how can I boost my earnings?</summary><p>Weekly rewards offer recurring opportunities to take part in the community.</p></details>
+            <details class="faq-item"><summary>How do payments work on Pianity? Can I use my credit card or crypto, and what about gas fees?</summary><p>Payment options and any transaction fees are shown before a purchase is completed.</p></details>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <!-- Component 8: App Download Banner -->
+    <section class="component-box">
+      <div class="component-header">
+        <h2 class="component-title">8. App Download Banner</h2>
+        <span class="component-tag">Download CTA</span>
+      </div>
+
+      <div class="preview-card">
+        <section class="download-block">
+          <div class="download-content">
+            <h3>Bring Pianity<br>anywhere you go</h3>
+            <p>The future of music right at your fingertips</p>
+            <div class="store-row">
+              <a class="store-badge" href="#"><span class="store-symbol">●</span><span><small>Download on the</small><strong>App Store</strong></span></a>
+              <a class="store-badge" href="#"><span class="store-symbol">▶</span><span><small>GET IT ON</small><strong>Google Play</strong></span></a>
+            </div>
+          </div>
+          <div class="phone-mosaic" aria-hidden="true"><div class="phone phone--one"></div><div class="phone phone--two"></div><div class="phone phone--three"></div><div class="phone phone--four"></div></div>
+        </section>
+      </div>
+    </section>
+
+    <!-- Component 9: Light Footer -->
+    <section class="component-box">
+      <div class="component-header">
+        <h2 class="component-title">9. Light Footer</h2>
+        <span class="component-tag">Footer & Navigation</span>
+      </div>
+
+      <div class="preview-card">
+        <footer class="footer-block">
+          <div class="footer-grid">
+            <div>
+              <div class="footer-logo">PIANITY</div>
+              <p class="footer-description">Pianity is a music NFT platform where musicians and their community gather to create, share, trade and collect limited-edition songs.</p>
+              <div class="footer-kicker">Follow us</div>
+              <div class="footer-socials" aria-label="Social media links">
+                <a class="footer-social" href="#" aria-label="Facebook">f</a><a class="footer-social" href="#" aria-label="Instagram">◎</a><a class="footer-social" href="#" aria-label="Twitter">♥</a><a class="footer-social" href="#" aria-label="Discord">◉</a><a class="footer-social" href="#" aria-label="Telegram">➤</a><a class="footer-social" href="#" aria-label="YouTube">▶</a>
+              </div>
+            </div>
+            <nav class="footer-column" aria-label="Platform links">
+              <h4>Platform</h4><a href="#">Market</a><a href="#">Toplist</a><a href="#">Stats</a><div class="footer-divider"></div><a href="#">Mobile App</a><a href="#">Activity</a><a href="#">Playlists</a><a href="#">Refer a friend</a><a href="#">Submit a song</a>
+            </nav>
+            <nav class="footer-column" aria-label="Global links">
+              <h4>Global</h4><a href="#">Helpdesk</a><a href="#">About us</a><a href="#">Earn weekly rewards</a><a href="#">Our artists</a><a href="#">Press</a><a href="#">Blog</a><a href="#">Changelog</a><a href="#">Careers</a><a href="#">Terms of Service</a><a href="#">Contact us</a>
+            </nav>
+            <div class="footer-options">
+              <div class="footer-option"><label for="footer-language">Language</label><select id="footer-language"><option>English</option><option>French</option></select></div>
+              <div class="footer-option"><label for="footer-currency">Currency</label><select id="footer-currency"><option>EUR</option><option>USD</option></select></div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </section>
+
+  </div>
+
+</body>
+</html>

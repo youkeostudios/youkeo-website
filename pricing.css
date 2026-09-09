@@ -22,7 +22,7 @@ body { min-width: 320px; overflow-x: hidden; color: #f6f4f8; background: #0a090f
 .pricing-card { position: relative; display: flex; flex-direction: column; min-width: 0; min-height: 470px; padding: 30px; overflow: hidden; color: #f6f4f8; background: linear-gradient(150deg,rgba(47,48,77,.86),rgba(20,20,32,.96)); border: 1px solid rgba(213,210,240,.25); border-radius: 26px; box-shadow: inset 0 1px rgba(255,255,255,.07); }
 .pricing-card::after { content: ''; position: absolute; right: -100px; bottom: -135px; width: 290px; height: 290px; border-radius: 50%; background: radial-gradient(circle,rgba(132,122,255,.28),transparent 68%); pointer-events: none; }
 .pricing-card.featured { background: linear-gradient(145deg,rgba(77,70,123,.98),rgba(28,25,43,.98)); border-color: rgba(218,211,255,.52); }
-.pricing-card:hover,.pricing-card.featured:hover { border-color: rgba(218,211,255,.58); background: linear-gradient(150deg,rgba(57,58,93,.96),rgba(24,24,39,.98)); box-shadow: inset 0 1px rgba(255,255,255,.08); transform: translateY(-5px); }
+.pricing-card:hover,.pricing-card.featured:hover { border-color: rgba(218,211,255,.58); background: linear-gradient(150deg,rgba(57,58,93,.96),rgba(24,24,39,.98)); box-shadow: inset 0 1px rgba(255,255,255,.08); }
 .pricing-card.featured:hover { background: linear-gradient(145deg,rgba(83,76,132,.98),rgba(31,28,48,.98)); }
 .pricing-card.featured::before { content: 'Most chosen'; top: 0; padding: 8px 16px; border-radius: 0 0 10px 10px; color: #17131d; background: linear-gradient(105deg,#ddd3fb,#efd9e7 42%,#ffd6ad); font: 800 9px/1 'Plus Jakarta Sans',sans-serif; letter-spacing: .12em; }
 .pricing-card-name { position: relative; z-index: 1; color: #fff; font: 800 1.25rem/1.2 'Plus Jakarta Sans',sans-serif; }
@@ -88,3 +88,8 @@ body { min-width: 320px; overflow-x: hidden; color: #f6f4f8; background: #0a090f
   .p-cta .btn { display: flex; align-items: center; justify-content: center; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+.pricing-card .btn-primary,
+.p-cta .btn-primary { background: #fff; }
+.pricing-card .btn-primary:hover,
+.p-cta .btn-primary:hover { background: #e6e8f0; }

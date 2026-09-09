@@ -251,7 +251,7 @@
 <header class="site-header">
   <nav class="component-navbar" aria-label="Primary navigation">
     <div class="nav-left">
-      <a href="../index.html" class="logo" aria-label="Youkeo Studios – Recording Studio Navi Mumbai">YOUKEO</a>
+      <a href="../index.html" class="logo" aria-label="Youkeo Studios – Recording Studio Navi Mumbai"><img src="/assets/brand/youkeo-white-transparent.svg" alt="Youkeo"></a>
       <ul class="nav-links">
         <li><a href="../index.html" class="nav-item">Home</a></li>
         <li><a href="#why" class="nav-item">Why us</a></li>
@@ -346,10 +346,16 @@
      ============================================================ -->
 <section class="rec-hero-social" aria-label="Featured testimonial">
   <div class="rec-hero-social-inner">
-    <!-- VERIFY: confirm "Featured on NEXA Music by AR Rahman" is literally true before launch -->
-    <span class="rec-hero-social-badge">Featured on NEXA Music by AR Rahman</span>
+    <div class="rec-hero-social-copy">
+      <!-- VERIFY: confirm "Featured on NEXA Music by AR Rahman" is literally true before launch -->
+      <span class="rec-hero-social-badge">Featured on NEXA Music by AR Rahman</span>
+      <span class="rec-hero-social-kicker">Artist story</span>
+      <h2 class="rec-hero-social-title">Jassi</h2>
+      <p class="rec-hero-social-meta">Rapper · Recorded at Youkeo Studios</p>
+      <p class="rec-hero-social-prompt">Tap the video to hear about the studio experience.</p>
+    </div>
     <div class="rec-hero-social-card">
-      <div class="t-card t-video-card" data-video="https://cdn.youkeostudios.com/reviews/jassi.mp4">
+      <div class="t-card t-video-card" data-video="https://cdn.youkeostudios.com/reviews/jassi.mp4" role="button" tabindex="0" aria-label="Play Jassi's testimonial">
         <video class="t-video-cover" src="https://cdn.youkeostudios.com/reviews/jassi.mp4#t=0.001" preload="metadata" muted playsinline></video>
         <div class="t-video-overlay">
           <div class="t-play-btn">
@@ -550,69 +556,6 @@
     </div>
 
     <p class="rec-pricing-note"><span>Limited slots per week</span> — weekends book up fastest. Message us to check availability.</p>
-
-  </div>
-</section>
-
-
-<!-- ============================================================
-     TESTIMONIALS — FULL (homepage copy)
-     ============================================================ -->
-<section id="testimonials">
-  <div class="testimonials-header">
-    <span class="section-label">Artists speak</span>
-    <h2 class="section-h2">See what recording<br>here feels like.</h2>
-  </div>
-
-  <div class="t-masonry">
-
-    <!-- Video 1 -->
-    <div class="t-duo">
-      <div class="t-card t-video-card" data-video="https://cdn.youkeostudios.com/reviews/prince.mp4">
-        <video class="t-video-cover" src="https://cdn.youkeostudios.com/reviews/prince.mp4#t=0.001" preload="metadata" muted playsinline></video>
-        <div class="t-video-overlay">
-          <div class="t-play-btn">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
-          </div>
-          <div class="t-video-info">
-            <div class="t-video-name">Prince</div>
-            <div class="t-video-title">Marketing Manager<br>Represent Management</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Video 2 -->
-    <div class="t-duo">
-      <div class="t-card t-video-card" data-video="https://cdn.youkeostudios.com/reviews/jassi.mp4">
-        <video class="t-video-cover" src="https://cdn.youkeostudios.com/reviews/jassi.mp4#t=0.001" preload="metadata" muted playsinline></video>
-        <div class="t-video-overlay">
-          <div class="t-play-btn">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
-          </div>
-          <div class="t-video-info">
-            <div class="t-video-name">Jassi</div>
-            <div class="t-video-title">Rapper<br>Featured on NEXA Music by AR Rahman</div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Video 3 -->
-    <div class="t-duo">
-      <div class="t-card t-video-card" data-video="https://cdn.youkeostudios.com/reviews/bamboy_b.mp4">
-        <video class="t-video-cover" src="https://cdn.youkeostudios.com/reviews/bamboy_b.mp4#t=0.001" preload="metadata" muted playsinline></video>
-        <div class="t-video-overlay">
-          <div class="t-play-btn">
-            <svg width="48" height="48" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
-          </div>
-          <div class="t-video-info">
-            <div class="t-video-name">Bamboy</div>
-            <div class="t-video-title">Rapper<br>Representing Swadeshi Movement</div>
-          </div>
-        </div>
-      </div>
-    </div>
 
   </div>
 </section>
@@ -883,8 +826,8 @@
 <footer id="footer">
   <div class="footer-main">
     <div class="footer-brand-col">
-      <div class="footer-logomark">Y<span class="footer-dot">.</span></div>
-      <div class="footer-brand-name">YOUKEO<br>STUDIOS</div>
+      <a href="../index.html" class="footer-brand-logo" aria-label="Youkeo Studios"><img src="/assets/brand/youkeo-white-transparent.svg" alt="Youkeo"></a>
+      <p class="footer-tagline">Recording and production for artists ready to sound release-ready.</p>
       <div class="footer-info">
         <p>Near ICICI Bank, Sector-19</p>
         <p>Airoli, Navi Mumbai</p>
@@ -933,12 +876,16 @@
       </ul>
     </div>
   </div>
-  <div class="footer-wordmark">YOUKEO<span class="footer-dot">.</span></div>
+  <div class="footer-bottom">
+    <span>© 2026 Youkeo Studios</span>
+    <span>Open daily · 11 AM–10 PM</span>
+    <a href="#top">Back to top <span>↑</span></a>
+  </div>
 </footer>
 
 
 <!-- Sticky WhatsApp -->
-<a id="whatsapp-btn" href="https://wa.me/919619192992?text=Hi%2C%20I%27d%20like%20to%20book%20a%20session%20at%20Youkeo%20Studios.%0A%0AService%3A%20(recording%20%2F%20full%20package%20%2F%20production)%0ABeat%20ready%3A%20Yes%20%2F%20No%0APreferred%20date%3A%20" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp" onclick="gtag('event','contact_click',{method:'whatsapp',location:'sticky_button',page:'recording'}); trackWhatsApp();">
+<a id="whatsapp-btn" hidden href="https://wa.me/919619192992?text=Hi%2C%20I%27d%20like%20to%20book%20a%20session%20at%20Youkeo%20Studios.%0A%0AService%3A%20(recording%20%2F%20full%20package%20%2F%20production)%0ABeat%20ready%3A%20Yes%20%2F%20No%0APreferred%20date%3A%20" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp" onclick="gtag('event','contact_click',{method:'whatsapp',location:'sticky_button',page:'recording'}); trackWhatsApp();">
   <svg class="wa-icon" viewBox="0 0 32 32" fill="none">
     <circle cx="16" cy="16" r="16" fill="none"/>
     <path d="M23.5 8.5C21.7 6.7 19.3 5.7 16.7 5.7 11.3 5.7 6.9 10.1 6.9 15.5c0 1.7.4 3.3 1.3 4.8L6.8 25.3l5.2-1.4c1.4.8 3 1.2 4.7 1.2 5.4 0 9.8-4.4 9.8-9.8 0-2.6-1-5-2.8-6.8zM16.7 23.6c-1.5 0-2.9-.4-4.1-1.1l-.3-.2-3.1.8.8-3-.2-.3c-.8-1.3-1.2-2.7-1.2-4.3 0-4.5 3.6-8.1 8.1-8.1 2.2 0 4.2.8 5.7 2.4 1.5 1.5 2.4 3.6 2.4 5.7-.1 4.5-3.7 8.1-8.1 8.1zm4.5-6.1c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.2-.5-.5-1-1.1-1.4-1.7-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.5.1-.1.1-.2.2-.4 0-.1 0-.3 0-.4 0-.1-.5-1.2-.7-1.7-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.2-.2.2-.8.8-.8 1.9s.8 2.2.9 2.4c.1.2 1.6 2.4 3.8 3.4.5.2 1 .4 1.4.5.6.2 1.1.1 1.6.1.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.2-.2-.3-.4-.4z" fill="white"/>
