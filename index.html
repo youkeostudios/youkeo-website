@@ -383,27 +383,29 @@
       <a href="#recorded-here" class="hero-cta-secondary" onclick="gtag('event','cta_click',{button_text:'Hear the work',location:'hero',page:'home'})">↓ Hear the work</a>
     </div>
   </div>
-
-
-  <!-- Stats bar -->
-  <!-- VERIFY: confirm these counts are literally true before launch (200+ sessions, 1M+ streams, 200+ artists) -->
-  <!-- FLAG (founder vs studio): "1M+ Spotify Streams" is ambiguous — studio total, one client track, or the founder's own streams? If it's a client track recorded here, label it "1M+ streams on tracks recorded here"; do not present the founder's personal streams as the studio's proof. Awaiting user decision. -->
-  <div class="hero-stats" aria-label="Studio highlights">
-    <div class="hero-stat">
-      <div class="hero-stat-num">200+</div>
-      <div class="hero-stat-label">Artists Recorded</div>
-    </div>
-    <div class="hero-stat">
-      <div class="hero-stat-num">1M+</div>
-      <div class="hero-stat-label">Streams on Tracks Here</div>
-    </div>
-    <div class="hero-stat">
-      <div class="hero-stat-num">5.0 ★</div>
-      <div class="hero-stat-label">Google Rating (25+ Reviews)</div>
-    </div>
-  </div>
-
 </section>
+
+<!-- Studio highlights -->
+<aside class="hero-stats" aria-label="Youkeo Studios highlights">
+  <div class="hero-stat">
+    <span class="hero-stat-num">200+</span>
+    <span class="hero-stat-label">Artists Recorded</span>
+  </div>
+  <a class="hero-stat" href="#recorded-here" aria-label="Explore tracks recorded at Youkeo Studios with more than 1 million streams">
+    <span class="hero-stat-num">1M+</span>
+    <span class="hero-stat-label">Streams on Tracks Recorded Here</span>
+  </a>
+  <a class="hero-stat" href="https://www.google.com/search?q=Youkeo+Studios+reviews" target="_blank" rel="noopener" aria-label="5 stars on Google Reviews for Youkeo Studios">
+    <span class="hero-stat-num hero-stat-num--rating">
+      <span>5.0</span>
+      <span class="hero-stat-star" aria-hidden="true">
+        <span class="hero-stat-star-row"><span>★</span><span>★</span></span>
+        <span class="hero-stat-star-row"><span>★</span><span>★</span><span>★</span></span>
+      </span>
+    </span>
+    <span class="hero-stat-label">On Google Reviews</span>
+  </a>
+</aside>
 
 
 <!-- ============================================================
