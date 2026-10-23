@@ -1,0 +1,895 @@
+<!doctype html>
+<html lang="en-IN">
+<head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-M9KKG5QK');</script>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Youkeo Studios — Recording studio in Airoli, Navi Mumbai</title>
+  <meta name="description" content="Recording, production, mixing and mastering in Airoli, Navi Mumbai. 200+ artists recorded, 10M+ streams on tracks made here." />
+  <!-- Design exploration: keep out of search until it replaces the live homepage. -->
+  <meta name="robots" content="noindex, follow" />
+  <link rel="canonical" href="https://youkeostudios.com/" />
+  <meta name="theme-color" content="#0B0B10" />
+  <link rel="icon" type="image/jpeg" href="/media/favicon/favicon-black.jpg" />
+  <meta property="og:image" content="https://youkeostudios.com/media/images/og-image.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@1&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preload" as="image" href="/media/stills/hero-poster.jpg" />
+
+  <script>
+    // Motion-only states hang off .js-motion, so content stays visible with reduced motion or no GSAP.
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('js-motion');
+  </script>
+
+  <!-- GOOGLE TAG (GA4 + GOOGLE ADS) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KFE2B59HDH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-KFE2B59HDH');
+    gtag('config', 'AW-17982763316');
+    // Google Ads conversion helpers (same labels as /script.js)
+    function trackWhatsApp() { gtag('event', 'conversion', { 'send_to': 'AW-17982763316/enjPCImSjJgcELTi7P5C' }); }
+    function trackPhone() { gtag('event', 'conversion', { 'send_to': 'AW-17982763316/VHX9CIySjJgcELTi7P5C' }); }
+    function trackEmail() { gtag('event', 'conversion', { 'send_to': 'AW-17982763316/fYB9CI-SjJgcELTi7P5C' }); }
+  </script>
+
+  <style>
+    /* ── Tokens ─────────────────────────────────────────────────────────── */
+    :root {
+      --ink: #0B0B10;          /* dark canvas */
+      --ink-2: #16131D;        /* raised dark surface */
+      --paper: #F4F2FA;        /* light sections */
+      --white: #FFFFFF;
+      --fog: #D8D4DF;          /* body copy on dark */
+      --mute: #A9A4B6;         /* secondary on dark */
+      --ink-mute: #5A5568;     /* secondary on light */
+      --lav: #C9C1FF;          /* accent */
+      --violet: #8279BF;       /* the dot in the YOUKEO. wordmark */
+      --line-d: rgba(255,255,255,.12);
+      --line-l: rgba(11,11,16,.12);
+
+      --sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --serif: 'Instrument Serif', Georgia, serif;
+      --mono: 'Geist Mono', ui-monospace, 'SF Mono', monospace;
+
+      --wrap: 1240px;
+      --gut: clamp(20px, 4vw, 48px);
+      --sec: clamp(96px, 12vw, 176px);
+      --block: clamp(48px, 5.5vw, 80px);
+      --nav: 76px;
+      --ease: cubic-bezier(.16, 1, .3, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; overflow-x: clip; }
+    html.js-motion { scroll-behavior: smooth; }
+    [id] { scroll-margin-top: 88px; }
+    body { margin: 0; background: var(--ink); color: var(--fog); font: 400 17px/1.6 var(--sans); overflow-x: clip; -webkit-font-smoothing: antialiased; }
+    img, video, svg { display: block; max-width: 100%; }
+    img { height: auto; }
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; color: inherit; }
+    :focus-visible { outline: 2px solid var(--lav); outline-offset: 3px; border-radius: 8px; }
+    .skip { position: fixed; z-index: 300; left: 16px; top: -60px; padding: 12px 18px; border-radius: 999px; background: var(--white); color: var(--ink); font-weight: 600; }
+    .skip:focus { top: 16px; }
+    .wrap { width: 100%; max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gut); }
+    .sec { padding: var(--sec) 0; }
+
+    /* ── Type: sans headlines that end on the logo's violet dot ─────────── */
+    .h1, .h2 { margin: 0; color: var(--white); font-family: var(--sans); font-weight: 600; text-wrap: balance; }
+    .h1 { font-size: clamp(52px, 8.4vw, 128px); line-height: .98; letter-spacing: -.045em; }
+    .h2 { font-size: clamp(36px, 4.6vw, 64px); line-height: 1.06; letter-spacing: -.035em; }
+    .h1::after, .h2::after { content: '.'; color: var(--violet); }
+    /* Italic serif is reserved for the hero and the closing CTA. */
+    .h1 em, .h2 em { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: 1.08em; letter-spacing: -.01em; }
+    .lede { max-width: 46ch; margin: 0; font-size: clamp(16px, 1.3vw, 18px); line-height: 1.65; text-wrap: pretty; }
+    .mono { font: 500 12px/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; }
+
+    /* Track labels replace eyebrow pills: mono, numbered like a tracklist. */
+    .trk { display: flex; align-items: center; gap: 12px; margin: 0 0 28px; color: var(--fog); font: 500 12px/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; }
+    .trk::before { content: ''; flex: none; width: 8px; height: 8px; border-radius: 50%; background: var(--violet); box-shadow: 0 0 0 4px rgba(130,121,191,.2); }
+    .trk b { font-weight: 500; color: var(--mute); }
+    .fine { margin: 14px 0 0; color: var(--mute); font: 500 11px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+
+    /* Heading left, supporting copy right */
+    .split { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 32px 64px; align-items: end; }
+    .split .btns { justify-content: flex-start; margin-top: 28px; }
+
+    /* ── Buttons ────────────────────────────────────────────────────────── */
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; min-height: 52px; padding: 0 30px; border: 2px solid transparent; border-radius: 160px; font: 600 16px/1 var(--sans); white-space: nowrap; cursor: pointer; transition: background .3s var(--ease), color .3s var(--ease), border-color .3s var(--ease), transform .3s var(--ease); }
+    .btn:active { transform: scale(.98); }
+    .btn--light { background: var(--white); color: var(--ink); border-color: var(--white); }
+    .btn--light:hover { background: var(--lav); border-color: var(--lav); }
+    .btn--ghost { border-color: rgba(255,255,255,.22); color: var(--white); }
+    .btn--ghost:hover { border-color: var(--white); }
+    .btn--dark { background: var(--ink); color: var(--white); border-color: var(--ink); }
+    .btn--dark:hover { background: var(--violet); border-color: var(--violet); }
+    .btn--line { border-color: rgba(11,11,16,.25); color: var(--ink); }
+    .btn--line:hover { border-color: var(--ink); }
+    .btn--sm { min-height: 44px; padding: 0 22px; font-size: 14px; }
+    .btns { display: flex; flex-wrap: wrap; gap: 12px; }
+    .arrow { width: 48px; height: 48px; display: grid; place-items: center; border: 1px solid var(--line-l); border-radius: 50%; background: none; color: var(--ink); cursor: pointer; transition: background .3s, color .3s, border-color .3s; }
+    .arrow:hover { background: var(--ink); color: var(--white); border-color: var(--ink); }
+    .arrow svg { width: 18px; height: 18px; }
+
+    /* ── Nav ────────────────────────────────────────────────────────────── */
+    .nav { position: fixed; z-index: 100; inset: 0 0 auto; height: var(--nav); transition: background .4s, transform .4s var(--ease), border-color .4s; border-bottom: 1px solid transparent; }
+    .nav.is-solid { background: rgba(11,11,16,.86); backdrop-filter: blur(14px); border-color: var(--line-d); }
+    .nav.is-hidden { transform: translateY(-100%); }
+    .nav__in { display: flex; align-items: center; gap: 40px; height: 100%; }
+    .nav__logo { display: block; padding: 11px 0; }
+    .nav__logo img { width: 112px; }
+    .nav__links { display: flex; gap: 30px; }
+    .nav__links a { color: var(--fog); font-size: 15px; font-weight: 500; padding: 12px 0; transition: color .2s; }
+    .nav__links a:hover { color: var(--white); }
+    .nav__end { display: flex; align-items: center; gap: 24px; margin-left: auto; }
+    .nav__call { color: var(--fog); font: 500 13px/1 var(--mono); letter-spacing: .02em; padding: 14px 0; }
+    .nav__call:hover { color: var(--white); }
+    .nav__menu { display: none; width: 44px; height: 44px; margin-left: auto; border: 0; background: none; cursor: pointer; flex-direction: column; align-items: center; justify-content: center; gap: 6px; }
+    .nav__menu span { width: 22px; height: 2px; border-radius: 2px; background: var(--white); }
+    .drawer { position: fixed; z-index: 120; inset: 0; display: flex; flex-direction: column; padding: 100px var(--gut) 32px; background: var(--ink); visibility: hidden; opacity: 0; transition: opacity .3s, visibility .3s; }
+    .drawer.is-open { visibility: visible; opacity: 1; }
+    .drawer > a:not(.btn) { display: flex; align-items: baseline; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line-d); color: var(--white); font: 600 34px/1.1 var(--sans); letter-spacing: -.03em; }
+    .drawer > a:not(.btn) small { color: var(--mute); font: 500 12px/1 var(--mono); letter-spacing: .06em; }
+    .drawer .btn { margin-top: 28px; }
+    .drawer__x { position: absolute; top: 16px; right: calc(var(--gut) - 10px); width: 44px; height: 44px; border: 0; background: none; color: var(--white); font-size: 32px; cursor: pointer; }
+
+    /* ── Hero: a take in progress ───────────────────────────────────────── */
+    .hero { position: relative; min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden; padding-top: calc(var(--nav) + 40px); }
+    .hero__media { position: absolute; inset: 0; z-index: 0; }
+    .hero__media video { width: 100%; height: 100%; object-fit: cover; }
+    .hero__media::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(11,11,16,.75), rgba(11,11,16,.15) 75%), linear-gradient(180deg, rgba(11,11,16,.5), rgba(11,11,16,.2) 35%, rgba(11,11,16,.95)); }
+    .hero__in { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 360px); gap: 32px 64px; align-items: end; padding-bottom: clamp(36px, 4.5vw, 64px); }
+    .hero .trk { color: var(--white); }
+    /* SplitText masks clip at the line box; pad them so descenders and the italic overhang survive. */
+    .hero__line div { padding: 0 .06em .16em 0; margin: 0 -.06em -.16em 0; }
+    .hero .lede { margin-bottom: 28px; color: var(--fog); }
+
+    /* Arrangement view along the bottom of the hero */
+    .tl { position: relative; z-index: 1; padding: 14px 0 26px; border-top: 1px solid var(--line-d); background: rgba(11,11,16,.55); backdrop-filter: blur(8px); }
+    .tl__bar { display: flex; align-items: center; gap: 28px; margin-bottom: 14px; color: var(--mute); }
+    .tl__rec { display: inline-flex; align-items: center; gap: 8px; color: var(--white); }
+    .tl__rec::before { content: ''; width: 9px; height: 9px; border-radius: 50%; background: var(--violet); animation: rec 2.4s ease-in-out infinite; }
+    @keyframes rec { 50% { background: var(--lav); box-shadow: 0 0 14px 3px rgba(201,193,255,.6); } }
+    .tl__tc { color: var(--white); font-variant-numeric: tabular-nums; }
+    .tl__stat { margin-left: auto; }
+    .tl__body { display: grid; grid-template-columns: 84px minmax(0, 1fr); gap: 0 16px; }
+    .tl__names, .tl__tracks { display: grid; grid-auto-rows: 26px; row-gap: 6px; }
+    .tl__names span { color: var(--mute); line-height: 26px; }
+    .tl__tracks { position: relative; }
+    .lane { position: relative; border-radius: 6px; background: rgba(255,255,255,.03) repeating-linear-gradient(90deg, rgba(255,255,255,.07) 0 1px, transparent 1px 12.5%); }
+    .clip { position: absolute; top: 0; bottom: 0; left: calc(var(--a) * 1%); width: calc(var(--w) * 1%); overflow: hidden; padding: 0 10px; border: 1px solid rgba(201,193,255,.28); border-radius: 6px; background: linear-gradient(90deg, var(--violet) var(--f, 0%), rgba(130,121,191,.12) var(--f, 0%)); color: var(--white); font: 500 11px/24px var(--mono); letter-spacing: .04em; white-space: nowrap; transition: border-color .3s; }
+    .clip.is-live { border-color: var(--lav); }
+    .tl__head { position: absolute; top: -8px; bottom: -8px; left: var(--p, 0%); width: 2px; margin-left: -1px; background: var(--white); box-shadow: 0 0 12px rgba(201,193,255,.8); }
+    .tl__head::before { content: ''; position: absolute; top: -6px; left: -5px; border: 6px solid transparent; border-top-color: var(--white); }
+
+    /* ── The room (dark) ────────────────────────────────────────────────── */
+    .gallery { margin-top: var(--block); }
+    .track { --pad: var(--gut); display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding: 0 var(--pad); scroll-padding-inline: var(--pad); cursor: grab; }
+    .track::-webkit-scrollbar { display: none; }
+    .track.is-drag { cursor: grabbing; scroll-snap-type: none; }
+    .track > * { flex: none; scroll-snap-align: start; }
+    /* Line the first photo up with the content column; scroll-padding keeps snap from eating the gutter. */
+    @media (min-width: 1240px) { .track { --pad: calc((100vw - var(--wrap)) / 2 + var(--gut)); } }
+    .shot { position: relative; width: clamp(280px, 34vw, 460px); aspect-ratio: 4 / 3; margin: 0; overflow: hidden; border-radius: 12px; background: var(--ink-2); }
+    .shot img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); pointer-events: none; }
+    .shot:hover img { transform: scale(1.05); }
+    .shot figcaption { position: absolute; left: 14px; bottom: 14px; padding: 7px 10px 6px; border-radius: 6px; background: rgba(11,11,16,.7); backdrop-filter: blur(8px); color: var(--white); }
+
+    /* ── Light sections ─────────────────────────────────────────────────── */
+    .paper { position: relative; background: var(--paper); color: var(--ink-mute); }
+    .paper .h2 { color: var(--ink); }
+    .paper .trk { color: var(--ink); }
+    .paper .trk b { color: var(--ink-mute); }
+    .paper .sec + .sec { padding-top: 0; }
+    /* A playhead line sweeps across where the dark ends. */
+    .seam { position: absolute; z-index: 2; top: 0; left: 0; right: 0; height: 2px; background: var(--lav); transform-origin: 0 50%; }
+
+    /* Mixing desk */
+    .desk { margin-top: var(--block); padding: 10px; border-radius: 20px; background: var(--ink); box-shadow: 0 50px 90px -40px rgba(11,11,16,.55); }
+    .desk__bar { display: flex; justify-content: space-between; gap: 16px; padding: 8px 10px 14px; color: var(--mute); }
+    .desk__strips { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; }
+    .ch { display: flex; flex-direction: column; gap: 12px; padding: 10px; border: 0; border-radius: 12px; background: var(--ink-2); text-align: left; cursor: pointer; transition: opacity .35s; }
+    .desk.has-solo .ch:not(.is-solo) { opacity: .35; }
+    .ch__top { display: flex; justify-content: space-between; align-items: center; color: var(--mute); }
+    .ch__led { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,.15); transition: background .3s, box-shadow .3s; }
+    .ch.is-solo .ch__led { background: var(--lav); box-shadow: 0 0 10px var(--lav); }
+    .ch__win { display: block; aspect-ratio: 1; overflow: hidden; border-radius: 8px; background: #000; }
+    .ch__win img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) brightness(.5); transform: scale(1.06); transition: filter .5s, transform .9s var(--ease); }
+    .ch.is-solo .ch__win img { filter: none; transform: scale(1); }
+    .ch__body { display: grid; grid-template-columns: minmax(0, 1fr) 7px 24px; gap: 10px; height: clamp(170px, 17vw, 236px); }
+    .ch__name { align-self: end; justify-self: start; writing-mode: vertical-rl; transform: rotate(180deg); color: var(--white); font: 600 clamp(24px, 2.4vw, 36px)/1 var(--sans); letter-spacing: -.02em; white-space: nowrap; }
+    .ch__meter { position: relative; overflow: hidden; border-radius: 2px; background: repeating-linear-gradient(0deg, rgba(255,255,255,.07) 0 4px, transparent 4px 6px); }
+    .ch__meter i { position: absolute; left: 0; right: 0; bottom: 0; height: calc(var(--lv) * var(--up, 1) * 100%); background: repeating-linear-gradient(0deg, transparent 0 4px, var(--ink-2) 4px 6px), linear-gradient(0deg, var(--violet), var(--lav)); transform-origin: 50% 100%; transform: scaleY(.4); opacity: .45; }
+    .ch.is-solo .ch__meter i { opacity: 1; animation: meter .8s ease-in-out infinite alternate; }
+    @keyframes meter { 0% { transform: scaleY(.6); } 35% { transform: scaleY(.95); } 70% { transform: scaleY(.72); } 100% { transform: scaleY(1); } }
+    .ch__fader { position: relative; background: linear-gradient(90deg, transparent 11px, rgba(255,255,255,.2) 11px 13px, transparent 13px), repeating-linear-gradient(0deg, rgba(255,255,255,.12) 0 1px, transparent 1px 10%); }
+    .ch__cap { position: absolute; left: 0; right: 0; bottom: calc(var(--lv) * var(--up, 1) * (100% - 30px)); height: 30px; border: 1px solid rgba(255,255,255,.14); border-radius: 4px; background: linear-gradient(180deg, #3A3546, #221E2B); box-shadow: 0 6px 12px rgba(0,0,0,.5); }
+    .ch__cap::after { content: ''; position: absolute; left: 4px; right: 4px; top: 50%; height: 2px; margin-top: -1px; background: var(--white); transition: background .3s; }
+    .ch.is-solo .ch__cap::after { background: var(--lav); }
+    .ch__solo { align-self: flex-start; padding: 7px 10px 6px; border: 1px solid var(--line-d); border-radius: 6px; color: var(--mute); transition: background .3s, color .3s, border-color .3s; }
+    .ch.is-solo .ch__solo { background: var(--lav); border-color: var(--lav); color: var(--ink); }
+
+    /* Session sheets */
+    .sheets { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: var(--block); }
+    .sheet { display: flex; flex-direction: column; padding: clamp(24px, 2.4vw, 34px); border: 1px solid var(--line-l); border-radius: 16px; background: var(--white); color: var(--ink); }
+    .sheet__head { display: flex; justify-content: space-between; align-items: center; min-height: 40px; padding-bottom: 16px; border-bottom: 1px solid var(--line-l); color: var(--ink-mute); }
+    .sheet__tag { padding: 6px 10px 5px; border-radius: 80px; background: var(--lav); color: var(--ink); }
+    .sheet__name { margin: 28px 0 8px; font: 600 clamp(24px, 2.2vw, 30px)/1.15 var(--sans); letter-spacing: -.02em; }
+    .sheet__price { margin: 0 0 28px; font: 500 clamp(36px, 3.4vw, 48px)/1 var(--mono); letter-spacing: -.05em; }
+    .sheet__price .cur { font-family: var(--sans); font-weight: 600; }
+    .sheet__price small { margin-left: 8px; color: var(--ink-mute); font: 400 14px var(--sans); letter-spacing: 0; }
+    .sheet__rows { flex: 1; margin: 0 0 32px; }
+    .sheet__rows div { display: grid; grid-template-columns: 92px minmax(0, 1fr); gap: 12px; padding: 12px 0; border-top: 1px solid var(--line-l); }
+    .sheet__rows dt { color: var(--ink-mute); line-height: 20px; }
+    .sheet__rows dd { margin: 0; font-size: 15px; line-height: 20px; }
+    .sheet__rows .no { color: rgba(11,11,16,.32); }
+    .sheet .btn { width: 100%; }
+    .sheet--hot { border-color: var(--ink); background: var(--ink); color: var(--white); }
+    .sheet--hot .sheet__head, .sheet--hot .sheet__rows div { border-color: var(--line-d); }
+    .sheet--hot .sheet__head, .sheet--hot .sheet__rows dt, .sheet--hot .sheet__price small { color: var(--mute); }
+    .sheet--hot .sheet__rows dd { color: var(--fog); }
+    .sheets__foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px; margin-top: 24px; font-size: 15px; }
+    .sheets__foot a { padding: 10px 0; color: var(--ink); font-weight: 600; text-decoration: underline; text-decoration-color: var(--line-l); text-underline-offset: 6px; }
+
+    /* Record crate */
+    .crate__stage { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 48px; align-items: center; margin-top: var(--block); }
+    .crate__box { --s: clamp(230px, 26vw, 380px); position: relative; height: calc(var(--s) + 150px); perspective: 1400px; perspective-origin: 50% 0%; }
+    .rec { position: absolute; left: 50%; bottom: 84px; width: var(--s); aspect-ratio: 1; overflow: hidden; border-radius: 4px; background: var(--ink); box-shadow: 0 30px 50px -20px rgba(11,11,16,.5); transform: translateX(-50%); transform-origin: 50% 100%; will-change: transform; }
+    .rec img { width: 100%; height: 100%; object-fit: cover; }
+    .rec--you { display: grid; place-content: center; gap: 12px; background: var(--lav); color: var(--ink); text-align: center; }
+    .rec--you b { font: 600 clamp(26px, 2.6vw, 38px)/1.05 var(--sans); letter-spacing: -.03em; }
+    .crate__lip { position: absolute; z-index: 20; left: 50%; bottom: 0; width: calc(var(--s) + 72px); height: 136px; translate: -50% 0; display: flex; align-items: flex-end; justify-content: space-between; padding: 0 20px 18px; border-radius: 14px 14px 20px 20px; background: linear-gradient(180deg, #1E1A28, var(--ink)); color: var(--mute); box-shadow: 0 -1px 0 rgba(255,255,255,.08) inset; }
+    .crate__info .crate__t { margin: 18px 0 6px; color: var(--ink); font: 600 clamp(36px, 4vw, 56px)/1.05 var(--sans); letter-spacing: -.035em; }
+    .crate__info .crate__a { margin: 0 0 16px; }
+    .crate__s { color: var(--violet); }
+    .crate__cta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 28px; }
+    .crate__nav { display: flex; gap: 8px; margin-left: auto; }
+    [hidden] { display: none !important; }
+
+    /* ── Voices (dark) ──────────────────────────────────────────────────── */
+    .voices__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: var(--block); }
+    .vcard { position: relative; aspect-ratio: 4 / 5; overflow: hidden; border-radius: 12px; background: var(--ink-2); }
+    .vcard video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .vcard::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(11,11,16,.92)); pointer-events: none; }
+    .vcard.is-playing::after, .vcard.is-playing .vcard__in { opacity: 0; }
+    .vcard__in { position: absolute; z-index: 1; inset: auto 0 0; padding: 26px; transition: opacity .3s; }
+    .vcard__in h3 { margin: 0; color: var(--white); font: 600 24px/1.2 var(--sans); letter-spacing: -.02em; }
+    .vcard__in p { margin: 8px 0 0; color: var(--fog); font-size: 15px; line-height: 1.5; }
+    .vcard__play { position: absolute; z-index: 2; inset: 0; width: 100%; border: 0; background: none; cursor: pointer; }
+    .vcard__icon { position: absolute; z-index: 1; top: 22px; right: 22px; width: 52px; height: 52px; display: grid; place-items: center; border-radius: 50%; background: var(--white); color: var(--ink); transition: transform .4s var(--ease); }
+    .vcard:hover .vcard__icon { transform: scale(1.08); }
+    .vcard__icon svg { width: 16px; height: 16px; margin-left: 2px; }
+    .vcard__tag { position: absolute; z-index: 1; top: 22px; left: 22px; padding: 7px 10px 6px; border-radius: 6px; background: rgba(11,11,16,.7); color: var(--white); }
+    .vcard--quote { display: flex; flex-direction: column; justify-content: space-between; padding: 30px; border: 1px solid var(--line-d); }
+    .vcard--quote::after { display: none; }
+    .vcard--quote blockquote { margin: 0; color: var(--white); font: 500 clamp(22px, 2vw, 28px)/1.3 var(--sans); letter-spacing: -.02em; }
+    .vcard--quote footer { color: var(--mute); font-size: 14px; }
+    .vcard--quote footer b { display: block; color: var(--white); font-weight: 600; }
+    .stars { color: #FFD19D; letter-spacing: 3px; font-size: 14px; }
+
+    /* ── Founder (dark) ─────────────────────────────────────────────────── */
+    .founder__grid { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: clamp(40px, 7vw, 120px); align-items: center; }
+    .founder__copy p { margin: 0 0 16px; max-width: 48ch; }
+    .founder__photo { aspect-ratio: 4 / 5; margin: 0; overflow: hidden; border-radius: 12px; }
+    .founder__photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 22%; transform: scale(1.25); transform-origin: 50% 24%; filter: brightness(.85) saturate(.85); }
+    .founder__stats { display: flex; gap: 48px; margin: 36px 0 0; }
+    .founder__stats b { display: block; margin-bottom: 8px; color: var(--white); font: 600 44px/1 var(--sans); letter-spacing: -.04em; }
+    .founder__stats span { color: var(--mute); }
+
+    /* ── CTA: full lavender ─────────────────────────────────────────────── */
+    .cta { background: var(--lav); color: var(--ink); }
+    .cta .trk { color: var(--ink); }
+    .cta .trk b { color: rgba(11,11,16,.55); }
+    .cta .h2 { color: var(--ink); font-size: clamp(52px, 8.4vw, 128px); line-height: .98; letter-spacing: -.045em; }
+    .cta__row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 28px 48px; margin-top: var(--block); padding-top: 28px; border-top: 1px solid rgba(11,11,16,.18); }
+    .cta__row p { max-width: 40ch; margin: 0; }
+    .cta .fine { color: rgba(11,11,16,.6); }
+
+    /* ── Footer ─────────────────────────────────────────────────────────── */
+    .foot { padding: clamp(64px, 8vw, 104px) 0 32px; }
+    .foot__top { display: grid; grid-template-columns: minmax(0, 4fr) repeat(3, minmax(0, 2fr)); gap: 40px; }
+    .socials { display: flex; gap: 10px; }
+    .socials a { width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid var(--line-d); border-radius: 50%; color: var(--white); transition: background .3s, color .3s; }
+    .socials a:hover { background: var(--white); color: var(--ink); }
+    .socials svg { width: 18px; height: 18px; }
+    .foot__addr { margin: 24px 0 0; color: var(--mute); font-size: 14px; font-style: normal; line-height: 1.7; }
+    .foot h4 { margin: 0 0 6px; color: var(--white); font: 500 12px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+    .foot ul { margin: 0; padding: 0; list-style: none; }
+    .foot li a { display: inline-block; padding: 11px 0; color: var(--mute); font-size: 15px; transition: color .2s; }
+    .foot li a:hover { color: var(--white); }
+    .foot__mark { margin: clamp(56px, 8vw, 112px) 0 0; }
+    .foot__mark svg { width: min(100%, 1180px); height: auto; overflow: visible; }
+    /* The wordmark's dot glows on the same beat as the hero REC light. */
+    .mark__glow { animation: glow 2.4s ease-in-out infinite; }
+    @keyframes glow { 0%, 100% { opacity: .1; } 50% { opacity: .85; } }
+    .foot__base { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--line-d); color: var(--mute); font-size: 13px; }
+
+    /* ── Mobile bar ─────────────────────────────────────────────────────── */
+    .bar { position: fixed; z-index: 90; left: 12px; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom)); display: none; grid-template-columns: 1.5fr 1fr; gap: 8px; padding: 8px; border-radius: 999px; background: rgba(22,19,29,.92); backdrop-filter: blur(12px); border: 1px solid var(--line-d); transform: translateY(160%); transition: transform .45s var(--ease); }
+    .bar.is-on { transform: none; }
+    .bar .btn { min-height: 48px; padding: 0 16px; }
+
+    /* ── Motion states ──────────────────────────────────────────────────── */
+    .js-motion [data-up] { opacity: 0; transform: translateY(32px); }
+
+    /* ── Responsive ─────────────────────────────────────────────────────── */
+    @media (max-width: 999px) {
+      .nav__links, .nav__end { display: none; }
+      .nav__menu { display: flex; }
+      .bar { display: grid; }
+      .hero__in, .split, .founder__grid, .crate__stage { grid-template-columns: minmax(0, 1fr); }
+      .founder__photo { max-width: 420px; }
+      .sheets { grid-template-columns: minmax(0, 1fr); max-width: 560px; }
+      .voices__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+      .vcard--quote { grid-column: 1 / -1; aspect-ratio: auto; min-height: 260px; }
+      .foot__top { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .foot__brand { grid-column: 1 / -1; }
+      .foot { padding-bottom: calc(100px + env(safe-area-inset-bottom)); }
+    }
+    @media (max-width: 759px) {
+      /* Five strips don't fit a phone: scroll the desk sideways like a tablet mixer. */
+      .desk__strips { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 46%; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+      .desk__strips::-webkit-scrollbar { display: none; }
+      .ch { scroll-snap-align: start; }
+      .ch__body { height: 190px; }
+    }
+    @media (max-width: 640px) {
+      body { font-size: 16px; }
+      .tl__body { grid-template-columns: 58px minmax(0, 1fr); gap: 0 10px; }
+      .tl__take, .tl__stat { display: none; }
+      .shot { width: 78vw; }
+      .voices__grid { grid-template-columns: minmax(0, 1fr); }
+      .founder__stats { gap: 32px; }
+      .hero .btns .btn { flex: 1 1 100%; }
+      .crate__box { --s: 62vw; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <!-- ── Nav ── -->
+  <header class="nav" id="nav">
+    <div class="wrap nav__in">
+      <a class="nav__logo" href="#top" aria-label="Youkeo Studios, back to top"><img src="/assets/brand/youkeo-white-transparent.svg" alt="Youkeo" width="112" height="23" /></a>
+      <nav class="nav__links" aria-label="Main">
+        <a href="#room">Studio</a>
+        <a href="#desk">Artists</a>
+        <a href="#sessions">Packages</a>
+        <a href="#made">Made here</a>
+      </nav>
+      <div class="nav__end">
+        <a class="nav__call" href="tel:+919619192992" onclick="gtag('event','contact_click',{method:'phone',location:'nav',page:'redesign_3'}); trackPhone();">+91 96 1919 2992</a>
+        <a class="btn btn--light btn--sm" href="https://wa.me/919619192992?text=Hi%2C%20I%27d%20like%20to%20check%20availability%20at%20Youkeo%20Studios." target="_blank" rel="noopener" onclick="gtag('event','contact_click',{method:'whatsapp',location:'nav',page:'redesign_3'}); trackWhatsApp();">Check availability</a>
+      </div>
+      <button class="nav__menu" id="menuBtn" type="button" aria-label="Open menu" aria-controls="drawer" aria-expanded="false"><span></span><span></span></button>
+    </div>
+  </header>
+
+  <div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Menu">
+    <button class="drawer__x" id="menuClose" type="button" aria-label="Close menu">×</button>
+    <a href="#room"><small>01</small>Studio</a>
+    <a href="#desk"><small>02</small>Artists</a>
+    <a href="#sessions"><small>03</small>Packages</a>
+    <a href="#made"><small>04</small>Made here</a>
+    <a class="btn btn--light" href="https://wa.me/919619192992?text=Hi%2C%20I%27d%20like%20to%20check%20availability%20at%20Youkeo%20Studios." target="_blank" rel="noopener" onclick="gtag('event','contact_click',{method:'whatsapp',location:'mobile_menu',page:'redesign_3'}); trackWhatsApp();">Check availability</a>
+  </div>
+
+  <main id="main">
+
+    <!-- ── Hero ── -->
+    <section class="hero" id="top" aria-labelledby="heroTitle">
+      <div class="hero__media" aria-hidden="true">
+        <video id="heroVideo" data-src="/media/videos/hero-720.mp4" poster="/media/stills/hero-poster.jpg" muted loop playsinline preload="none"></video>
+      </div>
+      <div class="wrap hero__in">
+        <div>
+          <p class="trk" data-hero>Recording studio · Airoli, Navi Mumbai</p>
+          <h1 class="h1" id="heroTitle"><span class="hero__line">Where songs</span> <span class="hero__line">get <em>finished</em></span></h1>
+        </div>
+        <div data-hero>
+          <p class="lede">Record, produce, mix and master in one room, with an engineer on every session.</p>
+          <div class="btns">
+            <a class="btn btn--light" href="https://wa.me/919619192992?text=Hi%2C%20I%27d%20like%20to%20check%20availability%20at%20Youkeo%20Studios." target="_blank" rel="noopener" onclick="gtag('event','contact_click',{method:'whatsapp',location:'hero_cta',page:'redesign_3'}); trackWhatsApp();">Check availability</a>
+            <a class="btn btn--ghost" href="#sessions">See packages</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Record → produce → mix → master, drawn as an arrangement the playhead runs through -->
+      <div class="tl" id="tl" aria-hidden="true">
+        <div class="wrap">
+          <div class="tl__bar mono"><span class="tl__rec">Rec</span><span class="tl__tc" id="tc">00:00:00:00</span><span class="tl__take">Take 01</span><span class="tl__stat">200+ artists · 10M+ streams</span></div>
+          <div class="tl__body">
+            <div class="tl__names mono"><span>Record</span><span>Produce</span><span>Mix</span><span>Master</span></div>
+            <div class="tl__tracks">
+              <div class="lane"><span class="clip" style="--a:3;--w:30">Vocals</span></div>
+              <div class="lane"><span class="clip" style="--a:22;--w:34">Beat</span></div>
+              <div class="lane"><span class="clip" style="--a:50;--w:28">Stems</span></div>
+              <div class="lane"><span class="clip" style="--a:76;--w:21">Master</span></div>
+              <span class="tl__head" id="tlHead"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── The room (dark) ── -->
+    <section class="sec" id="room" aria-labelledby="roomTitle">
+      <div class="wrap split">
+        <div>
+          <p class="trk" data-up><b>Trk 01</b>The room</p>
+          <h2 class="h2" id="roomTitle" data-up>Navi Mumbai's room for independent releases</h2>
+        </div>
+        <div data-up>
+          <p class="lede">A treated vocal booth, a Neumann U87 and an engineer who has put tracks on New Music Friday.</p>
+          <div class="btns">
+            <a class="btn btn--light" href="https://wa.me/919619192992?text=Hi%2C%20I%27d%20like%20to%20book%20a%20session%20at%20Youkeo%20Studios." target="_blank" rel="noopener" onclick="gtag('event','contact_click',{method:'whatsapp',location:'room',page:'redesign_3'}); trackWhatsApp();">Book a session</a>
+          </div>
+          <p class="fine">Limited weekly slots</p>
+        </div>
+      </div>
+      <div class="gallery">
+        <div class="track" data-drag aria-label="Photos of the studio">
+          <figure class="shot"><img src="/media/stills/control-room.jpg" alt="Engineer and artist in the control room" width="1400" height="788" loading="lazy" /><figcaption class="mono">Control room</figcaption></figure>
+          <figure class="shot"><img src="/media/stills/u87.jpg" alt="Neumann U87 microphone being set up" width="1400" height="788" loading="lazy" /><figcaption class="mono">Neumann U87</figcaption></figure>
+          <figure class="shot"><img src="/media/stills/lounge.jpg" alt="Artists in the studio lounge" width="1400" height="788" loading="lazy" /><figcaption class="mono">Lounge</figcaption></figure>
+          <figure class="shot"><img src="/media/stills/keys.jpg" alt="Producer at the keys" width="1400" height="788" loading="lazy" /><figcaption class="mono">Keys</figcaption></figure>
+          <figure class="shot"><img src="/media/stills/monitors.jpg" alt="Production desk with dual screens" width="1400" height="788" loading="lazy" /><figcaption class="mono">Production desk</figcaption></figure>
+          <figure class="shot"><img src="/media/stills/vocal-booth.jpg" alt="Microphone in the treated vocal booth" width="1400" height="788" loading="lazy" /><figcaption class="mono">Vocal booth</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <div class="paper">
+      <span class="seam" id="seam" aria-hidden="true"></span>
+
+      <!-- ── Who records here: the mixing desk ── -->
+      <section class="sec" id="desk" aria-labelledby="deskTitle">
+        <div class="wrap">
+          <div class="split">
+            <div>
+              <p class="trk" data-up><b>Trk 02</b>Who records here</p>
+              <h2 class="h2" id="deskTitle" data-up>Five channels, one room</h2>
+            </div>
+            <p class="lede" data-up>More than 200 artists have recorded here. Solo a channel to see who.</p>
+          </div>
+          <div class="desk" id="deskEl" data-up>
+            <div class="desk__bar mono"><span>Youkeo · 05 ch</span><span id="deskHint">Hover or tap to solo</span></div>
+            <div class="desk__strips">
+              <button class="ch" type="button" aria-pressed="false" aria-label="Solo singers" style="--lv:.78">
+                <span class="ch__top mono"><span>Ch 01</span><span class="ch__led"></span></span>
+                <span class="ch__win"><img src="/media/stills/vocal-booth.jpg" alt="" width="1400" height="788" loading="lazy" /></span>
+                <span class="ch__body"><span class="ch__name">Singers</span><span class="ch__meter"><i></i></span><span class="ch__fader"><span class="ch__cap"></span></span></span>
+                <span class="ch__solo mono">Solo</span>
+              </button>
+              <button class="ch" type="button" aria-pressed="false" aria-label="Solo rappers" style="--lv:.9">
+                <span class="ch__top mono"><span>Ch 02</span><span class="ch__led"></span></span>
+                <span class="ch__win"><img src="/media/stills/jassi-poster.jpg" alt="" width="540" height="720" loading="lazy" /></span>
+                <span class="ch__body"><span class="ch__name">Rappers</span><span class="ch__meter"><i></i></span><span class="ch__fader"><span class="ch__cap"></span></span></span>
+                <span class="ch__solo mono">Solo</span>
+              </button>
+              <button class="ch" type="button" aria-pressed="false" aria-label="Solo songwriters" style="--lv:.64">
+                <span class="ch__top mono"><span>Ch 03</span><span class="ch__led"></span></span>
+                <span class="ch__win"><img src="/media/stills/lounge.jpg" alt="" width="1400" height="788" loading="lazy" /></span>
+                <span class="ch__body"><span class="ch__name">Songwriters</span><span class="ch__meter"><i></i></span><span class="ch__fader"><span class="ch__cap"></span></span></span>
+                <span class="ch__solo mono">Solo</span>
+              </button>
+              <button class="ch" type="button" aria-pressed="false" aria-label="Solo producers" style="--lv:.82">
+                <span class="ch__top mono"><span>Ch 04</span><span class="ch__led"></span></span>
+                <span class="ch__win"><img src="/media/stills/keys.jpg" alt="" width="1400" height="788" loading="lazy" /></span>
+                <span class="ch__body"><span class="ch__name">Producers</span><span class="ch__meter"><i></i></span><span class="ch__fader"><span class="ch__cap"></span></span></span>
+                <span class="ch__solo mono">Solo</span>
+              </button>
+              <button class="ch" type="button" aria-pressed="false" aria-label="Solo bands" style="--lv:.7">
+                <span class="ch__top mono"><span>Ch 05</span><span class="ch__led"></span></span>
+                <span class="ch__win"><img src="/media/stills/control-room.jpg" alt="" width="1400" height="788" loading="lazy" /></span>
+                <span class="ch__body"><span class="ch__name">Bands</span><span class="ch__meter"><i></i></span><span class="ch__fader"><span class="ch__cap"></span></span></span>
+                <span class="ch__solo mono">Solo</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Packages as session sheets ── -->
+      <section class="sec" id="sessions" aria-labelledby="sessionsTitle">
+        <div class="wrap">
+          <div class="split">
+            <div>
+              <p class="trk" data-up><b>Trk 03</b>Sessions</p>
+              <h2 class="h2" id="sessionsTitle" data-up>Three ways to finish a song</h2>
+            </div>
+            <p class="lede" data-up>One song per package. Price and scope agreed on WhatsApp before your session.</p>
+          </div>
+          <div class="sheets">
+            <article class="sheet sheet--hot" data-up>
+              <header class="sheet__head mono"><span>Session 01</span><span class="sheet__tag">Most chosen</span></header>
+              <h3 class="sheet__name">Production to Final</h3>
+              <p class="sheet__price"><span class="cur">₹</span>26,000<small>/ song</small></p>
+              <dl class="sheet__rows">
+                <div><dt class="mono">Beat</dt><dd>Custom beat + arrangement</dd></div>
+                <div><dt class="mono">Session</dt><dd>2 hours with an engineer</dd></div>
+                <div><dt class="mono">Tuning</dt><dd>Included</dd></div>
+                <div><dt class="mono">Mix</dt><dd>Stem mix + master</dd></div>
+                <div><dt class="mono">Revisions</dt><dd>2</dd></div>
+                <div><dt class="mono">Extras</dt><dd>Release consultation</dd></div>
+              </dl>
+              <a class="btn btn--light" href="https://wa.me/919619192992?text=Hi%2C%20I%27m%20interested%20in%20the%20Production%20to%20Final%20package%20(%E2%82%B926%2C000).%0ASong%20idea%20%2F%20genre%3A%20" target="_blank" rel="noopener" onclick="gtag('event','contact_click',{method:'whatsapp',location:'package_production_to_final',page:'redesign_3'}); trackWhatsApp();">Start a project</a>
+            </article>
+            <article class="sheet" data-up>
+              <header class="sheet__head mono"><span>Session 02</span></header>
+              <h3 class="sheet__name">Recording to Final</h3>
+              <p class="sheet__price"><span class="cur">₹</span>14,000<small>/ song</small></p>
+              <dl class="sheet__rows">
+                <div><dt class="mono">Beat</dt><dd>Bring your own</dd></div>
+                <div><dt class="mono">Session</dt><dd>2 hours with an engineer</dd></div>
+                <div><dt class="mono">Tuning</dt><dd>Vocal tuning</dd></div>
+                <div><dt class="mono">Mix</dt><dd>Stem mix + master</dd></div>
+                <div><dt class="mono">Revisions</dt><dd>2</dd></div>
+                <div><dt class="mono">Extras</dt><dd class="no">—</dd></div>
+              </dl>
+              <a class="btn btn--dark" href="https://wa.me/919619192992?text=Hi%2C%20I%27d%20like%20to%20book%20the%20Recording%20to%20Final%20package%20(%E2%82%B914%2C000).%0ABeat%20ready%3A%20Yes%20%2F%20No%0APreferred%20date%3A%20" target="_blank" rel="noopener" onclick="gtag('event','contact_click',{method:'whatsapp',location:'package_recording_to_final',page:'redesign_3'}); trackWhatsApp();">Book this package</a>
+            </article>
+            <article class="sheet" data-up>
+              <header class="sheet__head mono"><span>Session 03</span></header>
+              <h3 class="sheet__name">Studio by the hour</h3>
+              <p class="sheet__price"><span class="cur">₹</span>1,200<small>/ hour</small></p>
+              <dl class="sheet__rows">
+                <div><dt class="mono">Beat</dt><dd>Bring your own</dd></div>
+                <div><dt class="mono">Session</dt><dd>Pay per hour, engineer included</dd></div>
+                <div><dt class="mono">Tuning</dt><dd class="no">—</dd></div>
+                <div><dt class="mono">Mix</dt><dd>Rough mix</dd></div>
+                <div><dt class="mono">Revisions</dt><dd class="no">—</dd></div>
+                <div><dt class="mono">Extras</dt><dd>Raw stems, 30-day storage</dd></div>
+              </dl>
+              <a class="btn btn--dark" href="https://wa.me/919619192992?text=Hi%2C%20I%27d%20like%20to%20book%20a%20recording%20session%20at%20Youkeo%20Studios%20(%E2%82%B91%2C200%2Fhr).%0APreferred%20date%2Ftime%3A%20" target="_blank" rel="noopener" onclick="gtag('event','contact_click',{method:'whatsapp',location:'package_recording',page:'redesign_3'}); trackWhatsApp();">Book studio time</a>
+            </article>
+          </div>
+          <div class="sheets__foot">
+            <span>Recorded somewhere else? Mix &amp; master from ₹2,000.</span>
+            <a href="/pricing/">See all rates →</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Made here: a crate to flip through ── -->
+      <section class="sec" id="made" aria-labelledby="madeTitle">
+        <div class="wrap">
+          <div class="split">
+            <div>
+              <p class="trk" data-up><b>Trk 04</b>Made here</p>
+              <h2 class="h2" id="madeTitle" data-up>10M+ streams, made in this room</h2>
+            </div>
+            <p class="lede" data-up>Scroll to flip through the crate.</p>
+          </div>
+          <div class="crate__stage" id="crateStage">
+            <div class="crate__box" id="crate">
+              <a class="rec" href="https://www.youtube.com/watch?v=qgHA_3Kr-ac" target="_blank" rel="noopener" data-title="O Sajna" data-artist="Swapnil Chaudhary" data-streams="1M+ streams" onclick="gtag('event','release_click',{track:'O Sajna',page:'redesign_3'})"><img src="/media/artworks/o-sajna.webp" alt="O Sajna by Swapnil Chaudhary, cover art" width="640" height="640" loading="lazy" /></a>
+              <a class="rec" href="https://www.youtube.com/watch?v=wSDTy-vXuIg" target="_blank" rel="noopener" data-title="Dooriyan" data-artist="Gravero, Rhyo &amp; Kinara" data-streams="500K+ streams" onclick="gtag('event','release_click',{track:'Dooriyan',page:'redesign_3'})"><img src="/media/artworks/dooriyaan.webp" alt="Dooriyan by Gravero, Rhyo and Kinara, cover art" width="640" height="640" loading="lazy" /></a>
+              <a class="rec" href="https://www.youtube.com/watch?v=8gFLby0U0LE" target="_blank" rel="noopener" data-title="Aarzoo" data-artist="Shoonya &amp; Kinara" data-streams="100K+ streams" onclick="gtag('event','release_click',{track:'Aarzoo',page:'redesign_3'})"><img src="/media/artworks/aarzoo.webp" alt="Aarzoo by Shoonya and Kinara, cover art" width="640" height="640" loading="lazy" /></a>
+              <div class="rec rec--you" data-title="Your release" data-artist="Recorded, mixed and mastered here" data-streams="Next in the crate"><b>Your<br>record</b><span class="mono">Next in the crate</span></div>
+              <div class="crate__lip mono" aria-hidden="true"><span>Youkeo</span><span>Made here</span></div>
+            </div>
+            <div class="crate__info" aria-live="polite">
+              <p class="mono" id="crateN">01 / 04</p>
+              <h3 class="crate__t" id="crateT">O Sajna</h3>
+              <p class="crate__a" id="crateA">Swapnil Chaudhary</p>
+              <p class="mono crate__s" id="crateS">1M+ streams</p>
+              <div class="crate__cta">
+                <a class="btn btn--dark btn--sm" id="cratePlay" href="https://www.youtube.com/watch?v=qgHA_3Kr-ac" target="_blank" rel="noopener">Play on YouTube</a>
+                <a class="btn btn--dark btn--sm" id="crateBook" hidden href="https://wa.me/919619192992?text=Hi%2C%20I%27d%20like%20to%20start%20a%20release%20at%20Youkeo%20Studios." target="_blank" rel="noopener" onclick="gtag('event','contact_click',{method:'whatsapp',location:'crate',page:'redesign_3'}); trackWhatsApp();">Start a project</a>
+                <div class="crate__nav">
+                  <button class="arrow" type="button" id="cratePrev" aria-label="Previous record"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 18l-6-6 6-6"/></svg></button>
+                  <button class="arrow" type="button" id="crateNext" aria-label="Next record"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ── Voices (dark) ── -->
+    <section class="sec" id="voices" aria-labelledby="voicesTitle">
+      <div class="wrap">
+        <div class="split">
+          <div>
+            <p class="trk" data-up><b>Trk 05</b>Artist voices</p>
+            <h2 class="h2" id="voicesTitle" data-up>Heard it from the artists</h2>
+          </div>
+          <div data-up>
+            <p class="lede"><span class="stars" aria-hidden="true">★★★★★</span>&nbsp; 5.0 on Google</p>
+            <div class="btns"><a class="btn btn--ghost" href="https://www.google.com/search?q=Youkeo+Studios+reviews" target="_blank" rel="noopener">Read Google reviews</a></div>
+          </div>
+        </div>
+        <div class="voices__grid">
+          <article class="vcard" data-up>
+            <video src="/media/reviews/jassi.mp4" poster="/media/stills/jassi-poster.jpg" preload="none" playsinline></video>
+            <span class="vcard__tag mono">Video · Rapper</span>
+            <span class="vcard__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+            <div class="vcard__in"><h3>Jassi</h3><p>On recording his tracks at Youkeo.</p></div>
+            <button class="vcard__play" type="button" aria-label="Play Jassi's video"></button>
+          </article>
+          <article class="vcard" data-up>
+            <video src="/media/reviews/prince.mp4" poster="/media/stills/prince-poster.jpg" preload="none" playsinline></video>
+            <span class="vcard__tag mono">Video · Artist</span>
+            <span class="vcard__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+            <div class="vcard__in"><h3>Prince</h3><p>On working with the engineer.</p></div>
+            <button class="vcard__play" type="button" aria-label="Play Prince's video"></button>
+          </article>
+          <article class="vcard vcard--quote" data-up>
+            <span class="stars" aria-hidden="true">★★★★★</span>
+            <blockquote>“We've done over 10 recordings here, and every session has been smooth and professional.”</blockquote>
+            <footer><b>AiVANTA Labs</b>Google review</footer>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Founder (dark) ── -->
+    <section class="sec" id="founder" aria-labelledby="founderTitle" style="padding-top:0">
+      <div class="wrap founder__grid">
+        <div class="founder__copy">
+          <p class="trk" data-up><b>Trk 06</b>The founder</p>
+          <h2 class="h2" id="founderTitle" data-up>Run by an artist who releases music</h2>
+          <div data-up style="margin-top:28px">
+            <p>Nishchay Beharam produces and releases his own records as Shoonya and Rhyo.</p>
+            <p>He built Youkeo as the room he wanted for his own music: treated, quiet and run by people who finish songs.</p>
+          </div>
+          <div class="founder__stats" data-up>
+            <div><b>10+</b><span class="mono">Years making music</span></div>
+            <div><b>1M+</b><span class="mono">Spotify streams</span></div>
+          </div>
+        </div>
+        <figure class="founder__photo" data-up><img src="/media/images/founder.jpg" alt="Nishchay Beharam, founder of Youkeo Studios" width="1932" height="1932" loading="lazy" /></figure>
+      </div>
+    </section>
+
+    <!-- ── CTA (lavender) ── -->
+    <section class="cta sec" id="book" aria-labelledby="ctaTitle">
+      <div class="wrap">
+        <p class="trk" data-up><b>Trk 07</b>Book</p>
+        <h2 class="h2" id="ctaTitle" data-up>Your <em>next release</em> starts here</h2>
+        <div class="cta__row" data-up>
+          <p>Near ICICI Bank, Sector 19, Airoli. 8 minutes from Airoli Station. Open daily, 11:00–22:00 IST.</p>
+          <div>
+            <div class="btns">
+              <a class="btn btn--dark" href="https://wa.me/919619192992?text=Hi%2C%20I%20want%20to%20book%20a%20session%20at%20Youkeo%20Studios" target="_blank" rel="noopener" onclick="gtag('event','contact_click',{method:'whatsapp',location:'cta_section',page:'redesign_3'}); trackWhatsApp();">Check availability</a>
+              <a class="btn btn--line" href="tel:+919619192992" onclick="gtag('event','contact_click',{method:'phone',location:'cta_section',page:'redesign_3'}); trackPhone();">Call the studio</a>
+            </div>
+            <p class="fine">Usually replies within a few hours</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ── Footer ── -->
+  <footer class="foot">
+    <div class="wrap">
+      <div class="foot__top">
+        <div class="foot__brand">
+          <div class="socials">
+            <a href="https://www.instagram.com/youkeostudios" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg></a>
+            <a href="https://www.youtube.com/@youkeostudios" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9l5 3-5 3z" fill="currentColor"/></svg></a>
+            <a href="https://wa.me/919619192992" target="_blank" rel="noopener" aria-label="WhatsApp" onclick="gtag('event','contact_click',{method:'whatsapp',location:'footer',page:'redesign_3'}); trackWhatsApp();"><svg viewBox="5 4 23 23" fill="currentColor"><path d="M16.7 5.7C11.3 5.7 6.9 10.1 6.9 15.5c0 1.7.4 3.3 1.3 4.8L6.8 25.3l5.2-1.4c1.4.8 3 1.2 4.7 1.2 5.4 0 9.8-4.4 9.8-9.8S22.1 5.7 16.7 5.7Zm0 17.9c-1.5 0-2.9-.4-4.1-1.1l-.3-.2-3.1.8.8-3-.2-.3a8.1 8.1 0 1 1 6.9 3.8Z"/></svg></a>
+          </div>
+          <address class="foot__addr">Near ICICI Bank, Sector 19<br>Airoli, Navi Mumbai 400708<br><a href="tel:+919619192992" onclick="gtag('event','contact_click',{method:'phone',location:'footer',page:'redesign_3'}); trackPhone();">+91 96 1919 2992</a> · <a href="mailto:hello@youkeostudios.com" target="_blank" rel="noopener" onclick="gtag('event','contact_click',{method:'email',location:'footer',page:'redesign_3'}); trackEmail();">hello@youkeostudios.com</a></address>
+        </div>
+        <nav aria-label="Book"><h4>Book</h4><ul><li><a href="#sessions">Packages</a></li><li><a href="/pricing/">All rates</a></li><li><a href="/recording/">Recording</a></li></ul></nav>
+        <nav aria-label="Studio"><h4>Studio</h4><ul><li><a href="#room">The room</a></li><li><a href="#made">Made here</a></li><li><a href="#voices">Artist voices</a></li></ul></nav>
+        <nav aria-label="Company"><h4>Company</h4><ul><li><a href="#founder">The founder</a></li><li><a href="/privacy-policy/">Privacy policy</a></li><li><a href="/terms-conditions/">Terms</a></li></ul></nav>
+      </div>
+      <div class="foot__mark"><svg viewBox="0 0 618 128" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Youkeo">
+  <defs><filter id="markGlow" x="-200%" y="-200%" width="500%" height="500%"><feGaussianBlur stdDeviation="9"/></filter></defs>
+  <g transform="translate(-650 -476)">
+    <circle class="mark__glow" cx="1240.8" cy="580.6" r="24" fill="#C9C1FF" filter="url(#markGlow)"/>
+    <path d="M699.176 593V560.52L659.656 487.4H690.696L711.656 537.48H712.616L733.576 487.4H764.296L725.096 560.2V593H699.176ZM800.147 595.24C792.467 595.24 785.534 594.067 779.347 591.72C773.16 589.373 767.827 585.907 763.347 581.32C758.974 576.733 755.614 571.08 753.267 564.36C750.92 557.533 749.747 549.64 749.747 540.68C749.747 528.093 751.934 517.747 756.307 509.64C760.787 501.427 766.92 495.293 774.707 491.24C782.494 487.187 791.294 485.16 801.107 485.16C808.68 485.16 815.56 486.333 821.747 488.68C827.934 491.027 833.214 494.493 837.587 499.08C842.067 503.667 845.48 509.427 847.827 516.36C850.28 523.187 851.507 531.08 851.507 540.04C851.507 549.32 850.227 557.427 847.667 564.36C845.214 571.187 841.694 576.893 837.107 581.48C832.627 586.067 827.24 589.533 820.947 591.88C814.654 594.12 807.72 595.24 800.147 595.24ZM800.947 575.08C806.174 575.08 810.547 573.8 814.067 571.24C817.694 568.573 820.414 564.787 822.227 559.88C824.147 554.867 825.107 548.787 825.107 541.64C825.107 534.067 824.147 527.667 822.227 522.44C820.307 517.107 817.48 513.107 813.747 510.44C810.12 507.667 805.64 506.28 800.307 506.28C795.187 506.28 790.814 507.613 787.187 510.28C783.667 512.84 780.947 516.68 779.027 521.8C777.107 526.813 776.147 533 776.147 540.36C776.147 545.907 776.68 550.867 777.747 555.24C778.92 559.507 780.52 563.133 782.547 566.12C784.574 569 787.134 571.24 790.227 572.84C793.427 574.333 797 575.08 800.947 575.08ZM901.364 595.24C894.644 595.24 888.671 594.547 883.444 593.16C878.218 591.88 873.684 589.96 869.844 587.4C866.004 584.84 862.804 581.747 860.244 578.12C857.791 574.493 855.924 570.44 854.644 565.96C853.471 561.373 852.884 556.413 852.884 551.08V487.4H878.804V550.28C878.804 555.4 879.604 559.613 881.204 562.92C882.804 566.227 885.258 568.68 888.564 570.28C891.871 571.773 896.084 572.52 901.204 572.52C906.324 572.52 910.538 571.773 913.844 570.28C917.151 568.68 919.604 566.227 921.204 562.92C922.804 559.613 923.604 555.4 923.604 550.28V487.4H949.364V551.08C949.364 565.053 945.364 575.933 937.364 583.72C929.471 591.4 917.471 595.24 901.364 595.24ZM954.868 593V487.4H980.628V533.64C985.855 531.293 990.708 528.36 995.188 524.84C999.668 521.32 1003.61 517.48 1007.03 513.32C1010.55 509.16 1013.43 504.893 1015.67 500.52C1018.01 496.04 1019.72 491.667 1020.79 487.4H1050.55C1049.27 492.307 1047.19 497.32 1044.31 502.44C1041.43 507.453 1037.96 512.307 1033.91 517C1029.85 521.587 1025.48 525.693 1020.79 529.32C1016.2 532.947 1011.51 535.827 1006.71 537.96V540.36C1011.61 540.36 1015.93 540.893 1019.67 541.96C1023.51 543.027 1026.87 544.68 1029.75 546.92C1032.73 549.16 1035.29 551.987 1037.43 555.4C1039.67 558.707 1041.59 562.707 1043.19 567.4L1052.31 593H1023.03L1017.11 572.04C1015.83 567.347 1014.12 563.667 1011.99 561C1009.85 558.227 1007.03 556.253 1003.51 555.08C999.988 553.8 995.455 553.16 989.908 553.16H980.628V593H954.868ZM1050.43 593V487.4H1076.35V593H1050.43ZM1069.15 593V572.2H1134.27V593H1069.15ZM1069.15 549.16V530.44H1126.11V549.16H1069.15ZM1069.15 508.04V487.4H1133.79V508.04H1069.15ZM1179.58 595.24C1171.9 595.24 1164.97 594.067 1158.78 591.72C1152.6 589.373 1147.26 585.907 1142.78 581.32C1138.41 576.733 1135.05 571.08 1132.7 564.36C1130.36 557.533 1129.18 549.64 1129.18 540.68C1129.18 528.093 1131.37 517.747 1135.74 509.64C1140.22 501.427 1146.36 495.293 1154.14 491.24C1161.93 487.187 1170.73 485.16 1180.54 485.16C1188.12 485.16 1195 486.333 1201.18 488.68C1207.37 491.027 1212.65 494.493 1217.02 499.08C1221.5 503.667 1224.92 509.427 1227.26 516.36C1229.72 523.187 1230.94 531.08 1230.94 540.04C1230.94 549.32 1229.66 557.427 1227.1 564.36C1224.65 571.187 1221.13 576.893 1216.54 581.48C1212.06 586.067 1206.68 589.533 1200.38 591.88C1194.09 594.12 1187.16 595.24 1179.58 595.24ZM1180.38 575.08C1185.61 575.08 1189.98 573.8 1193.5 571.24C1197.13 568.573 1199.85 564.787 1201.66 559.88C1203.58 554.867 1204.54 548.787 1204.54 541.64C1204.54 534.067 1203.58 527.667 1201.66 522.44C1199.74 517.107 1196.92 513.107 1193.18 510.44C1189.56 507.667 1185.08 506.28 1179.74 506.28C1174.62 506.28 1170.25 507.613 1166.62 510.28C1163.1 512.84 1160.38 516.68 1158.46 521.8C1156.54 526.813 1155.58 533 1155.58 540.36C1155.58 545.907 1156.12 550.867 1157.18 555.24C1158.36 559.507 1159.96 563.133 1161.98 566.12C1164.01 569 1166.57 571.24 1169.66 572.84C1172.86 574.333 1176.44 575.08 1180.38 575.08Z" fill="#FFFFFF"/>
+    <path d="M1240.67 595.08C1235.13 595.08 1230.97 593.907 1228.19 591.56C1225.53 589.213 1224.19 585.587 1224.19 580.68C1224.19 575.667 1225.53 571.987 1228.19 569.64C1230.97 567.293 1235.13 566.12 1240.67 566.12C1246.33 566.12 1250.54 567.293 1253.31 569.64C1256.09 571.987 1257.47 575.667 1257.47 580.68C1257.47 590.28 1251.87 595.08 1240.67 595.08Z" fill="#8279BF"/>
+  </g>
+</svg></div>
+      <div class="foot__base"><span>© 2026 Youkeo Studios. All rights reserved.</span><a href="#top" style="padding:12px 0">Back to top ↑</a></div>
+    </div>
+  </footer>
+
+  <div class="bar" id="bar">
+    <a class="btn btn--light" href="https://wa.me/919619192992?text=Hi%2C%20I%27d%20like%20to%20check%20availability%20at%20Youkeo%20Studios." target="_blank" rel="noopener" onclick="gtag('event','contact_click',{method:'whatsapp',location:'mobile_bar',page:'redesign_3'}); trackWhatsApp();">WhatsApp us</a>
+    <a class="btn btn--ghost" href="tel:+919619192992" onclick="gtag('event','contact_click',{method:'phone',location:'mobile_bar',page:'redesign_3'}); trackPhone();">Call</a>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/SplitText.min.js" defer></script>
+  <script defer>
+  window.addEventListener('DOMContentLoaded', () => {
+    const $ = (s, r = document) => r.querySelector(s);
+    const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+    const hasGsap = !!(window.gsap && window.ScrollTrigger);
+    if (!hasGsap) document.documentElement.classList.remove('js-motion');
+    const motion = document.documentElement.classList.contains('js-motion');
+    const wide = matchMedia('(min-width: 1000px)');
+
+    /* Nav: solid after the hero starts scrolling, hides on the way down */
+    const nav = $('#nav'), bar = $('#bar'), drawer = $('#drawer'), menuBtn = $('#menuBtn');
+    let lastY = 0;
+    const onScroll = () => {
+      const y = scrollY;
+      nav.classList.toggle('is-solid', y > 40);
+      nav.classList.toggle('is-hidden', y > 700 && y > lastY && !drawer.classList.contains('is-open'));
+      bar.classList.toggle('is-on', y > innerHeight * .7);
+      lastY = y;
+    };
+    addEventListener('scroll', onScroll, { passive: true }); onScroll();
+
+    /* Mobile menu */
+    const setDrawer = open => { drawer.classList.toggle('is-open', open); menuBtn.setAttribute('aria-expanded', String(open)); document.body.style.overflow = open ? 'hidden' : ''; (open ? $('#menuClose') : menuBtn).focus(); };
+    menuBtn.addEventListener('click', () => setDrawer(true));
+    $('#menuClose').addEventListener('click', () => setDrawer(false));
+    $$('a', drawer).forEach(a => a.addEventListener('click', () => setDrawer(false)));
+    addEventListener('keydown', e => { if (e.key === 'Escape' && drawer.classList.contains('is-open')) setDrawer(false); });
+
+    /* Hero footage: desktop only, never on data-saver */
+    const vid = $('#heroVideo');
+    const loadVid = () => {
+      if (!wide.matches || vid.getAttribute('src') || (navigator.connection && navigator.connection.saveData)) return;
+      vid.src = vid.dataset.src; vid.preload = 'auto';
+      if (motion) vid.play().catch(() => {});
+    };
+    loadVid(); wide.addEventListener('change', loadVid);
+
+    /* Hero arrangement: playhead follows the footage (or a 16s loop without it), clips fill as it passes */
+    const head = $('#tlHead'), tc = $('#tc'), clips = $$('#tl .clip');
+    const spans = clips.map(c => [parseFloat(c.style.getPropertyValue('--a')), parseFloat(c.style.getPropertyValue('--w'))]);
+    const pad = n => String(n).padStart(2, '0');
+    const drawTl = (p, secs) => {
+      head.style.setProperty('--p', p * 100 + '%');
+      clips.forEach((c, k) => {
+        const [a, w] = spans[k], f = Math.min(1, Math.max(0, (p * 100 - a) / w));
+        c.style.setProperty('--f', f * 100 + '%');
+        c.classList.toggle('is-live', f > 0 && f < 1);
+      });
+      const fr = Math.floor(secs * 25);
+      tc.textContent = `00:${pad(Math.floor(fr / 1500) % 60)}:${pad(Math.floor(fr / 25) % 60)}:${pad(fr % 25)}`;
+    };
+    drawTl(motion ? 0 : 1, 0);
+
+    /* Draggable photo track (mouse), native swipe on touch */
+    $$('[data-drag]').forEach(t => {
+      let down = false, x0 = 0, s0 = 0, moved = false;
+      t.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse') return; down = true; moved = false; x0 = e.clientX; s0 = t.scrollLeft; });
+      addEventListener('pointermove', e => { if (!down) return; const dx = e.clientX - x0; if (Math.abs(dx) > 4) { moved = true; t.classList.add('is-drag'); } t.scrollLeft = s0 - dx; });
+      addEventListener('pointerup', () => { if (!down) return; down = false; t.classList.remove('is-drag'); });
+      t.addEventListener('click', e => { if (moved) { e.preventDefault(); e.stopPropagation(); } }, true);
+    });
+
+    /* Desk: hover solos a channel, click/tap locks it */
+    const desk = $('#deskEl'), chs = $$('.ch', desk);
+    let locked = null;
+    const solo = ch => {
+      chs.forEach(c => { c.classList.toggle('is-solo', c === ch); c.setAttribute('aria-pressed', String(c === ch)); });
+      desk.classList.toggle('has-solo', !!ch);
+    };
+    chs.forEach(c => {
+      c.addEventListener('click', () => { locked = locked === c ? null : c; solo(locked); });
+      c.addEventListener('mouseenter', () => { if (matchMedia('(hover: hover)').matches) solo(c); });
+    });
+    desk.addEventListener('mouseleave', () => solo(locked));
+
+    /* Crate: covers lean back in a stack, the front one flips forward as you move through */
+    const crate = $('#crate'), recs = $$('.rec', crate), n = recs.length;
+    const info = { n: $('#crateN'), t: $('#crateT'), a: $('#crateA'), s: $('#crateS'), play: $('#cratePlay'), book: $('#crateBook') };
+    let shown = -1;
+    const renderCrate = p => {
+      recs.forEach((r, k) => {
+        const d = k - p;
+        if (d >= 0) {
+          r.style.transform = `translateX(-50%) translateY(${-d * 26}px) translateZ(${-d * 60}px) rotateX(${6 + d * 3}deg)`;
+          r.style.opacity = d > 3 ? 0 : 1;
+          r.style.filter = `brightness(${1 - Math.min(d, 3) * .16})`;
+        } else {
+          const f = Math.min(1, -d);
+          r.style.transform = `translateX(-50%) translateY(${f * 60}px) rotateX(${6 - f * 84}deg)`;
+          r.style.opacity = 1 - f;
+          r.style.filter = '';
+        }
+        r.style.zIndex = n - k;
+        r.style.pointerEvents = Math.abs(d) < .5 ? '' : 'none';
+      });
+      const i = Math.min(n - 1, Math.max(0, Math.round(p)));
+      if (i === shown) return;
+      shown = i;
+      const r = recs[i], last = i === n - 1;
+      info.n.textContent = `${pad(i + 1)} / ${pad(n)}`;
+      info.t.textContent = r.dataset.title;
+      info.a.textContent = r.dataset.artist;
+      info.s.textContent = r.dataset.streams;
+      info.play.hidden = last; info.book.hidden = !last;
+      if (!last) info.play.href = r.href;
+    };
+    info.play.addEventListener('click', () => gtag('event', 'release_click', { track: info.t.textContent, page: 'redesign_3' }));
+    renderCrate(0);
+    let crateST = null, cur = 0;
+    const go = i => {
+      i = Math.min(n - 1, Math.max(0, i));
+      if (crateST) scrollTo({ top: crateST.start + (i / (n - 1)) * (crateST.end - crateST.start) + 1 });
+      else { cur = i; renderCrate(i); }
+    };
+    $('#cratePrev').addEventListener('click', () => go((crateST ? shown : cur) - 1));
+    $('#crateNext').addEventListener('click', () => go((crateST ? shown : cur) + 1));
+
+    /* Testimonial videos: tap to play with sound, one at a time */
+    const vcards = $$('.vcard video').map(v => v.closest('.vcard'));
+    vcards.forEach(c => {
+      const v = $('video', c), b = $('.vcard__play', c);
+      b.addEventListener('click', () => {
+        if (!v.paused) { v.pause(); c.classList.remove('is-playing'); return; }
+        vcards.forEach(o => { if (o !== c) { $('video', o).pause(); o.classList.remove('is-playing'); } });
+        v.play(); c.classList.add('is-playing');
+        gtag('event', 'testimonial_play', { artist: $('h3', c).textContent, page: 'redesign_3' });
+      });
+      v.addEventListener('ended', () => c.classList.remove('is-playing'));
+    });
+
+    if (!hasGsap || !motion) return;
+    gsap.registerPlugin(ScrollTrigger, SplitText);
+
+    /* Hero: lines rise out of their masks */
+    document.fonts.ready.then(() => {
+      const split = SplitText.create('.hero__line', { type: 'words', mask: 'words' });
+      gsap.from(split.words, { yPercent: 110, duration: 1.1, ease: 'expo.out', stagger: .07, delay: .15 });
+      gsap.from('[data-hero]', { y: 24, opacity: 0, duration: 1, ease: 'expo.out', stagger: .08, delay: .45 });
+      gsap.from('#tl', { yPercent: 100, duration: 1.2, ease: 'expo.out', delay: .6 });
+      ScrollTrigger.refresh();
+    });
+
+    /* Arrangement runs only while the hero is on screen */
+    let elapsed = 0, heroOn = true;
+    ScrollTrigger.create({ trigger: '.hero', start: 'top bottom', end: 'bottom top', onToggle: s => { heroOn = s.isActive; } });
+    gsap.ticker.add((t, dt) => {
+      if (!heroOn) return;
+      elapsed += dt / 1000;
+      const live = vid.getAttribute('src') && !vid.paused && vid.duration;
+      drawTl(live ? vid.currentTime / vid.duration : (elapsed % 16) / 16, elapsed);
+    });
+
+    /* Generic rise-in */
+    $$('[data-up]').forEach(el => gsap.to(el, { opacity: 1, y: 0, duration: 1.1, ease: 'expo.out', scrollTrigger: { trigger: el, start: 'top 88%', once: true } }));
+
+    /* Gallery drifts sideways with scroll */
+    gsap.fromTo('#room .track', { x: 120 }, { x: -60, ease: 'none', scrollTrigger: { trigger: '#room .gallery', start: 'top bottom', end: 'bottom top', scrub: true } });
+
+    /* Playhead line sweeps across the seam into the light sections */
+    gsap.fromTo('#seam', { scaleX: 0 }, { scaleX: 1, ease: 'none', scrollTrigger: { trigger: '.paper', start: 'top bottom', end: 'top 35%', scrub: true } });
+
+    /* Faders come up when the desk arrives */
+    gsap.fromTo(chs, { '--up': 0 }, { '--up': 1, duration: 1.6, ease: 'expo.out', stagger: .08, scrollTrigger: { trigger: desk, start: 'top 70%', once: true } });
+
+    /* Crate: pinned while you flip through, snapping to each record */
+    const proxy = { p: 0 };
+    gsap.to(proxy, {
+      p: n - 1, ease: 'none', onUpdate: () => renderCrate(proxy.p),
+      scrollTrigger: {
+        trigger: '#crateStage', start: 'center center', end: () => '+=' + innerHeight * .6 * (n - 1),
+        pin: true, scrub: .5, snap: { snapTo: 1 / (n - 1), duration: .4, ease: 'power2.inOut', inertia: false }, invalidateOnRefresh: true,
+        onRefresh: s => { crateST = s; }
+      }
+    });
+  });
+  </script>
+</body>
+</html>
