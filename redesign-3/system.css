@@ -81,7 +81,7 @@ button { font: inherit; color: inherit; }
 .nav { position: fixed; z-index: 100; inset: 0 0 auto; height: var(--nav); transition: background .4s, border-color .4s; border-bottom: 1px solid transparent; }
 .nav.is-solid { background: rgba(11,11,16,.86); backdrop-filter: blur(14px); border-color: var(--line-d); }
 .nav__in { display: flex; align-items: center; gap: 40px; height: 100%; }
-.nav__logo { display: block; padding: 12px 0; }
+.nav__logo { display: flex; align-items: center; min-height: 44px; }
 .nav__logo img { width: 112px; }
 .nav__links { display: flex; gap: 30px; }
 .nav__links a { color: var(--fog); font-size: 15px; font-weight: 500; padding: 12px 0; transition: color .2s; }
@@ -180,6 +180,7 @@ button { font: inherit; color: inherit; }
 .rec img { width: 100%; height: 100%; object-fit: cover; }
 .rec--you { display: grid; place-content: center; gap: 12px; background: var(--lav); color: var(--ink); text-align: center; }
 .rec--you b { font: 600 clamp(26px, 2.6vw, 38px)/1.05 var(--sans); letter-spacing: -.03em; }
+.crate__box.is-static .rec { transition: transform .7s var(--ease), opacity .5s, filter .5s; }
 .crate__lip { position: absolute; z-index: 20; left: 50%; bottom: 0; width: var(--s); height: 76px; translate: -50% 0; display: flex; align-items: flex-end; justify-content: space-between; padding: 0 20px 16px; border-radius: 14px 14px 20px 20px; background: linear-gradient(180deg, #1E1A28, var(--ink)); color: var(--mute); box-shadow: 0 -1px 0 rgba(255,255,255,.08) inset; }
 .crate__now .crate__t { margin: 14px 0 6px; color: var(--ink); font: 600 clamp(28px, 2.6vw, 36px)/1.1 var(--sans); letter-spacing: -.03em; }
 .crate__now .crate__a { margin: 0 0 16px; }
@@ -310,6 +311,16 @@ html:not(.js-motion) .spot__now, html:not(.js-motion) .spot__head { display: non
   /* Text sits over the footage on narrow screens: darken it more so the copy stays readable. */
   .hero__media::after { background: linear-gradient(180deg, rgba(11,11,16,.55), rgba(11,11,16,.7) 40%, rgba(11,11,16,.96)); }
   .crate__box { --s: 80vw; }
+}
+/* Smallest phones (iPhone SE 1st gen, compact Androids): the 52px headline floor is too wide. */
+@media (max-width: 359px) {
+  .h1 { font-size: 44px; }
+}
+/* Phones on their side: size the hero to its content and scale the headline to the short screen. */
+@media (orientation: landscape) and (max-height: 500px) {
+  .hero { min-height: 0; padding-top: calc(var(--nav) + 32px); }
+  .hero__in { padding-bottom: 40px; }
+  .h1 { font-size: clamp(40px, 6vw, 64px); }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }

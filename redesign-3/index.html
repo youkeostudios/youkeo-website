@@ -219,7 +219,7 @@
             <div class="crate__head">
               <p class="trk" data-up><b>Trk 04</b>Made here</p>
               <h2 class="h2" id="madeTitle" data-up>10M+ streams, made in this room</h2>
-              <p class="mono crate__hint" data-up>Scroll to flip through the crate</p>
+              <p class="mono crate__hint" data-up>Scroll or use the arrows to flip through</p>
             </div>
             <div class="crate__pin" id="cratePin">
             <div class="crate__box" id="crate">
@@ -519,11 +519,16 @@
     /* Crate: pinned while you flip through, snapping to each record.
        Tablet and desktop pin the heading with the crate; phones pin only the crate and its details so they fit the screen. */
     const proxy = { p: 0 };
-    gsap.matchMedia().add({ wide: '(min-width: 760px)', narrow: '(max-width: 759px)' }, ctx => {
+    gsap.matchMedia().add({ wide: '(min-width: 760px)', narrow: '(max-width: 759px)', landscape: '(orientation: landscape)' }, ctx => {
+      const target = ctx.conditions.wide ? '#crateStage' : '#cratePin';
+      // Pin only when the whole block fits below the nav. On short screens (landscape phones, small Androids,
+      // iPhone SE) the crate stays in the page and the arrows flip it.
+      if ($(target).offsetHeight + 92 > innerHeight) { crate.classList.add('is-static'); return () => crate.classList.remove('is-static'); }
       gsap.to(proxy, {
         p: n - 1, ease: 'none', onUpdate: () => renderCrate(proxy.p),
         scrollTrigger: {
-          trigger: ctx.conditions.wide ? '#crateStage' : '#cratePin', start: 'center center', end: () => '+=' + innerHeight * .6 * (n - 1),
+          // centre in the space below the 76px nav
+          trigger: target, start: 'center center+=38', end: () => '+=' + innerHeight * .6 * (n - 1),
           pin: true, scrub: .5, snap: { snapTo: 1 / (n - 1), duration: .4, ease: 'power2.inOut', inertia: false }, invalidateOnRefresh: true,
           onRefresh: s => { crateST = s; }
         }
