@@ -1,11 +1,11 @@
 # Youkeo Studios — Website
 
-Static marketing site for Youkeo Studios, a recording studio in Airoli, Navi Mumbai. Plain HTML/CSS/JS — no build step, no framework, no package manager. Deployed as static files (Netlify-style `_redirects`).
+Static marketing site for Youkeo Studios, a recording studio in Airoli, Navi Mumbai. Plain HTML/CSS/JS — no build step, no framework, no package manager. `main` deploys on Cloudflare Pages (Netlify-style `_redirects`/`_headers`); the `rebrand` branch deploys on AWS Amplify ([amplify.yml](amplify.yml) publishes only the site files, [customHttp.yml](customHttp.yml) sets headers).
 
 ## Stack & layout
 
-- Hand-written HTML per page, shared `style.css` at root, page-specific CSS where it makes sense (`pricing.css`, `recording/recording.css`).
-- Single JS entry: [script.js](script.js) — nav scroll, service overlays, lightbox, card overlays, hero video autoplay, and Google Ads conversion helpers.
+- Hand-written HTML per page. The homepage and [/recording/](recording/index.html) share [system.css](system.css): the current design system (tokens, Plus Jakarta Sans + Instrument Serif italic + Geist Mono, track labels, session sheets, crate, footer). Page-only rules stay in each page's `<style>`. GSAP 3.13 (ScrollTrigger, SplitText) loads from cdnjs; each page's inline script handles nav, hero video and motion.
+- Pricing, legal and 404 pages still use the older [style.css](style.css) + [pricing.css](pricing.css) and [script.js](script.js). Move them to `system.css` when they are redesigned.
 - Images/video/favicon live in [media/](media/) and are served by Cloudflare Pages from the edge. Reference them root-relative (`/media/...`), except in OG/Twitter meta tags and JSON-LD, which need the absolute `https://youkeostudios.com/media/...` URL. `cdn.youkeostudios.com` (R2) is retired.
 - Pages:
   - [/](index.html) — homepage
@@ -29,7 +29,7 @@ Three layers, all loaded in [index.html](index.html) `<head>` (and mirrored on o
 
 1. **GTM** container `GTM-M9KKG5QK`
 2. **GA4** property `G-KFE2B59HDH` via `gtag('config', …)`
-3. **Google Ads** account `AW-17982763316` — conversion labels wired into three helpers in [script.js:6-22](script.js#L6-L22):
+3. **Google Ads** account `AW-17982763316` — conversion labels wired into three helpers, defined inline in the `<head>` of the homepage and recording page and in [script.js:6-22](script.js#L6-L22) for the other pages:
    - `trackWhatsApp()` — WhatsApp clicks
    - `trackPhone()` — phone clicks
    - `trackEmail()` — email clicks

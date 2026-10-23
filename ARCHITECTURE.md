@@ -12,12 +12,13 @@
 - `/privacy-policy/index.html`: Legal privacy page.
 - `/terms-conditions/index.html`: Legal terms page.
 - `/404.html`: Custom 404 page.
-- `/style.css`: Global design system + shared layout/components.
-- `/script.js`: Global interactions and analytics helper functions.
+- `/system.css`: Design system shared by the homepage and recording page (tokens, type, components, responsive rules).
+- `/style.css`: Older shared stylesheet, still used by pricing, legal and 404 pages.
+- `/script.js`: Interactions and analytics helpers for the older pages (homepage and recording page use inline scripts).
 - `/pricing.css`: Pricing-page-specific styles.
-- `/recording/recording.css`: Recording-page-specific styles.
 - `/robots.txt`, `/sitemap.xml`, `/llms.txt`: SEO and crawler control.
-- `/_redirects`: Static host rewrite rules (Netlify-style).
+- `/_redirects`, `/_headers`: Cloudflare Pages rules for `main`.
+- `/amplify.yml`, `/customHttp.yml`: AWS Amplify build and headers for the `rebrand` branch.
 
 ## Runtime Model
 - Pages load directly in the browser as static documents.
@@ -41,15 +42,14 @@
 
 ## Page Responsibilities
 - Homepage (`/index.html`)
-  - Full marketing narrative and most interactive sections:
-    `hero`, `recorded-here`, `services`, `pricing`, `testimonials`, `founder`, `location`, `cta`, `faq`.
-  - Includes JSON-LD schemas for local business and website discoverability.
-  - Uses shared overlays (`video-lightbox`, `card-overlay`, `service-overlay`).
+  - Sections: `top` (hero), `room`, `sessions`, `artists`, `made` (pinned record crate), `spotlight`, `voices`, `founder`, `book`.
+  - Includes JSON-LD for MusicStore/LocalBusiness, Organization and WebSite (no FAQ markup: the page has no visible FAQ).
+  - Styles from `/system.css`; GSAP 3.13 + ScrollTrigger + SplitText from cdnjs for motion.
 
 - Recording page (`/recording/index.html`)
   - Narrow intent page for recording leads.
-  - Reuses shared components/styles + `/recording/recording.css` overrides.
-  - Includes service-specific schema blocks and conversion-focused CTA flow.
+  - Sections: `top` (hero + price strip), `featured`, `why`, `how`, `pricing`, `reviews`, `faq`, `book`.
+  - Styles from `/system.css` plus page rules in its `<style>`; Service, HowTo and FAQ JSON-LD.
 
 - Pricing page (`/pricing/index.html`)
   - Long-form service and package pricing details.
@@ -79,12 +79,8 @@
 - `llms.txt` provides an LLM-friendly business summary.
 
 ## Routing and Hosting Behavior
-- `/_redirects` includes:
-  - explicit passthrough for `sitemap.xml`, `robots.txt`, `llms.txt`
-  - catch-all `/* /index.html 200`
-- Implication:
-  - unknown URLs are rewritten to homepage HTML.
-  - this supports soft-deep-link behavior but can mask missing file paths.
+- `/_redirects` (Cloudflare Pages, `main`) only passes through `sitemap.xml`, `robots.txt`, `llms.txt`; unknown URLs get `404.html`.
+- Amplify (`rebrand`) needs a 404 rewrite rule set in the Amplify console for the same behaviour.
 
 ## Known Risks and Gotchas
 - `script.js` expects `#nav` to exist and calls nav scroll logic immediately.
@@ -108,15 +104,9 @@
    - internal links
 
 ## File Size Snapshot (for orientation)
-- `/style.css`: large shared stylesheet (~2200 lines).
-- `/index.html`: largest content page (~1400 lines).
-- `/script.js`: shared interaction layer (~380 lines).
-- `/recording/index.html`: medium-large landing page (~900 lines).
+- `/style.css`: large older stylesheet (~2200 lines).
+- `/system.css`: current design system (~300 lines).
+- `/index.html`: homepage (~700 lines).
+- `/script.js`: older-page interaction layer (~380 lines).
+- `/recording/index.html`: recording landing page (~650 lines).
 - `/pricing/index.html`: medium page (~500 lines).
-
-## Current Repo State Note
-- Existing uncommitted changes were present in:
-  - `/recording/index.html`
-  - `/recording/recording.css`
-  - `/recording/index.backup.html` (untracked)
-- This document was added without altering those files.

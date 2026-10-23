@@ -2,8 +2,6 @@
   "name": "youkeo-website",
   "private": true,
   "scripts": {
-    "build": "tailwindcss -i ./recording/tailwind.input.css -o ./recording/tailwind.css --minify",
-    "watch:recording": "tailwindcss -i ./recording/tailwind.input.css -o ./recording/tailwind.css --watch",
     "dev": "node server.js"
   },
   "devDependencies": {
