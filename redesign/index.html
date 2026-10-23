@@ -66,7 +66,7 @@
       --mono: 'IBM Plex Mono', ui-monospace, monospace;
 
       --gut: clamp(20px, 4.5vw, 72px);
-      --sec: clamp(88px, 11vw, 152px);
+      --sec: clamp(104px, 13vw, 192px);
       --r: 14px;
       --hd: 72px;
     }
@@ -155,7 +155,7 @@
     .region__where { color: var(--fog); }
     .hero__title .line2 { color: #CBC7DC; }
     .hero .lede { margin-top: 26px; color: var(--fog); }
-    .hero__ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+    .hero__ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
     .proof { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; margin: 28px 0 0; padding: 0; list-style: none; color: var(--muted); font-size: 14px; }
     .proof li { display: inline-flex; align-items: center; gap: 6px; }
     .proof li:not(:last-child)::after { content: '·'; margin-left: 6px; color: var(--muted); }
@@ -186,7 +186,7 @@
     .bus__grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 5vw, 96px); align-items: center; width: 100%; }
     .bus .lede { margin-top: 24px; }
     .stages { margin: 40px 0 0; padding: 0; list-style: none; border-top: 1px solid var(--rule); }
-    .stage { display: grid; grid-template-columns: 44px 1fr; gap: 0 12px; padding: 16px 0; border-bottom: 1px solid var(--rule); opacity: .42; transition: opacity .35s; cursor: pointer; }
+    .stage { display: grid; grid-template-columns: 44px 1fr; gap: 0 12px; padding: 18px 0; border-bottom: 1px solid var(--rule); opacity: .42; transition: opacity .35s; cursor: pointer; }
     .stage.is-on { opacity: 1; }
     .stage__n { color: var(--muted); font: 500 12px/1.9 var(--mono); }
     .stage.is-on .stage__n { color: var(--lav); }
@@ -198,7 +198,8 @@
     .console__stage { color: var(--lav); }
     .wave { position: relative; margin: 24px 0; height: clamp(180px, 22vw, 300px); }
     .wave canvas { width: 100%; height: 100%; }
-    .console__meter { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 14px; color: var(--muted); font: 500 11px/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; }
+    .console__play[hidden] { display: none; }
+    .console__meter { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 14px; color: var(--muted); font: 500 11px/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; }
     .meter { height: 6px; border-radius: 3px; background: rgba(255,255,255,.08); overflow: hidden; }
     .meter__fill { height: 100%; width: 20%; background: var(--lav); border-radius: 3px; }
     .console__play { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--rule); }
@@ -254,10 +255,10 @@
     .need span { display: inline-flex; align-items: center; min-height: 48px; padding: 0 20px; border: 1px solid rgba(255,255,255,.22); border-radius: 999px; color: var(--fog); font: 500 15px/1 var(--body); cursor: pointer; transition: all .2s; }
     .need input:checked + span { border-color: var(--paper); background: var(--paper); color: #0E0E12; }
     .need input:focus-visible + span { outline: 2px solid var(--lav); outline-offset: 3px; }
-    .pkg__badge { display: inline-block; padding: 6px 10px; border-radius: 6px; background: var(--lav); color: #17131D; font: 500 10px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+    .pkg__badge { display: inline-block; padding: 6px 10px; border-radius: 6px; background: var(--lav); color: #17131D; font: 500 11px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
     .pkg__for { color: var(--muted); font: 500 11px/1.4 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
     /* One answer to "what are you walking in with?" */
-    .answer { margin-top: 28px; }
+    .answer { margin-top: 40px; }
     .pane { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(28px, 4vw, 72px); padding: clamp(28px, 4vw, 56px); border: 1px solid var(--lav); border-radius: var(--r); background: var(--console); }
     .pane__top { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
     .pane__name { margin: 18px 0 0; color: var(--paper); font: 800 clamp(34px, 4.4vw, 64px)/.95 var(--display); letter-spacing: -.05em; }
@@ -277,7 +278,7 @@
     .js-motion .pane { animation: paneIn .5s cubic-bezier(.16,1,.3,1); }
     @keyframes paneIn { from { opacity: 0; transform: translateY(10px); } }
 
-    .others { margin-top: 12px; }
+    .others { margin-top: 16px; }
     .row { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 4fr) auto auto; align-items: center; gap: 20px; min-height: 64px; padding: 14px 4px; border-bottom: 1px solid var(--rule); color: var(--fog); cursor: pointer; transition: color .2s; }
     .row:first-of-type { border-top: 1px solid var(--rule); }
     .row__name { color: var(--paper); font: 700 18px/1.3 var(--display); letter-spacing: -.01em; }
@@ -289,15 +290,10 @@
     .pk:has(#need-beat:checked) .row[data-pk="beat"],
     .pk:has(#need-idea:checked) .row[data-pk="idea"] { display: none; }
 
-    .buys { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 32px; margin-top: 72px; padding-top: 40px; border-top: 1px solid var(--rule); border-bottom: 0; }
-    .buys > summary { display: block; min-height: 0; padding: 0; cursor: default; pointer-events: none; }
-    .buys > summary::after { display: none; }
-    .buys > summary .label { display: flex; }
-    .buys > summary .h3 { display: block; }
-    .buys__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 40px; margin: 0; }
-    .buys dt { color: var(--paper); font: 700 17px/1.4 var(--display); }
-    .buys dd { margin: 6px 0 0; font-size: 15px; line-height: 1.55; }
-    .steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; margin: 72px 0 0; padding: 0; list-style: none; counter-reset: s; }
+    .pk__head--solo { grid-template-columns: minmax(0, 1fr); }
+    .pk__why { max-width: 62ch; margin: 56px 0 0; color: var(--fog); font-size: 16px; }
+    .pk__why b { color: var(--paper); font-weight: 600; }
+    .steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; margin: 96px 0 0; padding: 0; list-style: none; counter-reset: s; }
     .steps li { padding-top: 18px; border-top: 1px solid var(--rule); font-size: 15px; line-height: 1.5; }
     .steps b { display: block; margin-bottom: 6px; color: var(--paper); font: 700 17px/1.3 var(--display); }
     .steps li::before { counter-increment: s; content: '0' counter(s); display: block; margin-bottom: 14px; color: var(--lav); font: 500 12px/1 var(--mono); }
@@ -311,7 +307,7 @@
     .portrait strong { display: block; color: var(--paper); font: 700 17px/1.3 var(--display); }
     .quote { margin: 32px 0 0; color: var(--paper); font: 600 clamp(28px, 3.6vw, 56px)/1.12 var(--display); letter-spacing: -.035em; }
     .quote p { margin: 0; }
-    .promises { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 28px; margin-top: 64px; }
+    .promises { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; margin-top: 80px; }
     .promises p { margin: 8px 0 0; font-size: 15px; line-height: 1.55; }
     .creds { display: flex; flex-wrap: wrap; gap: 12px 40px; margin: 56px 0 0; padding: 24px 0 0; border-top: 1px solid var(--rule); }
     .creds div { color: var(--muted); font: 500 11px/1.4 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
@@ -323,7 +319,7 @@
     .rating strong { color: var(--paper); font: 800 34px/1 var(--display); letter-spacing: -.04em; }
     .rating span { color: var(--muted); font-size: 13px; line-height: 1.4; }
     .rating:hover { border-color: var(--lav); }
-    .vo__grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(28px, 4vw, 72px); margin-top: 56px; }
+    .vo__grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 5vw, 96px); margin-top: 72px; }
     .clips { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; align-content: start; }
     .clip { position: relative; aspect-ratio: 9 / 16; overflow: hidden; border-radius: var(--r); background: var(--panel); }
     .clip video { width: 100%; height: 100%; object-fit: cover; }
@@ -333,14 +329,14 @@
     .clip__play { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 50%; background: var(--paper); color: #0E0E12; flex: none; }
     .clip.is-playing .clip__btn { opacity: 0; }
     .quotes { margin: 0; }
-    .q { margin: 0; padding: 26px 0; border-top: 1px solid var(--rule); }
+    .q { margin: 0; padding: 32px 0; border-top: 1px solid var(--rule); }
     .q:last-child { border-bottom: 1px solid var(--rule); }
     .q blockquote { margin: 0; color: var(--paper); font: 500 clamp(18px, 1.6vw, 22px)/1.45 var(--display); letter-spacing: -.01em; }
     .q figcaption { margin-top: 12px; color: var(--muted); font: 500 11px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
 
     /* ── 7. The room ────────────────────────────────────────── */
     .room__head { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 32px; align-items: end; }
-    .room__viewport { margin-top: 56px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+    .room__viewport { margin-top: 72px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
     .room__viewport::-webkit-scrollbar { display: none; }
     .room__track { display: flex; gap: 16px; width: max-content; padding: 0 var(--gut); }
     .space { width: min(78vw, 640px); scroll-snap-align: center; flex: none; margin: 0; }
@@ -352,7 +348,7 @@
     .space__gear { grid-column: 2; grid-row: 1 / span 2; align-self: start; color: var(--muted); font: 500 11px/1.6 var(--mono); letter-spacing: .06em; text-align: right; text-transform: uppercase; }
     @media (min-width: 1000px) {
       .room__viewport { overflow: visible; }
-      .room__track { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px 16px; width: auto; max-width: 1440px; margin: 0 auto; }
+      .room__track { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 56px 24px; width: auto; max-width: 1440px; margin: 0 auto; }
       .space { width: auto; }
     }
 
@@ -422,12 +418,11 @@
       .bar { display: grid; }
       .hero { padding-top: calc(var(--hd) + 48px); }
       .hud { inset: calc(var(--hd) + 8px) 8px 8px; }
-      .pane, .bus__grid, .work__head, .work__pin, .pk__head, .buys, .first__grid, .ft__grid, .faq__grid, .room__head, .vo__grid, .book__grid { grid-template-columns: minmax(0, 1fr); }
+      .pane, .bus__grid, .work__head, .work__pin, .pk__head, .first__grid, .ft__grid, .faq__grid, .room__head, .vo__grid, .book__grid { grid-template-columns: minmax(0, 1fr); }
       .bus__pin { min-height: 0; padding-top: var(--sec); }
       .stage-art { display: none; }
       .work__pin { margin-top: 40px; }
       .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .buys__grid { grid-template-columns: minmax(0, 1fr); }
       .promises { grid-template-columns: minmax(0, 1fr); gap: 22px; }
       .portrait { position: static; max-width: 360px; }
       .faq__intro { position: static; }
@@ -446,13 +441,6 @@
       .row__go { display: none; }
       .needs { gap: 8px; }
       .need span { min-height: 44px; padding: 0 16px; font-size: 14px; }
-      .buys { display: block; margin-top: 40px; padding-top: 0; border-top: 0; }
-      .buys > summary { display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 64px; padding: 16px 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); pointer-events: auto; cursor: pointer; }
-      .buys > summary .label { margin: 0 0 6px; }
-      .buys > summary .h3 { font-size: 17px; }
-      .buys > summary::after { display: block; }
-      .buys[open] > summary { border-bottom: 0; }
-      .buys__grid { padding: 8px 0 20px; gap: 18px; }
       .steps { margin-top: 40px; gap: 20px 16px; }
       .pk__foot { margin-top: 32px; }
       .first__grid { gap: 28px; }
@@ -467,7 +455,7 @@
       .visit__map { min-height: 200px; }
     }
     @media (max-width: 600px) {
-      :root { --sec: 76px; }
+      :root { --sec: 88px; }
       body { font-size: 16px; }
       .proof { margin-top: 22px; font-size: 13px; }
       .credits { display: none; }
@@ -538,9 +526,9 @@
 
       <div class="wrap hero__copy">
         <div class="hero__inner">
-          <p class="region"><span class="region__rec"><span class="rec rec--live" aria-hidden="true"></span>Rec · Take 01</span><span class="region__tc" id="heroTc" aria-hidden="true">00:00:00:00</span><span class="region__where">Youkeo Studios · Airoli, Navi Mumbai</span></p>
+          <p class="region"><span class="region__rec"><span class="rec rec--live" aria-hidden="true"></span>Rec</span><span class="region__tc" id="heroTc" aria-hidden="true">00:00:00:00</span><span class="region__where">Airoli, Navi Mumbai</span></p>
           <h1 class="display hero__title" id="heroTitle"><span class="line1">Your voice.</span><br><span class="line2">Turned into a release.</span></h1>
-          <p class="lede">Recording, production and mastering for independent artists — with an engineer beside you on every take.</p>
+          <p class="lede">Recording, production and mastering — with an engineer beside you on every take.</p>
           <div class="hero__ctas">
             <a class="btn btn--primary" href="https://wa.me/919619192992?text=Hi%2C%20I%27d%20like%20to%20check%20availability%20at%20Youkeo%20Studios." target="_blank" rel="noopener" onclick="gtag('event','contact_click',{method:'whatsapp',location:'hero_cta',page:'redesign'}); trackWhatsApp();">
               <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16.7 5.7C11.3 5.7 6.9 10.1 6.9 15.5c0 1.7.4 3.3 1.3 4.8L6.8 25.3l5.2-1.4c1.4.8 3 1.2 4.7 1.2 5.4 0 9.8-4.4 9.8-9.8S22.1 5.7 16.7 5.7Zm0 17.9c-1.5 0-2.9-.4-4.1-1.1l-.3-.2-3.1.8.8-3-.2-.3a8.1 8.1 0 1 1 6.9 3.8Zm4.5-6.1c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1l-.8 1c-.1.2-.3.2-.5.1a6.6 6.6 0 0 1-3.4-2.9c-.1-.2 0-.4.1-.5l.4-.5.2-.4v-.4l-.7-1.7c-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.2-.2.2-.8.8-.8 1.9s.8 2.2.9 2.4c.1.2 1.6 2.4 3.8 3.4 1.4.6 2 .7 2.7.6.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1l-.3-.3Z"/></svg>
@@ -554,7 +542,6 @@
             <li><strong>200+</strong> artists recorded</li>
             <li><strong>10M+</strong> streams on tracks made here</li>
           </ul>
-          <p class="credits"><b>Featured on NEXA Music by AR Rahman</b> · Tracks on New Music Friday India · 10+ Spotify editorial placements</p>
         </div>
       </div>
     </section>
@@ -565,20 +552,20 @@
         <div class="wrap bus__grid">
           <div>
                         <h2 class="h2" id="busTitle">Same voice.<br><span class="mute">Finished here.</span></h2>
-            <p class="lede">A raw take sounds thin next to the songs you stream. Here's what happens to it before it leaves the studio.</p>
+            <p class="lede">What happens to your take before it leaves the studio.</p>
             <ol class="stages" id="stages">
-              <li class="stage is-on" data-stage="0"><span class="stage__n">01</span><span class="stage__t">Raw take</span><p class="stage__d">Your vocal over the beat, exactly as you sang it.</p></li>
-              <li class="stage" data-stage="1"><span class="stage__n">02</span><span class="stage__t">Tuned</span><p class="stage__d">Pitch and timing corrected — natural, not robotic.</p></li>
-              <li class="stage" data-stage="2"><span class="stage__n">03</span><span class="stage__t">Mixed</span><p class="stage__d">Every stem balanced so your voice sits on top of the beat.</p></li>
-              <li class="stage" data-stage="3"><span class="stage__n">04</span><span class="stage__t">Mastered</span><p class="stage__d">Loud, clear and consistent on earphones, car speakers and Spotify.</p></li>
+              <li class="stage is-on" data-stage="0"><span class="stage__n">01</span><span class="stage__t">Raw take</span><p class="stage__d">Exactly as you sang it.</p></li>
+              <li class="stage" data-stage="1"><span class="stage__n">02</span><span class="stage__t">Tuned</span><p class="stage__d">Pitch and timing fixed. Still you.</p></li>
+              <li class="stage" data-stage="2"><span class="stage__n">03</span><span class="stage__t">Mixed</span><p class="stage__d">Every stem balanced around your voice.</p></li>
+              <li class="stage" data-stage="3"><span class="stage__n">04</span><span class="stage__t">Mastered</span><p class="stage__d">Loud and clear on every speaker.</p></li>
             </ol>
           </div>
 
           <div class="console" id="console" data-placeholder="Waveform is illustrative · real before/after audio needed">
             <div class="console__top"><span>Master bus</span><span class="console__stage" id="busReadout">01 / 04 · Raw take</span></div>
             <div class="wave"><canvas id="wave" aria-hidden="true"></canvas></div>
-            <div class="console__meter"><span>Level</span><div class="meter"><div class="meter__fill" id="meterFill"></div></div><span id="meterTxt">Quiet</span></div>
-            <div class="console__play">
+            <div class="console__meter"><div class="meter"><div class="meter__fill" id="meterFill"></div></div><span id="meterTxt">Quiet</span></div>
+            <div class="console__play" id="abRow" hidden>
               <div class="ab" role="group" aria-label="Compare before and after">
                 <button type="button" id="playRaw" aria-pressed="false" disabled>▶ Raw take</button>
                 <button type="button" id="playMaster" aria-pressed="false" disabled>▶ Final master</button>
@@ -600,7 +587,7 @@
           <div>
                         <h2 class="h2" id="workTitle">Recorded in Airoli.<br>Played everywhere.</h2>
           </div>
-          <p class="lede">Independent releases recorded, produced and finished at Youkeo — together past 10 million streams.</p>
+          <p class="lede">Featured on NEXA Music by AR Rahman. Tracks on New Music Friday India and 10+ Spotify editorial playlists.</p>
         </div>
 
         <div class="work__pin" id="workPin">
@@ -654,11 +641,10 @@
     <!-- ── 4. Packages ── -->
     <section class="pk sec" id="packages" aria-labelledby="pkTitle">
       <div class="wrap">
-        <div class="pk__head">
+        <div class="pk__head pk__head--solo">
           <div>
                         <h2 class="h2" id="pkTitle">What are you<br>walking in with?</h2>
           </div>
-          <p class="lede">Pick your starting point. The price and what's included are agreed on WhatsApp before your session — no surprises on the day.</p>
         </div>
 
         <fieldset class="needs">
@@ -716,27 +702,16 @@
           <label class="row" for="need-idea" data-pk="idea"><span class="row__name">Production to Final</span><span class="row__for">Start with an idea</span><span class="row__price">₹26,000<small class="mute"> /song</small></span><span class="row__go">View →</span></label>
         </div>
 
-        <details class="buys" id="buys" open data-reveal>
-          <summary>
-            <span><span class="label">What ₹14,000 buys</span><span class="h3">Why a finished song costs more than a recording.</span></span>
-          </summary>
-          <dl class="buys__grid">
-            <div><dt>An engineer on every take</dt><dd>Someone listening for pitch, timing and emotion while you sing — not just pressing record.</dd></div>
-            <div><dt>Vocal tuning</dt><dd>Corrected where it needs it, left alone where it doesn't. Your voice, not a robot.</dd></div>
-            <div><dt>A stem mix, not a stereo mix</dt><dd>Cheaper bundles mix your vocal over the finished beat. A stem mix balances every instrument separately, so the whole song sits together.</dd></div>
-            <div><dt>A master + 2 revisions</dt><dd>Loud and consistent on every platform, with two rounds of changes until it feels right.</dd></div>
-          </dl>
-        </details>
+        <p class="pk__why"><b>Why ₹14,000?</b> Cheaper bundles mix your vocal over a finished beat. A stem mix balances every instrument on its own, so the whole song sits together.</p>
 
         <ol class="steps" data-reveal>
-          <li><b>Message us on WhatsApp</b>Tell us what you're making. Add a reference track if you have one.</li>
-          <li><b>Lock your slot</b>We usually reply within a few hours. A 20% advance confirms the booking.</li>
-          <li><b>Walk in and record</b>8 minutes from Airoli Station. The engineer sets up before you arrive.</li>
-          <li><b>Get your master</b>Streaming-ready files, with two rounds of revisions included.</li>
+          <li><b>Message us on WhatsApp</b>Add a reference track if you have one.</li>
+          <li><b>Lock your slot</b>A 20% advance confirms it.</li>
+          <li><b>Walk in and record</b>8 minutes from Airoli Station.</li>
+          <li><b>Get your master</b>With two rounds of revisions.</li>
         </ol>
 
         <div class="pk__foot">
-          <p>Not the right fit if you want the lowest price over quality, or same-day booking without an advance.</p>
           <a class="link" href="/pricing/#a-la-carte">Need one service? See à la carte rates →</a>
         </div>
       </div>
@@ -751,17 +726,15 @@
         </figure>
         <div>
                     <h2 class="h2" id="ftTitle">First time?<br>Good.</h2>
-          <p class="lede ft__lede">Most artists who walk in here have recorded three times or fewer.</p>
           <blockquote class="quote" id="ftQuote"><p>“I was nervous before my first recording too. I didn't know what to expect, whether my voice was ready, or if I'd waste the money. I built Youkeo so that feeling doesn't exist for you.”</p></blockquote>
           <div class="promises" data-reveal>
-            <div><h3 class="h3">No judgment</h3><p>Retakes are normal. Nobody here is counting them.</p></div>
-            <div><h3 class="h3">Guided takes</h3><p>Mic technique, headphone mix, where to breathe — the engineer walks you through it.</p></div>
-            <div><h3 class="h3">A song you're proud of</h3><p>You leave with something you'll actually want to release.</p></div>
+            <div><h3 class="h3">No judgment</h3><p>Retakes are normal. Nobody's counting.</p></div>
+            <div><h3 class="h3">Guided takes</h3><p>Mic, headphones, breathing — we walk you through it.</p></div>
+            <div><h3 class="h3">Proud of it</h3><p>You leave with a song you'll want to release.</p></div>
           </div>
           <div class="creds">
             <div><strong>10+</strong>years making music</div>
             <div><strong>1M+</strong>Spotify streams as an artist</div>
-            <div><strong>10+</strong>editorial placements</div>
           </div>
         </div>
       </div>
@@ -773,7 +746,6 @@
         <div class="vo__head">
           <div>
                         <h2 class="h2" id="voTitle">200+ artists recorded.</h2>
-            <p class="lede vo__lede">Here's what a few of them said.</p>
           </div>
           <a class="rating" href="https://www.google.com/search?q=Youkeo+Studios+reviews" target="_blank" rel="noopener">
             <strong>5.0</strong><span><span class="stars" aria-hidden="true">★★★★★</span><br>Google rating · read reviews ↗</span>
@@ -794,7 +766,6 @@
             <figure class="q" data-reveal><blockquote>“We've now done over 10 recordings at this place, and every single session has been smooth and professional.”</blockquote><figcaption>AiVANTA Labs · Google review</figcaption></figure>
             <figure class="q" data-reveal><blockquote>“The team really knows how to create an environment where artists can do their best.”</blockquote><figcaption>Dibanisha Banerjee · Google review</figcaption></figure>
             <figure class="q" data-reveal><blockquote>“Amazing vibe and even better equipment. The entire experience was very comfortable and smooth!”</blockquote><figcaption>Pratik Kawde · Google review</figcaption></figure>
-            <figure class="q" data-reveal><blockquote>“The ambiance and the people make you feel comfortable and place you in the right frame of mind to unleash your creativity.”</blockquote><figcaption>Catherine Sarah · Google review</figcaption></figure>
           </div>
         </div>
       </div>
@@ -806,16 +777,15 @@
         <div>
                     <h2 class="h2" id="roomTitle">One room,<br>built for the take.</h2>
         </div>
-        <p class="lede">Sector 19, Airoli. Treated, quiet and set up before you walk in.</p>
       </div>
       <div class="room__viewport" id="roomViewport">
         <div class="room__track" id="roomTrack">
-          <figure class="space"><div class="space__img" data-placeholder="Frame from studio reel · photo needed"><img src="/media/stills/control-room.jpg" alt="Engineer and artist in the control room, vocal booth visible through the glass" width="1400" height="788" loading="lazy" /></div><figcaption><h3 class="h3">Control room</h3><p>Sit with the engineer and hear every take back.</p><span class="space__gear">Genelec monitoring<br>Audient interface</span></figcaption></figure>
-          <figure class="space"><div class="space__img" data-placeholder="Frame from studio reel · photo needed"><img src="/media/stills/u87.jpg" alt="Engineer adjusting the Neumann U87 microphone" width="1400" height="788" loading="lazy" /></div><figcaption><h3 class="h3">The vocal mic</h3><p>The Neumann U87 — the vocal mic behind countless records.</p><span class="space__gear">Neumann U87</span></figcaption></figure>
-          <figure class="space"><div class="space__img" data-placeholder="Frame from studio reel · photo needed"><img src="/media/stills/vocal-booth.jpg" alt="Microphone set up in the treated vocal booth" width="1400" height="788" loading="lazy" /></div><figcaption><h3 class="h3">Vocal booth</h3><p>Treated and quiet, so nothing but your voice gets recorded.</p><span class="space__gear">Acoustic treatment</span></figcaption></figure>
-          <figure class="space"><div class="space__img" data-placeholder="Frame from studio reel · photo needed"><img src="/media/stills/monitors.jpg" alt="Dual-screen production desk with studio monitor" width="1400" height="788" loading="lazy" /></div><figcaption><h3 class="h3">Production desk</h3><p>Beats, arrangements and edits come together here.</p><span class="space__gear">Dual-screen DAW</span></figcaption></figure>
-          <figure class="space"><div class="space__img" data-placeholder="Frame from studio reel · photo needed"><img src="/media/stills/keys.jpg" alt="Producer playing keys at the keyboard station" width="1400" height="788" loading="lazy" /></div><figcaption><h3 class="h3">Keys</h3><p>Lay down a part live or sketch the idea in your head.</p><span class="space__gear">Keys &amp; controllers</span></figcaption></figure>
-          <figure class="space"><div class="space__img" data-placeholder="Frame from studio reel · photo needed"><img src="/media/stills/lounge.jpg" alt="Artists relaxing and laughing on the studio sofa" width="1400" height="788" loading="lazy" /></div><figcaption><h3 class="h3">Lounge</h3><p>Room to settle in, listen back and reset between takes.</p><span class="space__gear">Open daily<br>11:00–22:00 IST</span></figcaption></figure>
+          <figure class="space"><div class="space__img" data-placeholder="Frame from studio reel · photo needed"><img src="/media/stills/control-room.jpg" alt="Engineer and artist in the control room, vocal booth visible through the glass" width="1400" height="788" loading="lazy" /></div><figcaption><h3 class="h3">Control room</h3><span class="space__gear">Genelec monitoring<br>Audient interface</span></figcaption></figure>
+          <figure class="space"><div class="space__img" data-placeholder="Frame from studio reel · photo needed"><img src="/media/stills/u87.jpg" alt="Engineer adjusting the Neumann U87 microphone" width="1400" height="788" loading="lazy" /></div><figcaption><h3 class="h3">The vocal mic</h3><span class="space__gear">Neumann U87</span></figcaption></figure>
+          <figure class="space"><div class="space__img" data-placeholder="Frame from studio reel · photo needed"><img src="/media/stills/vocal-booth.jpg" alt="Microphone set up in the treated vocal booth" width="1400" height="788" loading="lazy" /></div><figcaption><h3 class="h3">Vocal booth</h3><span class="space__gear">Acoustic treatment</span></figcaption></figure>
+          <figure class="space"><div class="space__img" data-placeholder="Frame from studio reel · photo needed"><img src="/media/stills/monitors.jpg" alt="Dual-screen production desk with studio monitor" width="1400" height="788" loading="lazy" /></div><figcaption><h3 class="h3">Production desk</h3><span class="space__gear">Dual-screen DAW</span></figcaption></figure>
+          <figure class="space"><div class="space__img" data-placeholder="Frame from studio reel · photo needed"><img src="/media/stills/keys.jpg" alt="Producer playing keys at the keyboard station" width="1400" height="788" loading="lazy" /></div><figcaption><h3 class="h3">Keys</h3><span class="space__gear">Keys &amp; controllers</span></figcaption></figure>
+          <figure class="space"><div class="space__img" data-placeholder="Frame from studio reel · photo needed"><img src="/media/stills/lounge.jpg" alt="Artists relaxing and laughing on the studio sofa" width="1400" height="788" loading="lazy" /></div><figcaption><h3 class="h3">Lounge</h3><span class="space__gear">Open daily<br>11:00–22:00 IST</span></figcaption></figure>
         </div>
       </div>
     </section>
@@ -828,11 +798,9 @@
           <p class="lede">Something else on your mind? <a class="link" href="https://wa.me/919619192992?text=Hi%2C%20I%20have%20a%20question%20about%20Youkeo%20Studios" target="_blank" rel="noopener" onclick="gtag('event','contact_click',{method:'whatsapp',location:'faq',page:'redesign'}); trackWhatsApp();">Ask on WhatsApp</a></p>
         </div>
         <div>
-          <details><summary>How much does a song cost?</summary><div><p>Studio time is ₹1,200 an hour with an engineer. Recording to Final is ₹14,000 per song and Production to Final is ₹26,000 per song. Mixing or mastering on its own starts at ₹2,000 — see the <a class="link" href="/pricing/">full rates</a>.</p></div></details>
           <details><summary>I've never recorded before. Is that okay?</summary><div><p>That's completely fine. Most of our clients have recorded 0–3 times before. The engineer walks you through mic technique, your headphone mix and every take.</p></div></details>
           <details><summary>What should I bring?</summary><div><p>Your voice and your lyrics. Send your beat or a reference track the day before so we can set up.</p></div></details>
           <details><summary>Can I bring my own beat?</summary><div><p>Yes — MP3, WAV or a DAW project. Send it in advance.</p></div></details>
-          <details><summary>What's a stem mix?</summary><div><p>Instead of mixing your vocal over a finished stereo beat, we balance every part of the song — drums, bass, melody, vocals — on its own. It's how released songs are mixed.</p></div></details>
           <details><summary>How do booking and cancellation work?</summary><div><p>A 20% advance confirms your slot. Reschedule free with 24+ hours' notice. Same-day cancellations forfeit the advance. If we cancel, you get a full refund.</p></div></details>
           <details><summary>Do prices include GST?</summary><div><p>Individual artists pay exactly the listed price. If you're booking as a GST-registered business, GST is added at the applicable rate and shown separately on your invoice.</p></div></details>
           <details><summary>Where are you, and is there parking?</summary><div><p>Near ICICI Bank, Sector 19, Airoli — 8 minutes from Airoli Station on the Trans-Harbour line. Free parking outside.</p></div></details>
@@ -846,7 +814,7 @@
         <div class="book__main" data-reveal>
           <div>
                         <h2 class="h2" id="bookTitle">Your song is<br>one message away.</h2>
-            <p class="lede">Tell us what you're making and when you want to start. We'll suggest the right package and send you a slot.</p>
+            <p class="lede">Tell us what you're making. We'll suggest a package and send you a slot.</p>
             <div class="book__actions">
               <a class="btn btn--primary" href="https://wa.me/919619192992?text=Hi%2C%20I%20want%20to%20book%20a%20session%20at%20Youkeo%20Studios" target="_blank" rel="noopener" onclick="gtag('event','contact_click',{method:'whatsapp',location:'cta_section',page:'redesign'}); trackWhatsApp();">Start on WhatsApp</a>
             </div>
@@ -877,7 +845,6 @@
       <div class="ft__grid">
         <div class="ft__brand">
           <a class="ft__logo" href="#top" aria-label="Youkeo Studios"><img src="/assets/brand/youkeo-white-transparent.svg" alt="Youkeo" width="132" height="35" loading="lazy" /></a>
-          <p class="ft__intro">A recording and music production studio where independent artists turn ideas into finished releases.</p>
           <address>Near ICICI Bank, Sector 19<br>Airoli, Navi Mumbai 400708</address>
           <div class="ft__contact">
             <a href="tel:+919619192992" onclick="gtag('event','contact_click',{method:'phone',location:'footer',page:'redesign'}); trackPhone();">+91 96 1919 2992</a>
@@ -1035,6 +1002,7 @@
     Promise.all([audRaw.src, audMaster.src].map(u => fetch(u, { method: 'HEAD' }).then(r => r.ok).catch(() => false))).then(([a, b]) => {
       if (!(a && b)) return;
       bRaw.disabled = bMaster.disabled = false;
+      $('#abRow').hidden = false;
       $('#abNote').textContent = 'Same take, same level. Switch while it plays.';
       $('#console').removeAttribute('data-placeholder');
       const play = (on, off, bOn, bOff, stage) => {
@@ -1060,12 +1028,6 @@
       });
       v.addEventListener('ended', () => { c.classList.remove('is-playing'); v.controls = false; });
     });
-
-    /* ── "What ₹14,000 buys": open on desktop, tap-to-open on phones ── */
-    const buys = $('#buys');
-    const syncBuys = () => { buys.open = !matchMedia('(max-width: 999px)').matches; };
-    syncBuys(); matchMedia('(max-width: 999px)').addEventListener('change', syncBuys);
-    $('#buys > summary').addEventListener('click', e => { if (!matchMedia('(max-width: 999px)').matches) e.preventDefault(); });
 
     /* ── Releases: highlight helper ── */
     const tracks = $$('.track'), sleeves = $$('.sleeve img'), vinylArt = $('#vinylArt');
