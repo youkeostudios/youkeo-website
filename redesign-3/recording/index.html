@@ -283,9 +283,13 @@
       .reason img { aspect-ratio: 4 / 3; }
     }
     @media (max-width: 640px) {
-      .glance__row { grid-template-columns: minmax(0, 1fr); }
-      .glance a, .glance a:first-child { grid-template-columns: minmax(0, 1fr) auto; align-items: baseline; padding: 14px 0; border-left: 0; border-top: 1px solid var(--line-d); }
-      .glance a:first-child { border-top: 0; }
+      /* Phones: one compact row of prices, and only the primary button (the price row already jumps to pricing). */
+      .glance a { gap: 6px; padding: 14px 0 16px 12px; }
+      .glance a:first-child { padding-left: 0; }
+      .glance span { font-size: 10px; letter-spacing: .04em; }
+      .glance b { font-size: 18px; }
+      .glance b small { display: none; }
+      .hero .btns .btn--ghost { display: none; }
       .stats div { padding-left: 14px; }
       .steps { grid-template-columns: minmax(0, 1fr); border-top: 0; }
       .step { margin-left: 4px; padding: 0 0 32px 28px; border-left: 1px solid var(--line-l); }
@@ -335,7 +339,7 @@
       </div>
       <div class="wrap hero__in">
         <div>
-          <p class="trk" data-hero>Vocal &amp; instrument recording · Airoli, Navi Mumbai</p>
+          <p class="trk" data-hero>Recording studio · Airoli, Navi Mumbai</p>
           <h1 class="h1" id="heroTitle"><span class="hero__line">Record your song</span> <span class="hero__line">in <em>Navi Mumbai</em></span></h1>
         </div>
         <div data-hero>

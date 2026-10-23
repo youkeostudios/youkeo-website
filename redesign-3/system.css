@@ -307,6 +307,8 @@ html:not(.js-motion) .spot__now, html:not(.js-motion) .spot__head { display: non
   .voices__grid > * { flex: none; width: 72vw; aspect-ratio: 9 / 16; scroll-snap-align: start; }
   .founder__stats { gap: 32px; }
   .hero .btns .btn { flex: 1 1 100%; }
+  /* Text sits over the footage on narrow screens: darken it more so the copy stays readable. */
+  .hero__media::after { background: linear-gradient(180deg, rgba(11,11,16,.55), rgba(11,11,16,.7) 40%, rgba(11,11,16,.96)); }
   .crate__box { --s: 80vw; }
 }
 @media (prefers-reduced-motion: reduce) {
