@@ -1,0 +1,14 @@
+version: 1
+frontend:
+  phases:
+    build:
+      commands:
+        # Zero-build static site. Copy only the public files into dist/ so repo docs,
+        # agent skills and tooling (CLAUDE.md, .claude/, package.json, server.js) are never served.
+        - mkdir -p dist
+        - cp -R index.html 404.html style.css script.js pricing.css logo.svg robots.txt sitemap.xml llms.txt assets media pricing recording privacy-policy terms-conditions redesign redesign-2 redesign-3 dist/
+        - rm -f dist/recording/TAILWIND.md dist/recording/tailwind.input.css
+  artifacts:
+    baseDirectory: dist
+    files:
+      - '**/*'
