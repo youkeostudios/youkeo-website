@@ -612,7 +612,6 @@
     const hasGsap = !!(window.gsap && window.ScrollTrigger);
     if (!hasGsap) document.documentElement.classList.remove('js-motion');
     const motion = document.documentElement.classList.contains('js-motion');
-    const wide = matchMedia('(min-width: 1000px)');
 
     /* Nav: solid once the page scrolls; it stays put so the booking button is always there */
     const nav = $('#nav'), drawer = $('#drawer'), menuBtn = $('#menuBtn');
@@ -626,14 +625,12 @@
     $$('a', drawer).forEach(a => a.addEventListener('click', () => setDrawer(false)));
     addEventListener('keydown', e => { if (e.key === 'Escape' && drawer.classList.contains('is-open')) setDrawer(false, true); });
 
-    /* Hero footage: desktop only, never on data-saver */
+    /* Hero footage at every screen size (1.2 MB). Skipped on data-saver; reduced motion keeps the still poster. */
     const vid = $('#heroVideo');
-    const loadVid = () => {
-      if (!wide.matches || vid.getAttribute('src') || (navigator.connection && navigator.connection.saveData)) return;
-      vid.src = vid.dataset.src; vid.preload = 'auto';
-      if (motion) vid.play().catch(() => {});
-    };
-    loadVid(); wide.addEventListener('change', loadVid);
+    if (motion && !(navigator.connection && navigator.connection.saveData)) {
+      vid.muted = true; vid.src = vid.dataset.src; vid.preload = 'auto';
+      vid.play().catch(() => {});
+    }
 
     /* Testimonial video: tap to play with sound */
     $$('.vcard').forEach(c => {
