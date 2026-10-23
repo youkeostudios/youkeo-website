@@ -263,12 +263,11 @@
     .pkg__badge { display: inline-block; padding: 6px 10px; border-radius: 6px; background: var(--lav); color: #17131D; font: 500 11px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
     .pkg__for { color: var(--muted); font: 500 11px/1.4 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
     /* One answer to "what are you walking in with?" */
-    .answer { margin-top: 24px; }
+    .answer { margin-top: var(--head); }
     .pane { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(28px, 4vw, 72px); padding: clamp(28px, 4vw, 56px); border: 1px solid var(--lav); border-radius: var(--r); background: var(--console); }
     .pane__top { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
     .pane__name { margin: 18px 0 0; color: var(--paper); font: 800 clamp(34px, 4.4vw, 64px)/.95 var(--display); letter-spacing: -.05em; }
-    .pane__price { margin: 18px 0 0; color: var(--paper); font: 800 clamp(64px, 9vw, 136px)/.9 var(--display); letter-spacing: -.06em; font-variant-numeric: tabular-nums; }
-    .pane__price { white-space: nowrap; }
+    .pane__price { display: flex; align-items: baseline; gap: 10px; margin: 20px 0 0; color: var(--lav); font: 800 clamp(40px, 4.2vw, 60px)/1 var(--display); letter-spacing: -.05em; font-variant-numeric: tabular-nums; white-space: nowrap; }
     .pane__price small { color: var(--muted); font: 400 16px/1 var(--body); letter-spacing: 0; }
     .pane__fit { max-width: 44ch; margin: 22px 0 0; color: var(--fog); }
     .pane ul { margin: 0 0 28px; padding: 0; list-style: none; border-top: 1px solid var(--rule); }
@@ -284,10 +283,11 @@
     @keyframes paneIn { from { opacity: 0; transform: translateY(10px); } }
 
     .others { margin-top: 16px; }
-    .row { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 4fr) auto auto; align-items: center; gap: 20px; min-height: 64px; padding: 14px 4px; border-bottom: 1px solid var(--rule); color: var(--fog); cursor: pointer; transition: color .2s; }
+    .row { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; align-items: center; gap: 2px 28px; min-height: 64px; padding: 14px 4px; border-bottom: 1px solid var(--rule); color: var(--fog); cursor: pointer; transition: color .2s; }
     .row:first-of-type { border-top: 1px solid var(--rule); }
     .row__name { color: var(--paper); font: 700 18px/1.3 var(--display); letter-spacing: -.01em; }
-    .row__for { color: var(--muted); font-size: 14px; }
+    .row__for { grid-column: 1; grid-row: 2; color: var(--muted); font-size: 14px; }
+    .row__price, .row__go { grid-row: 1 / span 2; }
     .row__price { color: var(--paper); font: 700 18px/1 var(--display); font-variant-numeric: tabular-nums; }
     .row__go { color: var(--lav); font-size: 14px; }
     .row:hover .row__name { color: var(--lav); }
@@ -295,7 +295,8 @@
     .pk:has(#need-beat:checked) .row[data-pk="beat"],
     .pk:has(#need-idea:checked) .row[data-pk="idea"] { display: none; }
 
-    .pk__head--solo { grid-template-columns: minmax(0, 1fr); }
+    .pk__head .needs { margin: 0; justify-content: flex-end; }
+    .pk__head .needs legend { text-align: right; }
     .pk__why { max-width: 62ch; margin: var(--block) 0 0; color: var(--fog); font-size: 16px; }
     .pk__why b { color: var(--paper); font-weight: 600; }
     .steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; margin: var(--block) 0 0; padding: 0; list-style: none; counter-reset: s; }
@@ -434,12 +435,13 @@
       .ft { padding-bottom: calc(110px + env(safe-area-inset-bottom)); }
 
       .pane { gap: 24px; padding: 24px; }
-      .pane__price { font-size: clamp(52px, 15vw, 76px); }
+      .pane__price { font-size: clamp(40px, 11vw, 52px); }
+      .pk__head .needs { justify-content: flex-start; }
+      .pk__head .needs legend { text-align: left; }
       .pane__name { font-size: clamp(30px, 8.6vw, 40px); }
       .pane li { padding: 11px 0 11px 22px; font-size: 15px; }
       .pane li::before { top: 22px; }
       .row { grid-template-columns: minmax(0, 1fr) auto; gap: 4px 16px; }
-      .row__for { grid-column: 1; grid-row: 2; }
       .row__go { display: none; }
       .needs { gap: 8px; }
       .need span { min-height: 44px; padding: 0 16px; font-size: 14px; }
@@ -638,18 +640,15 @@
     <!-- ── 4. Packages ── -->
     <section class="pk sec" id="packages" aria-labelledby="pkTitle">
       <div class="wrap">
-        <div class="pk__head pk__head--solo">
-          <div>
-                        <h2 class="h2" id="pkTitle">What are you<br>walking in with?</h2>
-          </div>
-        </div>
-
-        <fieldset class="needs">
+        <div class="pk__head">
+          <h2 class="h2" id="pkTitle">What are you<br>walking in with?</h2>
+          <fieldset class="needs">
           <legend>I have…</legend>
           <label class="need"><input type="radio" name="need" id="need-time" /><span>Just need studio time</span></label>
           <label class="need"><input type="radio" name="need" id="need-beat" /><span>A finished beat</span></label>
           <label class="need"><input type="radio" name="need" id="need-idea" checked /><span>An idea or lyrics</span></label>
-        </fieldset>
+          </fieldset>
+        </div>
 
         <div class="answer" aria-live="polite">
           <article class="pane" data-pk="idea" aria-label="Production to Final">
@@ -699,7 +698,7 @@
           <label class="row" for="need-idea" data-pk="idea"><span class="row__name">Production to Final</span><span class="row__for">Start with an idea</span><span class="row__price">₹26,000<small class="mute"> /song</small></span><span class="row__go">View →</span></label>
         </div>
 
-        <p class="pk__why"><b>Why ₹14,000?</b> Cheaper bundles mix your vocal over a finished beat. A stem mix balances every instrument on its own, so the whole song sits together.</p>
+        <p class="pk__why"><b>Why our packages cost more than cheaper bundles:</b> they mix your vocal over a finished beat. We mix every instrument on its own, so the whole song sits together.</p>
 
         <ol class="steps" data-reveal>
           <li><b>Message us on WhatsApp</b>Add a reference track if you have one.</li>
