@@ -162,7 +162,7 @@
     .track > * { flex: none; scroll-snap-align: start; }
     /* Line the first photo up with the content column; scroll-padding keeps snap from eating the gutter. */
     @media (min-width: 1240px) { .track { --pad: calc((100vw - var(--wrap)) / 2 + var(--gut)); } }
-    .shot { position: relative; width: clamp(280px, 34vw, 460px); aspect-ratio: 4 / 3; margin: 0; overflow: hidden; border-radius: 12px; background: var(--ink-2); }
+    .shot { position: relative; width: clamp(280px, 34vw, 480px); aspect-ratio: 4 / 5; margin: 0; overflow: hidden; border-radius: 12px; background: var(--ink-2); }
     .shot img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); pointer-events: none; }
     .shot:hover img { transform: scale(1.05); }
     .shot figcaption { position: absolute; left: 14px; bottom: 14px; padding: 7px 10px 6px; border-radius: 6px; background: rgba(11,11,16,.7); backdrop-filter: blur(8px); color: var(--white); }
@@ -176,11 +176,12 @@
     /* A playhead line sweeps across where the dark ends. */
     .seam { position: absolute; z-index: 2; top: 0; left: 0; right: 0; height: 2px; background: var(--lav); transform-origin: 0 50%; }
 
-    /* Who records here: five plain photo tiles */
-    .who { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; margin: var(--block) 0 0; padding: 0; list-style: none; }
-    .who li { display: grid; gap: 14px; }
-    .who img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 12px; }
-    .who span { color: var(--ink); font: 600 20px/1.2 var(--sans); letter-spacing: -.02em; }
+    /* Who records here: big square cards in a swipe row, name on the photo */
+    .people { margin-top: var(--block); }
+    .person { position: relative; width: clamp(280px, 36vw, 500px); aspect-ratio: 1; margin: 0; overflow: hidden; border-radius: 12px; background: var(--ink); }
+    .person img { width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+    .person::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(11,11,16,.75)); }
+    .person figcaption { position: absolute; z-index: 1; left: 0; right: 0; bottom: 24px; color: var(--white); font: 600 clamp(22px, 2vw, 28px)/1.1 var(--sans); letter-spacing: -.02em; text-align: center; }
 
     /* Session sheets */
     .sheets { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: var(--block); }
@@ -294,17 +295,12 @@
       .foot__brand { grid-column: 1 / -1; }
     }
     @media (max-width: 759px) {
-      /* Five tiles don't fit a phone: list them with a thumbnail instead. */
-      .who { grid-template-columns: minmax(0, 1fr); gap: 0; }
-      .who li { grid-template-columns: 64px minmax(0, 1fr); align-items: center; gap: 16px; padding: 12px 0; border-top: 1px solid var(--line-l); }
-      .who li:last-child { border-bottom: 1px solid var(--line-l); }
-      .who img { aspect-ratio: 1; border-radius: 8px; }
     }
     @media (max-width: 640px) {
       body { font-size: 16px; }
       .nav__logo img { width: 96px; }
       .nav .btn--sm { padding: 0 16px; }
-      .shot { width: 78vw; }
+      .shot, .person { width: 78vw; }
       .voices__grid { grid-template-columns: minmax(0, 1fr); }
       .founder__stats { gap: 32px; }
       .hero .btns .btn { flex: 1 1 100%; }
@@ -386,12 +382,12 @@
       </div>
       <div class="gallery">
         <div class="track" data-drag aria-label="Photos of the studio">
-          <figure class="shot"><img src="/media/stills/control-room.jpg" alt="Engineer and artist in the control room" width="1400" height="788" loading="lazy" /><figcaption class="mono">Control room</figcaption></figure>
-          <figure class="shot"><img src="/media/stills/u87.jpg" alt="Neumann U87 microphone being set up" width="1400" height="788" loading="lazy" /><figcaption class="mono">Neumann U87</figcaption></figure>
-          <figure class="shot"><img src="/media/stills/lounge.jpg" alt="Artists in the studio lounge" width="1400" height="788" loading="lazy" /><figcaption class="mono">Lounge</figcaption></figure>
-          <figure class="shot"><img src="/media/stills/keys.jpg" alt="Producer at the keys" width="1400" height="788" loading="lazy" /><figcaption class="mono">Keys</figcaption></figure>
-          <figure class="shot"><img src="/media/stills/monitors.jpg" alt="Production desk with dual screens" width="1400" height="788" loading="lazy" /><figcaption class="mono">Production desk</figcaption></figure>
-          <figure class="shot"><img src="/media/stills/vocal-booth.jpg" alt="Microphone in the treated vocal booth" width="1400" height="788" loading="lazy" /><figcaption class="mono">Vocal booth</figcaption></figure>
+          <figure class="shot"><img style="object-position:64% 50%" src="/media/stills/control-room.jpg" alt="Engineer and artist in the control room" width="1400" height="788" loading="lazy" /><figcaption class="mono">Control room</figcaption></figure>
+          <figure class="shot"><img style="object-position:74% 50%" src="/media/stills/u87.jpg" alt="Neumann U87 microphone being set up" width="1400" height="788" loading="lazy" /><figcaption class="mono">Neumann U87</figcaption></figure>
+          <figure class="shot"><img style="object-position:42% 50%" src="/media/stills/lounge.jpg" alt="Artists in the studio lounge" width="1400" height="788" loading="lazy" /><figcaption class="mono">Lounge</figcaption></figure>
+          <figure class="shot"><img style="object-position:30% 50%" src="/media/stills/keys.jpg" alt="Producer at the keys" width="1400" height="788" loading="lazy" /><figcaption class="mono">Keys</figcaption></figure>
+          <figure class="shot"><img style="object-position:50% 50%" src="/media/stills/monitors.jpg" alt="Production desk with dual screens" width="1400" height="788" loading="lazy" /><figcaption class="mono">Production desk</figcaption></figure>
+          <figure class="shot"><img style="object-position:56% 50%" src="/media/stills/vocal-booth.jpg" alt="Microphone in the treated vocal booth" width="1400" height="788" loading="lazy" /><figcaption class="mono">Vocal booth</figcaption></figure>
         </div>
       </div>
     </section>
@@ -409,13 +405,15 @@
             </div>
             <p class="lede" data-up>More than 200 artists have recorded here.</p>
           </div>
-          <ul class="who" data-up>
-            <li><img src="/media/stills/vocal-booth.jpg" alt="" width="1400" height="788" loading="lazy" /><span>Singers</span></li>
-            <li><img src="/media/stills/jassi-poster.jpg" alt="" width="540" height="720" loading="lazy" /><span>Rappers</span></li>
-            <li><img src="/media/stills/lounge.jpg" alt="" width="1400" height="788" loading="lazy" /><span>Songwriters</span></li>
-            <li><img src="/media/stills/keys.jpg" alt="" width="1400" height="788" loading="lazy" /><span>Producers</span></li>
-            <li><img src="/media/stills/control-room.jpg" alt="" width="1400" height="788" loading="lazy" /><span>Bands</span></li>
-          </ul>
+        </div>
+        <div class="people">
+          <div class="track" data-drag aria-label="Who records here">
+            <figure class="person"><img style="object-position:56% 50%" src="/media/stills/vocal-booth.jpg" alt="Microphone in the vocal booth" width="1400" height="788" loading="lazy" /><figcaption>Singers</figcaption></figure>
+            <figure class="person"><img style="object-position:50% 22%" src="/media/stills/jassi-poster.jpg" alt="Jassi, rapper, in the control room" width="540" height="720" loading="lazy" /><figcaption>Rappers</figcaption></figure>
+            <figure class="person"><img style="object-position:42% 50%" src="/media/stills/lounge.jpg" alt="Artists writing in the lounge" width="1400" height="788" loading="lazy" /><figcaption>Songwriters</figcaption></figure>
+            <figure class="person"><img style="object-position:30% 50%" src="/media/stills/keys.jpg" alt="Producer at the keys" width="1400" height="788" loading="lazy" /><figcaption>Producers</figcaption></figure>
+            <figure class="person"><img style="object-position:62% 50%" src="/media/stills/control-room.jpg" alt="Engineer and artist in the control room" width="1400" height="788" loading="lazy" /><figcaption>Bands</figcaption></figure>
+          </div>
         </div>
       </section>
 
