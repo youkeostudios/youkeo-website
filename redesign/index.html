@@ -139,47 +139,46 @@
     .sheet__close { position: absolute; top: 14px; right: calc(var(--gut) - 10px); width: 44px; height: 44px; border: 0; background: none; color: var(--paper); font-size: 30px; cursor: pointer; }
 
     /* ── 1. Hero ────────────────────────────────────────────── */
-    .hero { position: relative; min-height: 100svh; display: flex; align-items: center; padding: calc(var(--hd) + 40px) 0 56px; }
-    .hero__grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(32px, 4vw, 72px); align-items: center; }
+    .hero { position: relative; min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden; padding: calc(var(--hd) + 72px) 0 clamp(36px, 6vh, 64px); }
+    .hero__media { position: absolute; inset: 0; z-index: 0; background: var(--panel); }
+    .hero__media video { width: 100%; height: 100%; object-fit: cover; }
+    /* Legibility scrim over footage, heaviest behind the headline. */
+    .hero__scrim { position: absolute; inset: 0; z-index: 1; pointer-events: none;
+      background: linear-gradient(0deg, rgba(11,11,16,.94) 0%, rgba(11,11,16,.7) 38%, rgba(11,11,16,.18) 72%, rgba(11,11,16,.5) 100%),
+                  linear-gradient(90deg, rgba(11,11,16,.78) 0%, rgba(11,11,16,.5) 38%, rgba(11,11,16,0) 70%); }
     .hero__copy { position: relative; z-index: 2; }
-    .hero__title .line2 { color: var(--muted); }
-    .hero .lede { margin-top: 28px; }
-    .hero__ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
-    .proof { display: flex; flex-wrap: wrap; gap: 10px 28px; margin: 40px 0 0; padding: 22px 0 0; border-top: 1px solid var(--rule); list-style: none; }
-    .proof li { display: flex; align-items: baseline; gap: 8px; color: var(--muted); font-size: 14px; }
-    .proof strong { color: var(--paper); font: 800 22px/1 var(--display); letter-spacing: -.03em; }
-    .proof a { text-decoration: none; display: flex; align-items: baseline; gap: 8px; }
+    .hero__inner { max-width: 980px; }
+    /* The headline sits in a take, like a region in a session. */
+    .region { display: inline-flex; flex-wrap: wrap; align-items: center; gap: 6px 18px; margin: 0 0 22px; padding: 9px 14px 9px 12px; border-top: 2px solid var(--lav); background: rgba(201,193,255,.12); color: var(--paper); font: 500 11px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+    .region__rec { display: inline-flex; align-items: center; gap: 8px; }
+    .region__tc { font-variant-numeric: tabular-nums; color: var(--lav); }
+    .region__where { color: var(--fog); }
+    .hero__title .line2 { color: #CBC7DC; }
+    .hero .lede { margin-top: 26px; color: var(--fog); }
+    .hero__ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+    .proof { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; margin: 28px 0 0; padding: 0; list-style: none; color: var(--muted); font-size: 14px; }
+    .proof li { display: inline-flex; align-items: center; gap: 6px; }
+    .proof li:not(:last-child)::after { content: '·'; margin-left: 6px; color: var(--muted); }
+    .proof strong { color: var(--paper); font-weight: 600; }
+    .proof a { display: inline-flex; align-items: center; gap: 6px; padding: 10px 0; text-decoration: none; }
     .proof a:hover strong { color: var(--lav); }
-    .stars { color: #FFD19D; letter-spacing: 2px; font-size: 13px; }
-    .credits { margin: 18px 0 0; color: var(--muted); font: 400 12px/1.7 var(--mono); letter-spacing: .04em; }
+    .stars { color: #FFD19D; letter-spacing: 2px; font-size: 12px; }
+    .credits { margin: 4px 0 0; color: var(--muted); font: 400 12px/1.7 var(--mono); letter-spacing: .04em; }
     .credits b { color: var(--fog); font-weight: 500; }
 
-    .hero__slot { position: relative; aspect-ratio: 4 / 5; border-radius: var(--r); }
-    .hero__frame { position: absolute; inset: 0; overflow: hidden; border-radius: var(--r); background: var(--panel); }
-    .hero__frame video, .hero__frame img { width: 100%; height: 100%; object-fit: cover; }
-    .hero__frame::after { content: ''; position: absolute; inset: 0; background: rgba(11,11,16,.18); pointer-events: none; }
-    .hud { position: absolute; inset: 0; z-index: 3; pointer-events: none; padding: 16px; display: flex; flex-direction: column; justify-content: space-between; font: 500 11px/1 var(--mono); letter-spacing: .08em; color: var(--paper); text-transform: uppercase; }
-    .hud__row { display: flex; justify-content: space-between; align-items: center; }
-    .hud__rec { display: inline-flex; align-items: center; gap: 8px; }
-    .hud__tc { font-variant-numeric: tabular-nums; }
-    .hud__pause { pointer-events: auto; display: grid; place-items: center; width: 44px; height: 44px; margin: -12px -12px -12px 0; border: 0; border-radius: 10px; background: rgba(11,11,16,.55); color: var(--paper); cursor: pointer; }
+    .hud { position: absolute; inset: calc(var(--hd) + 16px) 16px 16px; z-index: 2; pointer-events: none; color: var(--paper); font: 500 11px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+    .hud__corner { position: absolute; width: 16px; height: 16px; border-color: rgba(255,255,255,.5); border-style: solid; }
+    .hud__corner--tl { top: 0; left: 0; border-width: 1px 0 0 1px; }
+    .hud__corner--tr { top: 0; right: 0; border-width: 1px 1px 0 0; }
+    .hud__corner--bl { bottom: 0; left: 0; border-width: 0 0 1px 1px; }
+    .hud__corner--br { bottom: 0; right: 0; border-width: 0 1px 1px 0; }
+    .hud__end { position: absolute; z-index: 3; right: 24px; bottom: 24px; display: flex; align-items: center; gap: 14px; }
+    .hud__pause { pointer-events: auto; display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid rgba(255,255,255,.22); border-radius: 10px; background: rgba(11,11,16,.55); color: var(--paper); cursor: pointer; }
+    .hud__pause:hover { border-color: var(--lav); }
+    .hud__pause[hidden] { display: none; }
     .hud__pause svg { width: 16px; height: 16px; fill: currentColor; }
     .hud__pause .i-play, .hud__pause[aria-pressed="true"] .i-pause { display: none; }
     .hud__pause[aria-pressed="true"] .i-play { display: block; }
-    .hud__corner { position: absolute; width: 14px; height: 14px; border-color: rgba(255,255,255,.55); border-style: solid; }
-    .hud__corner--tl { top: 8px; left: 8px; border-width: 1px 0 0 1px; }
-    .hud__corner--tr { top: 8px; right: 8px; border-width: 1px 1px 0 0; }
-    .hud__corner--bl { bottom: 8px; left: 8px; border-width: 0 0 1px 1px; }
-    .hud__corner--br { bottom: 8px; right: 8px; border-width: 0 1px 1px 0; }
-
-    .hero__caption { display: none; }
-    @media (min-width: 1000px) {
-      .js-motion .hero.is-scene .hero__caption { display: inline-flex; align-items: center; gap: 10px; position: absolute; z-index: 3; left: var(--gut); bottom: 40px; margin: 0; opacity: 0; color: var(--paper); font: 500 12px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
-    }
-    /* Desktop scroll scene: the take window opens to full bleed. */
-    @media (min-width: 1000px) {
-      .js-motion .hero.is-scene .hero__frame { position: absolute; }
-    }
 
     /* ── 2. Master bus (signature) ──────────────────────────── */
     .bus { position: relative; }
@@ -255,24 +254,40 @@
     .need span { display: inline-flex; align-items: center; min-height: 48px; padding: 0 20px; border: 1px solid rgba(255,255,255,.22); border-radius: 999px; color: var(--fog); font: 500 15px/1 var(--body); cursor: pointer; transition: all .2s; }
     .need input:checked + span { border-color: var(--paper); background: var(--paper); color: #0E0E12; }
     .need input:focus-visible + span { outline: 2px solid var(--lav); outline-offset: 3px; }
-    .pkgs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: 28px; }
-    .pkg { position: relative; display: flex; flex-direction: column; padding: 28px; border: 1px solid var(--rule); border-radius: var(--r); background: var(--panel); transition: border-color .3s, background .3s, transform .3s; }
-    .pkg__badge { position: absolute; top: -11px; left: 28px; padding: 6px 10px; border-radius: 6px; background: var(--lav); color: #17131D; font: 500 10px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+    .pkg__badge { display: inline-block; padding: 6px 10px; border-radius: 6px; background: var(--lav); color: #17131D; font: 500 10px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
     .pkg__for { color: var(--muted); font: 500 11px/1.4 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
-    .pkg__name { margin: 14px 0 0; }
-    .pkg__price { margin: 22px 0 0; color: var(--paper); font: 800 clamp(40px, 3.6vw, 56px)/1 var(--display); letter-spacing: -.05em; }
-    .pkg__price small { color: var(--muted); font: 400 15px/1 var(--body); letter-spacing: 0; }
-    .pkg ul { margin: 24px 0 28px; padding: 20px 0 0; border-top: 1px solid var(--rule); list-style: none; }
-    .pkg li { position: relative; padding: 6px 0 6px 22px; font-size: 15px; line-height: 1.5; }
-    .pkg li::before { content: ''; position: absolute; left: 0; top: 15px; width: 10px; height: 1px; background: var(--lav); }
-    .pkg .btn { margin-top: auto; }
-    .pkgs:has(+ *) { } /* noop guard for older engines */
-    .pk:has(#need-time:checked) .pkg[data-pk="time"],
-    .pk:has(#need-beat:checked) .pkg[data-pk="beat"],
-    .pk:has(#need-idea:checked) .pkg[data-pk="idea"] { border-color: var(--lav); background: var(--console); }
-    .pk:has(#need-time:checked) .pkg[data-pk="time"] .btn,
-    .pk:has(#need-beat:checked) .pkg[data-pk="beat"] .btn,
-    .pk:has(#need-idea:checked) .pkg[data-pk="idea"] .btn { background: var(--paper); color: #0E0E12; border-color: var(--paper); }
+    /* One answer to "what are you walking in with?" */
+    .answer { margin-top: 28px; }
+    .pane { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(28px, 4vw, 72px); padding: clamp(28px, 4vw, 56px); border: 1px solid var(--lav); border-radius: var(--r); background: var(--console); }
+    .pane__top { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; }
+    .pane__name { margin: 18px 0 0; color: var(--paper); font: 800 clamp(34px, 4.4vw, 64px)/.95 var(--display); letter-spacing: -.05em; }
+    .pane__price { margin: 18px 0 0; color: var(--paper); font: 800 clamp(64px, 9vw, 136px)/.9 var(--display); letter-spacing: -.06em; font-variant-numeric: tabular-nums; }
+    .pane__price { white-space: nowrap; }
+    .pane__price small { color: var(--muted); font: 400 16px/1 var(--body); letter-spacing: 0; }
+    .pane__fit { max-width: 44ch; margin: 22px 0 0; color: var(--fog); }
+    .pane ul { margin: 0 0 28px; padding: 0; list-style: none; border-top: 1px solid var(--rule); }
+    .pane li { position: relative; padding: 14px 0 14px 24px; border-bottom: 1px solid var(--rule); color: var(--paper); font-size: 16px; }
+    .pane li::before { content: ''; position: absolute; left: 0; top: 25px; width: 12px; height: 1px; background: var(--lav); }
+    .pane .btn { width: 100%; min-height: 56px; font-size: 16px; }
+    .pane__note { margin: 14px 0 0; color: var(--muted); font-size: 13px; }
+    .pane__side { display: flex; flex-direction: column; justify-content: flex-end; }
+    .pk:has(#need-time:checked) .pane:not([data-pk="time"]),
+    .pk:has(#need-beat:checked) .pane:not([data-pk="beat"]),
+    .pk:has(#need-idea:checked) .pane:not([data-pk="idea"]) { display: none; }
+    .js-motion .pane { animation: paneIn .5s cubic-bezier(.16,1,.3,1); }
+    @keyframes paneIn { from { opacity: 0; transform: translateY(10px); } }
+
+    .others { margin-top: 12px; }
+    .row { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 4fr) auto auto; align-items: center; gap: 20px; min-height: 64px; padding: 14px 4px; border-bottom: 1px solid var(--rule); color: var(--fog); cursor: pointer; transition: color .2s; }
+    .row:first-of-type { border-top: 1px solid var(--rule); }
+    .row__name { color: var(--paper); font: 700 18px/1.3 var(--display); letter-spacing: -.01em; }
+    .row__for { color: var(--muted); font-size: 14px; }
+    .row__price { color: var(--paper); font: 700 18px/1 var(--display); font-variant-numeric: tabular-nums; }
+    .row__go { color: var(--lav); font-size: 14px; }
+    .row:hover .row__name { color: var(--lav); }
+    .pk:has(#need-time:checked) .row[data-pk="time"],
+    .pk:has(#need-beat:checked) .row[data-pk="beat"],
+    .pk:has(#need-idea:checked) .row[data-pk="idea"] { display: none; }
 
     .buys { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: 32px; margin-top: 72px; padding-top: 40px; border-top: 1px solid var(--rule); border-bottom: 0; }
     .buys > summary { display: block; min-height: 0; padding: 0; cursor: default; pointer-events: none; }
@@ -405,13 +420,12 @@
       .hd__nav, .hd__cta { display: none; }
       .hd__menu { display: flex; }
       .bar { display: grid; }
-      .hero { min-height: auto; padding-top: calc(var(--hd) + 28px); }
-      .hero__grid, .bus__grid, .work__head, .work__pin, .pk__head, .buys, .first__grid, .ft__grid, .faq__grid, .room__head, .vo__grid, .book__grid { grid-template-columns: minmax(0, 1fr); }
-      .hero__slot { aspect-ratio: 16 / 10; }
+      .hero { padding-top: calc(var(--hd) + 48px); }
+      .hud { inset: calc(var(--hd) + 8px) 8px 8px; }
+      .pane, .bus__grid, .work__head, .work__pin, .pk__head, .buys, .first__grid, .ft__grid, .faq__grid, .room__head, .vo__grid, .book__grid { grid-template-columns: minmax(0, 1fr); }
       .bus__pin { min-height: 0; padding-top: var(--sec); }
       .stage-art { display: none; }
       .work__pin { margin-top: 40px; }
-      .pkgs { grid-template-columns: minmax(0, 1fr); gap: 24px; }
       .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .buys__grid { grid-template-columns: minmax(0, 1fr); }
       .promises { grid-template-columns: minmax(0, 1fr); gap: 22px; }
@@ -422,10 +436,14 @@
       .ft__brand { grid-column: 1 / -1; }
       .ft { padding-bottom: calc(110px + env(safe-area-inset-bottom)); }
 
-      /* Phones: the chooser does the work, so only the chosen package shows. */
-      .pk:has(#need-time:checked) .pkg:not([data-pk="time"]),
-      .pk:has(#need-beat:checked) .pkg:not([data-pk="beat"]),
-      .pk:has(#need-idea:checked) .pkg:not([data-pk="idea"]) { display: none; }
+      .pane { gap: 24px; padding: 24px; }
+      .pane__price { font-size: clamp(52px, 15vw, 76px); }
+      .pane__name { font-size: clamp(30px, 8.6vw, 40px); }
+      .pane li { padding: 11px 0 11px 22px; font-size: 15px; }
+      .pane li::before { top: 22px; }
+      .row { grid-template-columns: minmax(0, 1fr) auto; gap: 4px 16px; }
+      .row__for { grid-column: 1; grid-row: 2; }
+      .row__go { display: none; }
       .needs { gap: 8px; }
       .need span { min-height: 44px; padding: 0 16px; font-size: 14px; }
       .buys { display: block; margin-top: 40px; padding-top: 0; border-top: 0; }
@@ -451,8 +469,9 @@
     @media (max-width: 600px) {
       :root { --sec: 76px; }
       body { font-size: 16px; }
-      .proof { gap: 8px 20px; margin-top: 28px; }
-      .proof strong { font-size: 19px; }
+      .proof { margin-top: 22px; font-size: 13px; }
+      .credits { display: none; }
+      .hero .lede { margin-top: 18px; }
       .display { font-size: clamp(44px, 13.4vw, 64px); }
       .track { grid-template-columns: 56px 1fr; }
       .track__art { width: 56px; height: 56px; }
@@ -506,9 +525,20 @@
 
     <!-- ── 1. Hero ── -->
     <section class="hero" id="top" aria-labelledby="heroTitle">
-      <div class="wrap hero__grid">
-        <div class="hero__copy">
-          <p class="label"><span class="rec rec--live" aria-hidden="true"></span>Youkeo Studios · Airoli, Navi Mumbai</p>
+      <div class="hero__media" id="heroMedia">
+        <video id="heroVideo" data-src="/media/videos/hero-720.mp4" poster="/media/stills/hero-poster.jpg" muted loop playsinline preload="none" aria-hidden="true"></video>
+      </div>
+      <div class="hero__scrim" aria-hidden="true"></div>
+      <div class="hud" aria-hidden="true">
+        <i class="hud__corner hud__corner--tl"></i><i class="hud__corner hud__corner--tr"></i><i class="hud__corner hud__corner--bl"></i><i class="hud__corner hud__corner--br"></i>
+      </div>
+      <div class="hud__end">
+        <button class="hud__pause" id="heroPause" type="button" aria-label="Pause video" aria-pressed="false" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-pause" d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/><path class="i-play" d="M8 5.5v13l10.5-6.5z"/></svg></button>
+      </div>
+
+      <div class="wrap hero__copy">
+        <div class="hero__inner">
+          <p class="region"><span class="region__rec"><span class="rec rec--live" aria-hidden="true"></span>Rec · Take 01</span><span class="region__tc" id="heroTc" aria-hidden="true">00:00:00:00</span><span class="region__where">Youkeo Studios · Airoli, Navi Mumbai</span></p>
           <h1 class="display hero__title" id="heroTitle"><span class="line1">Your voice.</span><br><span class="line2">Turned into a release.</span></h1>
           <p class="lede">Recording, production and mastering for independent artists — with an engineer beside you on every take.</p>
           <div class="hero__ctas">
@@ -519,26 +549,14 @@
             <a class="btn btn--line" href="#difference">Hear the difference</a>
           </div>
           <ul class="proof">
-            <li><a href="https://www.google.com/search?q=Youkeo+Studios+reviews" target="_blank" rel="noopener"><strong>5.0</strong><span class="stars" aria-hidden="true">★★★★★</span>on Google</a></li>
             <!-- TODO: add the Google review count here ("5.0 from N reviews") once confirmed. -->
-            <li><strong>200+</strong>artists recorded</li>
-            <li><strong>10M+</strong>streams on tracks made here</li>
+            <li><a href="https://www.google.com/search?q=Youkeo+Studios+reviews" target="_blank" rel="noopener"><span class="stars" aria-hidden="true">★★★★★</span><strong>5.0</strong> on Google</a></li>
+            <li><strong>200+</strong> artists recorded</li>
+            <li><strong>10M+</strong> streams on tracks made here</li>
           </ul>
           <p class="credits"><b>Featured on NEXA Music by AR Rahman</b> · Tracks on New Music Friday India · 10+ Spotify editorial placements</p>
         </div>
-
-        <div class="hero__slot" id="heroSlot">
-          <div class="hero__frame" id="heroFrame">
-            <video id="heroVideo" data-src="/media/videos/hero-720.mp4" poster="/media/stills/hero-poster.jpg" muted loop playsinline preload="none" aria-hidden="true"></video>
-          </div>
-          <div class="hud" id="hud" aria-hidden="true">
-            <i class="hud__corner hud__corner--tl"></i><i class="hud__corner hud__corner--tr"></i><i class="hud__corner hud__corner--bl"></i><i class="hud__corner hud__corner--br"></i>
-            <div class="hud__row"><span class="hud__rec"><span class="rec rec--live"></span>Rec</span><span class="hud__tc" id="heroTc">00:00:00:00</span></div>
-            <div class="hud__row"><span class="hud__take">Take 01 · Control room</span><button class="hud__pause" id="heroPause" type="button" aria-label="Pause video" aria-pressed="false" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-pause" d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z"/><path class="i-play" d="M8 5.5v13l10.5-6.5z"/></svg></button></div>
-          </div>
-        </div>
       </div>
-      <p class="hero__caption" id="heroCaption" aria-hidden="true"><span class="rec rec--live"></span>Inside Youkeo · Sector 19, Airoli</p>
     </section>
 
     <!-- ── 2. The difference: the master bus ── -->
@@ -650,29 +668,52 @@
           <label class="need"><input type="radio" name="need" id="need-idea" checked /><span>An idea or lyrics</span></label>
         </fieldset>
 
-        <div class="pkgs">
-          <article class="pkg" data-pk="time">
-            <span class="pkg__for">Record by the hour</span>
-            <h3 class="h3 pkg__name">Recording</h3>
-            <p class="pkg__price">₹1,200 <small>/ hour</small></p>
-            <ul><li>Engineer on every take</li><li>Neumann U87 in a treated booth</li><li>Raw stems + rough mix</li><li>30-day file storage</li></ul>
-            <a class="btn btn--line" href="https://wa.me/919619192992?text=Hi%2C%20I%27d%20like%20to%20book%20a%20recording%20session%20at%20Youkeo%20Studios%20(%E2%82%B91%2C200%2Fhr).%0APreferred%20date%2Ftime%3A%20" target="_blank" rel="noopener" onclick="gtag('event','contact_click',{method:'whatsapp',location:'package_recording',page:'redesign'}); trackWhatsApp();">Book studio time</a>
+        <div class="answer" aria-live="polite">
+          <article class="pane" data-pk="idea" aria-label="Production to Final">
+            <div class="pane__main">
+              <div class="pane__top"><span class="pkg__badge">Most chosen</span><span class="pkg__for">Start with an idea</span></div>
+              <h3 class="pane__name">Production to Final</h3>
+              <p class="pane__price">₹26,000 <small>/ song</small></p>
+              <p class="pane__fit">You have lyrics, a melody or just an idea. We build the beat and finish the whole song with you.</p>
+            </div>
+            <div class="pane__side">
+              <ul><li>Custom beat + arrangement</li><li>2-hour recording session</li><li>Tuning, stem mix &amp; master</li><li>Release consultation</li></ul>
+              <a class="btn btn--primary" href="https://wa.me/919619192992?text=Hi%2C%20I%27m%20interested%20in%20the%20Production%20to%20Final%20package%20(%E2%82%B926%2C000).%0ASong%20idea%20%2F%20genre%3A%20" target="_blank" rel="noopener" onclick="gtag('event','contact_click',{method:'whatsapp',location:'package_production_to_final',page:'redesign'}); trackWhatsApp();">Start a project</a>
+              <p class="pane__note">Price and scope agreed on WhatsApp before your session.</p>
+            </div>
           </article>
-          <article class="pkg" data-pk="beat">
-            <span class="pkg__for">Bring your beat</span>
-            <h3 class="h3 pkg__name">Recording to Final</h3>
-            <p class="pkg__price">₹14,000 <small>/ song</small></p>
-            <ul><li>2-hour recording session</li><li>Vocal tuning</li><li>Stem mix &amp; master</li><li>2 revisions</li></ul>
-            <a class="btn btn--line" href="https://wa.me/919619192992?text=Hi%2C%20I%27d%20like%20to%20book%20the%20Recording%20to%20Final%20package%20(%E2%82%B914%2C000).%0ABeat%20ready%3A%20Yes%20%2F%20No%0APreferred%20date%3A%20" target="_blank" rel="noopener" onclick="gtag('event','contact_click',{method:'whatsapp',location:'package_recording_to_final',page:'redesign'}); trackWhatsApp();">Book this package</a>
+          <article class="pane" data-pk="beat" aria-label="Recording to Final">
+            <div class="pane__main">
+              <div class="pane__top"><span class="pkg__for">Bring your beat</span></div>
+              <h3 class="pane__name">Recording to Final</h3>
+              <p class="pane__price">₹14,000 <small>/ song</small></p>
+              <p class="pane__fit">You have a finished beat. We record you, tune it, and mix and master it into a release.</p>
+            </div>
+            <div class="pane__side">
+              <ul><li>2-hour recording session</li><li>Vocal tuning</li><li>Stem mix &amp; master</li><li>2 revisions</li></ul>
+              <a class="btn btn--primary" href="https://wa.me/919619192992?text=Hi%2C%20I%27d%20like%20to%20book%20the%20Recording%20to%20Final%20package%20(%E2%82%B914%2C000).%0ABeat%20ready%3A%20Yes%20%2F%20No%0APreferred%20date%3A%20" target="_blank" rel="noopener" onclick="gtag('event','contact_click',{method:'whatsapp',location:'package_recording_to_final',page:'redesign'}); trackWhatsApp();">Book this package</a>
+              <p class="pane__note">Price and scope agreed on WhatsApp before your session.</p>
+            </div>
           </article>
-          <article class="pkg" data-pk="idea">
-            <span class="pkg__badge">Most chosen</span>
-            <span class="pkg__for">Start with an idea</span>
-            <h3 class="h3 pkg__name">Production to Final</h3>
-            <p class="pkg__price">₹26,000 <small>/ song</small></p>
-            <ul><li>Custom beat + arrangement</li><li>2-hour recording session</li><li>Tuning, stem mix &amp; master</li><li>Release consultation</li></ul>
-            <a class="btn btn--line" href="https://wa.me/919619192992?text=Hi%2C%20I%27m%20interested%20in%20the%20Production%20to%20Final%20package%20(%E2%82%B926%2C000).%0ASong%20idea%20%2F%20genre%3A%20" target="_blank" rel="noopener" onclick="gtag('event','contact_click',{method:'whatsapp',location:'package_production_to_final',page:'redesign'}); trackWhatsApp();">Start a project</a>
+          <article class="pane" data-pk="time" aria-label="Recording">
+            <div class="pane__main">
+              <div class="pane__top"><span class="pkg__for">Record by the hour</span></div>
+              <h3 class="pane__name">Recording</h3>
+              <p class="pane__price">₹1,200 <small>/ hour</small></p>
+              <p class="pane__fit">You know your parts and want the room and an engineer. Pay only for the hours you use.</p>
+            </div>
+            <div class="pane__side">
+              <ul><li>Engineer on every take</li><li>Neumann U87 in a treated booth</li><li>Raw stems + rough mix</li><li>30-day file storage</li></ul>
+              <a class="btn btn--primary" href="https://wa.me/919619192992?text=Hi%2C%20I%27d%20like%20to%20book%20a%20recording%20session%20at%20Youkeo%20Studios%20(%E2%82%B91%2C200%2Fhr).%0APreferred%20date%2Ftime%3A%20" target="_blank" rel="noopener" onclick="gtag('event','contact_click',{method:'whatsapp',location:'package_recording',page:'redesign'}); trackWhatsApp();">Book studio time</a>
+              <p class="pane__note">Price and scope agreed on WhatsApp before your session.</p>
+            </div>
           </article>
+        </div>
+
+        <div class="others" aria-label="Other packages">
+          <label class="row" for="need-time" data-pk="time"><span class="row__name">Recording</span><span class="row__for">Record by the hour</span><span class="row__price">₹1,200<small class="mute"> /hour</small></span><span class="row__go">View →</span></label>
+          <label class="row" for="need-beat" data-pk="beat"><span class="row__name">Recording to Final</span><span class="row__for">Bring your beat</span><span class="row__price">₹14,000<small class="mute"> /song</small></span><span class="row__go">View →</span></label>
+          <label class="row" for="need-idea" data-pk="idea"><span class="row__name">Production to Final</span><span class="row__for">Start with an idea</span><span class="row__price">₹26,000<small class="mute"> /song</small></span><span class="row__go">View →</span></label>
         </div>
 
         <details class="buys" id="buys" open data-reveal>
@@ -895,17 +936,16 @@
     $$('a', sheet).forEach(a => a.addEventListener('click', () => setSheet(false)));
     document.addEventListener('keydown', e => { if (e.key === 'Escape' && sheet.classList.contains('is-open')) setSheet(false); });
 
-    /* ── Hero video: live timecode, pause off-screen ── */
-    const vid = $('#heroVideo'), tc = $('#heroTc');
+    /* ── Session timecode: the page is the take ── */
+    const tc = $('#heroTc'), t0 = performance.now(), vid = $('#heroVideo');
     const pad = n => String(n).padStart(2, '0');
-    const tick = () => {
-      if (vid && !vid.paused) {
-        const t = vid.currentTime;
-        tc.textContent = `00:${pad(Math.floor(t / 60))}:${pad(Math.floor(t % 60))}:${pad(Math.floor((t % 1) * 25))}`;
-      }
+    const tick = now => {
+      const t = (now - t0) / 1000;
+      tc.textContent = `00:${pad(Math.floor(t / 60) % 60)}:${pad(Math.floor(t % 60))}:${pad(Math.floor((t % 1) * 25))}`;
       requestAnimationFrame(tick);
     };
-    requestAnimationFrame(tick);
+    if (motion) requestAnimationFrame(tick);
+
     // Phones and data-saver get the poster only; desktop loads a 1.3MB 720p cut.
     const pauseBtn = $('#heroPause');
     const wide = matchMedia('(min-width: 1000px)');
@@ -1049,8 +1089,8 @@
       /* Hero entrance */
       const split = SplitText.create('.hero__title', { type: 'lines', mask: 'lines' });
       gsap.from(split.lines, { yPercent: 110, duration: 1.1, ease: 'expo.out', stagger: .12, delay: .1 });
-      gsap.from('.hero__copy > :not(h1)', { y: 24, opacity: 0, duration: 1, ease: 'expo.out', stagger: .07, delay: .35 });
-      gsap.from('#heroSlot', { opacity: 0, scale: .96, duration: 1.2, ease: 'expo.out', delay: .2 });
+      gsap.from('.hero__inner > :not(h1)', { y: 24, opacity: 0, duration: 1, ease: 'expo.out', stagger: .07, delay: .35 });
+      gsap.from('#heroMedia', { opacity: 0, duration: 1.4, ease: 'power2.out' });
 
       ScrollTrigger.refresh();
     });
@@ -1063,36 +1103,14 @@
 
     /* Desktop scenes */
     mm.add('(min-width: 1000px)', () => {
-      /* 1. Take window opens to full bleed */
-      const hero = $('.hero'), slot = $('#heroSlot'), frame = $('#heroFrame');
-      hero.classList.add('is-scene');
-      const inset = () => {
-        const h = hero.getBoundingClientRect(), s = slot.getBoundingClientRect();
-        return `inset(${s.top - h.top}px ${h.right - s.right}px ${h.bottom - s.bottom}px ${s.left - h.left}px round 14px)`;
-      };
-      gsap.set(frame, { position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 1 });
-      const heroScene = () => {
-        const r = slot.getBoundingClientRect(), hr = hero.getBoundingClientRect();
-        frame.style.transform = `translate(${hr.left - r.left}px, ${hr.top - r.top}px)`;
-        frame.style.width = `${hr.width}px`; frame.style.height = `${hr.height}px`;
-        frame.style.clipPath = inset();
-      };
-      // frame lives inside the slot, so offset it back to the hero's box
-      heroScene();
-      const tl = gsap.timeline({ scrollTrigger: { trigger: hero, start: 'top top', end: '+=80%', pin: true, scrub: true, invalidateOnRefresh: true, onRefresh: heroScene } });
-      tl.to(frame, { clipPath: 'inset(0px 0px 0px 0px round 0px)', ease: 'none', duration: 1 }, 0)
-        .to('.hero__copy', { opacity: 0, y: -60, ease: 'none', duration: .4 }, 0)
-        .to('#hud .hud__corner, #hud .hud__row:first-child, #hud .hud__take', { opacity: 0, ease: 'none', duration: .3 }, 0)
-        .fromTo('#heroCaption', { opacity: 0, y: 16 }, { opacity: 1, y: 0, ease: 'none', duration: .25 }, .75);
+      /* 1. Footage settles as you scroll past it */
+      gsap.fromTo('#heroMedia', { scale: 1.08 }, { scale: 1, yPercent: 8, ease: 'none', scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true } });
 
       /* 2. Master bus: scroll scrubs raw → mastered */
       const bus = ScrollTrigger.create({ trigger: '#busPin', start: 'top top', end: '+=120%', pin: true, scrub: true,
         onUpdate: self => { busTween?.kill(); setBus(self.progress * 3); } });
 
-      return () => {
-        hero.classList.remove('is-scene');
-        frame.removeAttribute('style');
-      };
+
     });
 
     /* Phones/tablets: the bus plays itself once when it comes on screen */
