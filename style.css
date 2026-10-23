@@ -1514,7 +1514,7 @@ a.hero-stat:focus-visible {
 }
 
 .pricing-card.featured::before {
-  content: 'Most Popular';
+  content: 'Most chosen';
   position: absolute;
   top: -1px;
   left: 50%;

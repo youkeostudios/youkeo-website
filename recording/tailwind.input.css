@@ -87,7 +87,7 @@
   .rec-not-for-you-list li::before { content: '×'; @apply mr-2 text-lavender; }
   .rec-pricing .pricing-card { @apply relative flex min-w-0 flex-col gap-0 rounded-3xl border border-lavender/20 p-7 text-left text-white shadow-none; background: linear-gradient(145deg,#242435,#14131d); }
   .rec-pricing .pricing-card.featured { @apply border-lavender/60; background: linear-gradient(145deg,#423b63,#211d30); }
-  .rec-pricing .pricing-card.featured::before { @apply hidden; }
+  .rec-pricing .pricing-card.featured::before { content: 'Most chosen'; top: 0; padding: 7px 14px; border-radius: 0 0 10px 10px; color: #17131d; background: #c9c1ff; font: 800 9px/1 'Plus Jakarta Sans', sans-serif; letter-spacing: .12em; text-transform: uppercase; }
   .pricing-card-heading { @apply min-h-16; }
   .rec-pricing .pricing-card-name { @apply m-0 mb-2 text-xl leading-7 font-studio font-bold text-white; }
   .pricing-card-tagline { @apply text-sm leading-6 text-muted; }
