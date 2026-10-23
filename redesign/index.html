@@ -301,19 +301,18 @@
     .steps li::before { counter-increment: s; content: '0' counter(s); display: block; margin-bottom: 14px; color: var(--lav); font: 500 12px/1 var(--mono); }
     .pk__foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px 40px; margin-top: 48px; color: var(--muted); font-size: 14px; }
 
-    /* ── 5. First time ──────────────────────────────────────── */
-    .first__grid { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(32px, 5vw, 96px); align-items: start; }
-    .portrait { margin: 0; position: sticky; top: calc(var(--hd) + 32px); }
-    .portrait img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 30%; border-radius: var(--r); }
-    .portrait figcaption { margin-top: 14px; color: var(--muted); font-size: 14px; }
+    /* ── 5. Founder ─────────────────────────────────────────── */
+    .founder__grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 6vw, 112px); align-items: center; }
+    .portrait { margin: 0; }
+    .portrait__frame { aspect-ratio: 4 / 5; overflow: hidden; border-radius: var(--r); background: var(--panel); }
+    /* Tight head-and-shoulders crop, toned down so the bright room doesn't fight the page. */
+    .portrait__frame img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%; transform: scale(1.32); transform-origin: 50% 24%; filter: brightness(.86) saturate(.85); }
+    .portrait figcaption { margin-top: 16px; color: var(--muted); font-size: 14px; }
     .portrait strong { display: block; color: var(--paper); font: 700 17px/1.3 var(--display); }
-    .quote { margin: 32px 0 0; color: var(--paper); font: 600 clamp(28px, 3.6vw, 56px)/1.12 var(--display); letter-spacing: -.035em; }
-    .quote p { margin: 0; }
-    .promises { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; margin-top: 80px; }
-    .promises p { margin: 8px 0 0; font-size: 15px; line-height: 1.55; }
-    .creds { display: flex; flex-wrap: wrap; gap: 12px 40px; margin: 56px 0 0; padding: 24px 0 0; border-top: 1px solid var(--rule); }
-    .creds div { color: var(--muted); font: 500 11px/1.4 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
-    .creds strong { display: block; margin-bottom: 6px; color: var(--paper); font: 800 32px/1 var(--display); letter-spacing: -.04em; text-transform: none; }
+    .founder__copy .lede { margin-top: 28px; }
+    .creds { display: flex; flex-wrap: wrap; gap: 20px 56px; margin: 48px 0 0; padding: 28px 0 0; border-top: 1px solid var(--rule); }
+    .creds div { color: var(--muted); font-size: 14px; }
+    .creds strong { display: block; margin-bottom: 8px; color: var(--paper); font: 800 clamp(36px, 3.6vw, 52px)/1 var(--display); letter-spacing: -.045em; }
 
     /* ── 6. Voices ──────────────────────────────────────────── */
     .vo__head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 28px; }
@@ -420,13 +419,12 @@
       .bar { display: grid; }
       .hero { padding-top: calc(var(--hd) + 48px); }
       .hud { inset: calc(var(--hd) + 8px) 8px 8px; }
-      .pane, .work__head, .work__pin, .pk__head, .first__grid, .ft__grid, .faq__grid, .room__head, .vo__grid, .book__grid { grid-template-columns: minmax(0, 1fr); }
+      .pane, .work__head, .work__pin, .pk__head, .founder__grid, .ft__grid, .faq__grid, .room__head, .vo__grid, .book__grid { grid-template-columns: minmax(0, 1fr); }
       .bus__pin { min-height: 0; padding-top: var(--sec); }
       .stage-art { display: none; }
       .work__pin { margin-top: 40px; }
       .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .promises { grid-template-columns: minmax(0, 1fr); gap: 22px; }
-      .portrait { position: static; max-width: 360px; }
+      .portrait { max-width: 320px; }
       .faq__intro { position: static; }
       .book__main { min-height: 0; }
       .ft__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -445,13 +443,11 @@
       .need span { min-height: 44px; padding: 0 16px; font-size: 14px; }
       .steps { margin-top: 40px; gap: 20px 16px; }
       .pk__foot { margin-top: 32px; }
-      .first__grid { gap: 28px; }
-      .portrait { display: grid; grid-template-columns: 88px 1fr; gap: 16px; align-items: center; max-width: none; }
-      .portrait img { aspect-ratio: 1; border-radius: 50%; object-position: 50% 22%; }
+      .founder__grid { gap: 32px; }
+      .creds { margin-top: 32px; gap: 16px 40px; }
+      .portrait { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 16px; align-items: center; max-width: none; }
+      .portrait__frame { aspect-ratio: 1; border-radius: 50%; }
       .portrait figcaption { margin: 0; }
-      .quote { font-size: clamp(24px, 6.4vw, 30px); }
-      .promises { margin-top: 36px; }
-      .creds { margin-top: 32px; }
       .q:nth-child(n+3) { display: none; }
       .vo__grid { margin-top: 36px; }
       .visit__map { min-height: 200px; }
@@ -718,21 +714,16 @@
       </div>
     </section>
 
-    <!-- ── 5. First time ── -->
-    <section class="first sec" id="first-time" aria-labelledby="ftTitle">
-      <div class="wrap first__grid">
+    <!-- ── 5. Founder ── -->
+    <section class="founder sec" id="founder" aria-labelledby="fdTitle">
+      <div class="wrap founder__grid">
         <figure class="portrait">
-          <img src="/media/images/founder.jpg" alt="Nishchay Beharam, founder of Youkeo Studios, in the control room" width="1932" height="1932" loading="lazy" />
-          <figcaption><strong>Nishchay Beharam</strong>Founder · records as Shoonya &amp; Rhyo</figcaption>
+          <div class="portrait__frame"><img src="/media/images/founder.jpg" alt="Nishchay Beharam, founder of Youkeo Studios, in the control room" width="1932" height="1932" loading="lazy" /></div>
+          <figcaption><strong>Nishchay Beharam</strong>Founder · releases as Shoonya &amp; Rhyo</figcaption>
         </figure>
-        <div>
-                    <h2 class="h2" id="ftTitle">First time?<br>Good.</h2>
-          <blockquote class="quote" id="ftQuote"><p>“I was nervous before my first recording too. I didn't know what to expect, whether my voice was ready, or if I'd waste the money. I built Youkeo so that feeling doesn't exist for you.”</p></blockquote>
-          <div class="promises" data-reveal>
-            <div><h3 class="h3">No judgment</h3><p>Retakes are normal. Nobody's counting.</p></div>
-            <div><h3 class="h3">Guided takes</h3><p>Mic, headphones, breathing — we walk you through it.</p></div>
-            <div><h3 class="h3">Proud of it</h3><p>You leave with a song you'll want to release.</p></div>
-          </div>
+        <div class="founder__copy">
+          <h2 class="h2" id="fdTitle">Run by an artist who releases music.</h2>
+          <p class="lede">Nishchay Beharam produces and releases his own records as Shoonya and Rhyo. Every session here gets the same ears.</p>
           <div class="creds">
             <div><strong>10+</strong>years making music</div>
             <div><strong>1M+</strong>Spotify streams as an artist</div>
@@ -799,7 +790,6 @@
           <p class="lede">Something else on your mind? <a class="link" href="https://wa.me/919619192992?text=Hi%2C%20I%20have%20a%20question%20about%20Youkeo%20Studios" target="_blank" rel="noopener" onclick="gtag('event','contact_click',{method:'whatsapp',location:'faq',page:'redesign'}); trackWhatsApp();">Ask on WhatsApp</a></p>
         </div>
         <div>
-          <details><summary>I've never recorded before. Is that okay?</summary><div><p>That's completely fine. Most of our clients have recorded 0–3 times before. The engineer walks you through mic technique, your headphone mix and every take.</p></div></details>
           <details><summary>What should I bring?</summary><div><p>Your voice and your lyrics. Send your beat or a reference track the day before so we can set up.</p></div></details>
           <details><summary>Can I bring my own beat?</summary><div><p>Yes — MP3, WAV or a DAW project. Send it in advance.</p></div></details>
           <details><summary>How do booking and cancellation work?</summary><div><p>A 20% advance confirms your slot. Reschedule free with 24+ hours' notice. Same-day cancellations forfeit the advance. If we cancel, you get a full refund.</p></div></details>
