@@ -182,37 +182,39 @@
 
     /* ── 2. Master bus (signature) ──────────────────────────── */
     .bus { position: relative; }
-    .bus__pin { min-height: 100svh; display: flex; align-items: center; padding: calc(var(--hd) + 24px) 0 40px; }
-    .bus__grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 5vw, 96px); align-items: center; width: 100%; }
-    .bus .lede { margin-top: 24px; }
-    .stages { margin: 40px 0 0; padding: 0; list-style: none; border-top: 1px solid var(--rule); }
-    .stage { display: grid; grid-template-columns: 44px 1fr; gap: 0 12px; padding: 18px 0; border-bottom: 1px solid var(--rule); opacity: .42; transition: opacity .35s; cursor: pointer; }
-    .stage.is-on { opacity: 1; }
-    .stage__n { color: var(--muted); font: 500 12px/1.9 var(--mono); }
-    .stage.is-on .stage__n { color: var(--lav); }
-    .stage__t { color: var(--paper); font: 700 18px/1.4 var(--display); letter-spacing: -.01em; }
-    .stage__d { grid-column: 2; margin: 2px 0 0; font-size: 15px; line-height: 1.5; }
-
-    .console { position: relative; padding: clamp(20px, 2.4vw, 32px); border: 1px solid var(--rule); border-radius: var(--r); background: var(--panel); }
-    .console__top { display: flex; justify-content: space-between; align-items: center; gap: 16px; color: var(--muted); font: 500 11px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
-    .console__stage { color: var(--lav); }
-    .wave { position: relative; margin: 24px 0; height: clamp(180px, 22vw, 300px); }
+    .bus__pin { min-height: 100svh; display: flex; align-items: center; padding: calc(var(--hd) + 32px) 0 48px; }
+    .bus__pin > .wrap { width: 100%; }
+    .bus__head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 16px 48px; }
+    .bus__head .lede { margin: 0; max-width: 32ch; }
+    /* The mixdown: one wide take, a DAW ruler, a playhead that finishes it. */
+    .mix { position: relative; margin-top: clamp(40px, 7vh, 80px); }
+    .mix__ruler { display: grid; grid-template-columns: repeat(16, minmax(0, 1fr)); align-items: end; height: 26px; border-bottom: 1px solid var(--rule); }
+    .mix__ruler span { height: 8px; border-left: 1px solid rgba(255,255,255,.14); }
+    .mix__ruler span:nth-child(4n+1) { height: 26px; padding-left: 6px; color: var(--muted); font: 500 11px/1 var(--mono); }
+    .wave { height: clamp(200px, 28vw, 380px); margin-top: 10px; }
     .wave canvas { width: 100%; height: 100%; }
+    .markers { --fill: 0%; position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 32px 0 0; padding: 0; list-style: none; }
+    .markers::before, .markers::after { content: ''; position: absolute; top: 21px; left: 7px; height: 1px; }
+    .markers::before { width: 75%; background: var(--rule); }
+    .markers::after { width: var(--fill); background: var(--lav); }
+    .marker { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; min-height: 44px; padding: 14px 8px 4px 0; border: 0; background: none; color: var(--muted); font: 600 clamp(15px, 1.4vw, 18px)/1.2 var(--display); letter-spacing: -.01em; text-align: left; cursor: pointer; transition: color .25s; }
+    .marker__dot { width: 15px; height: 15px; border: 2px solid var(--muted); border-radius: 50%; background: var(--ink); transition: background .25s, border-color .25s; }
+    .marker.is-done .marker__dot { border-color: var(--lav); }
+    .marker.is-on { color: var(--paper); }
+    .marker.is-on .marker__dot { border-color: var(--lav); background: var(--lav); box-shadow: 0 0 0 6px rgba(201,193,255,.16); }
+    .marker:hover { color: var(--paper); }
+    .mix__caption { min-height: 1.3em; margin: 28px 0 0; color: var(--paper); font: 500 clamp(20px, 2vw, 28px)/1.3 var(--display); letter-spacing: -.02em; }
     .console__play[hidden] { display: none; }
-    .console__meter { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 14px; color: var(--muted); font: 500 11px/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; }
-    .meter { height: 6px; border-radius: 3px; background: rgba(255,255,255,.08); overflow: hidden; }
-    .meter__fill { height: 100%; width: 20%; background: var(--lav); border-radius: 3px; }
-    .console__play { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--rule); }
+    .console__play { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 28px; }
     .ab { display: inline-flex; padding: 4px; border: 1px solid var(--rule); border-radius: 12px; }
     .ab button { min-height: 44px; padding: 0 16px; border: 0; border-radius: 9px; background: transparent; color: var(--fog); font: 500 14px/1 var(--body); cursor: pointer; }
     .ab button[aria-pressed="true"] { background: var(--paper); color: #0E0E12; }
-    .ab button:disabled { cursor: not-allowed; opacity: .45; }
     .console__note { color: var(--muted); font-size: 13px; }
 
     /* Placeholder marker: visible on purpose until real assets land. */
     [data-placeholder] { position: relative; }
     [data-placeholder]::before { content: attr(data-placeholder); position: absolute; z-index: 4; top: 10px; left: 10px; padding: 5px 8px; border: 1px dashed var(--lav); border-radius: 6px; background: rgba(11,11,16,.8); color: var(--lav); font: 500 10px/1.2 var(--mono); letter-spacing: .04em; text-transform: uppercase; pointer-events: none; }
-    .console[data-placeholder]::before { top: auto; bottom: -12px; left: 24px; }
+    .mix[data-placeholder]::before { top: auto; bottom: -14px; left: auto; right: 0; }
 
     /* ── 3. Made here ───────────────────────────────────────── */
     .work__head { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 32px; align-items: end; }
@@ -418,7 +420,7 @@
       .bar { display: grid; }
       .hero { padding-top: calc(var(--hd) + 48px); }
       .hud { inset: calc(var(--hd) + 8px) 8px 8px; }
-      .pane, .bus__grid, .work__head, .work__pin, .pk__head, .first__grid, .ft__grid, .faq__grid, .room__head, .vo__grid, .book__grid { grid-template-columns: minmax(0, 1fr); }
+      .pane, .work__head, .work__pin, .pk__head, .first__grid, .ft__grid, .faq__grid, .room__head, .vo__grid, .book__grid { grid-template-columns: minmax(0, 1fr); }
       .bus__pin { min-height: 0; padding-top: var(--sec); }
       .stage-art { display: none; }
       .work__pin { margin-top: 40px; }
@@ -549,32 +551,31 @@
     <!-- ── 2. The difference: the master bus ── -->
     <section class="bus" id="difference" aria-labelledby="busTitle">
       <div class="bus__pin" id="busPin">
-        <div class="wrap bus__grid">
-          <div>
-                        <h2 class="h2" id="busTitle">Same voice.<br><span class="mute">Finished here.</span></h2>
-            <p class="lede">What happens to your take before it leaves the studio.</p>
-            <ol class="stages" id="stages">
-              <li class="stage is-on" data-stage="0"><span class="stage__n">01</span><span class="stage__t">Raw take</span><p class="stage__d">Exactly as you sang it.</p></li>
-              <li class="stage" data-stage="1"><span class="stage__n">02</span><span class="stage__t">Tuned</span><p class="stage__d">Pitch and timing fixed. Still you.</p></li>
-              <li class="stage" data-stage="2"><span class="stage__n">03</span><span class="stage__t">Mixed</span><p class="stage__d">Every stem balanced around your voice.</p></li>
-              <li class="stage" data-stage="3"><span class="stage__n">04</span><span class="stage__t">Mastered</span><p class="stage__d">Loud and clear on every speaker.</p></li>
-            </ol>
+        <div class="wrap">
+          <div class="bus__head">
+            <h2 class="h2" id="busTitle">Same voice. <span class="mute">Finished here.</span></h2>
+            <p class="lede">Watch a raw take get finished, stage by stage.</p>
           </div>
-
-          <div class="console" id="console" data-placeholder="Waveform is illustrative · real before/after audio needed">
-            <div class="console__top"><span>Master bus</span><span class="console__stage" id="busReadout">01 / 04 · Raw take</span></div>
-            <div class="wave"><canvas id="wave" aria-hidden="true"></canvas></div>
-            <div class="console__meter"><div class="meter"><div class="meter__fill" id="meterFill"></div></div><span id="meterTxt">Quiet</span></div>
-            <div class="console__play" id="abRow" hidden>
-              <div class="ab" role="group" aria-label="Compare before and after">
-                <button type="button" id="playRaw" aria-pressed="false" disabled>▶ Raw take</button>
-                <button type="button" id="playMaster" aria-pressed="false" disabled>▶ Final master</button>
-              </div>
-              <span class="console__note" id="abNote">Before/after samples coming soon.</span>
-              <!-- Drop matching 20–30s clips at /media/audio/sample-raw.mp3 and /media/audio/sample-master.mp3; the buttons enable themselves. -->
-              <audio id="audRaw" src="/media/audio/sample-raw.mp3" preload="none"></audio>
-              <audio id="audMaster" src="/media/audio/sample-master.mp3" preload="none"></audio>
+          <div class="mix" data-placeholder="Illustrative · real before/after audio needed">
+            <div class="mix__ruler" aria-hidden="true"><span>1</span><span></span><span></span><span></span><span>5</span><span></span><span></span><span></span><span>9</span><span></span><span></span><span></span><span>13</span><span></span><span></span><span></span></div>
+            <div class="wave"><canvas id="wave" role="img" aria-label="Waveform of a vocal take going from raw to mastered"></canvas></div>
+          </div>
+          <ol class="markers" id="markers" aria-label="Stages">
+            <li><button type="button" class="marker is-on" data-stage="0" aria-pressed="true"><span class="marker__dot" aria-hidden="true"></span>Raw take</button></li>
+            <li><button type="button" class="marker" data-stage="1" aria-pressed="false"><span class="marker__dot" aria-hidden="true"></span>Tuned</button></li>
+            <li><button type="button" class="marker" data-stage="2" aria-pressed="false"><span class="marker__dot" aria-hidden="true"></span>Mixed</button></li>
+            <li><button type="button" class="marker" data-stage="3" aria-pressed="false"><span class="marker__dot" aria-hidden="true"></span>Mastered</button></li>
+          </ol>
+          <p class="mix__caption" id="busCaption" aria-live="polite">Exactly as you sang it.</p>
+          <div class="console__play" id="abRow" hidden>
+            <div class="ab" role="group" aria-label="Compare before and after">
+              <button type="button" id="playRaw" aria-pressed="false" disabled>▶ Raw take</button>
+              <button type="button" id="playMaster" aria-pressed="false" disabled>▶ Final master</button>
             </div>
+            <span class="console__note" id="abNote">Same take, same level. Switch while it plays.</span>
+            <!-- Drop matching 20–30s clips at /media/audio/sample-raw.mp3 and /media/audio/sample-master.mp3; this row appears by itself. -->
+            <audio id="audRaw" src="/media/audio/sample-raw.mp3" preload="none"></audio>
+            <audio id="audMaster" src="/media/audio/sample-master.mp3" preload="none"></audio>
           </div>
         </div>
       </div>
@@ -929,16 +930,15 @@
     pauseBtn.addEventListener('click', () => setPaused(!userPaused));
     loadVideo(); wide.addEventListener('change', loadVideo);
 
-    /* ── Master bus waveform (the signature) ── */
+    /* ── The mixdown (the signature): the playhead finishes the take as it passes ── */
     const canvas = $('#wave'), ctx = canvas.getContext('2d');
-    const STAGE_NAMES = ['Raw take', 'Tuned', 'Mixed', 'Mastered'];
-    const METER = [['Quiet', .22], ['Steadier', .38], ['Full', .66], ['Release-ready', .92]];
+    const CAPTIONS = ['Exactly as you sang it.', 'Pitch and timing fixed. Still you.', 'Every stem balanced around your voice.', 'Loud and clear on every speaker.'];
     let N = 0, profiles = [], busP = 0;
     const rng = seed => () => (seed = (seed * 16807) % 2147483647) / 2147483647;
     function buildProfiles() {
-      N = canvas.clientWidth < 520 ? 72 : 132;
+      N = canvas.clientWidth < 520 ? 64 : 140;
       const r = rng(7), jitter = Array.from({ length: N }, r), jitter2 = Array.from({ length: N }, r);
-      const phrase = i => { const x = i / N; return Math.max(0, Math.sin(x * Math.PI * 5.2 + .6)) ** .6; };
+      const phrase = i => Math.max(0, Math.sin((i / N) * Math.PI * 5.2 + .6)) ** .6;
       const raw = [], tuned = [], mixed = [], master = [];
       for (let i = 0; i < N; i++) {
         const env = phrase(i), beat = i % 6 === 0 ? 1 : 0;
@@ -956,43 +956,54 @@
       buildProfiles(); drawWave(busP);
     }
     const mix = (a, b, t) => a + (b - a) * t;
+    const bar = (x, mid, bw, a) => { const bh = Math.max(2, Math.min(.95, a) * mid); ctx.beginPath(); ctx.roundRect ? ctx.roundRect(x, mid - bh, bw, bh * 2, Math.min(bw / 2, 3)) : ctx.rect(x, mid - bh, bw, bh * 2); ctx.fill(); };
     function drawWave(p) {
       const w = canvas.clientWidth, h = canvas.clientHeight, mid = h / 2;
       ctx.clearRect(0, 0, w, h);
       const s = Math.min(Math.floor(p), 2), f = Math.min(p - s, 1);
-      const gap = 2, bw = (w - gap * (N - 1)) / N;
-      // limiter ceiling appears as the song gets mastered
-      ctx.globalAlpha = Math.max(0, p - 2.2) * .8;
+      const gap = 2, bw = (w - gap * (N - 1)) / N, head = (p / 3) * w;
+      // limiter ceiling once it's mastered
+      ctx.globalAlpha = Math.max(0, p - 2.3) * .9;
       ctx.strokeStyle = '#C9C1FF'; ctx.setLineDash([3, 5]); ctx.lineWidth = 1;
-      [mid - mid * .92, mid + mid * .92].forEach(y => { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(w, y); ctx.stroke(); });
+      [mid * .08, mid * 1.92].forEach(y => { ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(head, y); ctx.stroke(); });
       ctx.setLineDash([]); ctx.globalAlpha = 1;
-      const c0 = [170, 166, 177], c1 = [201, 193, 255], ct = p / 3;
-      ctx.fillStyle = `rgb(${c0.map((c, i) => Math.round(mix(c, c1[i], ct))).join(',')})`;
+      const c0 = [176, 170, 196], c1 = [201, 193, 255], ct = p / 3;
+      const done = `rgb(${c0.map((c, i) => Math.round(mix(c, c1[i], ct))).join(',')})`;
       for (let i = 0; i < N; i++) {
-        const a = Math.min(.95, mix(profiles[s][i], profiles[s + 1][i], f));
-        const bh = Math.max(2, a * mid);
-        ctx.beginPath();
-        ctx.roundRect ? ctx.roundRect(i * (bw + gap), mid - bh, bw, bh * 2, Math.min(bw / 2, 3)) : ctx.rect(i * (bw + gap), mid - bh, bw, bh * 2);
-        ctx.fill();
+        const x = i * (bw + gap);
+        if (x + bw <= head) {
+          ctx.fillStyle = 'rgba(255,255,255,.1)'; bar(x, mid, bw, profiles[0][i]);   // the raw take, ghosted
+          ctx.fillStyle = done; bar(x, mid, bw, mix(profiles[s][i], profiles[s + 1][i], f));
+        } else {
+          ctx.fillStyle = '#4A4756'; bar(x, mid, bw, profiles[0][i]);                   // not reached yet
+        }
+      }
+      // playhead
+      if (p > 0.02 && p < 2.98) {
+        ctx.fillStyle = '#C9C1FF';
+        ctx.fillRect(Math.round(head) - 1, 0, 2, h);
+        ctx.beginPath(); ctx.moveTo(head - 6, 0); ctx.lineTo(head + 6, 0); ctx.lineTo(head, 8); ctx.fill();
       }
     }
-    const stages = $$('.stage'), readout = $('#busReadout'), meterFill = $('#meterFill'), meterTxt = $('#meterTxt');
+    const stages = $$('.marker'), markers = $('#markers'), caption = $('#busCaption');
+    let lastIdx = -1;
     function setBus(p) {
       busP = Math.max(0, Math.min(3, p));
       drawWave(busP);
+      markers.style.setProperty('--fill', `${(busP / 3) * 75}%`);
       const idx = Math.min(3, Math.round(busP));
-      stages.forEach((el, i) => el.classList.toggle('is-on', i === idx));
-      readout.textContent = `0${idx + 1} / 04 · ${STAGE_NAMES[idx]}`;
-      const lvl = mix(METER[Math.min(Math.floor(busP), 2)][1], METER[Math.min(Math.floor(busP) + 1, 3)][1], Math.min(busP - Math.floor(busP), 1));
-      meterFill.style.width = `${lvl * 100}%`;
-      meterTxt.textContent = METER[idx][0];
+      if (idx !== lastIdx) {
+        lastIdx = idx;
+        stages.forEach((el, i) => { el.classList.toggle('is-on', i === idx); el.classList.toggle('is-done', i < idx); el.setAttribute('aria-pressed', String(i === idx)); });
+        caption.textContent = CAPTIONS[idx];
+      }
     }
     sizeCanvas();
     window.addEventListener('resize', () => { sizeCanvas(); });
     // Tap a stage (works everywhere; the only control on phones)
     let busTween;
     stages.forEach((el, i) => el.addEventListener('click', () => {
-      if (hasGsap) { busTween?.kill(); const o = { p: busP }; busTween = gsap.to(o, { p: i, duration: .9, ease: 'power2.inOut', onUpdate: () => setBus(o.p) }); }
+      if (hasGsap && motion) { busTween?.kill(); const o = { p: busP }; busTween = gsap.to(o, { p: i, duration: .9, ease: 'power2.inOut', onUpdate: () => setBus(o.p) }); }
       else setBus(i);
     }));
     setBus(0);
@@ -1003,8 +1014,7 @@
       if (!(a && b)) return;
       bRaw.disabled = bMaster.disabled = false;
       $('#abRow').hidden = false;
-      $('#abNote').textContent = 'Same take, same level. Switch while it plays.';
-      $('#console').removeAttribute('data-placeholder');
+      $('.mix').removeAttribute('data-placeholder');
       const play = (on, off, bOn, bOff, stage) => {
         if (!on.paused) { on.pause(); bOn.setAttribute('aria-pressed', 'false'); return; }
         on.currentTime = off.paused ? on.currentTime : off.currentTime;
@@ -1078,8 +1088,9 @@
     /* Phones/tablets: the bus plays itself once when it comes on screen */
     mm.add('(max-width: 999px)', () => {
       const o = { p: 0 };
-      gsap.to(o, { p: 3, duration: 3.2, ease: 'power1.inOut', onUpdate: () => setBus(o.p),
-        scrollTrigger: { trigger: '#console', start: 'top 70%', once: true } });
+      // stored as busTween so a tap on any stage cancels the auto-play
+      busTween = gsap.to(o, { p: 3, duration: 3.2, ease: 'power1.inOut', onUpdate: () => setBus(o.p),
+        scrollTrigger: { trigger: '.mix', start: 'top 70%', once: true } });
     });
   });
   </script>
