@@ -139,14 +139,6 @@
   .faq-icon { @apply text-lavender; }
   .faq-answer { @apply pb-6 text-sm leading-7 text-muted; }
 
-  #footer { @apply border-t border-white/10 bg-studio px-6 pt-16 pb-6 sm:px-10; }
-  #footer .footer-main { @apply mx-auto mb-12 grid max-w-6xl grid-cols-2 gap-10 lg:grid-cols-[1.5fr_1fr_1fr_1fr]; }
-  #footer .footer-brand-col { @apply col-span-2 max-w-sm lg:col-span-1; }
-  #footer .footer-brand-logo { @apply mb-6 w-40; }
-  #footer .footer-tagline { @apply text-sm leading-6 text-muted; }
-  #footer .footer-info,#footer .footer-info a { @apply text-xs leading-6 text-muted; }
-  #footer .footer-nav-links a { @apply inline-block py-1.5 text-xs text-muted hover:text-white; }
-  #footer .footer-bottom { @apply mx-auto flex max-w-6xl flex-wrap gap-4 px-0 pt-6 text-xs text-muted; }
 
   @media (max-width: 767px) {
     #hero.rec-hero { @apply min-h-0 px-6 pt-32 pb-12; }
