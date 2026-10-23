@@ -301,7 +301,10 @@ html:not(.js-motion) .spot__now, html:not(.js-motion) .spot__head { display: non
   .nav .btn--sm { padding: 0 16px; }
   .person { width: 64vw; }
   .shot { width: calc(64vw * 4 / 3); }
-  .voices__grid { grid-template-columns: minmax(0, 1fr); }
+  /* Phones: one swipe row of equal 9:16 cards instead of two stacked videos and a quote. */
+  .voices__grid { display: flex; gap: 12px; margin-left: calc(var(--gut) * -1); margin-right: calc(var(--gut) * -1); padding: 0 var(--gut); overflow-x: auto; scroll-snap-type: x mandatory; scroll-padding-inline: var(--gut); scrollbar-width: none; }
+  .voices__grid::-webkit-scrollbar { display: none; }
+  .voices__grid > * { flex: none; width: 72vw; aspect-ratio: 9 / 16; scroll-snap-align: start; }
   .founder__stats { gap: 32px; }
   .hero .btns .btn { flex: 1 1 100%; }
   .crate__box { --s: 80vw; }
