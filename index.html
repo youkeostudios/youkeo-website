@@ -312,16 +312,15 @@
     <div class="nav-left">
       <a href="#hero" class="logo" aria-label="Youkeo Studios – Recording Studio Navi Mumbai"><img src="/assets/brand/youkeo-white-transparent.svg" alt="Youkeo"></a>
       <ul class="nav-links">
-        <li><a class="nav-item" href="#hero">Home</a></li>
+        <li><a class="nav-item" href="#recorded-here">Work</a></li>
         <li><a class="nav-item" href="#services">Services</a></li>
-        <li><a class="nav-item" href="pricing/index.html">Pricing</a></li>
-        <li><a class="nav-item" href="#cta">Contact</a></li>
+        <li><a class="nav-item" href="#pricing">Pricing</a></li>
+        <li><a class="nav-item" href="#location">Visit</a></li>
       </ul>
     </div>
 
     <div class="nav-right">
-      <a href="tel:+919619192992" class="btn-login" onclick="gtag('event','contact_click',{method:'phone',location:'nav',page:'home'}); trackPhone();">Call us</a>
-      <a href="https://wa.me/919619192992" target="_blank" rel="noopener" class="btn-signup" onclick="gtag('event','contact_click',{method:'whatsapp',location:'nav',page:'home'}); trackWhatsApp();">WhatsApp</a>
+      <a href="https://wa.me/919619192992?text=Hi%2C%20I%27d%20like%20to%20check%20availability%20at%20Youkeo%20Studios." target="_blank" rel="noopener" class="btn-signup" onclick="gtag('event','contact_click',{method:'whatsapp',location:'nav',page:'home'}); trackWhatsApp();">Check availability <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
         <span></span>
         <span></span>
@@ -333,11 +332,13 @@
 </header>
 
 <!-- Mobile Menu -->
-<div class="nav-mobile-menu" role="navigation" aria-label="Mobile navigation">
-  <a href="#hero">Home</a>
+<div class="nav-mobile-menu" role="navigation" aria-label="Mobile navigation" aria-hidden="true" inert>
+  <a href="#recorded-here">Work</a>
   <a href="#services">Services</a>
-  <a href="pricing/index.html">Pricing</a>
-  <a href="#cta">Contact</a>
+  <a href="#pricing">Pricing</a>
+  <a href="#location">Visit</a>
+  <a class="nav-mobile-cta" href="https://wa.me/919619192992?text=Hi%2C%20I%27d%20like%20to%20check%20availability%20at%20Youkeo%20Studios." target="_blank" rel="noopener" onclick="gtag('event','contact_click',{method:'whatsapp',location:'mobile_menu',page:'home'}); trackWhatsApp();">Check availability <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  <a class="nav-mobile-call" href="tel:+919619192992" onclick="gtag('event','contact_click',{method:'phone',location:'mobile_menu',page:'home'}); trackPhone();">Prefer to call? +91 96 1919 2992</a>
 </div>
 
 
@@ -350,12 +351,12 @@
   <video
     class="hero-video"
     src="https://cdn.youkeostudios.com/videos/hero-background-compressed.mp4"
-    autoplay
+    data-respect-reduced-motion
     muted
     loop
     playsinline
-    preload="auto"
-    poster=""
+    preload="metadata"
+    poster="https://cdn.youkeostudios.com/images/studio-control-room.jpg"
     aria-hidden="true"
     x-webkit-airplay="deny"
   ></video>
@@ -367,22 +368,30 @@
   <div class="hero-content">
     <div class="hero-eyebrow"><span>Youkeo Studios</span><span>Airoli, Navi Mumbai</span></div>
     <h1 class="hero-h1">
-      <span>Walk in with a voice.</span>
-      <span>Walk out with a release.</span>
+      <span>Your voice.</span>
+      <span>Turned into a release.</span>
     </h1>
     <p class="hero-sub">
-      A pro-grade room, an easy team, and a track that actually competes. Airoli, Navi Mumbai.
+      Pro studio. Friendly team. Competitive sound.
     </p>
     <div class="hero-cta-group">
-      <a href="#cta" class="btn btn-primary" onclick="gtag('event','cta_click',{button_text:'Check Availability',location:'hero',page:'home'})">
+      <a href="https://wa.me/919619192992?text=Hi%2C%20I%27d%20like%20to%20check%20availability%20at%20Youkeo%20Studios." target="_blank" rel="noopener" class="btn btn-primary" onclick="gtag('event','contact_click',{method:'whatsapp',location:'hero_cta',page:'home'}); trackWhatsApp();">
         Check Availability
         <svg width="16" height="16" fill="none" viewBox="0 0 24 24">
           <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </a>
-      <a href="#recorded-here" class="hero-cta-secondary" onclick="gtag('event','cta_click',{button_text:'Hear the work',location:'hero',page:'home'})">↓ Hear the work</a>
+      <a href="#recorded-here" class="hero-cta-secondary" onclick="gtag('event','cta_click',{button_text:'Hear our work',location:'hero',page:'home'})">
+        Hear our work
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 7l8 5-8 5V7Z"/></svg>
+      </a>
+    </div>
+    <div class="hero-cta-trust" aria-label="5 stars on Google Reviews">
+      <span class="hero-cta-stars" aria-hidden="true">★★★★★</span>
+      <span class="hero-cta-rating">5 stars on Google Reviews</span>
     </div>
   </div>
+
 </section>
 
 <!-- Studio highlights -->
@@ -407,6 +416,74 @@
   </a>
 </aside>
 
+<!-- ============================================================
+     EXPLORE THE STUDIO
+     ============================================================ -->
+<section id="studio-tour" class="studio-explore" aria-labelledby="studio-tour-title">
+  <header class="studio-explore__header">
+    <div>
+      <span class="studio-explore__eyebrow">Inside Youkeo</span>
+      <h2 id="studio-tour-title">Explore the studio.</h2>
+    </div>
+    <p>One focused space, built around the way artists actually work.</p>
+  </header>
+
+  <div class="studio-explore__grid">
+    <article class="studio-explore__card studio-explore__card--control">
+      <video class="studio-explore__media" src="https://cdn.youkeostudios.com/videos/hero-background-compressed.mp4#t=4.8" data-offset="4.8" muted loop playsinline preload="metadata" poster="https://cdn.youkeostudios.com/images/studio-control-room.jpg" aria-hidden="true"></video>
+      <div class="studio-explore__shade" aria-hidden="true"></div>
+      <div class="studio-explore__caption">
+        <span>01</span>
+        <div><h3>Control Room</h3><p>Where every take becomes a record.</p></div>
+      </div>
+    </article>
+
+    <article class="studio-explore__card studio-explore__card--booth">
+      <video class="studio-explore__media" src="https://cdn.youkeostudios.com/videos/hero-background-compressed.mp4#t=7.1" data-offset="7.1" muted loop playsinline preload="metadata" poster="https://cdn.youkeostudios.com/images/studio-control-room.jpg" aria-hidden="true"></video>
+      <div class="studio-explore__shade" aria-hidden="true"></div>
+      <div class="studio-explore__caption">
+        <span>02</span>
+        <div><h3>Vocal Booth</h3><p>Quiet, treated and ready for your best take.</p></div>
+      </div>
+    </article>
+
+    <article class="studio-explore__card studio-explore__card--production">
+      <video class="studio-explore__media" src="https://cdn.youkeostudios.com/videos/hero-background-compressed.mp4#t=0.2" data-offset="0.2" muted loop playsinline preload="metadata" poster="https://cdn.youkeostudios.com/images/studio-control-room.jpg" aria-hidden="true"></video>
+      <div class="studio-explore__shade" aria-hidden="true"></div>
+      <div class="studio-explore__caption">
+        <span>03</span>
+        <div><h3>Production Setup</h3><p>Ideas, arrangements and final details live here.</p></div>
+      </div>
+    </article>
+
+    <article class="studio-explore__card studio-explore__card--equipment">
+      <video class="studio-explore__media" src="https://cdn.youkeostudios.com/videos/hero-background-compressed.mp4#t=8.1" data-offset="8.1" muted loop playsinline preload="metadata" poster="https://cdn.youkeostudios.com/images/studio-control-room.jpg" aria-hidden="true"></video>
+      <div class="studio-explore__shade" aria-hidden="true"></div>
+      <div class="studio-explore__caption">
+        <span>04</span>
+        <div><h3>Microphones &amp; Equipment</h3><p>Trusted tools, chosen for clarity and character.</p></div>
+      </div>
+    </article>
+
+    <article class="studio-explore__card studio-explore__card--comfort">
+      <video class="studio-explore__media" src="https://cdn.youkeostudios.com/videos/hero-background-compressed.mp4#t=2.5" data-offset="2.5" muted loop playsinline preload="metadata" aria-hidden="true"></video>
+      <div class="studio-explore__shade" aria-hidden="true"></div>
+      <div class="studio-explore__caption">
+        <span>05</span>
+        <div><h3>Artist Lounge / Comfort Area</h3><p>Room to settle in, listen back and reset.</p></div>
+      </div>
+    </article>
+  </div>
+
+  <footer class="studio-explore__footer">
+    <p><strong>Come hear the room for yourself.</strong><span>8 minutes from Airoli Station.</span></p>
+    <a href="#location" class="studio-explore__cta">
+      Visit the Studio
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </a>
+  </footer>
+</section>
+
 
 <!-- ============================================================
      RECORDED HERE
@@ -415,87 +492,76 @@
   <div class="recorded-shell">
     <header class="recorded-header">
       <div>
-        <span class="recorded-eyebrow">Recorded at Youkeo</span>
-        <h2>From this room<br>to their headphones.</h2>
+        <span class="recorded-eyebrow">Selected releases</span>
+        <h2>Made here.<br>Played everywhere.</h2>
       </div>
       <div class="recorded-intro">
-        <p>Three releases, three different worlds—each shaped in our Airoli studio and carried far beyond it.</p>
-        <div class="recorded-proof"><strong>1M+</strong><span>streams on tracks<br>recorded here</span></div>
+        <p>Independent music recorded, produced and finished at Youkeo.</p>
       </div>
     </header>
 
-    <div class="recorded-tracks">
-    <!-- VERIFY: confirm the per-track stream counts (O Sajna 1M+, Dooriyan 300k+, Aarzoo 100k+) are literally true before launch -->
+    <!-- VERIFY: confirm the per-track stream counts (O Sajna 1M+, Dooriyan 500k+, Aarzoo 100k+) are literally true before launch -->
+    <div class="release-showcase" aria-label="Selected releases made at Youkeo Studios">
+      <article class="release-showcase__featured">
+        <img class="release-showcase__backdrop" src="https://cdn.youkeostudios.com/artworks/o-sajna.webp" alt="" aria-hidden="true" width="900" height="900" loading="lazy" decoding="async" />
+        <div class="release-showcase__wash" aria-hidden="true"></div>
 
-    <!-- Track 1: O Sajna -->
-    <article class="track-row" data-video="https://www.youtube.com/watch?v=qgHA_3Kr-ac">
-      <div class="release-art">
-        <img class="track-artwork" src="https://cdn.youkeostudios.com/artworks/o-sajna.webp" alt="O Sajna album artwork – Swapnil Chaudhary, recorded at Youkeo Studios Navi Mumbai" />
-        <span class="release-number">01</span>
-      </div>
-      <div class="track-info">
-        <div class="track-name">O Sajna</div>
-        <div class="track-artist">Swapnil Chaudhary</div>
-        <div class="track-streams">
-          1M+
-          <span class="track-streams-label">Streams</span>
+        <div class="release-showcase__featured-info">
+          <div class="release-showcase__index"><span>01</span><span>Featured release</span></div>
+          <span class="release-showcase__credit">Recorded at Youkeo</span>
+          <h3>O Sajna</h3>
+          <p>Swapnil Chaudhary</p>
+          <div class="release-showcase__proof"><strong>1M+</strong><span>streams</span></div>
+          <a class="release-showcase__play" href="https://www.youtube.com/watch?v=qgHA_3Kr-ac" target="_blank" rel="noopener" aria-label="Play O Sajna by Swapnil Chaudhary on YouTube" onclick="gtag('event','track_click',{track:'O Sajna',artist:'Swapnil Chaudhary',platform:'youtube',page:'home'})">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.25"/><path d="M10.25 8.75 15.5 12l-5.25 3.25v-6.5Z"/></svg>
+            Play on YouTube
+          </a>
         </div>
-      </div>
-      <button type="button" class="track-listen" data-video="https://www.youtube.com/watch?v=qgHA_3Kr-ac" onclick="gtag('event','track_click',{track:'O Sajna',artist:'Swapnil Chaudhary',page:'home'})">
-        Play release
-        <svg class="track-play-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <circle cx="12" cy="12" r="9.25" stroke="currentColor" stroke-width="1.5"/>
-          <path d="M10.25 8.75 15.5 12l-5.25 3.25v-6.5Z" fill="currentColor"/>
-        </svg>
-      </button>
-    </article>
 
-    <!-- Track 2: Dooriyan -->
-    <article class="track-row" data-video="https://www.youtube.com/watch?v=wSDTy-vXuIg">
-      <div class="release-art">
-        <img class="track-artwork" src="https://cdn.youkeostudios.com/artworks/dooriyaan.webp" alt="Dooriyan album artwork – Gravero, Rhyo & Kinara, recorded at Youkeo Studios" />
-        <span class="release-number">02</span>
-      </div>
-      <div class="track-info">
-        <div class="track-name">Dooriyan</div>
-        <div class="track-artist">Gravero, Rhyo &amp; Kinara</div>
-        <div class="track-streams">
-          300k+
-          <span class="track-streams-label">Streams</span>
+        <div class="release-showcase__cover">
+          <img src="https://cdn.youkeostudios.com/artworks/o-sajna.webp" alt="O Sajna cover art" width="900" height="900" loading="lazy" decoding="async" />
         </div>
-      </div>
-      <button type="button" class="track-listen" data-video="https://www.youtube.com/watch?v=wSDTy-vXuIg" onclick="gtag('event','track_click',{track:'Dooriyan',artist:'Gravero, Rhyo & Kinara',page:'home'})">
-        Play release
-        <svg class="track-play-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <circle cx="12" cy="12" r="9.25" stroke="currentColor" stroke-width="1.5"/>
-          <path d="M10.25 8.75 15.5 12l-5.25 3.25v-6.5Z" fill="currentColor"/>
-        </svg>
-      </button>
-    </article>
+      </article>
 
-    <!-- Track 3: Aarzoo -->
-    <article class="track-row" data-video="https://www.youtube.com/watch?v=8gFLby0U0LE">
-      <div class="release-art">
-        <img class="track-artwork" src="https://cdn.youkeostudios.com/artworks/aarzoo.webp" alt="Aarzoo album artwork – Shoonya & Kinara, 100k+ Spotify streams, Youkeo Studios" />
-        <span class="release-number">03</span>
-      </div>
-      <div class="track-info">
-        <div class="track-name">Aarzoo</div>
-        <div class="track-artist">Shoonya &amp; Kinara</div>
-        <div class="track-streams">
-          100k+
-          <span class="track-streams-label">Streams</span>
-        </div>
-      </div>
-      <button type="button" class="track-listen" data-video="https://www.youtube.com/watch?v=8gFLby0U0LE" onclick="gtag('event','track_click',{track:'Aarzoo',artist:'Shoonya & Kinara',page:'home'})">
-        Play release
-        <svg class="track-play-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <circle cx="12" cy="12" r="9.25" stroke="currentColor" stroke-width="1.5"/>
-          <path d="M10.25 8.75 15.5 12l-5.25 3.25v-6.5Z" fill="currentColor"/>
-        </svg>
-      </button>
-    </article>
+      <div class="release-showcase__supporting">
+        <article class="release-showcase__card">
+          <img class="release-showcase__card-art" src="https://cdn.youkeostudios.com/artworks/dooriyaan.webp" alt="Dooriyan cover art" width="900" height="900" loading="lazy" decoding="async" />
+          <div class="release-showcase__card-wash" aria-hidden="true"></div>
+          <div class="release-showcase__card-info">
+            <div class="release-showcase__index"><span>02</span><span>500k+ streams</span></div>
+            <span class="release-showcase__credit">Produced at Youkeo</span>
+            <h3>Dooriyan</h3>
+            <p>Gravero, Rhyo &amp; Kinara</p>
+            <a class="release-showcase__play release-showcase__play--compact" href="https://www.youtube.com/watch?v=wSDTy-vXuIg" target="_blank" rel="noopener" aria-label="Play Dooriyan by Gravero, Rhyo and Kinara on YouTube" onclick="gtag('event','track_click',{track:'Dooriyan',artist:'Gravero, Rhyo & Kinara',platform:'youtube',page:'home'})">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.25"/><path d="M10.25 8.75 15.5 12l-5.25 3.25v-6.5Z"/></svg>
+              YouTube
+            </a>
+          </div>
+        </article>
 
+        <article class="release-showcase__card">
+          <img class="release-showcase__card-art" src="https://cdn.youkeostudios.com/artworks/aarzoo.webp" alt="Aarzoo cover art" width="900" height="900" loading="lazy" decoding="async" />
+          <div class="release-showcase__card-wash" aria-hidden="true"></div>
+          <div class="release-showcase__card-info">
+            <div class="release-showcase__index"><span>03</span><span>100k+ streams</span></div>
+            <span class="release-showcase__credit">Produced at Youkeo</span>
+            <h3>Aarzoo</h3>
+            <p>Shoonya &amp; Kinara</p>
+            <a class="release-showcase__play release-showcase__play--compact" href="https://www.youtube.com/watch?v=8gFLby0U0LE" target="_blank" rel="noopener" aria-label="Play Aarzoo by Shoonya and Kinara on YouTube" onclick="gtag('event','track_click',{track:'Aarzoo',artist:'Shoonya & Kinara',platform:'youtube',page:'home'})">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9.25"/><path d="M10.25 8.75 15.5 12l-5.25 3.25v-6.5Z"/></svg>
+              YouTube
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <div class="recorded-cta">
+      <p><strong>Your song could be next.</strong><span>Book a session at Youkeo.</span></p>
+      <a href="https://wa.me/919619192992?text=Hi%2C%20I%27d%20like%20to%20check%20availability%20at%20Youkeo%20Studios." target="_blank" rel="noopener" onclick="gtag('event','contact_click',{method:'whatsapp',location:'recorded_here_cta',page:'home'}); trackWhatsApp();">
+        Check availability
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
     </div>
   </div>
 </section>
@@ -505,318 +571,71 @@
      SERVICES
      ============================================================ -->
 <section id="services">
-  <div class="services-container">
-
-    <!-- Design Switcher (Preview Tool) -->
-    <div class="services-design-switch">
-      <span class="switch-label">Preview Layout:</span>
-      <button type="button" class="btn-design-switch active" data-target="services-layout-bento">Option 1: Bento Grid</button>
-      <button type="button" class="btn-design-switch" data-target="services-layout-split">Option 2: Editorial Split</button>
-    </div>
-
-    <!-- Layout 1: Centered 3-Column Bento Grid -->
-    <div id="services-layout-bento" class="services-layout active">
-      <div class="services-header services-header--center">
-        <span class="section-label">What we do</span>
-        <h2 class="section-h2">From first take<br>to final release.</h2>
-        <p class="services-sub">The room, the gear, and the team to take your idea from a voice memo into a streaming release.</p>
-      </div>
-
-      <div class="services-grid-bento">
-        <!-- 01. Recording -->
-        <div class="service-bento-card" data-service="recording">
-          <div class="bento-card-top">
-            <span class="bento-num">01</span>
-            <div class="bento-icon-wrap">
-              <svg width="22" height="22" fill="none" viewBox="0 0 24 24">
-                <rect x="9" y="2" width="6" height="11" rx="3" stroke="#FF2D6B" stroke-width="2"/>
-                <path d="M5 10a7 7 0 0014 0M12 17v4M8 21h8" stroke="#FF2D6B" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-            </div>
-          </div>
-          <div class="bento-card-body">
-            <span class="bento-tag">Vocal &amp; Live Room</span>
-            <h3 class="bento-title">Recording</h3>
-            <p class="bento-desc">A soundproofed booth, Neumann U87 mic, zero-latency monitoring, and an engineer guiding every take.</p>
-          </div>
-          <div class="bento-card-footer">
-            <span class="bento-link">
-              Explore Details
-              <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </div>
-        </div>
-
-        <!-- 02. Music Production -->
-        <div class="service-bento-card" data-service="production">
-          <div class="bento-card-top">
-            <span class="bento-num">02</span>
-            <div class="bento-icon-wrap">
-              <svg width="22" height="22" fill="none" viewBox="0 0 24 24">
-                <path d="M9 18V5l12-2v13" stroke="#FF2D6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <circle cx="6" cy="18" r="3" stroke="#FF2D6B" stroke-width="2"/>
-                <circle cx="18" cy="16" r="3" stroke="#FF2D6B" stroke-width="2"/>
-              </svg>
-            </div>
-          </div>
-          <div class="bento-card-body">
-            <span class="bento-tag">Custom Beats &amp; Arranging</span>
-            <h3 class="bento-title">Music Production</h3>
-            <p class="bento-desc">From rough voice memos to full arrangements, custom sound design, and streaming-ready production.</p>
-          </div>
-          <div class="bento-card-footer">
-            <span class="bento-link">
-              Explore Details
-              <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </div>
-        </div>
-
-        <!-- 03. Mixing & Mastering -->
-        <div class="service-bento-card" data-service="mixing">
-          <div class="bento-card-top">
-            <span class="bento-num">03</span>
-            <div class="bento-icon-wrap">
-              <svg width="22" height="22" fill="none" viewBox="0 0 24 24">
-                <path d="M4 6h16M4 12h16M4 18h16" stroke="#FF2D6B" stroke-width="2" stroke-linecap="round"/>
-                <circle cx="8" cy="6" r="2" fill="#FF2D6B"/>
-                <circle cx="16" cy="12" r="2" fill="#FF2D6B"/>
-                <circle cx="10" cy="18" r="2" fill="#FF2D6B"/>
-              </svg>
-            </div>
-          </div>
-          <div class="bento-card-body">
-            <span class="bento-tag">Post-Production &amp; Polish</span>
-            <h3 class="bento-title">Mixing &amp; Mastering</h3>
-            <p class="bento-desc">Vocal tuning, stereo width, dynamic balance, and analog mastering that translates on all speakers and streaming platforms.</p>
-          </div>
-          <div class="bento-card-footer">
-            <span class="bento-link">
-              Explore Details
-              <svg width="14" height="14" fill="none" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Layout 2: 2-Column Editorial Split -->
-    <div id="services-layout-split" class="services-layout">
-      <div class="services-split-grid">
-        
-        <!-- Left: Sticky Narrative -->
-        <div class="services-split-left">
-          <span class="section-label">What we do</span>
-          <h2 class="section-h2">From first take<br>to final release.</h2>
-          <p class="services-split-desc">Whether you walk in with a single lyric or a fully recorded demo, we give you the room, the sound, and the team to compete on Spotify.</p>
-          
-          <div class="services-trust-badges">
-            <div class="trust-badge-item">
-              <span class="trust-badge-icon">✓</span>
-              <span>Neumann U87 &amp; Treated Booth</span>
-            </div>
-            <div class="trust-badge-item">
-              <span class="trust-badge-icon">✓</span>
-              <span>100% Royalties Kept by You</span>
-            </div>
-            <div class="trust-badge-item">
-              <span class="trust-badge-icon">✓</span>
-              <span>1M+ Streams on Tracks Here</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Right: Stacked Service Rows -->
-        <div class="services-split-right">
-          
-          <!-- Row 1: Recording -->
-          <div class="service-split-row" data-service="recording">
-            <div class="split-row-icon">
-              <svg width="22" height="22" fill="none" viewBox="0 0 24 24">
-                <rect x="9" y="2" width="6" height="11" rx="3" stroke="#FF2D6B" stroke-width="2"/>
-                <path d="M5 10a7 7 0 0014 0M12 17v4M8 21h8" stroke="#FF2D6B" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-            </div>
-            <div class="split-row-content">
-              <div class="split-row-header">
-                <h3 class="split-row-title">Vocal &amp; Instrument Recording</h3>
-                <span class="split-row-arrow">→</span>
-              </div>
-              <p class="split-row-desc">Treated live room, Neumann U87 mic, zero-latency monitoring, and an experienced engineer guiding every take.</p>
-              <div class="split-row-meta">
-                <span>₹1,200/hr</span>
-                <span>Engineer Included</span>
-                <span>Stems Same Day</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Row 2: Production -->
-          <div class="service-split-row" data-service="production">
-            <div class="split-row-icon">
-              <svg width="22" height="22" fill="none" viewBox="0 0 24 24">
-                <path d="M9 18V5l12-2v13" stroke="#FF2D6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                <circle cx="6" cy="18" r="3" stroke="#FF2D6B" stroke-width="2"/>
-                <circle cx="18" cy="16" r="3" stroke="#FF2D6B" stroke-width="2"/>
-              </svg>
-            </div>
-            <div class="split-row-content">
-              <div class="split-row-header">
-                <h3 class="split-row-title">Music Production &amp; Beats</h3>
-                <span class="split-row-arrow">→</span>
-              </div>
-              <p class="split-row-desc">Turn phone voice memos and chords into complete, radio-ready arrangements with custom genre sound design.</p>
-              <div class="split-row-meta">
-                <span>From ₹12,000</span>
-                <span>Full Arrangement</span>
-                <span>Unlimited Revisions</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Row 3: Mixing & Mastering -->
-          <div class="service-split-row" data-service="mixing">
-            <div class="split-row-icon">
-              <svg width="22" height="22" fill="none" viewBox="0 0 24 24">
-                <path d="M4 6h16M4 12h16M4 18h16" stroke="#FF2D6B" stroke-width="2" stroke-linecap="round"/>
-                <circle cx="8" cy="6" r="2" fill="#FF2D6B"/>
-                <circle cx="16" cy="12" r="2" fill="#FF2D6B"/>
-                <circle cx="10" cy="18" r="2" fill="#FF2D6B"/>
-              </svg>
-            </div>
-            <div class="split-row-content">
-              <div class="split-row-header">
-                <h3 class="split-row-title">Mixing &amp; Mastering</h3>
-                <span class="split-row-arrow">→</span>
-              </div>
-              <p class="split-row-desc">Vocal tuning, stereo width, dynamic balance, and streaming-ready analog mastering that competes on any sound system.</p>
-              <div class="split-row-meta">
-                <span>Stereo from ₹5,000</span>
-                <span>Stem Mix ₹12,000</span>
-                <span>Mastering Included</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-    </div>
-
-    <div class="services-rebuilt">
-      <header class="services-rebuilt__header">
-        <div>
-          <span class="services-rebuilt__eyebrow">The studio pathway</span>
-          <h2>Bring the idea.<br>Leave with the record.</h2>
-        </div>
-        <p>Choose the stage you need today. We can meet you for a single vocal take—or stay with the song through its final master.</p>
-      </header>
-
-      <div class="services-flow">
-        <article class="studio-service studio-service--recording" data-service="recording">
-          <div class="studio-service__index">01 <span>Start here</span></div>
-          <div class="studio-service__body">
-            <span class="studio-service__label">Vocal &amp; instrument recording</span>
-            <h3>Make the take<br>feel effortless.</h3>
-            <p>Step into a treated room with a Neumann U87, zero-latency monitoring, and an engineer who knows when to push and when to let you breathe.</p>
-          </div>
-          <div class="studio-service__aside"><strong>₹1,200</strong><span>per hour</span><em>Engineer included</em><b>Explore recording <i>↗</i></b></div>
-        </article>
-
-        <article class="studio-service studio-service--production" data-service="production">
-          <div class="studio-service__index">02 <span>Build it</span></div>
-          <div class="studio-service__body">
-            <span class="studio-service__label">Custom production &amp; beats</span>
-            <h3>Give your song<br>its own world.</h3>
-            <p>From a voice memo or chord progression to a full arrangement built around your sound.</p>
-          </div>
-          <div class="studio-service__footer"><span>From ₹12,000</span><b>Explore production <i>↗</i></b></div>
-        </article>
-
-        <article class="studio-service studio-service--mixing" data-service="mixing">
-          <div class="studio-service__index">03 <span>Finish it</span></div>
-          <div class="studio-service__body">
-            <span class="studio-service__label">Mixing &amp; mastering</span>
-            <h3>Make every<br>detail translate.</h3>
-            <p>Clarity, depth, vocal polish, and a master that holds up everywhere your music plays.</p>
-          </div>
-          <div class="studio-service__footer"><span>From ₹5,000</span><b>Explore mixing <i>↗</i></b></div>
-        </article>
-      </div>
-
-      <a class="services-rebuilt__cta" href="#cta">Not sure where to start? <strong>Talk to the studio <span>→</span></strong></a>
-    </div>
-
+  <div class="song-process">
+    <h2>From idea to<br>finished song.</h2>
+    <ol class="song-process__steps">
+      <li><span class="song-process__number" aria-hidden="true">01</span><h3>Produce</h3><p>Turn your idea into a beat and arrangement.</p></li>
+      <li><span class="song-process__number" aria-hidden="true">02</span><h3>Record</h3><p>Capture your vocals and instruments.</p></li>
+      <li><span class="song-process__number" aria-hidden="true">03</span><h3>Finish</h3><p>Tune, mix and master for release.</p></li>
+    </ol>
+    <a class="song-process__cta" href="https://wa.me/919619192992?text=Hi%2C%20I%27d%20like%20to%20turn%20my%20song%20idea%20into%20a%20finished%20record." target="_blank" rel="noopener" onclick="gtag('event','contact_click',{method:'whatsapp',location:'song_process',page:'home'}); trackWhatsApp();">Start your song <span aria-hidden="true">↗</span></a>
   </div>
 </section>
-
-
-<!-- ============================================================
-     PRICING
-     ============================================================ -->
 <section id="pricing">
   <div class="rates-shell">
     <header class="rates-header">
       <div>
-        <span class="rates-eyebrow">Clear pricing</span>
+        <span class="rates-eyebrow">Packages &amp; rates</span>
         <h2>Choose your<br>finish line.</h2>
       </div>
-      <p>Start with a session or hand us the entire song. Every route is clearly scoped before the work begins.</p>
+      <p>Choose where your song is starting from. The price and included work are agreed before your session begins.</p>
     </header>
 
     <div class="rates-grid">
       <article class="rate-card">
-        <div class="rate-card__top"><span>01</span><span>Record</span></div>
         <div class="rate-card__title">
-          <span>Studio session</span>
+          <span>Beat ready</span>
           <h3>Recording</h3>
         </div>
         <div class="rate-card__price"><strong>₹1,200</strong><span>/ hour</span></div>
-        <p>For artists with a beat ready and a performance to capture.</p>
         <ul>
-          <li>Neumann mic and treated booth</li>
-          <li>Engineer and live monitoring</li>
-          <li>Raw stems and rough mix</li>
+          <li>Engineer included</li>
+          <li>Raw stems + rough mix</li>
         </ul>
         <a href="https://wa.me/919619192992?text=Hi%2C%20I%27d%20like%20to%20book%20a%20recording%20session%20at%20Youkeo%20Studios%20(%E2%82%B91%2C200%2Fhr).%0APreferred%20date%2Ftime%3A%20" target="_blank" rel="noopener" class="rate-card__action" onclick="gtag('event','cta_click',{button_text:'Check Availability',service:'recording',location:'pricing_cards',page:'home'}); trackWhatsApp();">Check availability <span>↗</span></a>
       </article>
 
       <article class="rate-card rate-card--featured">
-        <div class="rate-card__top"><span>02</span><span class="rate-card__badge">Most chosen</span></div>
+        <div class="rate-card__top"><span class="rate-card__badge">Most chosen</span></div>
         <div class="rate-card__title">
-          <span>Beat ready</span>
+          <span>Bring your beat</span>
           <h3>Recording<br>to final</h3>
         </div>
         <div class="rate-card__price"><strong>₹14,000</strong><span>/ song</span></div>
-        <p>Walk in with your beat. Leave with a polished, streaming-ready master.</p>
         <ul>
-          <li>2 hours of vocal recording</li>
-          <li>Vocal tuning, mixing and mastering</li>
-          <li>2 revision rounds included</li>
+          <li>2-hour recording session</li>
+          <li>Tuning, mix, master + 2 revisions</li>
         </ul>
         <a href="https://wa.me/919619192992?text=Hi%2C%20I%27d%20like%20to%20book%20the%20Recording%20to%20Final%20package%20(%E2%82%B914%2C000).%0ABeat%20ready%3A%20Yes%20%2F%20No%0APreferred%20date%3A%20" target="_blank" rel="noopener" class="rate-card__action" onclick="gtag('event','cta_click',{button_text:'Check Availability',service:'recording_to_final',location:'pricing_cards',page:'home'}); trackWhatsApp();">Choose this package <span>↗</span></a>
       </article>
 
       <article class="rate-card">
-        <div class="rate-card__top"><span>03</span><span>Build</span></div>
         <div class="rate-card__title">
-          <span>From an idea</span>
+          <span>Start with an idea</span>
           <h3>Production<br>to final</h3>
         </div>
         <div class="rate-card__price"><strong>₹26,000</strong><span>/ song</span></div>
-        <p>Bring the voice memo. We build, record, mix and master the full release.</p>
         <ul>
-          <li>Custom beat and arrangement</li>
-          <li>2 hours of vocal recording</li>
-          <li>Full mix, master and release guidance</li>
+          <li>Custom production</li>
+          <li>Recording, mix, master + guidance</li>
         </ul>
         <a href="https://wa.me/919619192992?text=Hi%2C%20I%27m%20interested%20in%20the%20Production%20to%20Final%20package%20(%E2%82%B926%2C000).%0ASong%20idea%20%2F%20genre%3A%20" target="_blank" rel="noopener" class="rate-card__action" onclick="gtag('event','cta_click',{button_text:'Check Availability',service:'production_to_final',location:'pricing_cards',page:'home'}); trackWhatsApp();">Start a project <span>↗</span></a>
       </article>
     </div>
 
     <footer class="rates-footer">
-      <p><strong>Need one service?</strong> Production ₹12,000 · Mixing ₹5,000 · Mastering ₹2,000</p>
-      <a href="pricing/index.html" onclick="gtag('event','nav_click',{destination:'pricing_page',location:'pricing_section',page:'home'})">View full pricing <span>→</span></a>
+      <p><strong>Need one service?</strong></p>
+      <a href="pricing/index.html" onclick="gtag('event','nav_click',{destination:'pricing_page',location:'pricing_section',page:'home'})">View all rates <span>→</span></a>
     </footer>
   </div>
 </section>
@@ -833,8 +652,8 @@
         <h2>Good sessions<br>sound like this.</h2>
       </div>
       <div class="voices-proof" aria-label="Youkeo Studios client rating">
-        <strong>5.0</strong>
-        <div><span>★★★★★</span><small>25+ Google reviews</small></div>
+        <strong>5 stars</strong>
+        <div><span>★★★★★</span><small>On Google Reviews</small></div>
       </div>
     </header>
 
@@ -849,35 +668,25 @@
           <span class="voice-quote__avatar">A</span>
           <div><strong>AiVANTA Labs</strong><small>Artist &amp; returning client</small></div>
         </div>
-        <p>Great work starts with a room where you can relax, experiment and ask for another take.</p>
       </article>
 
       <div class="voice-reels" aria-label="Video testimonials">
         <button type="button" class="t-video-card voice-video" data-video="https://cdn.youkeostudios.com/reviews/prince.mp4" aria-label="Play Prince's Youkeo Studios testimonial">
-          <video class="t-video-cover" src="https://cdn.youkeostudios.com/reviews/prince.mp4#t=0.001" preload="metadata" muted loop playsinline></video>
+          <video class="t-video-cover" src="https://cdn.youkeostudios.com/reviews/prince.mp4#t=0.001" preload="auto" muted loop playsinline></video>
           <div class="voice-video__shade"></div>
-          <div class="voice-video__top"><span>01</span><span>Client story</span></div>
-          <div class="voice-video__bottom"><strong>Prince</strong><span class="voice-video__play">▶</span></div>
+          <div class="voice-video__bottom"><strong>Prince</strong><span class="voice-video__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.5 7.5v9l7-4.5-7-4.5Z" fill="currentColor"/></svg></span></div>
         </button>
         <button type="button" class="t-video-card voice-video" data-video="https://cdn.youkeostudios.com/reviews/jassi.mp4" aria-label="Play Jassi's Youkeo Studios testimonial">
-          <video class="t-video-cover" src="https://cdn.youkeostudios.com/reviews/jassi.mp4#t=0.001" preload="metadata" muted loop playsinline></video>
+          <video class="t-video-cover" src="https://cdn.youkeostudios.com/reviews/jassi.mp4#t=0.001" preload="auto" muted loop playsinline></video>
           <div class="voice-video__shade"></div>
-          <div class="voice-video__top"><span>02</span><span>Client story</span></div>
-          <div class="voice-video__bottom"><strong>Jassi</strong><span class="voice-video__play">▶</span></div>
-        </button>
-        <button type="button" class="t-video-card voice-video" data-video="https://cdn.youkeostudios.com/reviews/shrey.mp4" aria-label="Play Shrey's Youkeo Studios testimonial">
-          <video class="t-video-cover" src="https://cdn.youkeostudios.com/reviews/shrey.mp4#t=0.001" preload="metadata" muted loop playsinline></video>
-          <div class="voice-video__shade"></div>
-          <div class="voice-video__top"><span>03</span><span>Client story</span></div>
-          <div class="voice-video__bottom"><strong>Shrey</strong><span class="voice-video__play">▶</span></div>
+          <div class="voice-video__bottom"><strong>Jassi</strong><span class="voice-video__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.5 7.5v9l7-4.5-7-4.5Z" fill="currentColor"/></svg></span></div>
         </button>
       </div>
     </div>
 
     <div class="voices-footer">
       <p><strong>200+</strong><span>artists recorded</span></p>
-      <p>Real people. Real sessions. No scripted testimonials.</p>
-      <a href="https://www.google.com/search?q=Youkeo+Studios+reviews" target="_blank" rel="noopener">Read more reviews <span>↗</span></a>
+      <a href="https://www.google.com/search?q=Youkeo+Studios+reviews" target="_blank" rel="noopener">Read Google reviews <span>↗</span></a>
     </div>
   </div>
 
@@ -1008,6 +817,7 @@
           </div>
         </div>
       </div>
+      <!-- Hidden until reviews/shrey.mp4 is re-uploaded to the CDN (currently 404).
       <div class="t-card t-video-card" data-video="https://cdn.youkeostudios.com/reviews/shrey.mp4" aria-label="Video testimonial from Shrey about recording at Youkeo Studios Navi Mumbai">
         <video class="t-video-cover" src="https://cdn.youkeostudios.com/reviews/shrey.mp4#t=0.001" preload="metadata" muted playsinline></video>
         <div class="t-video-overlay">
@@ -1016,6 +826,7 @@
           </div>
         </div>
       </div>
+      -->
     </div>
 
   </div>
@@ -1407,7 +1218,7 @@
     <span class="faq-eyebrow">Answers upfront</span>
     <h2>Before you book.</h2>
     <p>The practical details artists usually want to know before their first message or session.</p>
-    <a href="https://wa.me/919619192992?text=Hi%2C%20I%20have%20a%20question%20about%20Youkeo%20Studios" target="_blank" rel="noopener">Ask something else <span>↗</span></a>
+    <a href="https://wa.me/919619192992?text=Hi%2C%20I%20have%20a%20question%20about%20Youkeo%20Studios" target="_blank" rel="noopener" onclick="gtag('event','contact_click',{method:'whatsapp',location:'faq',page:'home'}); trackWhatsApp();">Ask something else <span>↗</span></a>
   </div>
  
   <div class="faq-list">
@@ -1499,8 +1310,8 @@
         <p class="footer-intro">A recording and music production studio where independent artists come to turn ideas into finished releases.</p>
         <address>Near ICICI Bank, Sector 19<br>Airoli, Navi Mumbai 400708</address>
         <div class="footer-contact">
-          <a href="tel:+919619192992">+91 9619192992</a>
-          <a href="mailto:hello@youkeostudios.com">hello@youkeostudios.com</a>
+          <a href="tel:+919619192992" onclick="gtag('event','contact_click',{method:'phone',location:'footer',page:'home'}); trackPhone();">+91 9619192992</a>
+          <a href="mailto:hello@youkeostudios.com" target="_blank" rel="noopener" onclick="gtag('event','contact_click',{method:'email',location:'footer',page:'home'}); trackEmail();">hello@youkeostudios.com</a>
         </div>
         <div class="footer-social">
           <a href="https://www.instagram.com/youkeostudios" target="_blank" rel="noopener" class="footer-social-link" aria-label="Instagram">
@@ -1509,7 +1320,7 @@
           <a href="https://www.youtube.com/@youkeostudios" target="_blank" rel="noopener" class="footer-social-link" aria-label="YouTube">
             <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="4" stroke="currentColor" stroke-width="1.8"/><path d="M10 9l5 3-5 3V9z" fill="currentColor"/></svg>
           </a>
-          <a href="https://wa.me/919619192992" target="_blank" rel="noopener" class="footer-social-link" aria-label="WhatsApp">
+          <a href="https://wa.me/919619192992" target="_blank" rel="noopener" class="footer-social-link" aria-label="WhatsApp" onclick="gtag('event','contact_click',{method:'whatsapp',location:'footer',page:'home'}); trackWhatsApp();">
             <svg width="20" height="20" viewBox="0 0 32 32" fill="none"><path d="M23.5 8.5C21.7 6.7 19.3 5.7 16.7 5.7 11.3 5.7 6.9 10.1 6.9 15.5c0 1.7.4 3.3 1.3 4.8L6.8 25.3l5.2-1.4c1.4.8 3 1.2 4.7 1.2 5.4 0 9.8-4.4 9.8-9.8 0-2.6-1-5-2.8-6.8zM16.7 23.6c-1.5 0-2.9-.4-4.1-1.1l-.3-.2-3.1.8.8-3-.2-.3c-.8-1.3-1.2-2.7-1.2-4.3 0-4.5 3.6-8.1 8.1-8.1 2.2 0 4.2.8 5.7 2.4 1.5 1.5 2.4 3.6 2.4 5.7-.1 4.5-3.7 8.1-8.1 8.1zm4.5-6.1c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.2-.5-.5-1-1.1-1.4-1.7-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.5.1-.1.1-.2.2-.4 0-.1 0-.3 0-.4 0-.1-.5-1.2-.7-1.7-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.2-.2.2-.8.8-.8 1.9s.8 2.2.9 2.4c.1.2 1.6 2.4 3.8 3.4.5.2 1 .4 1.4.5.6.2 1.1.1 1.6.1.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.2-.2-.3-.4-.4z" fill="currentColor"/></svg>
           </a>
         </div>
@@ -1576,10 +1387,10 @@
 
 
 <!-- Video Lightbox -->
-<div id="video-lightbox" class="vl-backdrop" aria-hidden="true">
+<div id="video-lightbox" class="vl-backdrop" role="dialog" aria-modal="true" aria-label="Release player" aria-hidden="true" inert>
   <button class="vl-close" aria-label="Close video">&times;</button>
   <div class="vl-inner">
-    <iframe id="vl-iframe" src="" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    <iframe id="vl-iframe" src="" title="Youkeo release video" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
     <video id="vl-video" src="" controls playsinline></video>
   </div>
 </div>
@@ -1592,14 +1403,14 @@
 <!-- ============================================================
      SERVICE OVERLAY
      ============================================================ -->
-<div id="service-overlay" class="svc-backdrop" aria-hidden="true">
-  <div class="svc-panel">
+<div id="service-overlay" class="svc-backdrop" role="dialog" aria-modal="true" aria-labelledby="service-overlay-title" aria-hidden="true" inert>
+  <div class="svc-panel" tabindex="-1">
     <button class="svc-close" aria-label="Close">
       <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
     </button>
     <div class="svc-body">
       <span class="svc-label"></span>
-      <h2 class="svc-title"></h2>
+      <h2 id="service-overlay-title" class="svc-title"></h2>
       <p class="svc-desc"></p>
       <ul class="svc-features"></ul>
       <div class="svc-price"></div>
@@ -1608,6 +1419,6 @@
   </div>
 </div>
 
-<script src="script.js"></script>
+<script src="script.js?v=20260914-story"></script>
 </body>
 </html>

@@ -53,8 +53,7 @@
   <link rel="icon" type="image/jpeg" href="https://cdn.youkeostudios.com/favicon/favicon-black.jpg" />
  
   <!-- ── STYLESHEET ───────────────────────────────────────────── -->
-  <link rel="stylesheet" href="/style.css" />
-  <link rel="stylesheet" href="/recording/recording.css" />
+  <link rel="stylesheet" href="/recording/tailwind.css" />
  
   <!-- ================================================================
     STRUCTURED DATA (JSON-LD)
@@ -253,25 +252,26 @@
     <div class="nav-left">
       <a href="../index.html" class="logo" aria-label="Youkeo Studios – Recording Studio Navi Mumbai"><img src="/assets/brand/youkeo-white-transparent.svg" alt="Youkeo"></a>
       <ul class="nav-links">
-        <li><a href="../index.html" class="nav-item">Home</a></li>
-        <li><a href="#why" class="nav-item">Why us</a></li>
+        <li><a href="../index.html#recorded-here" class="nav-item">Work</a></li>
+        <li><a href="../index.html#services" class="nav-item">Services</a></li>
         <li><a href="#pricing" class="nav-item">Pricing</a></li>
-        <li><a href="#faq" class="nav-item">FAQ</a></li>
+        <li><a href="../index.html#location" class="nav-item">Visit</a></li>
       </ul>
     </div>
     <div class="nav-right">
-      <a href="tel:+919619192992" class="btn-login" onclick="gtag('event','contact_click',{method:'phone',location:'nav',page:'recording'}); trackPhone();">Call us</a>
-      <a href="https://wa.me/919619192992" target="_blank" rel="noopener" class="btn-signup" onclick="gtag('event','contact_click',{method:'whatsapp',location:'nav',page:'recording'}); trackWhatsApp();">WhatsApp</a>
+      <a href="https://wa.me/919619192992?text=Hi%2C%20I%27d%20like%20to%20check%20recording%20availability%20at%20Youkeo%20Studios." target="_blank" rel="noopener" class="btn-signup" onclick="gtag('event','contact_click',{method:'whatsapp',location:'nav',page:'recording'}); trackWhatsApp();">Check availability <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
     </div>
   </nav>
 </header>
 
-<div class="nav-mobile-menu" role="navigation" aria-label="Mobile navigation">
-  <a href="#why">Why Us</a>
+<div class="nav-mobile-menu" role="navigation" aria-label="Mobile navigation" aria-hidden="true" inert>
+  <a href="../index.html#recorded-here">Work</a>
+  <a href="../index.html#services">Services</a>
   <a href="#pricing">Pricing</a>
-  <a href="#faq">FAQ</a>
-  <a href="#cta">Contact</a>
+  <a href="../index.html#location">Visit</a>
+  <a class="nav-mobile-cta" href="https://wa.me/919619192992?text=Hi%2C%20I%27d%20like%20to%20check%20recording%20availability%20at%20Youkeo%20Studios." target="_blank" rel="noopener" onclick="gtag('event','contact_click',{method:'whatsapp',location:'mobile_menu',page:'recording'}); trackWhatsApp();">Check availability <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+  <a class="nav-mobile-call" href="tel:+919619192992" onclick="gtag('event','contact_click',{method:'phone',location:'mobile_menu',page:'recording'}); trackPhone();">Prefer to call? +91 96 1919 2992</a>
 </div>
 
 
@@ -290,9 +290,9 @@
 
   <div class="hero-content">
     <h1 class="hero-h1">
-      <span class="hero-h1-thin">Walk in with an idea,<br>walk out with a song.</span>
+      <span class="hero-h1-thin">Your voice.<br>Turned into a release.</span>
     </h1>
-    <p class="hero-sub">Don't let the recording be why your song doesn't sound right.</p>
+    <p class="hero-sub">Pro studio. Friendly team. Competitive sound.</p>
     <div class="hero-cta-group">
       <a href="https://wa.me/919619192992?text=Hi%2C%20I%27d%20like%20to%20book%20a%20session.%0A%0AService%3A%20(recording%20%2F%20production%20%2F%20mix%20%2F%20full%20package)%0AReference%20track%3A%20(link%2C%20if%20any)%0APreferred%20date%3A%20" target="_blank" rel="noopener" class="btn btn-primary rec-hero-cta-btn" onclick="gtag('event','contact_click',{method:'whatsapp',location:'hero_cta',page:'recording'}); trackWhatsApp();">
         <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true" style="width:26px;height:26px;flex-shrink:0;">
@@ -303,7 +303,7 @@
     </div>
     <div class="hero-cta-trust">
       <span class="hero-cta-stars">★★★★★</span>
-      <span class="hero-cta-rating">5.0 · 38 Google Reviews</span>
+      <span class="hero-cta-rating">5 stars on Google Reviews</span>
     </div>
     <div class="hero-pricing-strip" aria-label="Recording packages at a glance">
       <div class="hero-pricing-tier">
@@ -330,13 +330,13 @@
     </div>
     <div class="hero-stat-divider"></div>
     <div class="hero-stat">
-      <div class="hero-stat-num">1M+</div>
-      <div class="hero-stat-label">Streams</div>
+      <div class="hero-stat-num">10M+</div>
+      <div class="hero-stat-label">Client Streams</div>
     </div>
     <div class="hero-stat-divider"></div>
     <div class="hero-stat">
-      <div class="hero-stat-num">13+</div>
-      <div class="hero-stat-label">Years Experience</div>
+      <div class="hero-stat-num">10+</div>
+      <div class="hero-stat-label">Years Producing</div>
     </div>
   </div>
 </section>
@@ -349,10 +349,9 @@
     <div class="rec-hero-social-copy">
       <!-- VERIFY: confirm "Featured on NEXA Music by AR Rahman" is literally true before launch -->
       <span class="rec-hero-social-badge">Featured on NEXA Music by AR Rahman</span>
-      <span class="rec-hero-social-kicker">Artist story</span>
       <h2 class="rec-hero-social-title">Jassi</h2>
-      <p class="rec-hero-social-meta">Rapper · Recorded at Youkeo Studios</p>
-      <p class="rec-hero-social-prompt">Tap the video to hear about the studio experience.</p>
+      <p class="rec-hero-social-meta">Rapper · Recorded at Youkeo</p>
+      <p class="rec-hero-social-prompt">Hear his studio experience.</p>
     </div>
     <div class="rec-hero-social-card">
       <div class="t-card t-video-card" data-video="https://cdn.youkeostudios.com/reviews/jassi.mp4" role="button" tabindex="0" aria-label="Play Jassi's testimonial">
@@ -360,10 +359,6 @@
         <div class="t-video-overlay">
           <div class="t-play-btn">
             <svg width="48" height="48" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
-          </div>
-          <div class="t-video-info">
-            <div class="t-video-name">Jassi</div>
-            <div class="t-video-title">Rapper · Recorded at Youkeo Studios</div>
           </div>
         </div>
       </div>
@@ -383,7 +378,7 @@
 <section id="why" class="rec-why">
   <div class="rec-why-inner">
     <span class="section-label">Why Youkeo?</span>
-    <h2 class="section-h2">You focus on the song.<br>We handle everything else.</h2>
+    <h2 class="section-h2">Your song.<br>We handle the rest.</h2>
     <div class="rec-why-grid">
 
       <div class="rec-why-card">
@@ -392,8 +387,8 @@
             <path d="M12 21C12 21 4 13.5 4 8.5C4 6 6 4 8.5 4C10 4 11.5 4.8 12 6C12.5 4.8 14 4 15.5 4C18 4 20 6 20 8.5C20 13.5 12 21 12 21Z" stroke="#1a1a1a" stroke-width="2" stroke-linejoin="round"/>
           </svg>
         </div>
-        <h3 class="rec-why-title">You'll feel comfortable here</h3>
-        <p class="rec-why-desc">No judgment. No pressure. The booth is yours. Whether it's your first recording or your tenth, we set the pace you need to do your best work.</p>
+        <h3 class="rec-why-title">Feel at home.</h3>
+        <p class="rec-why-desc">First session or tenth, record at your pace. No judgment. No pressure. Just space to do your best work.</p>
       </div>
 
       <div class="rec-why-card">
@@ -403,8 +398,8 @@
             <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"/>
           </svg>
         </div>
-        <h3 class="rec-why-title">You're never alone in the booth</h3>
-        <p class="rec-why-desc">You're never alone in the room. Our engineer handles the technical side so you can focus entirely on your performance — no DIY, no guessing.</p>
+        <h3 class="rec-why-title">Focus on performing.</h3>
+        <p class="rec-why-desc">Our engineer handles the technical side and supports every take. No DIY. No guessing.</p>
       </div>
 
       <div class="rec-why-card">
@@ -415,9 +410,9 @@
             <circle cx="18" cy="16" r="3" stroke="#1a1a1a" stroke-width="2"/>
           </svg>
         </div>
-        <h3 class="rec-why-title">Your track will sound release-ready</h3>
+        <h3 class="rec-why-title">Record release-ready sound.</h3>
         <!-- VERIFY: "an engineer who's put tracks on New Music Friday" — confirm literally true before launch; if it's a stretch, cut the New Music Friday claim (a false specific claim is worse than none) -->
-        <p class="rec-why-desc">Treated acoustics, a Neumann U87, and an engineer who's put tracks on New Music Friday. What you record here translates on every speaker, every platform.</p>
+        <p class="rec-why-desc">Treated acoustics. Neumann U87. An engineer with New Music Friday credits. Sound that translates across speakers and platforms.</p>
       </div>
 
     </div>
@@ -431,13 +426,13 @@
 <section class="rec-how">
   <div class="rec-how-inner">
     <span class="section-label">How it works</span>
-    <h2 class="section-h2">Book a session<br>in 3 simple steps.</h2>
+    <h2 class="section-h2">Book in 3 Simple steps</h2>
     <div class="rec-how-steps">
 
       <div class="rec-how-step">
         <div class="rec-how-num">01</div>
-        <h3 class="rec-how-title">Message us on WhatsApp</h3>
-        <p class="rec-how-desc">Tell us what you need — vocal recording, instrument tracking, or a full package. Send a reference track if you have one. Takes 2 minutes.</p>
+        <h3 class="rec-how-title">WhatsApp us</h3>
+        <p class="rec-how-desc">Tell us what you need: vocals, instruments, or a full package. Add a reference track if available. Takes 2 minutes.</p>
       </div>
 
       <div class="rec-how-connector" aria-hidden="true"></div>
@@ -445,15 +440,15 @@
       <div class="rec-how-step">
         <div class="rec-how-num">02</div>
         <h3 class="rec-how-title">Confirm your slot</h3>
-        <p class="rec-how-desc">We'll reply within the hour, lock in a date and time, and tell you exactly what to bring. A small advance confirms your booking.</p>
+        <p class="rec-how-desc">We reply within an hour with a slot and what to bring. A small advance secures your booking.</p>
       </div>
 
       <div class="rec-how-connector" aria-hidden="true"></div>
 
       <div class="rec-how-step">
         <div class="rec-how-num">03</div>
-        <h3 class="rec-how-title">Walk in and record</h3>
-        <p class="rec-how-desc">8 minutes from Airoli Station. Walk into a treated studio, record with an experienced engineer, and walk out with a track you're proud of.</p>
+        <h3 class="rec-how-title">Walk in. Record.</h3>
+        <p class="rec-how-desc">8 minutes from Airoli Station. Record in a treated studio with an experienced engineer. Leave with a track you’re proud of.</p>
       </div>
 
     </div>
@@ -467,16 +462,16 @@
 <section id="pricing" class="rec-pricing">
   <div class="rec-pricing-inner">
     <span class="section-label">Pricing</span>
-    <h2 class="section-h2">Three ways to work with us.<br>Pick where you are.</h2>
-    <p class="rec-pricing-sub">Every option includes a real engineer, a professional studio, and a result you can actually use.</p>
+    <h2 class="section-h2">Three options. Your starting point.</h2>
+    <p class="rec-pricing-sub">Every option includes an engineer, a pro studio, and a usable result.</p>
 
     <div class="rec-not-for-you">
       <div class="rec-not-for-you-label">This studio isn't for everyone.</div>
       <ul class="rec-not-for-you-list">
-        <li>Looking for the cheapest rate, not the best result</li>
-        <li>Not sure if you want to release the song</li>
-        <li>Want to record without an engineer in the room</li>
-        <li>Need a session booked same-day with no advance</li>
+        <li>Lowest price over quality</li>
+        <li>Unsure about releasing</li>
+        <li>Recording without an engineer</li>
+        <li>Same-day booking without an advance</li>
       </ul>
     </div>
 
@@ -484,78 +479,63 @@
 
       <!-- Recording -->
       <div class="pricing-card">
-        <div class="pricing-card-badge">Most Booked</div>
-        <div class="pricing-card-icon">
-          <svg width="22" height="22" fill="none" viewBox="0 0 24 24">
-            <rect x="9" y="2" width="6" height="11" rx="3" stroke="#1a1a1a" stroke-width="2"/>
-            <path d="M5 10a7 7 0 0014 0M12 17v4M8 21h8" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </div>
+        <div class="pricing-card-heading">
         <div class="pricing-card-name">Recording</div>
-        <div class="pricing-card-tagline">I have a beat. I just need to record.</div>
-        <div class="pricing-card-from">Starting from</div>
-        <div class="pricing-card-price">₹1,200<span class="pricing-card-unit">/hr</span></div>
-        <div class="pricing-card-price-note">Pay only for the hours you use</div>
-        <div class="pricing-card-typical">Most artists book 2–3 hrs → ₹2,400–₹3,600</div>
+        <div class="pricing-card-tagline">Bring your beat.</div>
+        </div>
+        <div class="pricing-card-cost">
+        <div class="pricing-card-price"><span class="pricing-card-from">From</span> ₹1,200<span class="pricing-card-unit">/hr</span></div>
+        </div>
         <ul class="pricing-card-includes">
-          <li>Professional mic + soundproofed booth</li>
-          <li>Your beat plays in the studio as you record</li>
-          <li>Quick rough version so you can hear how it sounds</li>
-          <li>Your recorded files kept safe for 30 days</li>
-          <li>Behind-the-scenes reel for your Instagram</li>
+          <li>Pro mic + soundproof booth</li>
+          <li>Record over your beat</li>
+          <li>Rough playback mix</li>
+          <li>30-day file storage</li>
+          <li>Instagram BTS reel</li>
         </ul>
         <a href="https://wa.me/919619192992?text=Hi%2C%20I%27d%20like%20to%20book%20a%20recording%20session.%0A%0ABeat%20ready%3A%20Yes%20%2F%20No%0AReference%20track%3A%20(link%2C%20if%20any)%0APreferred%20date%3A%20" target="_blank" rel="noopener" class="btn btn-ghost" onclick="gtag('event','cta_click',{button_text:'Check Availability',service:'recording',location:'pricing_cards',page:'recording'}); trackWhatsApp();">Check Availability</a>
       </div>
 
       <!-- Recording to Final -->
       <div class="pricing-card featured">
-        <div class="pricing-card-badge">Most Popular</div>
-        <div class="pricing-card-icon">
-          <svg width="22" height="22" fill="none" viewBox="0 0 24 24">
-            <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="#1a1a1a" stroke-width="2" stroke-linejoin="round"/>
-          </svg>
-        </div>
+        <div class="pricing-card-heading">
         <div class="pricing-card-name">Recording to Final</div>
-        <div class="pricing-card-tagline">I have a beat. I want a finished, upload-ready song.</div>
-        <div class="pricing-card-from">One price, complete song</div>
+        <div class="pricing-card-tagline">Your beat. Ready to release.</div>
+        </div>
+        <div class="pricing-card-cost">
         <div class="pricing-card-price">₹14,000<span class="pricing-card-unit">/song</span></div>
-        <div class="pricing-card-price-note">Recording + mixing + mastering</div>
+        </div>
         <ul class="pricing-card-includes">
-          <li>2 hours in the studio to record your vocals</li>
-          <li>We balance every element — voice, beat, everything</li>
-          <li>Mastered so it sounds full and loud on any speaker</li>
-          <li>Ready to upload to Spotify, Apple Music &amp; YouTube</li>
+          <li>2-hour vocal session</li>
+          <li>Vocal + beat mixing</li>
+          <li>Full, loud master for any speaker</li>
+          <li>Spotify, Apple Music &amp; YouTube-ready</li>
         </ul>
         <a href="https://wa.me/919619192992?text=Hi%2C%20I%27d%20like%20to%20book%20the%20Recording%20to%20Final%20package%20(%E2%82%B914%2C000).%0A%0ABeat%20ready%3A%20Yes%20%2F%20No%0AReference%20track%3A%20(link%2C%20if%20any)%0APreferred%20date%3A%20" target="_blank" rel="noopener" class="btn btn-primary" onclick="gtag('event','cta_click',{button_text:'Get the Full Package',service:'recording_to_final',location:'pricing_cards',page:'recording'}); trackWhatsApp();">Get the Full Package</a>
       </div>
 
       <!-- Production to Final -->
       <div class="pricing-card">
-        <div class="pricing-card-icon">
-          <svg width="22" height="22" fill="none" viewBox="0 0 24 24">
-            <path d="M9 18V5l12-2v13" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="6" cy="18" r="3" stroke="#1a1a1a" stroke-width="2"/>
-            <circle cx="18" cy="16" r="3" stroke="#1a1a1a" stroke-width="2"/>
-          </svg>
-        </div>
         <!-- FLAG (production naming): "Production to Final" (₹26,000, beat+recording+mix+master) vs the pricing page's "Full Production" / home's "Music Production" (₹8,000, beat+arrangement only). Similar names, different scope/price. Awaiting canonical names from user before renaming for consistency across pages. -->
+        <div class="pricing-card-heading">
         <div class="pricing-card-name">Production to Final</div>
-        <div class="pricing-card-tagline">I have lyrics and an idea. Build me a complete song.</div>
-        <div class="pricing-card-from">Starting from</div>
-        <div class="pricing-card-price">₹26,000<span class="pricing-card-unit">/song</span></div>
-        <div class="pricing-card-price-note">Beat + recording + mixing + mastering</div>
+        <div class="pricing-card-tagline">Your idea. A finished song.</div>
+        </div>
+        <div class="pricing-card-cost">
+        <div class="pricing-card-price"><span class="pricing-card-from">From</span> ₹26,000<span class="pricing-card-unit">/song</span></div>
+        </div>
         <ul class="pricing-card-includes">
-          <li>We build the beat and arrangement around your idea</li>
-          <li>2 hours to record your vocals in the studio</li>
-          <li>Everything mixed so it sounds like a real release</li>
-          <li>Mastered and delivered for all streaming platforms</li>
+          <li>Custom beat + arrangement</li>
+          <li>2-hour vocal session</li>
+          <li>Release-quality mixing</li>
+          <li>Streaming-ready master</li>
         </ul>
         <a href="https://wa.me/919619192992?text=Hi%2C%20I%27d%20like%20the%20Production%20to%20Final%20package%20(%E2%82%B926%2C000).%0A%0ASong%20idea%20%2F%20genre%3A%20%0AReference%20track%3A%20(link%2C%20if%20any)%0APreferred%20date%3A%20" target="_blank" rel="noopener" class="btn btn-ghost" onclick="gtag('event','cta_click',{button_text:'Build My Song',service:'production_to_final',location:'pricing_cards',page:'recording'}); trackWhatsApp();">Build My Song</a>
       </div>
 
     </div>
 
-    <p class="rec-pricing-note"><span>Limited slots per week</span> — weekends book up fastest. Message us to check availability.</p>
+    <p class="rec-pricing-note"><span>Limited weekly slots.</span> Weekends fill fastest. Message for availability.</p>
 
   </div>
 </section>
@@ -566,8 +546,8 @@
      ============================================================ -->
 <section id="reviews" class="rec-reviews">
   <div class="rec-reviews-inner">
-    <span class="section-label">What clients say</span>
-    <h2 class="section-h2">Don't take our word for it,<br>Take theirs.</h2>
+    <span class="section-label">Google Reviews</span>
+    <h2 class="section-h2">Hear it from our artists.</h2>
 
     <div class="rec-reviews-grid">
 
@@ -581,7 +561,11 @@
             <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
           </svg>
         </div>
-        <p class="t-google-text">"Really nice studio with a great vibe, and the people here are super chill and easy to work with. We've now done over 10 recordings at this place, and every single session has been smooth and professional."</p>
+        <div class="rec-review-details">
+          <p class="t-google-text rec-review-excerpt">"Really nice studio with a great vibe, and the people here are super chill and easy to work with.…"</p>
+          <p class="t-google-text rec-review-full" id="recording-review-1" hidden>"Really nice studio with a great vibe, and the people here are super chill and easy to work with. We've now done over 10 recordings at this place, and every single session has been smooth and professional."</p>
+          <button type="button" class="rec-review-toggle" aria-expanded="false" aria-controls="recording-review-1">Read full review</button>
+        </div>
         <div class="t-google-author">
           <div class="t-google-avatar" style="background:linear-gradient(135deg,#1a73e8,#4285F4);"></div>
           <div>
@@ -601,7 +585,11 @@
             <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
           </svg>
         </div>
-        <p class="t-google-text">"Been working here for a while and every session has been an absolute pleasure. The studio is well-equipped with top-notch sound quality, and the team really knows how to create an environment where artists can do their best."</p>
+        <div class="rec-review-details">
+          <p class="t-google-text rec-review-excerpt">"Been working here for a while and every session has been an absolute pleasure.…"</p>
+          <p class="t-google-text rec-review-full" id="recording-review-2" hidden>"Been working here for a while and every session has been an absolute pleasure. The studio is well-equipped with top-notch sound quality, and the team really knows how to create an environment where artists can do their best."</p>
+          <button type="button" class="rec-review-toggle" aria-expanded="false" aria-controls="recording-review-2">Read full review</button>
+        </div>
         <div class="t-google-author">
           <div class="t-google-avatar" style="background:linear-gradient(135deg,#f093fb,#f5576c);"></div>
           <div>
@@ -621,7 +609,11 @@
             <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
           </svg>
         </div>
-        <p class="t-google-text">"Truly a one-stop solution for all your music needs! Top notch quality of equipment, talented and professional staff, ambient environment and excellent amenities. The ambiance and the people make you feel comfortable and place you in the right frame of mind to unleash your creativity. 10/10 would recommend🔥"</p>
+        <div class="rec-review-details">
+          <p class="t-google-text rec-review-excerpt">"Truly a one-stop solution for all your music needs!…"</p>
+          <p class="t-google-text rec-review-full" id="recording-review-3" hidden>"Truly a one-stop solution for all your music needs! Top notch quality of equipment, talented and professional staff, ambient environment and excellent amenities. The ambiance and the people make you feel comfortable and place you in the right frame of mind to unleash your creativity. 10/10 would recommend🔥"</p>
+          <button type="button" class="rec-review-toggle" aria-expanded="false" aria-controls="recording-review-3">Read full review</button>
+        </div>
         <div class="t-google-author">
           <div class="t-google-avatar" style="background:linear-gradient(135deg,#667eea,#764ba2);"></div>
           <div>
@@ -642,29 +634,12 @@
 <section id="cta">
   <div class="cta-header">
     <span class="section-label">Contact</span>
-    <h2 class="section-h2">Ready to book<br><span class="cta-muted-line">your session?</span></h2>
+    <h2 class="section-h2">Ready to record?</h2>
   </div>
 
-  <p class="cta-reassurance">We usually respond within the hour &middot; Open 11am–10pm IST</p>
+  <p class="cta-reassurance">Usually replies within an hour &middot; Open 11am–10pm IST</p>
 
-  <div class="cta-what-happens">
-    <div class="cta-what-step">
-      <span class="cta-what-num">1</span>
-      <span class="cta-what-text">You send a message with your song idea and preferred date</span>
-    </div>
-    <div class="cta-what-divider"></div>
-    <div class="cta-what-step">
-      <span class="cta-what-num">2</span>
-      <span class="cta-what-text">We reply within the hour with available slots and a quote</span>
-    </div>
-    <div class="cta-what-divider"></div>
-    <div class="cta-what-step">
-      <span class="cta-what-num">3</span>
-      <span class="cta-what-text">A small advance locks your date — then just show up</span>
-    </div>
-  </div>
-
-  <p class="cta-positioning-line">Youkeo Studios is where Navi Mumbai artists come to make songs that actually sound like releases — not demos.</p>
+  <p class="cta-positioning-line">Where Navi Mumbai artists turn songs into release-ready tracks.</p>
 
   <div class="cta-rows">
 
@@ -714,104 +689,104 @@
 <section id="faq">
   <div class="faq-header">
     <span class="section-label">FAQ</span>
-    <h2 class="section-h2">Got questions?<br>We've got answers.</h2>
+    <h2 class="section-h2">Before you book.</h2>
   </div>
 
   <div class="faq-list">
 
     <div class="faq-item">
-      <div class="faq-question">
-        <span>How long does a first session usually take?</span>
+      <button type="button" class="faq-question" aria-expanded="false">
+        <span>How long is a session?</span>
         <span class="faq-icon">+</span>
-      </div>
+      </button>
       <div class="faq-answer-wrap">
         <div class="faq-answer">
-          <p>Most first-time clients book 2 hours — enough time to warm up, get comfortable in the booth, and walk out with a take you're genuinely happy with. If you're recording more than one song, 3–4 hours is safer. We'd rather you leave satisfied than rushed.</p>
+          <p>Typically 2–3 hours: ₹2,400–₹3,600 at ₹1,200/hr. First-timers usually start with 2 hours; allow 3–4 for multiple songs.</p>
         </div>
       </div>
     </div>
 
     <div class="faq-item">
-      <div class="faq-question">
-        <span>What do I need to bring?</span>
+      <button type="button" class="faq-question" aria-expanded="false">
+        <span>What should I bring?</span>
         <span class="faq-icon">+</span>
-      </div>
+      </button>
       <div class="faq-answer-wrap">
         <div class="faq-answer">
-          <p>Just your voice and your lyrics. If you have a beat or reference track, send it to us the day before and we'll have it loaded and ready when you walk in. We handle the rest.</p>
+          <p>Your voice and lyrics. Send any beat or reference track the day before so we can prepare.</p>
         </div>
       </div>
     </div>
 
     <div class="faq-item">
-      <div class="faq-question">
-        <span>Can I bring my own tracks or beats?</span>
+      <button type="button" class="faq-question" aria-expanded="false">
+        <span>Can I bring my own beat?</span>
         <span class="faq-icon">+</span>
-      </div>
+      </button>
       <div class="faq-answer-wrap">
         <div class="faq-answer">
-          <p>Absolutely. You can bring your beat in any common format — MP3, WAV, or a project file if it's a DAW we support. Send it to us in advance and we'll have it ready to go when you walk in.</p>
+          <p>Yes—MP3, WAV, or a supported DAW project. Send it in advance.</p>
         </div>
       </div>
     </div>
 
     <div class="faq-item">
-      <div class="faq-question">
-        <span>What's your cancellation policy?</span>
+      <button type="button" class="faq-question" aria-expanded="false">
+        <span>What’s your cancellation policy?</span>
         <span class="faq-icon">+</span>
-      </div>
+      </button>
       <div class="faq-answer-wrap">
         <div class="faq-answer">
-          <p>We take a 20% advance to confirm your booking. Cancellations made 24+ hours in advance can be fully rescheduled at no extra charge. Same-day cancellations forfeit the advance. Studio-initiated cancellations receive a full refund.</p>
+          <p>A 20% advance confirms booking. Reschedule free with 24+ hours’ notice. Same-day cancellations forfeit the advance. If we cancel, you get a full refund.</p>
         </div>
       </div>
     </div>
 
     <div class="faq-item">
-      <div class="faq-question">
-        <span>How do I reach you from Thane, Vashi, Powai or Mulund?</span>
+      <button type="button" class="faq-question" aria-expanded="false">
+        <span>How do I get there?</span>
         <span class="faq-icon">+</span>
-      </div>
+      </button>
       <div class="faq-answer-wrap">
         <div class="faq-answer">
-          <p>We're in Sector-19, Airoli — 8 minutes from Airoli Railway Station on the Harbour Line. From Thane it's ~20 minutes by road via Thane-Belapur Road. From Vashi, ~25 minutes. From Powai and Mulund, 15–25 minutes depending on traffic. Free parking right outside the studio.</p>
+          <p>Sector 19, Airoli—8 minutes from Airoli Station. By road: Thane ~20 minutes, Vashi ~25, Powai/Mulund 15–25, depending on traffic. Free parking outside.</p>
         </div>
       </div>
     </div>
 
     <div class="faq-item">
-      <div class="faq-question">
-        <span>Do you work with first-time artists or beginners?</span>
+      <button type="button" class="faq-question" aria-expanded="false">
+        <span>Is it beginner-friendly?</span>
         <span class="faq-icon">+</span>
-      </div>
+      </button>
       <div class="faq-answer-wrap">
         <div class="faq-answer">
-          <p>Yes — a big part of what we do. Our engineer guides you through warm-ups, helps you settle in the booth, and punches in takes so you get a clean performance even if it's your first time on a real mic. No judgment, no rushing.</p>
+          <p>Yes. Our engineer guides warm-ups, helps you settle in, and records retakes for a clean performance. No judgment or rushing.</p>
         </div>
       </div>
     </div>
 
     <div class="faq-item">
-      <div class="faq-question">
-        <span>Will my track sound like a professional release?</span>
+      <button type="button" class="faq-question" aria-expanded="false">
+        <span>Will my track sound professional?</span>
         <span class="faq-icon">+</span>
-      </div>
+      </button>
       <div class="faq-answer-wrap">
         <div class="faq-answer">
           <!-- VERIFY: confirm "1 million streams on Spotify," "New Music Friday India" placement, and "an engineer who's mixed and mastered for major releases" are literally true before launch -->
-          <p>That's the bar. Tracks recorded here have passed 1 million streams on Spotify and been placed on New Music Friday India and other editorial playlists. We use a Neumann U87, treated acoustics, and an engineer who's mixed and mastered for major releases — so the raw performance, the mix, and the final master translate on every speaker and platform.</p>
+          <p>Tracks recorded here have passed 1M Spotify streams and reached editorial playlists, including New Music Friday India. Expect a Neumann U87, treated acoustics, and an engineer experienced in major releases.</p>
         </div>
       </div>
     </div>
 
     <div class="faq-item">
-      <div class="faq-question">
-        <span>Can you mix a song I've already recorded elsewhere?</span>
+      <button type="button" class="faq-question" aria-expanded="false">
+        <span>Can you mix recordings made elsewhere?</span>
         <span class="faq-icon">+</span>
-      </div>
+      </button>
       <div class="faq-answer-wrap">
         <div class="faq-answer">
-          <p>Yes. Send us your stems (or a stereo rough if stems aren't available) and we'll quote based on the scope. Stereo mixes start at ₹5,000 and stem mixes from ₹12,000, with 2 revision rounds and streaming-ready masters included.</p>
+          <p>Yes. Send stems or a stereo rough for a quote. Stereo mixes from ₹5,000; stem mixes from ₹12,000. Includes 2 revision rounds and streaming-ready masters.</p>
         </div>
       </div>
     </div>
@@ -832,8 +807,8 @@
         <p>Near ICICI Bank, Sector-19</p>
         <p>Airoli, Navi Mumbai</p>
         <p>Maharashtra, Pin: 400-708</p>
-        <a href="tel:+919619192992">+91 9619192992</a>
-        <a href="mailto:hello@youkeostudios.com">hello@youkeostudios.com</a>
+        <a href="tel:+919619192992" onclick="gtag('event','contact_click',{method:'phone',location:'footer',page:'recording'}); trackPhone();">+91 9619192992</a>
+        <a href="mailto:hello@youkeostudios.com" target="_blank" rel="noopener" onclick="gtag('event','contact_click',{method:'email',location:'footer',page:'recording'}); trackEmail();">hello@youkeostudios.com</a>
       </div>
       <div class="footer-social">
         <a href="https://www.instagram.com/youkeostudios" target="_blank" rel="noopener" class="footer-social-link" aria-label="Instagram">
@@ -842,7 +817,7 @@
         <a href="https://www.youtube.com/@youkeostudios" target="_blank" rel="noopener" class="footer-social-link" aria-label="YouTube">
           <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="4" stroke="currentColor" stroke-width="1.8"/><path d="M10 9l5 3-5 3V9z" fill="currentColor"/></svg>
         </a>
-        <a href="https://wa.me/919619192992" target="_blank" rel="noopener" class="footer-social-link" aria-label="WhatsApp">
+        <a href="https://wa.me/919619192992" target="_blank" rel="noopener" class="footer-social-link" aria-label="WhatsApp" onclick="gtag('event','contact_click',{method:'whatsapp',location:'footer',page:'recording'}); trackWhatsApp();">
           <svg width="20" height="20" viewBox="0 0 32 32" fill="none"><path d="M23.5 8.5C21.7 6.7 19.3 5.7 16.7 5.7 11.3 5.7 6.9 10.1 6.9 15.5c0 1.7.4 3.3 1.3 4.8L6.8 25.3l5.2-1.4c1.4.8 3 1.2 4.7 1.2 5.4 0 9.8-4.4 9.8-9.8 0-2.6-1-5-2.8-6.8zM16.7 23.6c-1.5 0-2.9-.4-4.1-1.1l-.3-.2-3.1.8.8-3-.2-.3c-.8-1.3-1.2-2.7-1.2-4.3 0-4.5 3.6-8.1 8.1-8.1 2.2 0 4.2.8 5.7 2.4 1.5 1.5 2.4 3.6 2.4 5.7-.1 4.5-3.7 8.1-8.1 8.1zm4.5-6.1c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.2-.5-.5-1-1.1-1.4-1.7-.1-.2 0-.4.1-.5.1-.1.2-.3.4-.5.1-.1.1-.2.2-.4 0-.1 0-.3 0-.4 0-.1-.5-1.2-.7-1.7-.2-.4-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.2-.2.2-.8.8-.8 1.9s.8 2.2.9 2.4c.1.2 1.6 2.4 3.8 3.4.5.2 1 .4 1.4.5.6.2 1.1.1 1.6.1.5-.1 1.4-.6 1.6-1.1.2-.5.2-1 .1-1.1-.1-.2-.2-.3-.4-.4z" fill="currentColor"/></svg>
         </a>
       </div>
@@ -900,11 +875,6 @@
     <iframe id="vl-iframe" src="" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
     <video id="vl-video" src="" controls playsinline></video>
   </div>
-</div>
-
-<div id="card-overlay" class="co-backdrop" aria-hidden="true">
-  <button class="co-close" aria-label="Close">&times;</button>
-  <div class="co-inner"></div>
 </div>
 
 <script src="../script.js"></script>

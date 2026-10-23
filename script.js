@@ -27,6 +27,14 @@ function trackEmail() {
   const v = document.querySelector('.hero-video');
   if (!v) return;
   v.muted = true;
+  const shouldPauseForUser = v.hasAttribute('data-respect-reduced-motion') && (
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+    navigator.connection?.saveData
+  );
+  if (shouldPauseForUser) {
+    v.pause();
+    return;
+  }
   const tryPlay = () => v.play().catch(() => {});
   tryPlay();
   document.addEventListener('touchstart', tryPlay, { once: true });
@@ -86,31 +94,47 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileMenu = document.querySelector('.nav-mobile-menu');
 
   if (hamburger && mobileMenu) {
-    hamburger.addEventListener('click', () => {
-      const isOpen = mobileMenu.classList.toggle('open');
-      hamburger.setAttribute('aria-expanded', isOpen);
-      // Animate bars
+    const menuLinks = Array.from(mobileMenu.querySelectorAll('a'));
+    const setMenuOpen = (open, returnFocus = false) => {
+      mobileMenu.classList.toggle('open', open);
+      mobileMenu.toggleAttribute('inert', !open);
+      mobileMenu.setAttribute('aria-hidden', String(!open));
+      hamburger.setAttribute('aria-expanded', String(open));
+      hamburger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      document.body.classList.toggle('nav-menu-open', open);
+
       const bars = hamburger.querySelectorAll('span');
-      if (isOpen) {
-        bars[0].style.transform = 'translateY(7px) rotate(45deg)';
-        bars[1].style.opacity = '0';
-        bars[2].style.transform = 'translateY(-7px) rotate(-45deg)';
-      } else {
-        bars[0].style.transform = '';
-        bars[1].style.opacity = '';
-        bars[2].style.transform = '';
-      }
+      bars[0].style.transform = open ? 'translateY(7px) rotate(45deg)' : '';
+      bars[1].style.opacity = open ? '0' : '';
+      bars[2].style.transform = open ? 'translateY(-7px) rotate(-45deg)' : '';
+
+      if (open) menuLinks[0]?.focus();
+      if (!open && returnFocus) hamburger.focus();
+    };
+
+    hamburger.addEventListener('click', () => {
+      setMenuOpen(!mobileMenu.classList.contains('open'));
     });
 
-    // Close on link click
-    mobileMenu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.remove('open');
-        const bars = hamburger.querySelectorAll('span');
-        bars[0].style.transform = '';
-        bars[1].style.opacity = '';
-        bars[2].style.transform = '';
-      });
+    menuLinks.forEach(link => link.addEventListener('click', () => setMenuOpen(false)));
+
+    document.addEventListener('keydown', event => {
+      if (!mobileMenu.classList.contains('open')) return;
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        setMenuOpen(false, true);
+        return;
+      }
+      if (event.key !== 'Tab' || !menuLinks.length) return;
+      const first = menuLinks[0];
+      const last = menuLinks[menuLinks.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
     });
   }
 
@@ -142,7 +166,7 @@ document.addEventListener('DOMContentLoaded', () => {
     recording: {
       label: 'Recording',
       title: 'Vocal & Instrument Recording',
-      desc: 'Step into a professionally treated acoustic space built for clarity. No room reflections, no noise — just your performance captured exactly as it should sound. Whether you\'re recording vocals, guitar, or any instrument, our studio gives you the environment to perform at your best.',
+      desc: 'Record vocals or instruments in a professionally treated space built for clarity, comfort and focused performances. An experienced engineer stays with you through setup, takes and file delivery.',
       features: [
         'Acoustically treated live room & vocal booth',
         'Industry-standard microphones & preamps',
@@ -152,6 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ],
       price: '<div class="svc-price-row-single"><div class="svc-price-main">₹1,200<span class="svc-price-unit">/hour</span></div><div class="svc-price-badge">Soundproofed Booth · Engineer Included</div></div>',
       cta: 'Check Availability',
+      href: 'https://wa.me/919619192992?text=Hi%2C%20I%27d%20like%20to%20check%20availability%20for%20a%20recording%20session%20at%20Youkeo%20Studios.%0APreferred%20date%2Ftime%3A%20',
     },
     production: {
       label: 'Music Production',
@@ -162,10 +187,11 @@ document.addEventListener('DOMContentLoaded', () => {
         'Full arrangement & instrumentation',
         'Vocal production & harmonies',
         'Genre-specific sound design',
-        'Unlimited revisions until you\'re happy',
+        'Revision scope confirmed before work begins',
       ],
       price: '<div class="svc-price-row-single"><div class="svc-price-main">₹12,000<span class="svc-price-unit">/song</span></div><div class="svc-price-badge">Custom Beat · Arrangement · Sound Design</div></div>',
       cta: 'Send an Idea',
+      href: 'https://wa.me/919619192992?text=Hi%2C%20I%27d%20like%20to%20discuss%20music%20production%20at%20Youkeo%20Studios.%0ASong%20idea%20%2F%20genre%3A%20',
     },
     mixing: {
       label: 'Mixing & Mastering',
@@ -180,20 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
       ],
       price: '<div class="svc-price-grid-tiers"><div class="svc-tier-col"><div class="svc-tier-name">Master &amp; Polish</div><div class="svc-tier-price">₹2,000</div><div class="svc-tier-sub">Mastering only</div></div><div class="svc-tier-col featured"><div class="svc-tier-name">Stereo Mix &amp; Master</div><div class="svc-tier-price">₹5,000</div><div class="svc-tier-sub">Vocals + beat bounce</div></div><div class="svc-tier-col"><div class="svc-tier-name">Stem Mix &amp; Master</div><div class="svc-tier-price">₹12,000</div><div class="svc-tier-sub">Full multitrack stems</div></div></div>',
       cta: 'Send Stems / Audio',
-    },
-    promotion: {
-      label: 'Release & Promotion',
-      title: 'Get Your Music Heard & Playlisted',
-      desc: 'Recording a great track is only half the battle. We help you distribute to all major platforms — Spotify, Apple Music, JioSaavn and more — and run paid promotion that brings real listeners, not bot streams. You keep 100% of your royalties.',
-      features: [
-        '100% royalties retained by you',
-        'Distribution to 150+ streaming platforms',
-        'Spotify & Apple Music playlist pitching',
-        'Paid promotion that reaches real listeners, not bots',
-        'Weekly performance reports',
-      ],
-      price: '<div class="svc-price-row-single"><div class="svc-price-main">₹26,000<span class="svc-price-unit">/package</span></div><div class="svc-price-badge">Consultation Included in Production to Final</div></div>',
-      cta: 'Launch Your Release',
+      href: 'https://wa.me/919619192992?text=Hi%2C%20I%27d%20like%20to%20discuss%20mixing%20and%20mastering%20at%20Youkeo%20Studios.%0AWhat%20I%20have%3A%20',
     },
   };
 
@@ -207,58 +220,78 @@ document.addEventListener('DOMContentLoaded', () => {
     const svcPrice    = svcBackdrop.querySelector('.svc-price');
     const svcCta      = svcBackdrop.querySelector('.svc-cta');
     const svcClose    = svcBackdrop.querySelector('.svc-close');
+    let svcTrigger    = null;
+    let svcInerted    = [];
 
-    function openServiceOverlay(key) {
+    function openServiceOverlay(key, trigger) {
       const d = serviceData[key];
       if (!d) return;
+      svcTrigger = trigger || document.activeElement;
       svcLabel.textContent   = d.label;
       svcTitle.textContent   = d.title;
       svcDesc.textContent    = d.desc;
       svcFeatures.innerHTML  = d.features.map(f => `<li>${f}</li>`).join('');
       svcPrice.innerHTML     = d.price;
       svcCta.textContent     = d.cta;
-      svcCta.onclick         = () => gtag('event', 'cta_click', { button_text: d.cta, service: key, location: 'service_overlay', page: 'home' });
+      svcCta.href            = d.href;
+      svcCta.target          = '_blank';
+      svcCta.rel             = 'noopener';
+      svcCta.onclick         = () => {
+        gtag('event', 'contact_click', { method: 'whatsapp', service: key, location: 'service_overlay', page: 'home' });
+        trackWhatsApp();
+      };
+      svcInerted = [...document.body.children].filter(el => el !== svcBackdrop && el.tagName !== 'SCRIPT' && !el.inert);
+      svcInerted.forEach(el => { el.inert = true; });
+      svcBackdrop.inert = false;
       svcBackdrop.classList.add('open');
       svcBackdrop.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
+      requestAnimationFrame(() => svcClose.focus());
       gtag('event', 'service_overlay_open', { service: key, page: 'home' });
     }
 
     function closeServiceOverlay() {
+      if (!svcBackdrop.classList.contains('open')) return;
+      const returnTarget = svcTrigger && document.contains(svcTrigger) ? svcTrigger : null;
       svcBackdrop.classList.remove('open');
       svcBackdrop.setAttribute('aria-hidden', 'true');
+      svcBackdrop.inert = true;
+      svcInerted.forEach(el => { el.inert = false; });
+      svcInerted = [];
       document.body.style.overflow = '';
+      if (returnTarget) returnTarget.focus();
+      svcTrigger = null;
     }
 
-    document.querySelectorAll('[data-service]').forEach(card => {
-      card.style.cursor = 'pointer';
-      card.addEventListener('click', () => {
-        gtag('event', 'service_card_click', { service: card.dataset.service, page: 'home' });
-        openServiceOverlay(card.dataset.service);
+    document.querySelectorAll('.studio-service__trigger[data-service]').forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        gtag('event', 'service_card_click', { service: trigger.dataset.service, page: 'home' });
+        openServiceOverlay(trigger.dataset.service, trigger);
       });
     });
 
     svcClose.addEventListener('click', closeServiceOverlay);
     svcCta.addEventListener('click', closeServiceOverlay);
     svcBackdrop.addEventListener('click', e => { if (e.target === svcBackdrop) closeServiceOverlay(); });
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeServiceOverlay(); });
-  }
-
-  /* ─── Services: Design Switcher (Preview Tool) ───────────── */
-  const switchBtns = document.querySelectorAll('.btn-design-switch');
-  const serviceLayouts = document.querySelectorAll('.services-layout');
-
-  switchBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const targetId = btn.dataset.target;
-      switchBtns.forEach(b => b.classList.remove('active'));
-      serviceLayouts.forEach(layout => layout.classList.remove('active'));
-
-      btn.classList.add('active');
-      const targetEl = document.getElementById(targetId);
-      if (targetEl) targetEl.classList.add('active');
+    svcBackdrop.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+        closeServiceOverlay();
+        return;
+      }
+      if (e.key !== 'Tab') return;
+      const focusable = [...svcBackdrop.querySelectorAll('button:not([disabled]), a[href]')];
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
     });
-  });
+  }
 
   /* ─── FAQ: accordion ─────────────────────────────────────── */
   const faqItems = document.querySelectorAll('.faq-item');
@@ -305,17 +338,19 @@ document.addEventListener('DOMContentLoaded', () => {
   const vlIframe = lightbox && document.getElementById('vl-iframe');
   const vlVideo  = lightbox && document.getElementById('vl-video');
   const vlClose  = lightbox && document.querySelector('.vl-close');
+  let lightboxTrigger = null;
 
-  function openLightbox(url) {
+  function openLightbox(url, trigger) {
     const isYouTube = /youtube\.com|youtu\.be/.test(url);
     const isVimeo   = /vimeo\.com/.test(url);
+    lightboxTrigger = trigger || document.activeElement;
 
     vlIframe.classList.remove('active');
     vlVideo.classList.remove('active');
 
     if (isYouTube) {
       const id = url.match(/(?:v=|youtu\.be\/)([^&?/]+)/)?.[1];
-      vlIframe.src = `https://www.youtube.com/embed/${id}?autoplay=1`;
+      vlIframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1`;
       vlIframe.classList.add('active');
     } else if (isVimeo) {
       const id = url.match(/vimeo\.com\/(\d+)/)?.[1];
@@ -324,44 +359,66 @@ document.addEventListener('DOMContentLoaded', () => {
     } else {
       vlVideo.src = url;
       vlVideo.classList.add('active');
-      vlVideo.play();
+      vlVideo.play().catch(() => {});
     }
 
+    lightbox.inert = false;
     lightbox.classList.add('open');
     lightbox.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
+    requestAnimationFrame(() => vlClose.focus());
   }
 
   function closeLightbox() {
+    if (!lightbox || !lightbox.classList.contains('open')) return;
+    const returnTarget = lightboxTrigger && document.contains(lightboxTrigger) ? lightboxTrigger : null;
     lightbox.classList.remove('open');
+    if (returnTarget) returnTarget.focus();
     lightbox.setAttribute('aria-hidden', 'true');
+    lightbox.inert = true;
     vlIframe.src = '';
     vlVideo.pause();
     vlVideo.src = '';
     document.body.style.overflow = '';
+    lightboxTrigger = null;
   }
 
   /* Only open lightbox if user didn't drag */
   if (lightbox) {
     document.querySelectorAll('.t-video-card').forEach(card => {
       card.addEventListener('click', () => {
-        if (!slider || !slider._dragged) openLightbox(card.dataset.video);
+        if (!slider || !slider._dragged) openLightbox(card.dataset.video, card);
       });
       card.addEventListener('keydown', event => {
         if (event.key !== 'Enter' && event.key !== ' ') return;
         event.preventDefault();
-        if (!slider || !slider._dragged) openLightbox(card.dataset.video);
+        if (!slider || !slider._dragged) openLightbox(card.dataset.video, card);
       });
     });
-    document.querySelectorAll('.track-row[data-video], .track-listen[data-video]').forEach(el => {
+    document.querySelectorAll('.track-listen[data-video]').forEach(el => {
       el.addEventListener('click', (e) => {
         e.preventDefault();
-        const videoUrl = el.dataset.video || el.closest('[data-video]')?.dataset.video;
-        if (videoUrl) openLightbox(videoUrl);
+        e.stopPropagation();
+        if (el.dataset.video) openLightbox(el.dataset.video, el);
       });
     });
     vlClose.addEventListener('click', closeLightbox);
     lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+    lightbox.addEventListener('keydown', e => {
+      if (e.key !== 'Tab') return;
+      const focusable = [...lightbox.querySelectorAll('button:not([disabled]), iframe, video[controls]')]
+        .filter(el => getComputedStyle(el).display !== 'none');
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    });
   }
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox && closeLightbox(); });
 
@@ -407,6 +464,18 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
+  document.querySelectorAll('.rec-review-toggle').forEach(button => {
+    button.addEventListener('click', () => {
+      const expanded = button.getAttribute('aria-expanded') !== 'true';
+      const review = document.getElementById(button.getAttribute('aria-controls'));
+      const excerpt = button.parentElement.querySelector('.rec-review-excerpt');
+      review.hidden = !expanded;
+      excerpt.hidden = expanded;
+      button.setAttribute('aria-expanded', String(expanded));
+      button.textContent = expanded ? 'Show less' : 'Read full review';
+    });
+  });
+
   /* ─── Card overlay (Google + WhatsApp) ─────────────────── */
   const cardOverlay = document.getElementById('card-overlay');
   const coInner = cardOverlay && cardOverlay.querySelector('.co-inner');
@@ -438,6 +507,48 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   document.addEventListener('keydown', e => { if (e.key === 'Escape') { if (lightbox) closeLightbox(); if (cardOverlay) closeCardOverlay(); } });
 
+  /* ─── Studio tour: reveal cards and play visible footage ── */
+  const studioTour = document.getElementById('studio-tour');
+
+  if (studioTour) {
+    const studioCards = [...studioTour.querySelectorAll('.studio-explore__card')];
+    const studioVideos = [...studioTour.querySelectorAll('video.studio-explore__media')];
+    const reduceStudioMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches || navigator.connection?.saveData;
+
+    if (!reduceStudioMotion) {
+      studioTour.classList.add('studio-explore--enhanced');
+      const revealObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        });
+      }, { threshold: 0.16, rootMargin: '0px 0px -6% 0px' });
+
+      studioCards.forEach(card => revealObserver.observe(card));
+
+      const mediaObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) entry.target.play().catch(() => {});
+          else entry.target.pause();
+        });
+      }, { threshold: 0.2, rootMargin: '12% 0px 12% 0px' });
+
+      studioVideos.forEach(video => {
+        video.muted = true;
+        const setOffset = () => {
+          const offset = Number(video.dataset.offset || 0);
+          if (Number.isFinite(offset) && video.duration > offset) video.currentTime = offset;
+        };
+        if (video.readyState >= 1) setOffset();
+        else video.addEventListener('loadedmetadata', setOffset, { once: true });
+        mediaObserver.observe(video);
+      });
+    } else {
+      studioVideos.forEach(video => video.pause());
+    }
+  }
+
   /* ─── Smooth scroll for anchor links ────────────────────── */
   /* ─── PRICING PAGE: FAQ accordion ───────────────────────── */
   document.querySelectorAll('.p-faq-item').forEach(item => {
@@ -457,6 +568,7 @@ document.addEventListener('DOMContentLoaded', () => {
           .getPropertyValue('--nav-h')) || 72;
         const top = target.getBoundingClientRect().top + window.scrollY - navH;
         window.scrollTo({ top, behavior: 'smooth' });
+        history.replaceState(null, '', link.getAttribute('href'));
       }
     });
   });

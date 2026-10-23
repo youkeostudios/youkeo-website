@@ -1151,3 +1151,75 @@ html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 .rec-hero-cta-btn:hover,
 .rec-hero-social-card .t-play-btn:hover,
 .rec-pricing .pricing-card .btn-primary:hover { background: #e6e8f0; }
+
+/* Pricing: separate package, cost, and inclusions into clear blocks. */
+.rec-pricing .pricing-card {
+  text-align: left;
+  padding: 32px;
+  gap: 0;
+}
+.rec-pricing .pricing-card-heading { min-height: 0; }
+.rec-pricing .pricing-card-name { font-size: 20px; line-height: 1.3; margin: 0 0 8px; }
+.rec-pricing .pricing-card-tagline { font-style: normal; font-size: 14px; line-height: 1.5; margin: 0; }
+.rec-pricing .pricing-card-cost { padding: 24px 0; }
+.rec-pricing .pricing-card-price { display: flex; align-items: baseline; gap: 5px; flex-wrap: wrap; font-size: 34px; line-height: 1.2; margin: 0; }
+.rec-pricing .pricing-card-from { font-size: 12px; font-weight: 500; text-transform: none; letter-spacing: 0; margin: 0 3px 0 0; }
+.rec-pricing .pricing-card-unit { font-size: 16px; font-weight: 500; }
+.rec-pricing .pricing-card-typical { font-size: 12px; line-height: 1.5; margin: 10px 0 0; }
+.rec-pricing .pricing-card-includes { border-top: 1px solid rgba(213,210,240,.2); padding-top: 16px; margin: 0 0 24px; }
+.rec-pricing .pricing-card-includes li { border-bottom: 0; padding-top: 7px; padding-bottom: 7px; line-height: 1.5; }
+.rec-pricing .pricing-card-includes li::before { top: 7px; }
+.rec-pricing .pricing-card .btn { min-height: 44px; }
+@media (max-width: 600px) {
+  .rec-pricing .pricing-card { padding: 26px; }
+  .rec-pricing .pricing-card-price { font-size: 32px; }
+}
+
+/* Inline reviews keep the toggle below the visible text. */
+.rec-reviews-grid { align-items: start; }
+.rec-reviews .t-google-card { min-height: 0; cursor: default; }
+.rec-review-details { width: 100%; }
+.rec-reviews .rec-review-details .t-google-text { display: block; overflow: visible; -webkit-line-clamp: unset; margin: 0; }
+.rec-reviews .rec-review-details [hidden] { display: none; }
+.rec-review-toggle { display: block; margin-top: 12px; padding: 0; border: 0; background: none; cursor: pointer; color: #c9c1ff; font: 600 13px/1.5 'Plus Jakarta Sans',sans-serif; text-decoration: underline; text-underline-offset: 3px; }
+.rec-review-toggle:focus-visible { outline: 2px solid #c9c1ff; outline-offset: 5px; border-radius: 3px; }
+
+#cta .cta-header { text-align: center; }
+#cta .cta-header .section-h2 { margin-left: auto; margin-right: auto; }
+
+@media (min-width: 1025px) {
+  #faq { overflow: visible; }
+  #faq .faq-header {
+    position: sticky;
+    top: calc(var(--nav-h) + 26px);
+    align-self: start;
+    margin: 0;
+  }
+}
+
+@media (min-width: 1025px) {
+  body { overflow-x: clip; }
+}
+
+/* Match the homepage's continuous background. */
+body,
+.rec-hero-social,
+.rec-why,
+.rec-how,
+#pricing.rec-pricing,
+.rec-reviews,
+#testimonials,
+#cta,
+#faq,
+#footer {
+  background: #0b0b10;
+}
+
+.rec-hero .hero-h1 span { color: #fff; }
+
+.rec-hero .rec-hero-cta-btn {
+  background: linear-gradient(105deg, #fff 0%, #fff4e5 42%, #ffd6ad 100%);
+}
+.rec-hero .rec-hero-cta-btn:hover {
+  background: linear-gradient(105deg, #fff 0%, #ffedda 42%, #ffca94 100%);
+}

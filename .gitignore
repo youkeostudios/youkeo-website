@@ -1,5 +1,6 @@
 # Environment variables
 .env
+node_modules/
 
 # macOS
 .DS_Store
@@ -9,3 +10,14 @@
 
 # Marketing skills — restorable via `npx skills install` from skills-lock.json
 .claude/skills/
+
+# Archived files
+archive/
+
+# Local downloads and private docs — never deploy
+*.dmg
+*.pkg
+User List*.pdf
+
+# Generated images for manual CDN upload (binaries live on the CDN)
+cdn-upload/
