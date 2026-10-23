@@ -252,7 +252,7 @@
 
     /* ── Artist spotlight: "On rotation" queue ─────────────────────────────
        Scroll moves the row past a playhead; the card on it peaks to full size and colour like a level meter. */
-    .spot__rail { --cw: clamp(220px, 22vw, 340px); position: relative; height: calc(var(--cw) * 4 / 3 + 120px); margin-top: var(--block); overflow: hidden; }
+    .spot__rail { --cw: clamp(136px, 22vw, 340px); position: relative; height: calc(var(--cw) * 4 / 3 + 120px); margin-top: var(--block); overflow: hidden; }
     .spot__now { position: absolute; z-index: 0; left: 50%; top: 0; translate: -50% 0; display: inline-flex; align-items: center; gap: 8px; color: var(--ink); }
     .spot__now::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--violet); box-shadow: 0 0 0 4px rgba(130,121,191,.2); }
     .spot__head { position: absolute; z-index: 0; left: 50%; top: 22px; bottom: 0; width: 2px; margin-left: -1px; background: var(--violet); opacity: .5; }
@@ -328,6 +328,8 @@
     }
     @media (max-width: 640px) {
       body { font-size: 16px; }
+      .spot__rail { --cw: 36vw; }
+      .spot__slide b { font-size: 14px; }
       .nav__logo img { width: 96px; }
       .nav .btn--sm { padding: 0 16px; }
       .person { width: 64vw; }
@@ -787,6 +789,7 @@
     /* Artist spotlight: endless queue. Scroll moves it left past the centre playhead; a card's distance
        from the playhead (in cards) sets its size (82-100%), colour and caption brightness. */
     const rail = $('#spotRail');
+    const spotArtists = $$('.spot__slide', rail).length;
     $$('.spot__slide', rail).forEach(sl => { const c = sl.cloneNode(true); c.setAttribute('aria-hidden', 'true'); rail.appendChild(c); });
     const spotSlides = $$('.spot__slide', rail).map(sl => ({ sl, card: $('.spot__card', sl), img: $('.spot__img', sl), cap: $('figcaption', sl) }));
     let spotShift = 0;
@@ -805,8 +808,9 @@
     layoutSpot();
     addEventListener('resize', layoutSpot);
     const spotProxy = { t: 0 };
-    gsap.to(spotProxy, { t: 1, ease: 'none', onUpdate: () => { spotShift = spotProxy.t * spotStep()[1] * 3; layoutSpot(); },
-      scrollTrigger: { trigger: rail, start: 'top bottom', end: 'bottom top', scrub: 1 } });
+    // One full lap of the artists while the row is on screen, so each one reaches the playhead at any screen size.
+    gsap.to(spotProxy, { t: 1, ease: 'none', onUpdate: () => { spotShift = spotProxy.t * spotStep()[1] * spotArtists; layoutSpot(); },
+      scrollTrigger: { trigger: rail, start: 'top 85%', end: 'bottom 15%', scrub: 1 } });
 
     /* Generic rise-in */
     $$('[data-up]').forEach(el => gsap.to(el, { opacity: 1, y: 0, duration: 1.1, ease: 'expo.out', scrollTrigger: { trigger: el, start: 'top 88%', once: true } }));
