@@ -222,34 +222,30 @@
     .h2--ask::after { content: '?'; }
     .stars-line { display: flex; align-items: center; gap: 10px; margin: 22px 0 0; color: var(--fog); }
 
-    /* Featured artist: big name beside his video */
-    .feat { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 48px 64px; align-items: center; }
-    .feat__name { margin: 0; color: var(--ink); font: 600 clamp(80px, 12vw, 176px)/.88 var(--sans); letter-spacing: -.055em; }
-    .feat__name::after { content: '.'; color: var(--violet); }
-    .feat__meta { margin: 28px 0 0; color: var(--ink-mute); }
+    /* Featured artist: the homepage founder layout (copy left, 4:5 media right) */
+    .feat__meta { margin: 20px 0 0; color: var(--ink-mute); }
     .feat__badge { display: inline-flex; margin: 20px 0 0; padding: 10px 16px 9px; border-radius: 80px; background: var(--ink); color: var(--white); font-size: 14px; font-weight: 600; }
-    .feat .lede { margin-top: 24px; }
-    .feat__video { aspect-ratio: 3 / 4; }
+    .feat__copy .lede { margin-top: 24px; }
     .feat__video::after { display: none; }
 
     /* Why Youkeo: three reasons on photos, then the numbers */
     .reasons { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: var(--block); }
     .reason { margin: 0; }
-    .reason img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 12px; }
-    .reason h3 { margin: 24px 0 10px; color: var(--white); font: 600 clamp(22px, 2vw, 28px)/1.2 var(--sans); letter-spacing: -.02em; }
+    .reason img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 12px; }
+    .reason h3 { margin: 24px 0 10px; color: var(--white); font: 600 clamp(24px, 2.2vw, 30px)/1.15 var(--sans); letter-spacing: -.02em; }
     .reason p { margin: 0; max-width: 40ch; }
     .stats { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: var(--block); border-top: 1px solid var(--line-d); }
     .stats div { padding: 28px 0 0 28px; border-left: 1px solid var(--line-d); }
     .stats div:first-child { padding-left: 0; border-left: 0; }
-    .stats b { display: block; color: var(--white); font: 600 clamp(40px, 5vw, 72px)/1 var(--sans); letter-spacing: -.045em; }
-    .stats span { display: block; margin-top: 12px; color: var(--mute); }
+    .stats b { display: block; margin-bottom: 8px; color: var(--white); font: 600 44px/1 var(--sans); letter-spacing: -.04em; }
+    .stats span { display: block; color: var(--mute); }
 
     /* How it works: a real sequence, so the steps are numbered */
     .steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 48px; margin: var(--block) 0 0; padding: 0; list-style: none; border-top: 1px solid var(--line-l); }
     .step { position: relative; padding-top: 32px; }
     .step::before { content: ''; position: absolute; top: -5px; left: 0; width: 9px; height: 9px; border-radius: 50%; background: var(--violet); box-shadow: 0 0 0 4px rgba(130,121,191,.2); }
     .step .mono { color: var(--ink-mute); }
-    .step h3 { margin: 16px 0 10px; color: var(--ink); font: 600 clamp(24px, 2.2vw, 32px)/1.15 var(--sans); letter-spacing: -.025em; }
+    .step h3 { margin: 16px 0 10px; color: var(--ink); font: 600 clamp(24px, 2.2vw, 30px)/1.15 var(--sans); letter-spacing: -.02em; }
     .step p { margin: 0; max-width: 38ch; }
 
     /* Pricing foot: who it isn't for, and the slots note */
@@ -278,21 +274,11 @@
     .faq details[open] summary::after { transform: rotate(45deg); background: var(--ink); color: var(--white); border-color: var(--ink); }
     .faq details p { margin: 0 0 26px; max-width: 64ch; }
 
-    /* Contact: three big rows on the lavender CTA */
-    .contact { margin-top: var(--block); border-top: 1px solid rgba(11,11,16,.18); }
-    .contact a { display: grid; grid-template-columns: 160px minmax(0, 1fr) auto; align-items: center; gap: 24px; padding: 24px 0; border-bottom: 1px solid rgba(11,11,16,.18); color: var(--ink); transition: padding .4s var(--ease); }
-    .contact a:hover { padding-left: 12px; }
-    .contact .mono { color: rgba(11,11,16,.6); }
-    .contact b { font: 600 clamp(22px, 3vw, 40px)/1.1 var(--sans); letter-spacing: -.03em; overflow-wrap: anywhere; }
-    .contact svg { width: 22px; height: 22px; }
-    .cta__meta { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 32px; margin-top: 28px; }
-    .cta__meta p { margin: 0; max-width: 44ch; }
-
     @media (max-width: 999px) {
       .reviews { grid-template-columns: minmax(0, 1fr); }
     }
     @media (max-width: 759px) {
-      .feat, .faq-grid, .reasons { grid-template-columns: minmax(0, 1fr); }
+      .faq-grid, .reasons { grid-template-columns: minmax(0, 1fr); }
       .feat__video { width: 100%; max-width: 420px; }
       .reason img { aspect-ratio: 4 / 3; }
     }
@@ -306,8 +292,6 @@
       .step::before { top: 2px; left: -5px; }
       .step h3 { margin-top: 10px; }
       .fit { grid-template-columns: minmax(0, 1fr); }
-      .contact a { grid-template-columns: minmax(0, 1fr) auto; gap: 8px 16px; }
-      .contact .mono { grid-column: 1 / -1; }
     }
   </style>
 </head>
@@ -376,10 +360,10 @@
     <div class="paper">
       <span class="seam" id="seam" aria-hidden="true"></span>
       <section class="sec" id="featured" aria-labelledby="featTitle">
-        <div class="wrap feat">
-          <div>
+        <div class="wrap founder__grid">
+          <div class="feat__copy">
             <p class="trk" data-up><b>Trk 01</b>Featured artist</p>
-            <h2 class="feat__name" id="featTitle" data-up>Jassi</h2>
+            <h2 class="h2" id="featTitle" data-up>Jassi</h2>
             <p class="mono feat__meta" data-up>Rapper · Recorded at Youkeo</p>
             <p class="feat__badge" data-up>Featured on NEXA Music by A.R. Rahman</p>
             <p class="lede" data-up>Hear his studio experience.</p>
@@ -561,14 +545,16 @@
       <div class="wrap">
         <p class="trk" data-up><b>Trk 07</b>Contact</p>
         <h2 class="h2 h2--ask" id="ctaTitle" data-up>Ready to <em>record</em></h2>
-        <div class="cta__meta" data-up>
-          <p>Where Navi Mumbai artists turn songs into release-ready tracks.</p>
-          <p class="fine" style="margin:0">Usually replies within a few hours · Open daily, 11:00–22:00 IST</p>
-        </div>
-        <div class="contact" data-up>
-          <a href="https://wa.me/919619192992?text=Hi%2C%20I%27d%20like%20to%20book%20a%20session%20at%20Youkeo%20Studios.%0A%0AService%3A%20(recording%20%2F%20full%20package%20%2F%20production)%0ABeat%20ready%3A%20Yes%20%2F%20No%0APreferred%20date%3A%20" target="_blank" rel="noopener" onclick="gtag('event','contact_click',{method:'whatsapp',location:'cta_section',page:'redesign_3_recording'}); trackWhatsApp();"><span class="mono">WhatsApp</span><b>+91 96 1919 2992</b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a href="tel:+919619192992" onclick="gtag('event','contact_click',{method:'phone',location:'cta_section',page:'redesign_3_recording'}); trackPhone();"><span class="mono">Phone</span><b>+91 96 1919 2992</b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a href="mailto:hello@youkeostudios.com" target="_blank" rel="noopener" onclick="gtag('event','contact_click',{method:'email',location:'cta_section',page:'redesign_3_recording'}); trackEmail();"><span class="mono">Email</span><b>hello@youkeostudios.com</b><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <div class="cta__row" data-up>
+          <p>Where Navi Mumbai artists turn songs into release-ready tracks. Near ICICI Bank, Sector 19, Airoli. Open daily, 11:00–22:00 IST.</p>
+          <div>
+            <div class="btns">
+              <a class="btn btn--dark" href="https://wa.me/919619192992?text=Hi%2C%20I%27d%20like%20to%20book%20a%20session%20at%20Youkeo%20Studios.%0A%0AService%3A%20(recording%20%2F%20full%20package%20%2F%20production)%0ABeat%20ready%3A%20Yes%20%2F%20No%0APreferred%20date%3A%20" target="_blank" rel="noopener" onclick="gtag('event','contact_click',{method:'whatsapp',location:'cta_section',page:'redesign_3_recording'}); trackWhatsApp();">Check availability</a>
+              <a class="btn btn--line" href="tel:+919619192992" onclick="gtag('event','contact_click',{method:'phone',location:'cta_section',page:'redesign_3_recording'}); trackPhone();">Call the studio</a>
+              <a class="btn btn--line" href="mailto:hello@youkeostudios.com" target="_blank" rel="noopener" onclick="gtag('event','contact_click',{method:'email',location:'cta_section',page:'redesign_3_recording'}); trackEmail();">Email us</a>
+            </div>
+            <p class="fine">Usually replies within a few hours</p>
+          </div>
         </div>
       </div>
     </section>
