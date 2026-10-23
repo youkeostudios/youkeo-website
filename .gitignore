@@ -14,6 +14,10 @@ node_modules/
 # Archived files
 archive/
 
+# Site media lives on S3 + CloudFront (https://media.youkeostudios.com). Keep the local copy
+# here as the source; .githooks/pre-push uploads it on every push. Never commit binaries.
+media/
+
 # Local downloads and private docs — never deploy
 *.dmg
 *.pkg

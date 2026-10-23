@@ -1,0 +1,28 @@
+#!/bin/sh
+# Runs before every push. Enable once per clone: git config core.hooksPath .githooks
+#
+# 1. Guard: media lives on S3, never in git. Stop any push whose new commits carry files
+#    under media/ (older local branches still contain the media commit fffac80).
+# 2. Sync: upload new or changed media to S3 first, so pages never reference files that
+#    aren't on https://media.youkeostudios.com yet. Upload-only: nothing is deleted.
+
+zero=0000000000000000000000000000000000000000
+while read local_ref local_sha remote_ref remote_sha; do
+  [ "$local_sha" = "$zero" ] && continue   # deleting a remote branch
+  if [ "$remote_sha" = "$zero" ]; then
+    new=$(git rev-list --objects "$local_sha" --not --remotes)
+  else
+    new=$(git rev-list --objects "$remote_sha..$local_sha")
+  fi
+  if printf '%s\n' "$new" | grep -qE ' media(/|$)'; then
+    echo "pre-push: $local_ref has commits with files under media/. Media belongs on S3, not GitHub. Push stopped." >&2
+    exit 1
+  fi
+done
+
+[ -d media ] || exit 0
+aws s3 sync media/ s3://youkeo-media/ --profile youkeo \
+  --exclude ".DS_Store" --exclude "*/.DS_Store" \
+  --cache-control "public, max-age=2592000, stale-while-revalidate=86400" \
+  --only-show-errors \
+  || { echo "pre-push: media sync to S3 failed, push stopped. Check the 'youkeo' AWS profile." >&2; exit 1; }

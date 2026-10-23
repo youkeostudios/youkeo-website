@@ -6,7 +6,7 @@ Static marketing site for Youkeo Studios, a recording studio in Airoli, Navi Mum
 
 - Hand-written HTML per page. The homepage and [/recording/](recording/index.html) share [system.css](system.css): the current design system (tokens, Plus Jakarta Sans + Instrument Serif italic + Geist Mono, track labels, session sheets, crate, footer). Page-only rules stay in each page's `<style>`. GSAP 3.13 (ScrollTrigger, SplitText) loads from cdnjs; each page's inline script handles nav, hero video and motion.
 - Pricing, legal and 404 pages still use the older [style.css](style.css) + [pricing.css](pricing.css) and [script.js](script.js). Move them to `system.css` when they are redesigned.
-- Images/video/favicon live in [media/](media/) and are served by Cloudflare Pages from the edge. Reference them root-relative (`/media/...`), except in OG/Twitter meta tags and JSON-LD, which need the absolute `https://youkeostudios.com/media/...` URL. `cdn.youkeostudios.com` (R2) is retired.
+- Images/video/favicon are served from S3 + CloudFront at `https://media.youkeostudios.com/` (bucket `youkeo-media`, ap-south-1). Reference them by that full URL everywhere, including OG/Twitter tags and JSON-LD. The local [media/](media/) folder is git-ignored and is the upload source: [.githooks/pre-push](.githooks/pre-push) syncs it to S3 on every push (upload-only, never deletes; AWS profile `youkeo`). After a fresh clone, run `git config core.hooksPath .githooks`.
 - Pages:
   - [/](index.html) — homepage
   - [/recording/](recording/index.html) — recording services
@@ -14,7 +14,7 @@ Static marketing site for Youkeo Studios, a recording studio in Airoli, Navi Mum
   - [/privacy-policy/](privacy-policy/index.html), [/terms-conditions/](terms-conditions/index.html)
   - [404.html](404.html)
 - [_redirects](_redirects): preserves `sitemap.xml`, `robots.txt`, `llms.txt`; otherwise SPA-style fallback to `index.html`.
-- [_headers](_headers): 30-day cache on `/media/*`.
+- [_headers](_headers): 30-day cache on `/media/*` (Cloudflare Pages, `main` only). On S3 the same `Cache-Control` is set per object by the pre-push sync.
 
 ## SEO / discoverability
 
@@ -44,7 +44,7 @@ When adding a new CTA, copy an existing one rather than writing tracking from sc
 ## Conventions
 
 - Don't introduce a bundler, framework, or npm dependency without asking — the site is intentionally zero-build.
-- Site media (images, video, favicon, OG images) is committed under `media/`. Compress before committing: keep each file under Pages' 25 MiB limit (aim for <15 MB video, WebP/AVIF images). Every committed binary stays in git history forever, so don't commit drafts or originals.
+- Site media (images, video, favicon, OG images) goes in the git-ignored `media/` folder and reaches S3 through the pre-push hook. Compress first (aim for <15 MB video, WebP/AVIF images). Never commit binaries: git history keeps them forever.
 - Media is cached for 30 days. To replace a file quickly, give the new one a new filename instead of overwriting.
 - Keep the JSON-LD blocks valid — they drive rich results and AI citations.
 - Indian rupee pricing (`₹`), `en_IN` locale, 24h IST opening hours — preserve these in copy.

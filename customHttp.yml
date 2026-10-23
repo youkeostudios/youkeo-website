@@ -1,7 +1,0 @@
-customHeaders:
-  # Same rule as _headers on Cloudflare: media keeps stable filenames, so cache for 30 days
-  # rather than `immutable`. To force an update sooner, upload under a new filename and repoint the HTML.
-  - pattern: '/media/**'
-    headers:
-      - key: Cache-Control
-        value: 'public, max-age=2592000, stale-while-revalidate=86400'
