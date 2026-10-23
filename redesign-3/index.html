@@ -123,9 +123,8 @@
     .arrow svg { width: 18px; height: 18px; }
 
     /* ── Nav ────────────────────────────────────────────────────────────── */
-    .nav { position: fixed; z-index: 100; inset: 0 0 auto; height: var(--nav); transition: background .4s, transform .4s var(--ease), border-color .4s; border-bottom: 1px solid transparent; }
+    .nav { position: fixed; z-index: 100; inset: 0 0 auto; height: var(--nav); transition: background .4s, border-color .4s; border-bottom: 1px solid transparent; }
     .nav.is-solid { background: rgba(11,11,16,.86); backdrop-filter: blur(14px); border-color: var(--line-d); }
-    .nav.is-hidden { transform: translateY(-100%); }
     .nav__in { display: flex; align-items: center; gap: 40px; height: 100%; }
     .nav__logo { display: block; padding: 11px 0; }
     .nav__logo img { width: 112px; }
@@ -135,13 +134,13 @@
     .nav__end { display: flex; align-items: center; gap: 24px; margin-left: auto; }
     .nav__call { color: var(--fog); font: 500 13px/1 var(--mono); letter-spacing: .02em; padding: 14px 0; }
     .nav__call:hover { color: var(--white); }
-    .nav__menu { display: none; width: 44px; height: 44px; margin-left: auto; border: 0; background: none; cursor: pointer; flex-direction: column; align-items: center; justify-content: center; gap: 6px; }
+    .nav__menu { display: none; width: 44px; height: 44px; border: 0; background: none; cursor: pointer; flex-direction: column; align-items: center; justify-content: center; gap: 6px; }
     .nav__menu span { width: 22px; height: 2px; border-radius: 2px; background: var(--white); }
     .drawer { position: fixed; z-index: 120; inset: 0; display: flex; flex-direction: column; padding: 100px var(--gut) 32px; background: var(--ink); visibility: hidden; opacity: 0; transition: opacity .3s, visibility .3s; }
     .drawer.is-open { visibility: visible; opacity: 1; }
-    .drawer > a:not(.btn) { display: flex; align-items: baseline; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line-d); color: var(--white); font: 600 34px/1.1 var(--sans); letter-spacing: -.03em; }
-    .drawer > a:not(.btn) small { color: var(--mute); font: 500 12px/1 var(--mono); letter-spacing: .06em; }
+    .drawer > a:not(.btn) { padding: 16px 0; border-bottom: 1px solid var(--line-d); color: var(--white); font: 600 34px/1.1 var(--sans); letter-spacing: -.03em; }
     .drawer .btn { margin-top: 28px; }
+    .drawer .btn + .btn { margin-top: 12px; }
     .drawer__x { position: absolute; top: 16px; right: calc(var(--gut) - 10px); width: 44px; height: 44px; border: 0; background: none; color: var(--white); font-size: 32px; cursor: pointer; }
 
     /* ── Hero: a take in progress ───────────────────────────────────────── */
@@ -149,29 +148,11 @@
     .hero__media { position: absolute; inset: 0; z-index: 0; }
     .hero__media video { width: 100%; height: 100%; object-fit: cover; }
     .hero__media::after { content: ''; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(11,11,16,.75), rgba(11,11,16,.15) 75%), linear-gradient(180deg, rgba(11,11,16,.5), rgba(11,11,16,.2) 35%, rgba(11,11,16,.95)); }
-    .hero__in { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 360px); gap: 32px 64px; align-items: end; padding-bottom: clamp(36px, 4.5vw, 64px); }
+    .hero__in { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 360px); gap: 32px 64px; align-items: end; padding-bottom: clamp(56px, 7vw, 104px); }
     .hero .trk { color: var(--white); }
     /* SplitText masks clip at the line box; pad them so descenders and the italic overhang survive. */
     .hero__line div { padding: 0 .06em .16em 0; margin: 0 -.06em -.16em 0; }
     .hero .lede { margin-bottom: 28px; color: var(--fog); }
-
-    /* Arrangement view along the bottom of the hero */
-    .tl { position: relative; z-index: 1; padding: 14px 0 26px; border-top: 1px solid var(--line-d); background: rgba(11,11,16,.55); backdrop-filter: blur(8px); }
-    .tl__bar { display: flex; align-items: center; gap: 28px; margin-bottom: 14px; color: var(--mute); }
-    .tl__rec { display: inline-flex; align-items: center; gap: 8px; color: var(--white); }
-    .tl__rec::before { content: ''; width: 9px; height: 9px; border-radius: 50%; background: var(--violet); animation: rec 2.4s ease-in-out infinite; }
-    @keyframes rec { 50% { background: var(--lav); box-shadow: 0 0 14px 3px rgba(201,193,255,.6); } }
-    .tl__tc { color: var(--white); font-variant-numeric: tabular-nums; }
-    .tl__stat { margin-left: auto; }
-    .tl__body { display: grid; grid-template-columns: 84px minmax(0, 1fr); gap: 0 16px; }
-    .tl__names, .tl__tracks { display: grid; grid-auto-rows: 26px; row-gap: 6px; }
-    .tl__names span { color: var(--mute); line-height: 26px; }
-    .tl__tracks { position: relative; }
-    .lane { position: relative; border-radius: 6px; background: rgba(255,255,255,.03) repeating-linear-gradient(90deg, rgba(255,255,255,.07) 0 1px, transparent 1px 12.5%); }
-    .clip { position: absolute; top: 0; bottom: 0; left: calc(var(--a) * 1%); width: calc(var(--w) * 1%); overflow: hidden; padding: 0 10px; border: 1px solid rgba(201,193,255,.28); border-radius: 6px; background: linear-gradient(90deg, var(--violet) var(--f, 0%), rgba(130,121,191,.12) var(--f, 0%)); color: var(--white); font: 500 11px/24px var(--mono); letter-spacing: .04em; white-space: nowrap; transition: border-color .3s; }
-    .clip.is-live { border-color: var(--lav); }
-    .tl__head { position: absolute; top: -8px; bottom: -8px; left: var(--p, 0%); width: 2px; margin-left: -1px; background: var(--white); box-shadow: 0 0 12px rgba(201,193,255,.8); }
-    .tl__head::before { content: ''; position: absolute; top: -6px; left: -5px; border: 6px solid transparent; border-top-color: var(--white); }
 
     /* ── The room (dark) ────────────────────────────────────────────────── */
     .gallery { margin-top: var(--block); }
@@ -195,30 +176,11 @@
     /* A playhead line sweeps across where the dark ends. */
     .seam { position: absolute; z-index: 2; top: 0; left: 0; right: 0; height: 2px; background: var(--lav); transform-origin: 0 50%; }
 
-    /* Mixing desk */
-    .desk { margin-top: var(--block); padding: 10px; border-radius: 20px; background: var(--ink); box-shadow: 0 50px 90px -40px rgba(11,11,16,.55); }
-    .desk__bar { display: flex; justify-content: space-between; gap: 16px; padding: 8px 10px 14px; color: var(--mute); }
-    .desk__strips { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 6px; }
-    .ch { display: flex; flex-direction: column; gap: 12px; padding: 10px; border: 0; border-radius: 12px; background: var(--ink-2); text-align: left; cursor: pointer; transition: opacity .35s; }
-    .desk.has-solo .ch:not(.is-solo) { opacity: .35; }
-    .ch__top { display: flex; justify-content: space-between; align-items: center; color: var(--mute); }
-    .ch__led { width: 7px; height: 7px; border-radius: 50%; background: rgba(255,255,255,.15); transition: background .3s, box-shadow .3s; }
-    .ch.is-solo .ch__led { background: var(--lav); box-shadow: 0 0 10px var(--lav); }
-    .ch__win { display: block; aspect-ratio: 1; overflow: hidden; border-radius: 8px; background: #000; }
-    .ch__win img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) brightness(.5); transform: scale(1.06); transition: filter .5s, transform .9s var(--ease); }
-    .ch.is-solo .ch__win img { filter: none; transform: scale(1); }
-    .ch__body { display: grid; grid-template-columns: minmax(0, 1fr) 7px 24px; gap: 10px; height: clamp(170px, 17vw, 236px); }
-    .ch__name { align-self: end; justify-self: start; writing-mode: vertical-rl; transform: rotate(180deg); color: var(--white); font: 600 clamp(24px, 2.4vw, 36px)/1 var(--sans); letter-spacing: -.02em; white-space: nowrap; }
-    .ch__meter { position: relative; overflow: hidden; border-radius: 2px; background: repeating-linear-gradient(0deg, rgba(255,255,255,.07) 0 4px, transparent 4px 6px); }
-    .ch__meter i { position: absolute; left: 0; right: 0; bottom: 0; height: calc(var(--lv) * var(--up, 1) * 100%); background: repeating-linear-gradient(0deg, transparent 0 4px, var(--ink-2) 4px 6px), linear-gradient(0deg, var(--violet), var(--lav)); transform-origin: 50% 100%; transform: scaleY(.4); opacity: .45; }
-    .ch.is-solo .ch__meter i { opacity: 1; animation: meter .8s ease-in-out infinite alternate; }
-    @keyframes meter { 0% { transform: scaleY(.6); } 35% { transform: scaleY(.95); } 70% { transform: scaleY(.72); } 100% { transform: scaleY(1); } }
-    .ch__fader { position: relative; background: linear-gradient(90deg, transparent 11px, rgba(255,255,255,.2) 11px 13px, transparent 13px), repeating-linear-gradient(0deg, rgba(255,255,255,.12) 0 1px, transparent 1px 10%); }
-    .ch__cap { position: absolute; left: 0; right: 0; bottom: calc(var(--lv) * var(--up, 1) * (100% - 30px)); height: 30px; border: 1px solid rgba(255,255,255,.14); border-radius: 4px; background: linear-gradient(180deg, #3A3546, #221E2B); box-shadow: 0 6px 12px rgba(0,0,0,.5); }
-    .ch__cap::after { content: ''; position: absolute; left: 4px; right: 4px; top: 50%; height: 2px; margin-top: -1px; background: var(--white); transition: background .3s; }
-    .ch.is-solo .ch__cap::after { background: var(--lav); }
-    .ch__solo { align-self: flex-start; padding: 7px 10px 6px; border: 1px solid var(--line-d); border-radius: 6px; color: var(--mute); transition: background .3s, color .3s, border-color .3s; }
-    .ch.is-solo .ch__solo { background: var(--lav); border-color: var(--lav); color: var(--ink); }
+    /* Who records here: five plain photo tiles */
+    .who { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 16px; margin: var(--block) 0 0; padding: 0; list-style: none; }
+    .who li { display: grid; gap: 14px; }
+    .who img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 12px; }
+    .who span { color: var(--ink); font: 600 20px/1.2 var(--sans); letter-spacing: -.02em; }
 
     /* Session sheets */
     .sheets { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: var(--block); }
@@ -293,7 +255,7 @@
     .cta .trk b { color: rgba(11,11,16,.55); }
     .cta .h2 { color: var(--ink); font-size: clamp(52px, 8.4vw, 128px); line-height: .98; letter-spacing: -.045em; }
     .cta__row { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 28px 48px; margin-top: var(--block); padding-top: 28px; border-top: 1px solid rgba(11,11,16,.18); }
-    .cta__row p { max-width: 40ch; margin: 0; }
+    .cta__row > p { max-width: 40ch; margin: 0; }
     .cta .fine { color: rgba(11,11,16,.6); }
 
     /* ── Footer ─────────────────────────────────────────────────────────── */
@@ -310,24 +272,19 @@
     .foot li a:hover { color: var(--white); }
     .foot__mark { margin: clamp(56px, 8vw, 112px) 0 0; }
     .foot__mark svg { width: min(100%, 1180px); height: auto; overflow: visible; }
-    /* The wordmark's dot glows on the same beat as the hero REC light. */
+    /* The wordmark's dot glows like a REC light. */
     .mark__glow { animation: glow 2.4s ease-in-out infinite; }
     @keyframes glow { 0%, 100% { opacity: .1; } 50% { opacity: .85; } }
     .foot__base { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px; margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--line-d); color: var(--mute); font-size: 13px; }
-
-    /* ── Mobile bar ─────────────────────────────────────────────────────── */
-    .bar { position: fixed; z-index: 90; left: 12px; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom)); display: none; grid-template-columns: 1.5fr 1fr; gap: 8px; padding: 8px; border-radius: 999px; background: rgba(22,19,29,.92); backdrop-filter: blur(12px); border: 1px solid var(--line-d); transform: translateY(160%); transition: transform .45s var(--ease); }
-    .bar.is-on { transform: none; }
-    .bar .btn { min-height: 48px; padding: 0 16px; }
 
     /* ── Motion states ──────────────────────────────────────────────────── */
     .js-motion [data-up] { opacity: 0; transform: translateY(32px); }
 
     /* ── Responsive ─────────────────────────────────────────────────────── */
     @media (max-width: 999px) {
-      .nav__links, .nav__end { display: none; }
-      .nav__menu { display: flex; }
-      .bar { display: grid; }
+      .nav__links, .nav__call { display: none; }
+      .nav__in { gap: 12px; }
+      .nav__menu { display: flex; margin-right: -10px; }
       .hero__in, .split, .founder__grid, .crate__stage { grid-template-columns: minmax(0, 1fr); }
       .founder__photo { max-width: 420px; }
       .sheets { grid-template-columns: minmax(0, 1fr); max-width: 560px; }
@@ -335,19 +292,18 @@
       .vcard--quote { grid-column: 1 / -1; aspect-ratio: auto; min-height: 260px; }
       .foot__top { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .foot__brand { grid-column: 1 / -1; }
-      .foot { padding-bottom: calc(100px + env(safe-area-inset-bottom)); }
     }
     @media (max-width: 759px) {
-      /* Five strips don't fit a phone: scroll the desk sideways like a tablet mixer. */
-      .desk__strips { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 46%; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
-      .desk__strips::-webkit-scrollbar { display: none; }
-      .ch { scroll-snap-align: start; }
-      .ch__body { height: 190px; }
+      /* Five tiles don't fit a phone: list them with a thumbnail instead. */
+      .who { grid-template-columns: minmax(0, 1fr); gap: 0; }
+      .who li { grid-template-columns: 64px minmax(0, 1fr); align-items: center; gap: 16px; padding: 12px 0; border-top: 1px solid var(--line-l); }
+      .who li:last-child { border-bottom: 1px solid var(--line-l); }
+      .who img { aspect-ratio: 1; border-radius: 8px; }
     }
     @media (max-width: 640px) {
       body { font-size: 16px; }
-      .tl__body { grid-template-columns: 58px minmax(0, 1fr); gap: 0 10px; }
-      .tl__take, .tl__stat { display: none; }
+      .nav__logo img { width: 96px; }
+      .nav .btn--sm { padding: 0 16px; }
       .shot { width: 78vw; }
       .voices__grid { grid-template-columns: minmax(0, 1fr); }
       .founder__stats { gap: 32px; }
@@ -368,7 +324,7 @@
       <a class="nav__logo" href="#top" aria-label="Youkeo Studios, back to top"><img src="/assets/brand/youkeo-white-transparent.svg" alt="Youkeo" width="112" height="23" /></a>
       <nav class="nav__links" aria-label="Main">
         <a href="#room">Studio</a>
-        <a href="#desk">Artists</a>
+        <a href="#artists">Artists</a>
         <a href="#sessions">Packages</a>
         <a href="#made">Made here</a>
       </nav>
@@ -382,11 +338,12 @@
 
   <div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Menu">
     <button class="drawer__x" id="menuClose" type="button" aria-label="Close menu">×</button>
-    <a href="#room"><small>01</small>Studio</a>
-    <a href="#desk"><small>02</small>Artists</a>
-    <a href="#sessions"><small>03</small>Packages</a>
-    <a href="#made"><small>04</small>Made here</a>
+    <a href="#room">Studio</a>
+    <a href="#artists">Artists</a>
+    <a href="#sessions">Packages</a>
+    <a href="#made">Made here</a>
     <a class="btn btn--light" href="https://wa.me/919619192992?text=Hi%2C%20I%27d%20like%20to%20check%20availability%20at%20Youkeo%20Studios." target="_blank" rel="noopener" onclick="gtag('event','contact_click',{method:'whatsapp',location:'mobile_menu',page:'redesign_3'}); trackWhatsApp();">Check availability</a>
+    <a class="btn btn--ghost" href="tel:+919619192992" onclick="gtag('event','contact_click',{method:'phone',location:'mobile_menu',page:'redesign_3'}); trackPhone();">Call +91 96 1919 2992</a>
   </div>
 
   <main id="main">
@@ -410,22 +367,6 @@
         </div>
       </div>
 
-      <!-- Record → produce → mix → master, drawn as an arrangement the playhead runs through -->
-      <div class="tl" id="tl" aria-hidden="true">
-        <div class="wrap">
-          <div class="tl__bar mono"><span class="tl__rec">Rec</span><span class="tl__tc" id="tc">00:00:00:00</span><span class="tl__take">Take 01</span><span class="tl__stat">200+ artists · 10M+ streams</span></div>
-          <div class="tl__body">
-            <div class="tl__names mono"><span>Record</span><span>Produce</span><span>Mix</span><span>Master</span></div>
-            <div class="tl__tracks">
-              <div class="lane"><span class="clip" style="--a:3;--w:30">Vocals</span></div>
-              <div class="lane"><span class="clip" style="--a:22;--w:34">Beat</span></div>
-              <div class="lane"><span class="clip" style="--a:50;--w:28">Stems</span></div>
-              <div class="lane"><span class="clip" style="--a:76;--w:21">Master</span></div>
-              <span class="tl__head" id="tlHead"></span>
-            </div>
-          </div>
-        </div>
-      </div>
     </section>
 
     <!-- ── The room (dark) ── -->
@@ -458,51 +399,23 @@
     <div class="paper">
       <span class="seam" id="seam" aria-hidden="true"></span>
 
-      <!-- ── Who records here: the mixing desk ── -->
-      <section class="sec" id="desk" aria-labelledby="deskTitle">
+      <!-- ── Who records here ── -->
+      <section class="sec" id="artists" aria-labelledby="artistsTitle">
         <div class="wrap">
           <div class="split">
             <div>
               <p class="trk" data-up><b>Trk 02</b>Who records here</p>
-              <h2 class="h2" id="deskTitle" data-up>Five channels, one room</h2>
+              <h2 class="h2" id="artistsTitle" data-up>Made for every kind of artist</h2>
             </div>
-            <p class="lede" data-up>More than 200 artists have recorded here. Solo a channel to see who.</p>
+            <p class="lede" data-up>More than 200 artists have recorded here.</p>
           </div>
-          <div class="desk" id="deskEl" data-up>
-            <div class="desk__bar mono"><span>Youkeo · 05 ch</span><span id="deskHint">Hover or tap to solo</span></div>
-            <div class="desk__strips">
-              <button class="ch" type="button" aria-pressed="false" aria-label="Solo singers" style="--lv:.78">
-                <span class="ch__top mono"><span>Ch 01</span><span class="ch__led"></span></span>
-                <span class="ch__win"><img src="/media/stills/vocal-booth.jpg" alt="" width="1400" height="788" loading="lazy" /></span>
-                <span class="ch__body"><span class="ch__name">Singers</span><span class="ch__meter"><i></i></span><span class="ch__fader"><span class="ch__cap"></span></span></span>
-                <span class="ch__solo mono">Solo</span>
-              </button>
-              <button class="ch" type="button" aria-pressed="false" aria-label="Solo rappers" style="--lv:.9">
-                <span class="ch__top mono"><span>Ch 02</span><span class="ch__led"></span></span>
-                <span class="ch__win"><img src="/media/stills/jassi-poster.jpg" alt="" width="540" height="720" loading="lazy" /></span>
-                <span class="ch__body"><span class="ch__name">Rappers</span><span class="ch__meter"><i></i></span><span class="ch__fader"><span class="ch__cap"></span></span></span>
-                <span class="ch__solo mono">Solo</span>
-              </button>
-              <button class="ch" type="button" aria-pressed="false" aria-label="Solo songwriters" style="--lv:.64">
-                <span class="ch__top mono"><span>Ch 03</span><span class="ch__led"></span></span>
-                <span class="ch__win"><img src="/media/stills/lounge.jpg" alt="" width="1400" height="788" loading="lazy" /></span>
-                <span class="ch__body"><span class="ch__name">Songwriters</span><span class="ch__meter"><i></i></span><span class="ch__fader"><span class="ch__cap"></span></span></span>
-                <span class="ch__solo mono">Solo</span>
-              </button>
-              <button class="ch" type="button" aria-pressed="false" aria-label="Solo producers" style="--lv:.82">
-                <span class="ch__top mono"><span>Ch 04</span><span class="ch__led"></span></span>
-                <span class="ch__win"><img src="/media/stills/keys.jpg" alt="" width="1400" height="788" loading="lazy" /></span>
-                <span class="ch__body"><span class="ch__name">Producers</span><span class="ch__meter"><i></i></span><span class="ch__fader"><span class="ch__cap"></span></span></span>
-                <span class="ch__solo mono">Solo</span>
-              </button>
-              <button class="ch" type="button" aria-pressed="false" aria-label="Solo bands" style="--lv:.7">
-                <span class="ch__top mono"><span>Ch 05</span><span class="ch__led"></span></span>
-                <span class="ch__win"><img src="/media/stills/control-room.jpg" alt="" width="1400" height="788" loading="lazy" /></span>
-                <span class="ch__body"><span class="ch__name">Bands</span><span class="ch__meter"><i></i></span><span class="ch__fader"><span class="ch__cap"></span></span></span>
-                <span class="ch__solo mono">Solo</span>
-              </button>
-            </div>
-          </div>
+          <ul class="who" data-up>
+            <li><img src="/media/stills/vocal-booth.jpg" alt="" width="1400" height="788" loading="lazy" /><span>Singers</span></li>
+            <li><img src="/media/stills/jassi-poster.jpg" alt="" width="540" height="720" loading="lazy" /><span>Rappers</span></li>
+            <li><img src="/media/stills/lounge.jpg" alt="" width="1400" height="788" loading="lazy" /><span>Songwriters</span></li>
+            <li><img src="/media/stills/keys.jpg" alt="" width="1400" height="788" loading="lazy" /><span>Producers</span></li>
+            <li><img src="/media/stills/control-room.jpg" alt="" width="1400" height="788" loading="lazy" /><span>Bands</span></li>
+          </ul>
         </div>
       </section>
 
@@ -707,11 +620,6 @@
     </div>
   </footer>
 
-  <div class="bar" id="bar">
-    <a class="btn btn--light" href="https://wa.me/919619192992?text=Hi%2C%20I%27d%20like%20to%20check%20availability%20at%20Youkeo%20Studios." target="_blank" rel="noopener" onclick="gtag('event','contact_click',{method:'whatsapp',location:'mobile_bar',page:'redesign_3'}); trackWhatsApp();">WhatsApp us</a>
-    <a class="btn btn--ghost" href="tel:+919619192992" onclick="gtag('event','contact_click',{method:'phone',location:'mobile_bar',page:'redesign_3'}); trackPhone();">Call</a>
-  </div>
-
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/SplitText.min.js" defer></script>
@@ -724,24 +632,20 @@
     const motion = document.documentElement.classList.contains('js-motion');
     const wide = matchMedia('(min-width: 1000px)');
 
-    /* Nav: solid after the hero starts scrolling, hides on the way down */
-    const nav = $('#nav'), bar = $('#bar'), drawer = $('#drawer'), menuBtn = $('#menuBtn');
-    let lastY = 0;
+    /* Nav: solid once the page scrolls; it stays put so the booking button is always there */
+    const nav = $('#nav'), drawer = $('#drawer'), menuBtn = $('#menuBtn');
     const onScroll = () => {
-      const y = scrollY;
-      nav.classList.toggle('is-solid', y > 40);
-      nav.classList.toggle('is-hidden', y > 700 && y > lastY && !drawer.classList.contains('is-open'));
-      bar.classList.toggle('is-on', y > innerHeight * .7);
-      lastY = y;
+      nav.classList.toggle('is-solid', scrollY > 40);
     };
     addEventListener('scroll', onScroll, { passive: true }); onScroll();
 
     /* Mobile menu */
-    const setDrawer = open => { drawer.classList.toggle('is-open', open); menuBtn.setAttribute('aria-expanded', String(open)); document.body.style.overflow = open ? 'hidden' : ''; (open ? $('#menuClose') : menuBtn).focus(); };
-    menuBtn.addEventListener('click', () => setDrawer(true));
-    $('#menuClose').addEventListener('click', () => setDrawer(false));
+    // Move focus only for keyboard use (click detail 0 or Escape), so taps don't leave a focus ring behind.
+    const setDrawer = (open, kb) => { drawer.classList.toggle('is-open', open); menuBtn.setAttribute('aria-expanded', String(open)); document.body.style.overflow = open ? 'hidden' : ''; if (kb) (open ? $('#menuClose') : menuBtn).focus(); };
+    menuBtn.addEventListener('click', e => setDrawer(true, e.detail === 0));
+    $('#menuClose').addEventListener('click', e => setDrawer(false, e.detail === 0));
     $$('a', drawer).forEach(a => a.addEventListener('click', () => setDrawer(false)));
-    addEventListener('keydown', e => { if (e.key === 'Escape' && drawer.classList.contains('is-open')) setDrawer(false); });
+    addEventListener('keydown', e => { if (e.key === 'Escape' && drawer.classList.contains('is-open')) setDrawer(false, true); });
 
     /* Hero footage: desktop only, never on data-saver */
     const vid = $('#heroVideo');
@@ -752,21 +656,7 @@
     };
     loadVid(); wide.addEventListener('change', loadVid);
 
-    /* Hero arrangement: playhead follows the footage (or a 16s loop without it), clips fill as it passes */
-    const head = $('#tlHead'), tc = $('#tc'), clips = $$('#tl .clip');
-    const spans = clips.map(c => [parseFloat(c.style.getPropertyValue('--a')), parseFloat(c.style.getPropertyValue('--w'))]);
     const pad = n => String(n).padStart(2, '0');
-    const drawTl = (p, secs) => {
-      head.style.setProperty('--p', p * 100 + '%');
-      clips.forEach((c, k) => {
-        const [a, w] = spans[k], f = Math.min(1, Math.max(0, (p * 100 - a) / w));
-        c.style.setProperty('--f', f * 100 + '%');
-        c.classList.toggle('is-live', f > 0 && f < 1);
-      });
-      const fr = Math.floor(secs * 25);
-      tc.textContent = `00:${pad(Math.floor(fr / 1500) % 60)}:${pad(Math.floor(fr / 25) % 60)}:${pad(fr % 25)}`;
-    };
-    drawTl(motion ? 0 : 1, 0);
 
     /* Draggable photo track (mouse), native swipe on touch */
     $$('[data-drag]').forEach(t => {
@@ -776,19 +666,6 @@
       addEventListener('pointerup', () => { if (!down) return; down = false; t.classList.remove('is-drag'); });
       t.addEventListener('click', e => { if (moved) { e.preventDefault(); e.stopPropagation(); } }, true);
     });
-
-    /* Desk: hover solos a channel, click/tap locks it */
-    const desk = $('#deskEl'), chs = $$('.ch', desk);
-    let locked = null;
-    const solo = ch => {
-      chs.forEach(c => { c.classList.toggle('is-solo', c === ch); c.setAttribute('aria-pressed', String(c === ch)); });
-      desk.classList.toggle('has-solo', !!ch);
-    };
-    chs.forEach(c => {
-      c.addEventListener('click', () => { locked = locked === c ? null : c; solo(locked); });
-      c.addEventListener('mouseenter', () => { if (matchMedia('(hover: hover)').matches) solo(c); });
-    });
-    desk.addEventListener('mouseleave', () => solo(locked));
 
     /* Crate: covers lean back in a stack, the front one flips forward as you move through */
     const crate = $('#crate'), recs = $$('.rec', crate), n = recs.length;
@@ -853,31 +730,14 @@
       const split = SplitText.create('.hero__line', { type: 'words', mask: 'words' });
       gsap.from(split.words, { yPercent: 110, duration: 1.1, ease: 'expo.out', stagger: .07, delay: .15 });
       gsap.from('[data-hero]', { y: 24, opacity: 0, duration: 1, ease: 'expo.out', stagger: .08, delay: .45 });
-      gsap.from('#tl', { yPercent: 100, duration: 1.2, ease: 'expo.out', delay: .6 });
       ScrollTrigger.refresh();
-    });
-
-    /* Arrangement runs only while the hero is on screen */
-    let elapsed = 0, heroOn = true;
-    ScrollTrigger.create({ trigger: '.hero', start: 'top bottom', end: 'bottom top', onToggle: s => { heroOn = s.isActive; } });
-    gsap.ticker.add((t, dt) => {
-      if (!heroOn) return;
-      elapsed += dt / 1000;
-      const live = vid.getAttribute('src') && !vid.paused && vid.duration;
-      drawTl(live ? vid.currentTime / vid.duration : (elapsed % 16) / 16, elapsed);
     });
 
     /* Generic rise-in */
     $$('[data-up]').forEach(el => gsap.to(el, { opacity: 1, y: 0, duration: 1.1, ease: 'expo.out', scrollTrigger: { trigger: el, start: 'top 88%', once: true } }));
 
-    /* Gallery drifts sideways with scroll */
-    gsap.fromTo('#room .track', { x: 120 }, { x: -60, ease: 'none', scrollTrigger: { trigger: '#room .gallery', start: 'top bottom', end: 'bottom top', scrub: true } });
-
     /* Playhead line sweeps across the seam into the light sections */
     gsap.fromTo('#seam', { scaleX: 0 }, { scaleX: 1, ease: 'none', scrollTrigger: { trigger: '.paper', start: 'top bottom', end: 'top 35%', scrub: true } });
-
-    /* Faders come up when the desk arrives */
-    gsap.fromTo(chs, { '--up': 0 }, { '--up': 1, duration: 1.6, ease: 'expo.out', stagger: .08, scrollTrigger: { trigger: desk, start: 'top 70%', once: true } });
 
     /* Crate: pinned while you flip through, snapping to each record */
     const proxy = { p: 0 };
