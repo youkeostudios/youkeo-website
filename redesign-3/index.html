@@ -221,7 +221,7 @@
     [hidden] { display: none !important; }
 
     /* ── Voices (dark) ──────────────────────────────────────────────────── */
-    .voices__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: var(--block); }
+    .voices__grid { display: grid; grid-template-columns: minmax(0, 380px) minmax(0, 1fr); gap: 16px; margin-top: var(--block); }
     .vcard { position: relative; aspect-ratio: 4 / 5; overflow: hidden; border-radius: 12px; background: var(--ink-2); }
     .vcard video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
     .vcard::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(11,11,16,.92)); pointer-events: none; }
@@ -234,12 +234,23 @@
     .vcard:hover .vcard__icon { transform: scale(1.08); }
     .vcard__icon svg { width: 16px; height: 16px; margin-left: 2px; }
     .vcard__tag { position: absolute; z-index: 1; top: 22px; left: 22px; padding: 7px 10px 6px; border-radius: 6px; background: rgba(11,11,16,.7); color: var(--white); }
-    .vcard--quote { display: flex; flex-direction: column; justify-content: space-between; padding: 30px; border: 1px solid var(--line-d); }
+    .vcard--tall { aspect-ratio: 9 / 16; }
+    .vcard--quote { aspect-ratio: auto; display: flex; flex-direction: column; justify-content: space-between; gap: 32px; padding: clamp(28px, 3.5vw, 56px); border: 1px solid var(--line-d); }
     .vcard--quote::after { display: none; }
-    .vcard--quote blockquote { margin: 0; color: var(--white); font: 500 clamp(22px, 2vw, 28px)/1.3 var(--sans); letter-spacing: -.02em; }
+    .vcard--quote blockquote { margin: 0; color: var(--white); font: 500 clamp(26px, 3vw, 44px)/1.2 var(--sans); letter-spacing: -.03em; text-wrap: balance; }
     .vcard--quote footer { color: var(--mute); font-size: 14px; }
     .vcard--quote footer b { display: block; color: var(--white); font-weight: 600; }
     .stars { color: #FFD19D; letter-spacing: 3px; font-size: 14px; }
+
+    /* ── Artist spotlight (light) ───────────────────────────────────────── */
+    .spot { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 48px 64px; align-items: center; }
+    .spot__name { margin: 0; color: var(--ink); font: 600 clamp(80px, 12vw, 176px)/.88 var(--sans); letter-spacing: -.055em; }
+    .spot__name::after { content: '.'; color: var(--violet); }
+    .spot__meta { margin: 28px 0 0; color: var(--ink-mute); }
+    .spot__badge { display: inline-flex; margin: 20px 0 0; padding: 10px 16px 9px; border-radius: 80px; background: var(--ink); color: var(--white); font-size: 14px; font-weight: 600; }
+    .spot .lede { margin-top: 24px; }
+    .spot__video { aspect-ratio: 3 / 4; }
+    .spot__video::after { display: none; }
 
     /* ── Founder (dark) ─────────────────────────────────────────────────── */
     .founder__grid { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: clamp(40px, 7vw, 120px); align-items: center; }
@@ -286,11 +297,11 @@
       .nav__links, .nav__call { display: none; }
       .nav__in { gap: 12px; }
       .nav__menu { display: flex; margin-right: -10px; }
-      .hero__in, .split, .founder__grid, .crate__stage { grid-template-columns: minmax(0, 1fr); }
+      .hero__in, .split, .founder__grid, .crate__stage, .spot { grid-template-columns: minmax(0, 1fr); }
       .founder__photo { max-width: 420px; }
       .sheets { grid-template-columns: minmax(0, 1fr); max-width: 560px; }
-      .voices__grid { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
-      .vcard--quote { grid-column: 1 / -1; aspect-ratio: auto; min-height: 260px; }
+      .voices__grid { grid-template-columns: minmax(0, 1fr); }
+      .vcard--tall, .spot__video { width: 100%; max-width: 420px; }
       .foot__top { grid-template-columns: repeat(2, minmax(0, 1fr)); }
       .foot__brand { grid-column: 1 / -1; }
     }
@@ -320,8 +331,8 @@
       <a class="nav__logo" href="#top" aria-label="Youkeo Studios, back to top"><img src="/assets/brand/youkeo-white-transparent.svg" alt="Youkeo" width="112" height="23" /></a>
       <nav class="nav__links" aria-label="Main">
         <a href="#room">Studio</a>
-        <a href="#artists">Artists</a>
         <a href="#sessions">Packages</a>
+        <a href="#artists">Artists</a>
         <a href="#made">Made here</a>
       </nav>
       <div class="nav__end">
@@ -335,8 +346,8 @@
   <div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Menu">
     <button class="drawer__x" id="menuClose" type="button" aria-label="Close menu">×</button>
     <a href="#room">Studio</a>
-    <a href="#artists">Artists</a>
     <a href="#sessions">Packages</a>
+    <a href="#artists">Artists</a>
     <a href="#made">Made here</a>
     <a class="btn btn--light" href="https://wa.me/919619192992?text=Hi%2C%20I%27d%20like%20to%20check%20availability%20at%20Youkeo%20Studios." target="_blank" rel="noopener" onclick="gtag('event','contact_click',{method:'whatsapp',location:'mobile_menu',page:'redesign_3'}); trackWhatsApp();">Check availability</a>
     <a class="btn btn--ghost" href="tel:+919619192992" onclick="gtag('event','contact_click',{method:'phone',location:'mobile_menu',page:'redesign_3'}); trackPhone();">Call +91 96 1919 2992</a>
@@ -395,34 +406,12 @@
     <div class="paper">
       <span class="seam" id="seam" aria-hidden="true"></span>
 
-      <!-- ── Who records here ── -->
-      <section class="sec" id="artists" aria-labelledby="artistsTitle">
-        <div class="wrap">
-          <div class="split">
-            <div>
-              <p class="trk" data-up><b>Trk 02</b>Who records here</p>
-              <h2 class="h2" id="artistsTitle" data-up>Made for every kind of artist</h2>
-            </div>
-            <p class="lede" data-up>More than 200 artists have recorded here.</p>
-          </div>
-        </div>
-        <div class="people">
-          <div class="track" data-drag aria-label="Who records here">
-            <figure class="person"><img style="object-position:57% 50%" src="/media/stills/vocal-booth.jpg" alt="Microphone in the vocal booth" width="1400" height="788" loading="lazy" /><figcaption>Singers</figcaption></figure>
-            <figure class="person"><img style="object-position:50% 50%" src="/media/stills/jassi-poster.jpg" alt="Jassi, rapper, in the control room" width="540" height="720" loading="lazy" /><figcaption>Rappers</figcaption></figure>
-            <figure class="person"><img style="object-position:38% 50%" src="/media/stills/lounge.jpg" alt="Artists writing in the lounge" width="1400" height="788" loading="lazy" /><figcaption>Songwriters</figcaption></figure>
-            <figure class="person"><img style="object-position:21% 50%" src="/media/stills/keys.jpg" alt="Producer at the keys" width="1400" height="788" loading="lazy" /><figcaption>Producers</figcaption></figure>
-            <figure class="person"><img style="object-position:65% 50%" src="/media/stills/control-room.jpg" alt="Engineer and artist in the control room" width="1400" height="788" loading="lazy" /><figcaption>Bands</figcaption></figure>
-          </div>
-        </div>
-      </section>
-
       <!-- ── Packages as session sheets ── -->
       <section class="sec" id="sessions" aria-labelledby="sessionsTitle">
         <div class="wrap">
           <div class="split">
             <div>
-              <p class="trk" data-up><b>Trk 03</b>Sessions</p>
+              <p class="trk" data-up><b>Trk 02</b>Sessions</p>
               <h2 class="h2" id="sessionsTitle" data-up>Three ways to finish a song</h2>
             </div>
             <p class="lede" data-up>One song per package. Price and scope agreed on WhatsApp before your session.</p>
@@ -478,12 +467,52 @@
         </div>
       </section>
 
+      <!-- ── Who records here ── -->
+      <section class="sec" id="artists" aria-labelledby="artistsTitle">
+        <div class="wrap">
+          <div class="split">
+            <div>
+              <p class="trk" data-up><b>Trk 03</b>Who records here</p>
+              <h2 class="h2" id="artistsTitle" data-up>Made for every kind of artist</h2>
+            </div>
+            <p class="lede" data-up>More than 200 artists have recorded here.</p>
+          </div>
+        </div>
+        <div class="people">
+          <div class="track" data-drag aria-label="Who records here">
+            <figure class="person"><img style="object-position:57% 50%" src="/media/stills/vocal-booth.jpg" alt="Microphone in the vocal booth" width="1400" height="788" loading="lazy" /><figcaption>Singers</figcaption></figure>
+            <figure class="person"><img style="object-position:50% 50%" src="/media/stills/jassi-poster.jpg" alt="Jassi, rapper, in the control room" width="540" height="720" loading="lazy" /><figcaption>Rappers</figcaption></figure>
+            <figure class="person"><img style="object-position:38% 50%" src="/media/stills/lounge.jpg" alt="Artists writing in the lounge" width="1400" height="788" loading="lazy" /><figcaption>Songwriters</figcaption></figure>
+            <figure class="person"><img style="object-position:21% 50%" src="/media/stills/keys.jpg" alt="Producer at the keys" width="1400" height="788" loading="lazy" /><figcaption>Producers</figcaption></figure>
+            <figure class="person"><img style="object-position:65% 50%" src="/media/stills/control-room.jpg" alt="Engineer and artist in the control room" width="1400" height="788" loading="lazy" /><figcaption>Bands</figcaption></figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Artist spotlight ── -->
+      <section class="sec" id="spotlight" aria-labelledby="spotTitle">
+        <div class="wrap spot">
+          <div class="spot__copy">
+            <p class="trk" data-up><b>Trk 04</b>Artist spotlight</p>
+            <h2 class="spot__name" id="spotTitle" data-up>Jassi</h2>
+            <p class="mono spot__meta" data-up>Rapper · Recorded at Youkeo</p>
+            <p class="spot__badge" data-up>Featured on NEXA Music by A.R. Rahman</p>
+            <p class="lede" data-up>Hear him talk about recording his tracks here.</p>
+          </div>
+          <article class="vcard spot__video" data-up data-artist="Jassi">
+            <video src="/media/reviews/jassi.mp4" poster="/media/stills/jassi-poster.jpg" preload="none" playsinline></video>
+            <span class="vcard__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+            <button class="vcard__play" type="button" aria-label="Play Jassi's video"></button>
+          </article>
+        </div>
+      </section>
+
       <!-- ── Made here: a crate to flip through ── -->
       <section class="sec" id="made" aria-labelledby="madeTitle">
         <div class="wrap">
           <div class="split">
             <div>
-              <p class="trk" data-up><b>Trk 04</b>Made here</p>
+              <p class="trk" data-up><b>Trk 05</b>Made here</p>
               <h2 class="h2" id="madeTitle" data-up>10M+ streams, made in this room</h2>
             </div>
             <p class="lede" data-up>Scroll to flip through the crate.</p>
@@ -520,7 +549,7 @@
       <div class="wrap">
         <div class="split">
           <div>
-            <p class="trk" data-up><b>Trk 05</b>Artist voices</p>
+            <p class="trk" data-up><b>Trk 06</b>Artist voices</p>
             <h2 class="h2" id="voicesTitle" data-up>Heard it from the artists</h2>
           </div>
           <div data-up>
@@ -529,14 +558,7 @@
           </div>
         </div>
         <div class="voices__grid">
-          <article class="vcard" data-up>
-            <video src="/media/reviews/jassi.mp4" poster="/media/stills/jassi-poster.jpg" preload="none" playsinline></video>
-            <span class="vcard__tag mono">Video · Rapper</span>
-            <span class="vcard__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
-            <div class="vcard__in"><h3>Jassi</h3><p>On recording his tracks at Youkeo.</p></div>
-            <button class="vcard__play" type="button" aria-label="Play Jassi's video"></button>
-          </article>
-          <article class="vcard" data-up>
+          <article class="vcard vcard--tall" data-up data-artist="Prince">
             <video src="/media/reviews/prince.mp4" poster="/media/stills/prince-poster.jpg" preload="none" playsinline></video>
             <span class="vcard__tag mono">Video · Artist</span>
             <span class="vcard__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
@@ -556,7 +578,7 @@
     <section class="sec" id="founder" aria-labelledby="founderTitle" style="padding-top:0">
       <div class="wrap founder__grid">
         <div class="founder__copy">
-          <p class="trk" data-up><b>Trk 06</b>The founder</p>
+          <p class="trk" data-up><b>Trk 07</b>The founder</p>
           <h2 class="h2" id="founderTitle" data-up>Run by an artist who releases music</h2>
           <div data-up style="margin-top:28px">
             <p>Nishchay Beharam produces and releases his own records as Shoonya and Rhyo.</p>
@@ -574,7 +596,7 @@
     <!-- ── CTA (lavender) ── -->
     <section class="cta sec" id="book" aria-labelledby="ctaTitle">
       <div class="wrap">
-        <p class="trk" data-up><b>Trk 07</b>Book</p>
+        <p class="trk" data-up><b>Trk 08</b>Book</p>
         <h2 class="h2" id="ctaTitle" data-up>Your <em>next release</em> starts here</h2>
         <div class="cta__row" data-up>
           <p>Near ICICI Bank, Sector 19, Airoli. 8 minutes from Airoli Station. Open daily, 11:00–22:00 IST.</p>
@@ -718,7 +740,7 @@
         if (!v.paused) { v.pause(); c.classList.remove('is-playing'); return; }
         vcards.forEach(o => { if (o !== c) { $('video', o).pause(); o.classList.remove('is-playing'); } });
         v.play(); c.classList.add('is-playing');
-        gtag('event', 'testimonial_play', { artist: $('h3', c).textContent, page: 'redesign_3' });
+        gtag('event', 'testimonial_play', { artist: c.dataset.artist, page: 'redesign_3' });
       });
       v.addEventListener('ended', () => c.classList.remove('is-playing'));
     });
