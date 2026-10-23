@@ -18,9 +18,9 @@
   html { -webkit-text-size-adjust: 100%; }
   body { @apply bg-studio text-white font-studio; overflow-x: clip; }
   [hidden] { display: none !important; }
-  .section-label { @apply mb-5 block text-lavender text-xs font-bold uppercase tracking-[.16em]; }
+  .section-label { @apply mb-5 block text-lavender font-studio text-[11px] font-bold uppercase tracking-[.15em]; }
   .section-h2 { @apply mx-auto mb-12 max-w-4xl text-white font-studio font-extrabold tracking-[-.06em] text-balance; font-size: clamp(2.4rem,5vw,4.5rem); line-height: 1.06; }
-  .btn { @apply font-studio rounded-full transition-colors; }
+  .btn { @apply font-studio rounded-[10px] transition-colors; }
   a:focus-visible, button:focus-visible, [role=button]:focus-visible { @apply outline-2 outline-offset-4 outline-lavender; }
 
   /* Header: same shared navigation and mobile-menu behavior. */
@@ -35,7 +35,9 @@
   .rec-hero .hero-h1 span { @apply text-white; }
   .rec-hero .hero-sub { @apply m-0 mb-8 max-w-xl text-base leading-7 text-white/75; }
   .rec-hero .hero-cta-group { @apply justify-start; }
-  .rec-hero-cta-btn { @apply min-h-14 px-7 py-4 text-sm text-studio shadow-none; background: linear-gradient(105deg,#fff,#fff4e5 42%,#ffd6ad); }
+  .rec-hero-cta-btn { @apply min-h-14 px-7 py-4 text-[15px] text-studio shadow-none; background: #fff; }
+  .rec-hero-cta-btn:hover { background: #e6e8f0; }
+  .rec-hero .hero-h1 .hero-h1-muted { color: #cbc7dc; }
   .rec-hero-cta-btn:hover { @apply brightness-95; }
   .rec-hero .hero-cta-trust { @apply mt-5 justify-start text-xs text-white/70; }
   .hero-pricing-strip { @apply mt-6 grid w-full max-w-xl grid-cols-3 rounded-2xl border border-lavender/20 bg-studio/60 p-3 backdrop-blur-xl; }
@@ -98,9 +100,9 @@
   .pricing-card-includes { @apply mb-8 list-none border-t border-white/15 pt-5 text-sm text-white/80; }
   .pricing-card-includes li { @apply relative border-0 py-2 pl-6 leading-6; }
   .pricing-card-includes li::before { content: '✓'; @apply absolute top-2 left-0 text-lavender; }
-  .rec-pricing .pricing-card .btn { @apply mt-auto min-h-12 w-full justify-center rounded-full px-4 py-3 text-xs font-semibold; }
+  .rec-pricing .pricing-card .btn { @apply mt-auto min-h-12 w-full justify-center px-4 py-3 text-xs font-semibold; }
   .rec-pricing .btn-ghost { @apply border-white/25 bg-white/5 text-white hover:bg-white/10; }
-  .rec-pricing .btn-primary { @apply border-transparent bg-white text-studio hover:bg-white/90; }
+  .rec-pricing .btn-primary { @apply border-transparent bg-white text-studio hover:bg-[#e6e8f0]; }
   .rec-pricing-note { @apply mt-8 text-sm leading-6 text-muted; }
   .rec-pricing-note span { @apply text-lavender; }
 
