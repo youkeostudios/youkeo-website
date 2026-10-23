@@ -48,11 +48,11 @@
   .hero-pricing-price { @apply text-lg font-extrabold tracking-tight; }
   .hero-pricing-unit { @apply ml-0.5 text-[11px] font-normal text-muted; }
   .hero-pricing-tier--featured .hero-pricing-price { @apply text-lavender; }
-  .rec-hero .hero-stats { @apply relative inset-auto z-10 mt-12 flex w-full max-w-lg border-0 bg-transparent p-0 backdrop-blur-none; }
+  .rec-hero .hero-stats { @apply relative inset-auto z-10 mt-12 flex w-full max-w-lg items-start border-0 bg-transparent p-0 backdrop-blur-none; }
   .rec-hero .hero-stat { @apply min-w-0 flex-1 items-start px-5 py-0 text-left; }
   .rec-hero .hero-stat:first-child { @apply pl-0; }
   .rec-hero .hero-stat-num { @apply text-3xl font-studio font-extrabold tracking-tight; }
-  .rec-hero .hero-stat-label { @apply mt-1 text-[10px] leading-4 text-white/60 tracking-wide; }
+  .rec-hero .hero-stat-label { @apply mt-1 text-[11px] leading-4 text-white/60 tracking-wide; }
   .hero-stat-divider { @apply h-10 w-px self-center bg-white/20; }
 
   /* Shared section rhythm, three-column feature and pricing blocks. */
@@ -110,7 +110,7 @@
   .rec-reviews-grid { @apply items-start; }
   .rec-reviews .t-google-card { @apply m-0 flex min-h-0 flex-col gap-5 rounded-3xl border border-lavender/15 bg-white/[.035] p-7 text-left; cursor: default; }
   .rec-reviews .t-google-text { @apply m-0 block overflow-visible text-sm leading-7 text-white/75; -webkit-line-clamp: unset; }
-  .rec-review-toggle { @apply mt-3 cursor-pointer border-0 bg-transparent p-0 text-xs font-studio font-semibold text-lavender underline underline-offset-4; }
+  .rec-review-toggle { @apply mt-1 min-h-11 cursor-pointer border-0 bg-transparent p-0 text-xs font-studio font-semibold text-lavender underline underline-offset-4; }
   .rec-reviews .t-google-name { @apply text-sm font-studio font-bold text-white; }
   .rec-reviews .t-google-source { @apply mt-1 text-xs text-muted; }
   .rec-reviews .t-google-author { @apply mt-2 border-t border-white/10 pt-5; }
@@ -145,7 +145,7 @@
   #footer .footer-brand-logo { @apply mb-6 w-40; }
   #footer .footer-tagline { @apply text-sm leading-6 text-muted; }
   #footer .footer-info,#footer .footer-info a { @apply text-xs leading-6 text-muted; }
-  #footer .footer-nav-links a { @apply text-xs text-muted hover:text-white; }
+  #footer .footer-nav-links a { @apply inline-block py-1.5 text-xs text-muted hover:text-white; }
   #footer .footer-bottom { @apply mx-auto flex max-w-6xl flex-wrap gap-4 px-0 pt-6 text-xs text-muted; }
 
   @media (max-width: 767px) {
@@ -155,11 +155,10 @@
     .rec-hero .hero-stats { @apply mt-9; }
     .rec-hero .hero-stat { @apply px-3; }
     .rec-hero .hero-stat-num { @apply text-2xl; }
-    .rec-hero .hero-stat-label { @apply text-[9px]; }
     .hero-pricing-tier { @apply px-2; }
     .hero-pricing-price { @apply text-base; }
-    .hero-pricing-unit { @apply block text-[10px]; }
-    .hero-pricing-label { @apply text-[10px]; }
+    .hero-pricing-unit { @apply block text-[11px]; }
+    .hero-pricing-label { @apply text-[11px]; }
     .section-h2 { @apply mb-9; }
     .rec-hero-social-copy { @apply text-center; }
     .rec-how-num { @apply mb-7; }

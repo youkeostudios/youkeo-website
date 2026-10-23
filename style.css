@@ -5047,3 +5047,26 @@ body.nav-menu-open { overflow: hidden; }
   .svc-features li { min-height: 0; }
   .svc-price { margin-top: 24px; }
 }
+
+/* Mobile legibility + touch floor: no readable text under 11px, no tap
+   target under 24px tall (menu button 44px). */
+@media (max-width: 700px) {
+  .hero-eyebrow span,
+  .hero-cta-stars, .hero-cta-rating, .hero-stat-label,
+  .studio-explore__eyebrow, .studio-explore__caption > span,
+  .release-showcase__index span, .release-showcase__credit,
+  .release-showcase__proof span, .release-showcase__play--compact,
+  .rate-card__title span, .rate-card__badge,
+  .voices-proof span, .voices-proof small,
+  .voice-quote__top span, .voice-quote__stars, .voice-quote__author small,
+  .founder-portrait figcaption span, .founder-story__marker span,
+  .founder-credentials__label small, .founder-credentials dd,
+  .visit-details__top span, .visit-hours span, .visit-hours strong, .visit-map__pin,
+  .contact-panel__top span, .contact-panel__aside small, .contact-options a span,
+  #footer .footer-col-label, .footer-bottom span, .footer-bottom a,
+  .pricing-card .pricing-card-from { font-size: 11px; }
+
+  .nav-hamburger { min-width: 44px; min-height: 44px; align-items: center; justify-content: center; }
+  .footer-nav-links a, .footer-contact a, .footer-bottom a { display: inline-block; padding-block: 5px; }
+  .rates-footer a, .voices-footer a, .faq-header > a { display: inline-flex; align-items: center; min-height: 44px; }
+}
