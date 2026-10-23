@@ -19,5 +19,3 @@ archive/
 *.pkg
 User List*.pdf
 
-# Generated images for manual CDN upload (binaries live on the CDN)
-cdn-upload/

@@ -6,7 +6,7 @@ Static marketing site for Youkeo Studios, a recording studio in Airoli, Navi Mum
 
 - Hand-written HTML per page, shared `style.css` at root, page-specific CSS where it makes sense (`pricing.css`, `recording/recording.css`).
 - Single JS entry: [script.js](script.js) — nav scroll, service overlays, lightbox, card overlays, hero video autoplay, and Google Ads conversion helpers.
-- Images/video/favicon served from `cdn.youkeostudios.com` (not committed). Reference by full CDN URL.
+- Images/video/favicon live in [media/](media/) and are served by Cloudflare Pages from the edge. Reference them root-relative (`/media/...`), except in OG/Twitter meta tags and JSON-LD, which need the absolute `https://youkeostudios.com/media/...` URL. `cdn.youkeostudios.com` (R2) is retired.
 - Pages:
   - [/](index.html) — homepage
   - [/recording/](recording/index.html) — recording services
@@ -14,6 +14,7 @@ Static marketing site for Youkeo Studios, a recording studio in Airoli, Navi Mum
   - [/privacy-policy/](privacy-policy/index.html), [/terms-conditions/](terms-conditions/index.html)
   - [404.html](404.html)
 - [_redirects](_redirects): preserves `sitemap.xml`, `robots.txt`, `llms.txt`; otherwise SPA-style fallback to `index.html`.
+- [_headers](_headers): 30-day cache on `/media/*`.
 
 ## SEO / discoverability
 
@@ -43,7 +44,8 @@ When adding a new CTA, copy an existing one rather than writing tracking from sc
 ## Conventions
 
 - Don't introduce a bundler, framework, or npm dependency without asking — the site is intentionally zero-build.
-- Favicon and OG images live on the CDN; don't commit binary assets.
+- Site media (images, video, favicon, OG images) is committed under `media/`. Compress before committing: keep each file under Pages' 25 MiB limit (aim for <15 MB video, WebP/AVIF images). Every committed binary stays in git history forever, so don't commit drafts or originals.
+- Media is cached for 30 days. To replace a file quickly, give the new one a new filename instead of overwriting.
 - Keep the JSON-LD blocks valid — they drive rich results and AI citations.
 - Indian rupee pricing (`₹`), `en_IN` locale, 24h IST opening hours — preserve these in copy.
 

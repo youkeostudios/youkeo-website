@@ -1,0 +1,4 @@
+# Media keeps stable filenames, so cache for 30 days rather than `immutable`.
+# To force an update sooner, upload under a new filename and repoint the HTML.
+/media/*
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
