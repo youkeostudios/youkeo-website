@@ -677,10 +677,13 @@
           r.style.opacity = d > 3 ? 0 : 1;
           r.style.filter = `brightness(${1 - Math.min(d, 3) * .16})`;
         } else {
-          const f = Math.min(1, -d);
-          r.style.transform = `translateX(-50%) translateY(${f * 60}px) rotateX(${6 - f * 84}deg)`;
-          r.style.opacity = 1 - f;
-          r.style.filter = '';
+          // Flipped records tip forward over the crate front and stay, darker the further back you've dug.
+          // Lean stops at -64deg: past ~-70deg the sleeve turns edge-on to the camera.
+          // Leaning toward the camera magnifies the sleeve, so it shrinks 20% to stay crate-width.
+          const j = -d, f = Math.min(1, j), extra = Math.min(Math.max(j - 1, 0), 2);
+          r.style.transform = `translateX(-50%) rotateX(${6 - f * 62 - extra * 4}deg) scale(${1 - f * .2})`;
+          r.style.opacity = 1;
+          r.style.filter = `brightness(${1 - f * .45 - extra * .08})`;
         }
         r.style.zIndex = n - k;
         r.style.pointerEvents = Math.abs(d) < .5 ? '' : 'none';
