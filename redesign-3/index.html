@@ -207,12 +207,12 @@
 
     /* Record crate */
     .crate__stage { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 48px; align-items: center; margin-top: var(--block); }
-    .crate__box { --s: clamp(230px, 26vw, 380px); position: relative; height: calc(var(--s) + 150px); perspective: 1400px; perspective-origin: 50% 0%; }
-    .rec { position: absolute; left: 50%; bottom: 84px; width: var(--s); aspect-ratio: 1; overflow: hidden; border-radius: 4px; background: var(--ink); box-shadow: 0 30px 50px -20px rgba(11,11,16,.5); transform: translateX(-50%); transform-origin: 50% 100%; will-change: transform; }
+    .crate__box { --s: clamp(230px, 26vw, 380px); position: relative; height: calc(var(--s) + 120px); perspective: 1400px; perspective-origin: 50% 0%; }
+    .rec { position: absolute; left: 50%; bottom: 40px; width: var(--s); aspect-ratio: 1; overflow: hidden; border-radius: 4px; background: var(--ink); box-shadow: 0 30px 50px -20px rgba(11,11,16,.5); transform: translateX(-50%); transform-origin: 50% 100%; will-change: transform; }
     .rec img { width: 100%; height: 100%; object-fit: cover; }
     .rec--you { display: grid; place-content: center; gap: 12px; background: var(--lav); color: var(--ink); text-align: center; }
     .rec--you b { font: 600 clamp(26px, 2.6vw, 38px)/1.05 var(--sans); letter-spacing: -.03em; }
-    .crate__lip { position: absolute; z-index: 20; left: 50%; bottom: 0; width: calc(var(--s) + 72px); height: 136px; translate: -50% 0; display: flex; align-items: flex-end; justify-content: space-between; padding: 0 20px 18px; border-radius: 14px 14px 20px 20px; background: linear-gradient(180deg, #1E1A28, var(--ink)); color: var(--mute); box-shadow: 0 -1px 0 rgba(255,255,255,.08) inset; }
+    .crate__lip { position: absolute; z-index: 20; left: 50%; bottom: 0; width: calc(var(--s) + 72px); height: 76px; translate: -50% 0; display: flex; align-items: flex-end; justify-content: space-between; padding: 0 20px 16px; border-radius: 14px 14px 20px 20px; background: linear-gradient(180deg, #1E1A28, var(--ink)); color: var(--mute); box-shadow: 0 -1px 0 rgba(255,255,255,.08) inset; }
     .crate__info .crate__t { margin: 18px 0 6px; color: var(--ink); font: 600 clamp(36px, 4vw, 56px)/1.05 var(--sans); letter-spacing: -.035em; }
     .crate__info .crate__a { margin: 0 0 16px; }
     .crate__s { color: var(--violet); }
