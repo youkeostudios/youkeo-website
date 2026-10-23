@@ -162,7 +162,8 @@
     .track > * { flex: none; scroll-snap-align: start; }
     /* Line the first photo up with the content column; scroll-padding keeps snap from eating the gutter. */
     @media (min-width: 1240px) { .track { --pad: calc((100vw - var(--wrap)) / 2 + var(--gut)); } }
-    .shot { position: relative; width: clamp(240px, 26vw, 380px); aspect-ratio: 9 / 16; margin: 0; overflow: hidden; border-radius: 12px; background: var(--ink-2); }
+    /* 3:4 cards as tall as the 9:16 artist cards: width is the 9:16 width x 4/3. */
+    .shot { position: relative; width: calc(clamp(240px, 26vw, 380px) * 4 / 3); aspect-ratio: 3 / 4; margin: 0; overflow: hidden; border-radius: 12px; background: var(--ink-2); }
     .shot img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); pointer-events: none; }
     .shot:hover img { transform: scale(1.05); }
     .shot figcaption { position: absolute; left: 14px; bottom: 14px; padding: 7px 10px 6px; border-radius: 6px; background: rgba(11,11,16,.7); backdrop-filter: blur(8px); color: var(--white); }
@@ -326,7 +327,8 @@
       body { font-size: 16px; }
       .nav__logo img { width: 96px; }
       .nav .btn--sm { padding: 0 16px; }
-      .shot, .person { width: 64vw; }
+      .person { width: 64vw; }
+      .shot { width: calc(64vw * 4 / 3); }
       .voices__grid { grid-template-columns: minmax(0, 1fr); }
       .founder__stats { gap: 32px; }
       .hero .btns .btn { flex: 1 1 100%; }
@@ -408,12 +410,12 @@
       </div>
       <div class="gallery">
         <div class="track" data-drag aria-label="Photos of the studio">
-          <figure class="shot"><img style="object-position:65% 50%" src="/media/stills/control-room.jpg" alt="Engineer and artist in the control room" width="1400" height="788" loading="lazy" /><figcaption class="mono">Control room</figcaption></figure>
-          <figure class="shot"><img style="object-position:97% 50%" src="/media/stills/u87.jpg" alt="Neumann U87 microphone being set up" width="1400" height="788" loading="lazy" /><figcaption class="mono">Neumann U87</figcaption></figure>
-          <figure class="shot"><img style="object-position:38% 50%" src="/media/stills/lounge.jpg" alt="Artists in the studio lounge" width="1400" height="788" loading="lazy" /><figcaption class="mono">Lounge</figcaption></figure>
-          <figure class="shot"><img style="object-position:21% 50%" src="/media/stills/keys.jpg" alt="Producer at the keys" width="1400" height="788" loading="lazy" /><figcaption class="mono">Keys</figcaption></figure>
+          <figure class="shot"><img style="object-position:67% 50%" src="/media/stills/control-room.jpg" alt="Engineer and artist in the control room" width="1400" height="788" loading="lazy" /><figcaption class="mono">Control room</figcaption></figure>
+          <figure class="shot"><img style="object-position:100% 50%" src="/media/stills/u87.jpg" alt="Neumann U87 microphone being set up" width="1400" height="788" loading="lazy" /><figcaption class="mono">Neumann U87</figcaption></figure>
+          <figure class="shot"><img style="object-position:36% 50%" src="/media/stills/lounge.jpg" alt="Artists in the studio lounge" width="1400" height="788" loading="lazy" /><figcaption class="mono">Lounge</figcaption></figure>
+          <figure class="shot"><img style="object-position:18% 50%" src="/media/stills/keys.jpg" alt="Producer at the keys" width="1400" height="788" loading="lazy" /><figcaption class="mono">Keys</figcaption></figure>
           <figure class="shot"><img style="object-position:50% 50%" src="/media/stills/monitors.jpg" alt="Production desk with dual screens" width="1400" height="788" loading="lazy" /><figcaption class="mono">Production desk</figcaption></figure>
-          <figure class="shot"><img style="object-position:57% 50%" src="/media/stills/vocal-booth.jpg" alt="Microphone in the treated vocal booth" width="1400" height="788" loading="lazy" /><figcaption class="mono">Vocal booth</figcaption></figure>
+          <figure class="shot"><img style="object-position:59% 50%" src="/media/stills/vocal-booth.jpg" alt="Microphone in the treated vocal booth" width="1400" height="788" loading="lazy" /><figcaption class="mono">Vocal booth</figcaption></figure>
         </div>
       </div>
     </section>
