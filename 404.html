@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-M9KKG5QK');</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Page Not Found – Youkeo Studios</title>
@@ -54,7 +60,7 @@
       font-weight: 700;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: #E8365D;
+      color: #c9c1ff;
       margin-bottom: 24px;
     }
 
@@ -85,8 +91,8 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: #E8365D;
-      color: #fff;
+      background: #fff;
+      color: #141219;
       text-decoration: none;
       font-family: 'Inter', sans-serif;
       font-weight: 700;
@@ -97,7 +103,7 @@
       transition: background 0.2s;
     }
 
-    .btn-primary:hover { background: #c92d50; }
+    .btn-primary:hover { background: #e7e1fa; }
 
     .btn-secondary {
       display: inline-flex;
@@ -142,8 +148,17 @@
       transition: color 0.2s;
     }
 
-    .quick-links a:hover { color: #E8365D; }
+    .quick-links a:hover { color: #c9c1ff; }
   </style>
+  <!-- ── GOOGLE TAG (GA4 + GOOGLE ADS) ─────────────────────────── -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KFE2B59HDH"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-KFE2B59HDH');
+    gtag('config', 'AW-17982763316');
+  </script>
 </head>
 <body>
 
@@ -162,7 +177,7 @@
         <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
       </svg>
     </a>
-    <a href="https://wa.me/919619192992" class="btn-secondary" target="_blank" rel="noopener">
+    <a href="https://wa.me/919619192992" class="btn-secondary" target="_blank" rel="noopener" onclick="gtag('event','contact_click',{method:'whatsapp',location:'page_body',page:'404'}); trackWhatsApp();">
       Check Availability
     </a>
   </div>
@@ -173,8 +188,9 @@
     <a href="/">Home</a>
     <a href="/recording/">Recording</a>
     <a href="/pricing/">Pricing</a>
-    <a href="https://wa.me/919619192992" target="_blank" rel="noopener">Contact</a>
+    <a href="https://wa.me/919619192992" target="_blank" rel="noopener" onclick="gtag('event','contact_click',{method:'whatsapp',location:'footer',page:'404'}); trackWhatsApp();">Contact</a>
   </nav>
 
+<script src="/script.js"></script>
 </body>
 </html>

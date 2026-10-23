@@ -20,8 +20,8 @@
   --bg-dark-alt: #111111;
   --text:        #0A0A0A;
   --muted:       #888888;
-  --accent:      #FF2D6B;
-  --accent-dim:  rgba(255, 45, 107, 0.10);
+  --accent:      #8279BF;
+  --accent-dim:  rgba(130, 121, 191, 0.10);
   --border:      #E5E5E5;
   --border-dark: #1E1E1E;
   --nav-h:       72px;
@@ -845,7 +845,7 @@ a.hero-stat:focus-visible {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 80% 20%, rgba(255, 45, 107, 0.12) 0%, transparent 60%);
+  background: radial-gradient(circle at 80% 20%, rgba(130, 121, 191, 0.12) 0%, transparent 60%);
   opacity: 0.6;
   transition: opacity 0.3s ease;
   pointer-events: none;
@@ -853,7 +853,7 @@ a.hero-stat:focus-visible {
 
 .service-bento-card:hover {
   transform: none;
-  border-color: rgba(255, 45, 107, 0.4);
+  border-color: rgba(130, 121, 191, 0.4);
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.25);
 }
 
@@ -884,8 +884,8 @@ a.hero-stat:focus-visible {
 .bento-icon-wrap {
   width: 44px;
   height: 44px;
-  background: rgba(255, 45, 107, 0.10);
-  border: 1px solid rgba(255, 45, 107, 0.25);
+  background: rgba(130, 121, 191, 0.10);
+  border: 1px solid rgba(130, 121, 191, 0.25);
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -1020,15 +1020,15 @@ a.hero-stat:focus-visible {
 
 .service-split-row:hover {
   transform: none;
-  border-color: rgba(255, 45, 107, 0.4);
+  border-color: rgba(130, 121, 191, 0.4);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
 }
 
 .split-row-icon {
   width: 44px;
   height: 44px;
-  background: rgba(255, 45, 107, 0.10);
-  border: 1px solid rgba(255, 45, 107, 0.25);
+  background: rgba(130, 121, 191, 0.10);
+  border: 1px solid rgba(130, 121, 191, 0.25);
   border-radius: 12px;
   display: flex;
   align-items: center;
@@ -1087,7 +1087,7 @@ a.hero-stat:focus-visible {
 }
 
 .split-row-meta span {
-  background: rgba(255, 45, 107, 0.10);
+  background: rgba(130, 121, 191, 0.10);
   padding: 3px 8px;
   border-radius: 4px;
 }
@@ -1505,12 +1505,12 @@ a.hero-stat:focus-visible {
 .pricing-card.featured {
   border: 1.5px solid var(--accent);
   background: var(--bg);
-  box-shadow: 0 12px 36px rgba(255, 45, 107, 0.09);
+  box-shadow: 0 12px 36px rgba(130, 121, 191, 0.09);
 }
 
 .pricing-card.featured:hover {
   border-color: var(--accent);
-  box-shadow: 0 16px 44px rgba(255, 45, 107, 0.15);
+  box-shadow: 0 16px 44px rgba(130, 121, 191, 0.15);
 }
 
 .pricing-card.featured::before {
