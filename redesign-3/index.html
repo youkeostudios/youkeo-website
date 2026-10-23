@@ -62,7 +62,7 @@
       --serif: 'Instrument Serif', Georgia, serif;
       --mono: 'Geist Mono', ui-monospace, 'SF Mono', monospace;
 
-      --wrap: 1240px;
+      --wrap: 1600px;
       --gut: clamp(20px, 4vw, 48px);
       --sec: clamp(96px, 12vw, 176px);
       --block: clamp(48px, 5.5vw, 80px);
@@ -161,7 +161,7 @@
     .track.is-drag { cursor: grabbing; scroll-snap-type: none; }
     .track > * { flex: none; scroll-snap-align: start; }
     /* Line the first photo up with the content column; scroll-padding keeps snap from eating the gutter. */
-    @media (min-width: 1240px) { .track { --pad: calc((100vw - var(--wrap)) / 2 + var(--gut)); } }
+    @media (min-width: 1600px) { .track { --pad: calc((100vw - var(--wrap)) / 2 + var(--gut)); } }
     /* 3:4 cards as tall as the 9:16 artist cards: width is the 9:16 width x 4/3. */
     .shot { position: relative; width: calc(clamp(240px, 26vw, 380px) * 4 / 3); aspect-ratio: 3 / 4; margin: 0; overflow: hidden; border-radius: 12px; background: var(--ink-2); }
     .shot img { width: 100%; height: 100%; object-fit: cover; transition: transform 1.2s var(--ease); pointer-events: none; }
@@ -179,6 +179,11 @@
 
     /* Who records here: big square cards in a swipe row, name on the photo */
     .people { margin-top: var(--block); }
+    /* Desktop shows all five at once: one row of equal columns across the content width. */
+    @media (min-width: 1000px) {
+      .people .track { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); max-width: var(--wrap); margin: 0 auto; padding: 0 var(--gut); overflow: visible; cursor: default; }
+      .people .person { width: auto; }
+    }
     .person { position: relative; width: clamp(240px, 26vw, 380px); aspect-ratio: 9 / 16; margin: 0; overflow: hidden; border-radius: 12px; background: var(--ink); }
     .person img { width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
     .person::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 55%, rgba(11,11,16,.75)); }
@@ -255,7 +260,7 @@
     .spot__rail { --cw: clamp(136px, 22vw, 340px); position: relative; height: calc(var(--cw) * 4 / 3 + 120px); margin-top: var(--block); overflow: hidden; }
     .spot__now { position: absolute; z-index: 0; left: 50%; top: 0; translate: -50% 0; display: inline-flex; align-items: center; gap: 8px; color: var(--ink); }
     .spot__now::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--violet); box-shadow: 0 0 0 4px rgba(130,121,191,.2); }
-    .spot__head { position: absolute; z-index: 0; left: 50%; top: 22px; bottom: 0; width: 2px; margin-left: -1px; background: var(--violet); opacity: .5; }
+    .spot__head { position: absolute; z-index: 0; left: 50%; top: 22px; height: 12px; width: 2px; margin-left: -1px; border-radius: 2px; background: var(--violet); }
     .spot__slide { position: absolute; z-index: 1; top: 40px; left: 0; width: var(--cw); margin: 0; will-change: transform; }
     .spot__card { position: relative; aspect-ratio: 3 / 4; overflow: hidden; border-radius: 12px; background: var(--ink); box-shadow: 0 30px 60px -30px rgba(11,11,16,.45); transform-origin: 50% 100%; will-change: transform; }
     .spot__img { width: 100%; height: 100%; object-fit: cover; }
