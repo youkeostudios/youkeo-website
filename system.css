@@ -259,7 +259,8 @@ html:not(.js-motion) .spot__now, html:not(.js-motion) .spot__head { display: non
 .foot li a { display: inline-block; padding: 11px 0; color: var(--mute); font-size: 15px; transition: color .2s; }
 .foot li a:hover { color: var(--white); }
 .foot__mark { margin: clamp(56px, 8vw, 112px) 0 0; }
-.foot__mark svg { width: min(100%, 1180px); height: auto; overflow: visible; }
+/* The wordmark spans the full content width so it lines up with the columns and the rule below. */
+.foot__mark svg { width: 100%; height: auto; overflow: visible; }
 /* The wordmark's dot glows like a REC light. */
 .mark__glow { animation: glow 2.4s ease-in-out infinite; }
 @keyframes glow { 0%, 100% { opacity: .1; } 50% { opacity: .85; } }
