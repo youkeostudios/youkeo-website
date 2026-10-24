@@ -78,6 +78,13 @@
       },
       {
         "@type": "Offer",
+        "name": "Record & Mix",
+        "price": "7500",
+        "priceCurrency": "INR",
+        "description": "Includes a 2-hour recording session, vocal tuning, stereo mix & master and 1 revision."
+      },
+      {
+        "@type": "Offer",
         "name": "Recording to Final (Complete Package)",
         "price": "14000",
         "priceCurrency": "INR",
@@ -125,7 +132,7 @@
         "name": "How much does a recording session cost in Navi Mumbai?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "At Youkeo Studios in Airoli, Navi Mumbai, recording sessions are ₹1,200 per hour. A complete package including recording and mix & master starts at ₹14,000 per song."
+          "text": "At Youkeo Studios in Airoli, Navi Mumbai, recording sessions are ₹1,200 per hour. A package with recording, vocal tuning and a stereo mix & master starts at ₹7,500 per song."
         }
       },
       {
@@ -149,7 +156,7 @@
         "name": "Do you offer mixing and mastering after recording?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. Youkeo Studios offers mixing starting from ₹5,000 and mastering as part of the full package. The Recording to Final package (₹14,000/song) includes recording, mixing, and mastering — delivering a streaming-ready track."
+          "text": "Yes. Youkeo Studios offers mixing starting from ₹5,000 and mastering as part of every package. Record & Mix (₹7,500/song) adds vocal tuning and a stereo mix & master to a 2-hour session; Recording to Final (₹14,000/song) includes a full stem mix & master. Both deliver a streaming-ready track."
         }
       },
       {
@@ -208,7 +215,7 @@
 
     /* Hero: the three packages at a glance along the bottom */
     .glance { position: relative; z-index: 1; border-top: 1px solid var(--line-d); background: rgba(11,11,16,.55); backdrop-filter: blur(8px); }
-    .glance__row { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .glance__row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); }
     .glance a { display: grid; align-content: start; gap: 10px; padding: 22px 0 26px 28px; border-left: 1px solid var(--line-d); }
     .glance a:first-child { padding-left: 0; border-left: 0; }
     .glance span { color: var(--mute); }
@@ -361,6 +368,7 @@
       <div class="glance" aria-label="Recording packages at a glance">
         <div class="wrap glance__row">
           <a href="#pricing"><span class="mono">Recording</span><b><span class="cur">₹</span>1,200<small>/ hr</small></b></a>
+          <a href="#pricing"><span class="mono">Record &amp; Mix</span><b><span class="cur">₹</span>7,500<small>/ song</small></b></a>
           <a href="#pricing"><span class="mono">Recording to Final</span><b><span class="cur">₹</span>14,000<small>/ song</small></b></a>
           <a href="#pricing" class="is-hot"><span class="mono">Production to Final</span><b><span class="cur">₹</span>26,000<small>/ song</small></b></a>
         </div>
@@ -437,13 +445,13 @@
           <div class="split">
             <div>
               <p class="trk" data-up><b>Trk 04</b>Pricing</p>
-              <h2 class="h2" id="pricingTitle" data-up>Three options. Your starting point</h2>
+              <h2 class="h2" id="pricingTitle" data-up>Four options. Your starting point</h2>
             </div>
             <p class="lede" data-up>Every option includes an engineer, a pro studio, and a usable result.</p>
           </div>
           <div class="sheets">
-            <article class="sheet" data-up>
-              <header class="sheet__head mono"><span>Session 01</span></header>
+            <article class="sheet sheet--wide" data-up>
+              <header class="sheet__head mono"><span>Session 01</span><span>Studio time</span></header>
               <h3 class="sheet__name">Recording</h3>
               <p class="sheet__price"><span class="cur">₹</span>1,200<small>/ hour</small></p>
               <dl class="sheet__rows">
@@ -457,10 +465,23 @@
             </article>
             <article class="sheet" data-up>
               <header class="sheet__head mono"><span>Session 02</span></header>
+              <h3 class="sheet__name">Record &amp; Mix</h3>
+              <p class="sheet__price"><span class="cur">₹</span>7,500<small>/ song</small></p>
+              <dl class="sheet__rows">
+                <div><dt class="mono">For</dt><dd>A 2-track beat. Release-ready</dd></div>
+                <div><dt class="mono">Session</dt><dd>2-hour recording session</dd></div>
+                <div><dt class="mono">Tuning</dt><dd>Vocal tuning</dd></div>
+                <div><dt class="mono">Mix</dt><dd>Stereo mix &amp; master</dd></div>
+                <div><dt class="mono">Revisions</dt><dd>1, streaming-ready</dd></div>
+              </dl>
+              <a class="btn btn--dark" href="https://wa.me/919619192992?text=Hi%2C%20I%27d%20like%20to%20book%20the%20Record%20%26%20Mix%20package%20(%E2%82%B97%2C500).%0A%0ABeat%20ready%3A%20Yes%20%2F%20No%0AReference%20track%3A%20(link%2C%20if%20any)%0APreferred%20date%3A%20" target="_blank" rel="noopener" onclick="gtag('event','contact_click',{method:'whatsapp',location:'package_record_and_mix',page:'recording'}); trackWhatsApp();">Book this package</a>
+            </article>
+            <article class="sheet" data-up>
+              <header class="sheet__head mono"><span>Session 03</span></header>
               <h3 class="sheet__name">Recording to Final</h3>
               <p class="sheet__price"><span class="cur">₹</span>14,000<small>/ song</small></p>
               <dl class="sheet__rows">
-                <div><dt class="mono">For</dt><dd>Your beat. Ready to release</dd></div>
+                <div><dt class="mono">For</dt><dd>Beat stems. Release-ready</dd></div>
                 <div><dt class="mono">Session</dt><dd>2-hour recording session</dd></div>
                 <div><dt class="mono">Tuning</dt><dd>Vocal tuning</dd></div>
                 <div><dt class="mono">Mix</dt><dd>Stem mix &amp; master</dd></div>
@@ -469,7 +490,7 @@
               <a class="btn btn--dark" href="https://wa.me/919619192992?text=Hi%2C%20I%27d%20like%20to%20book%20the%20Recording%20to%20Final%20package%20(%E2%82%B914%2C000).%0A%0ABeat%20ready%3A%20Yes%20%2F%20No%0AReference%20track%3A%20(link%2C%20if%20any)%0APreferred%20date%3A%20" target="_blank" rel="noopener" onclick="gtag('event','contact_click',{method:'whatsapp',location:'package_recording_to_final',page:'recording'}); trackWhatsApp();">Book this package</a>
             </article>
             <article class="sheet sheet--hot" data-up>
-              <header class="sheet__head mono"><span>Session 03</span><span class="sheet__tag">Most chosen</span></header>
+              <header class="sheet__head mono"><span>Session 04</span><span class="sheet__tag">Full song</span></header>
               <h3 class="sheet__name">Production to Final</h3>
               <p class="sheet__price"><span class="cur">₹</span>26,000<small>/ song</small></p>
               <dl class="sheet__rows">
