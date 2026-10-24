@@ -6,7 +6,7 @@ frontend:
         # Zero-build static site. Copy only the public files into dist/ so repo docs, agent skills,
         # tooling (CLAUDE.md, .claude/, package.json, server.js) and design explorations (redesign/, redesign-2/) are never served.
         - mkdir -p dist
-        - cp -R index.html 404.html system.css style.css script.js logo.svg robots.txt sitemap.xml llms.txt assets pricing recording studio privacy-policy terms-conditions dist/
+        - cp -R index.html 404.html system.css logo.svg robots.txt sitemap.xml llms.txt assets pricing recording studio privacy-policy terms-conditions dist/
   artifacts:
     baseDirectory: dist
     files:
