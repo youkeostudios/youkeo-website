@@ -256,7 +256,9 @@ html:not(.js-motion) .spot__now, html:not(.js-motion) .spot__head { display: non
 .foot__addr { margin: 24px 0 0; color: var(--mute); font-size: 14px; font-style: normal; line-height: 1.7; }
 .foot h4 { margin: 0 0 6px; color: var(--white); font: 500 12px/1 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
 .foot ul { margin: 0; padding: 0; list-style: none; }
-.foot li a { display: inline-block; padding: 11px 0; color: var(--mute); font-size: 15px; transition: color .2s; }
+.foot li a { display: inline-block; padding: 4px 0; color: var(--mute); font-size: 15px; transition: color .2s; }
+/* Touch screens keep a full 44px tap target; mouse users get the tighter list. */
+@media (pointer: coarse) { .foot li a { padding: 11px 0; } }
 .foot li a:hover { color: var(--white); }
 .foot__mark { margin: clamp(56px, 8vw, 112px) 0 0; }
 /* The wordmark spans the full content width so it lines up with the columns and the rule below. */
