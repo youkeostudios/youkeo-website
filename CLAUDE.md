@@ -4,12 +4,13 @@ Static marketing site for Youkeo Studios, a recording studio in Airoli, Navi Mum
 
 ## Stack & layout
 
-- Hand-written HTML per page. The homepage and [/recording/](recording/index.html) share [system.css](system.css): the current design system (tokens, Plus Jakarta Sans + Instrument Serif italic + Geist Mono, track labels, session sheets, crate, footer). Page-only rules stay in each page's `<style>`. GSAP 3.13 (ScrollTrigger, SplitText) loads from cdnjs; each page's inline script handles nav, hero video and motion.
-- Pricing, legal and 404 pages still use the older [style.css](style.css) + [pricing.css](pricing.css) and [script.js](script.js). Move them to `system.css` when they are redesigned.
+- Hand-written HTML per page. The homepage, [/recording/](recording/index.html), [/studio/](studio/index.html) and [/pricing/](pricing/index.html) share [system.css](system.css): the current design system (tokens, Plus Jakarta Sans + Instrument Serif italic + Geist Mono, track labels, session sheets, crate, footer). Page-only rules stay in each page's `<style>`. GSAP 3.13 (ScrollTrigger, SplitText) loads from cdnjs; each page's inline script handles nav, hero video and motion.
+- Legal and 404 pages still use the older [style.css](style.css) and [script.js](script.js). Move them to `system.css` when they are redesigned.
 - Images/video/favicon are served from S3 + CloudFront at `https://media.youkeostudios.com/` (bucket `youkeo-media`, ap-south-1). Reference them by that full URL everywhere, including OG/Twitter tags and JSON-LD. The local [media/](media/) folder is git-ignored and is the upload source: [.githooks/pre-push](.githooks/pre-push) syncs it to S3 on every push (upload-only, never deletes; AWS profile `youkeo`). After a fresh clone, run `git config core.hooksPath .githooks`.
 - Pages:
   - [/](index.html) — homepage
   - [/recording/](recording/index.html) — recording services
+  - [/studio/](studio/index.html) — rooms and full equipment list
   - [/pricing/](pricing/index.html) — full pricing
   - [/privacy-policy/](privacy-policy/index.html), [/terms-conditions/](terms-conditions/index.html)
   - [404.html](404.html)
@@ -29,7 +30,7 @@ Three layers, all loaded in [index.html](index.html) `<head>` (and mirrored on o
 
 1. **GTM** container `GTM-M9KKG5QK`
 2. **GA4** property `G-KFE2B59HDH` via `gtag('config', …)`
-3. **Google Ads** account `AW-17982763316` — conversion labels wired into three helpers, defined inline in the `<head>` of the homepage and recording page and in [script.js:6-22](script.js#L6-L22) for the other pages:
+3. **Google Ads** account `AW-17982763316` — conversion labels wired into three helpers, defined inline in the `<head>` of every system.css page and in [script.js:6-22](script.js#L6-L22) for the other pages:
    - `trackWhatsApp()` — WhatsApp clicks
    - `trackPhone()` — phone clicks
    - `trackEmail()` — email clicks

@@ -12,10 +12,9 @@
 - `/privacy-policy/index.html`: Legal privacy page.
 - `/terms-conditions/index.html`: Legal terms page.
 - `/404.html`: Custom 404 page.
-- `/system.css`: Design system shared by the homepage and recording page (tokens, type, components, responsive rules).
-- `/style.css`: Older shared stylesheet, still used by pricing, legal and 404 pages.
+- `/system.css`: Design system shared by the homepage, recording, studio and pricing pages (tokens, type, components, responsive rules).
+- `/style.css`: Older shared stylesheet, still used by legal and 404 pages.
 - `/script.js`: Interactions and analytics helpers for the older pages (homepage and recording page use inline scripts).
-- `/pricing.css`: Pricing-page-specific styles.
 - `/robots.txt`, `/sitemap.xml`, `/llms.txt`: SEO and crawler control.
 - `/_redirects`, `/_headers`: Cloudflare Pages rules for `main`.
 - `/amplify.yml`, `/customHttp.yml`: AWS Amplify build and headers for the `rebrand` branch.
@@ -51,10 +50,13 @@
   - Sections: `top` (hero + price strip), `featured`, `why`, `how`, `pricing`, `reviews`, `faq`, `book`.
   - Styles from `/system.css` plus page rules in its `<style>`; Service, HowTo and FAQ JSON-LD.
 
+- Studio page (`/studio/index.html`)
+  - Rooms and the full equipment list, grouped by signal path then writing gear.
+  - Styles from `/system.css` plus page rules in its `<style>`; WebPage + BreadcrumbList JSON-LD.
+
 - Pricing page (`/pricing/index.html`)
-  - Long-form service and package pricing details.
-  - Reuses shared nav/footer and shared JS.
-  - Uses `/pricing.css` for page-specific layout/section style.
+  - Sections: `top` (short hero), `packages` (session sheets with matching rows), `rates` (à la carte list; each row opens WhatsApp), `faq`, `book`.
+  - Styles from `/system.css` plus page rules in its `<style>`; WebPage + FAQPage JSON-LD.
 
 - Legal pages (`/privacy-policy/`, `/terms-conditions/`)
   - Mostly static content with inline page styles.
