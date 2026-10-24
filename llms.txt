@@ -19,7 +19,21 @@ Youkeo Studios is a full-service music studio offering vocal recording, instrume
 
 - Homepage: https://youkeostudios.com/
 - Recording Services: https://youkeostudios.com/recording/
+- Studio Rooms & Equipment: https://youkeostudios.com/studio/
 - Full Pricing: https://youkeostudios.com/pricing/
+
+## Studio & Equipment
+
+Rooms: control room, treated vocal booth, synth setup and lounge.
+
+- Microphones: Neumann U87, AKG C214, Slate Digital ML-2 (×2), Audio-Technica AT2050
+- Outboard: Warm Audio WA73-EQ (preamp + EQ)
+- Interfaces: Audient iD48 (main), Audient iD14, PreSonus Quantum ES4, SSL 2+ MkI
+- Monitors: Neumann KH 310 (stereo), Genelec 5.1 surround
+- Synths: Arturia MicroFreak, Roland JU-06A, Korg volca bass, Korg volca keys, Novation Circuit Rhythm
+- Controllers: Ableton Push 2, Arturia KeyStep 37, Novation Launch Control XL MK3 and MK2, Novation Launchkey Mini 25 MK4, Novation Launchkey 25 MK3
+- Instruments: Squier Telecaster (electric guitar), Fender FA-125 (semi-acoustic), Squier Affinity PJ (bass)
+- Pedals: TC Electronic Forcefield, Fangs and Corona; BOSS DD-8, BOSS RV-8
 
 ## Contact & Booking
 
