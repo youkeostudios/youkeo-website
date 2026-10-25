@@ -254,10 +254,14 @@ html:has(.vplayer[open]) { overflow: hidden; }
 .spot__slide figcaption { display: grid; justify-items: center; gap: 6px; margin-top: 14px; text-align: center; text-wrap: balance; }
 .spot__slide b { color: var(--ink); font: 600 18px/1.2 var(--sans); letter-spacing: -.01em; }
 .spot__slide .mono { color: var(--ink-mute); font-size: 11px; }
+/* With motion the queue also moves by drag; vertical page scroll stays native on touch. */
+html.js-motion .spot__rail { cursor: grab; touch-action: pan-y; user-select: none; -webkit-user-select: none; }
+html.js-motion .spot__rail.is-drag, html.js-motion .spot__rail.is-drag a { cursor: grabbing; }
+.spot__hint { width: fit-content; margin: 0 auto; padding: 9px 16px; border: 1px solid var(--line-l); border-radius: 999px; color: var(--ink); }
 /* Without motion the queue is a plain swipeable strip. */
 html:not(.js-motion) .spot__rail { display: flex; gap: 16px; height: auto; overflow-x: auto; padding: 0 var(--gut); scrollbar-width: none; }
 html:not(.js-motion) .spot__slide { position: static; flex: none; }
-html:not(.js-motion) .spot__now, html:not(.js-motion) .spot__head { display: none; }
+html:not(.js-motion) .spot__now, html:not(.js-motion) .spot__head, html:not(.js-motion) .spot__hint { display: none; }
 
 /* ── Founder (dark) ─────────────────────────────────────────────────── */
 .founder__grid { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: clamp(40px, 7vw, 120px); align-items: center; }

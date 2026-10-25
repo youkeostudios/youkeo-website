@@ -373,6 +373,7 @@
           <figure class="spot__slide"><a class="spot__card" href="https://www.instagram.com/iamgravero/" target="_blank" rel="noopener" aria-label="Gravero on Instagram" onclick="gtag('event','artist_click',{artist:'Gravero',page:'home'})"><img class="spot__img" src="https://media.youkeostudios.com/artworks/dooriyaan-hd.webp" alt="Dooriyan by Gravero, cover art" width="1280" height="1280" loading="lazy" /></a><figcaption><b>Gravero</b><span class="mono">1M+ subscribers · 100M+ streams</span></figcaption></figure>
           <figure class="spot__slide"><a class="spot__card" href="https://www.instagram.com/nikhilswapnil/" target="_blank" rel="noopener" aria-label="Nikhil-Swapnil on Instagram" onclick="gtag('event','artist_click',{artist:'Nikhil-Swapnil',page:'home'})"><img class="spot__img" src="https://media.youkeostudios.com/stills/artist-swapnil.webp" alt="Swapnil of Nikhil-Swapnil" width="1080" height="1440" loading="lazy" /></a><figcaption><b>Nikhil-Swapnil</b><span class="mono">50M+ streams · KPKWK, Parinda with Panther</span></figcaption></figure>
         </div>
+        <p class="mono spot__hint" data-up aria-hidden="true">← Drag to move →</p>
       </section>
 
       <!-- ── Packages as session sheets ── -->
@@ -725,12 +726,13 @@
     const spotArtists = $$('.spot__slide', rail).length;
     $$('.spot__slide', rail).forEach(sl => { const c = sl.cloneNode(true); c.setAttribute('aria-hidden', 'true'); c.inert = true; rail.appendChild(c); });
     const spotSlides = $$('.spot__slide', rail).map(sl => ({ sl, card: $('.spot__card', sl), img: $('.spot__img', sl), cap: $('figcaption', sl) }));
-    let spotShift = 0;
+    let spotScroll = 0;
+    const spotDrag = { x: 0 };
     const spotStep = () => { const cw = spotSlides[0].sl.offsetWidth; return [cw, cw + Math.round(cw * .09)]; };
     const layoutSpot = () => {
       const w = rail.clientWidth, [cw, step] = spotStep(), total = step * spotSlides.length;
       spotSlides.forEach(({ sl, card, img, cap }, i) => {
-        const x = (((i * step - spotShift + (w - cw) / 2 + step) % total) + total) % total - step;
+        const x = (((i * step - spotScroll - spotDrag.x + (w - cw) / 2 + step) % total) + total) % total - step;
         const f = Math.max(0, 1 - Math.abs((x + cw / 2 - w / 2) / step));
         sl.style.transform = `translate3d(${x}px, 0, 0)`;
         card.style.transform = `scale(${.82 + .18 * f})`;
@@ -742,8 +744,27 @@
     addEventListener('resize', layoutSpot);
     const spotProxy = { t: 0 };
     // One full lap of the artists while the row is on screen, so each one reaches the playhead at any screen size.
-    gsap.to(spotProxy, { t: 1, ease: 'none', onUpdate: () => { spotShift = spotProxy.t * spotStep()[1] * spotArtists; layoutSpot(); },
+    gsap.to(spotProxy, { t: 1, ease: 'none', onUpdate: () => { spotScroll = spotProxy.t * spotStep()[1] * spotArtists; layoutSpot(); },
       scrollTrigger: { trigger: rail, start: 'top 85%', end: 'bottom 15%', scrub: 1 } });
+    // Dragging (mouse, or a sideways swipe on touch) moves the queue on top of the scroll position; a flick glides on.
+    let sDown = false, sMoved = false, sx = 0, sT = 0, sVel = 0;
+    rail.addEventListener('pointerdown', e => { sDown = true; sMoved = false; sx = e.clientX; sT = e.timeStamp; sVel = 0; gsap.killTweensOf(spotDrag); });
+    addEventListener('pointermove', e => {
+      if (!sDown || (!sMoved && Math.abs(e.clientX - sx) < 5)) return;
+      if (!sMoved) { sMoved = true; rail.classList.add('is-drag'); }
+      const dx = e.clientX - sx;
+      spotDrag.x -= dx; sVel = -dx / Math.max(1, e.timeStamp - sT); sx = e.clientX; sT = e.timeStamp;
+      layoutSpot();
+    });
+    const spotRelease = () => {
+      if (!sDown) return;
+      sDown = false; rail.classList.remove('is-drag');
+      if (sMoved) gsap.to(spotDrag, { x: spotDrag.x + sVel * 320, duration: .9, ease: 'power3.out', onUpdate: layoutSpot });
+    };
+    addEventListener('pointerup', spotRelease);
+    addEventListener('pointercancel', spotRelease);
+    rail.addEventListener('click', e => { if (sMoved) { e.preventDefault(); e.stopPropagation(); } }, true);
+    rail.addEventListener('dragstart', e => e.preventDefault());
 
     /* Generic rise-in */
     $$('[data-up]').forEach(el => gsap.to(el, { opacity: 1, y: 0, duration: 1.1, ease: 'expo.out', scrollTrigger: { trigger: el, start: 'top 88%', once: true } }));
