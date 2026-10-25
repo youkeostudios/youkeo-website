@@ -14,8 +14,7 @@
 - `/404.html`: Custom 404 page.
 - `/system.css`: Design system shared by every page (tokens, type, components, responsive rules).
 - `/robots.txt`, `/sitemap.xml`, `/llms.txt`: SEO and crawler control.
-- `/_redirects`, `/_headers`: Cloudflare Pages rules for `main`.
-- `/amplify.yml`, `/customHttp.yml`: AWS Amplify build and headers for the `rebrand` branch.
+- `/amplify.yml`: AWS Amplify build; copies only the public files into `dist/`.
 
 ## Runtime Model
 - Pages load directly in the browser as static documents.
@@ -56,7 +55,7 @@
 ## Analytics and Tracking
 - Google Tag Manager, GA4 and Google Ads `gtag` setup in every page `<head>`.
 - Contact clicks fire `gtag('event', 'contact_click', {method, location, page})` plus the matching `trackX()` helper.
-- Other events: `release_click` (crate), `testimonial_play` (video cards).
+- Other events: `release_click` (crate), `testimonial_play` (video cards), `artist_click` (spotlight).
 
 ## SEO and Discoverability
 - Per-page title, description, canonical, OG and Twitter tags.
@@ -66,8 +65,9 @@
 - `llms.txt` provides an LLM-friendly business summary, including prices and the gear list.
 
 ## Routing and Hosting Behavior
-- `/_redirects` (Cloudflare Pages, `main`) only passes through `sitemap.xml`, `robots.txt`, `llms.txt`; unknown URLs get `404.html`.
-- Amplify (`rebrand`) uses a custom rule `/<*>` → `/404.html` with status `404-200`.
+- Production is AWS Amplify (app `d3a41saqtsymd1`, ap-south-1), which deploys `rebrand` on every push. `youkeostudios.com` and `www` reach it through DNS-only Cloudflare records.
+- Amplify custom rules: `www` → apex (301); `/privacy-policy.html` and `/terms-conditions.html` → their folders (301); `/<*>` → `/404.html` (`404-200`), so unknown URLs get a real 404.
+- Media is served separately from S3 + CloudFront at `media.youkeostudios.com`.
 
 ## Known Risks and Gotchas
 - There is no build/test pipeline, so regressions can ship if changes are not browser-tested at phone, tablet and desktop widths.
@@ -76,4 +76,4 @@
 ## Suggested Safe Change Workflow
 1. Edit the page and its inline `<style>` first; touch `/system.css` only for changes every page should share.
 2. After edits, test the homepage, recording, studio, pricing, legal and 404 pages, the mobile menu and CTA tracking.
-3. If URLs or page existence change, update `/sitemap.xml`, canonical tags, internal links and `amplify.yml`.
+3. If URLs or page existence change, update `/sitemap.xml`, canonical tags, internal links and the `cp` list in `amplify.yml`.

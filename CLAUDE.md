@@ -1,6 +1,6 @@
 # Youkeo Studios — Website
 
-Static marketing site for Youkeo Studios, a recording studio in Airoli, Navi Mumbai. Plain HTML/CSS/JS — no build step, no framework, no package manager. `main` deploys on Cloudflare Pages (Netlify-style `_redirects`/`_headers`); the `rebrand` branch deploys on AWS Amplify ([amplify.yml](amplify.yml) publishes only the site files, [customHttp.yml](customHttp.yml) sets headers).
+Static marketing site for Youkeo Studios, a recording studio in Airoli, Navi Mumbai. Plain HTML/CSS/JS — no build step, no framework, no package manager. Production (https://youkeostudios.com) is AWS Amplify app `d3a41saqtsymd1` (ap-south-1), which deploys the `rebrand` branch on every push; [amplify.yml](amplify.yml) copies only the public site files into `dist/`. `main` is kept as a fast-forward copy of `rebrand` and is not deployed anywhere.
 
 ## Stack & layout
 
@@ -13,8 +13,9 @@ Static marketing site for Youkeo Studios, a recording studio in Airoli, Navi Mum
   - [/pricing/](pricing/index.html) — full pricing
   - [/privacy-policy/](privacy-policy/index.html), [/terms-conditions/](terms-conditions/index.html)
   - [404.html](404.html)
-- [_redirects](_redirects): preserves `sitemap.xml`, `robots.txt`, `llms.txt`; otherwise SPA-style fallback to `index.html`.
-- [_headers](_headers): 30-day cache on `/media/*` (Cloudflare Pages, `main` only). On S3 the same `Cache-Control` is set per object by the pre-push sync.
+- A new page folder must also be added to the `cp` line in [amplify.yml](amplify.yml), or Amplify won't publish it.
+- Redirects live in Amplify's custom rules (console or `aws amplify update-app --custom-rules`), not in the repo: `www` → apex (301), `/privacy-policy.html` and `/terms-conditions.html` → their folders (301), and `/<*>` → `/404.html` (`404-200`). Amplify's edge cache holds pages until the next deploy, so a rule change only shows after a redeploy (`aws amplify start-job --job-type RELEASE`).
+- DNS is on Cloudflare: the apex and `www` are DNS-only CNAMEs to Amplify's CloudFront, and the `_2cd873e9…` CNAME keeps the HTTPS certificate renewing. Don't proxy or delete any of them.
 
 ## SEO / discoverability
 
