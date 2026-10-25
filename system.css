@@ -241,9 +241,9 @@ button { font: inherit; color: inherit; }
 .spot__now::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--violet); box-shadow: 0 0 0 4px rgba(130,121,191,.2); }
 .spot__head { position: absolute; z-index: 0; left: 50%; top: 22px; height: 12px; width: 2px; margin-left: -1px; border-radius: 2px; background: var(--violet); }
 .spot__slide { position: absolute; z-index: 1; top: 40px; left: 0; width: var(--cw); margin: 0; will-change: transform; }
-.spot__card { position: relative; aspect-ratio: 3 / 4; overflow: hidden; border-radius: 12px; background: var(--ink); box-shadow: 0 30px 60px -30px rgba(11,11,16,.45); transform-origin: 50% 100%; will-change: transform; }
+.spot__card { display: block; position: relative; aspect-ratio: 3 / 4; overflow: hidden; border-radius: 12px; background: var(--ink); box-shadow: 0 30px 60px -30px rgba(11,11,16,.45); transform-origin: 50% 100%; will-change: transform; }
 .spot__img { width: 100%; height: 100%; object-fit: cover; }
-.spot__slide figcaption { display: grid; justify-items: center; gap: 6px; margin-top: 14px; text-align: center; }
+.spot__slide figcaption { display: grid; justify-items: center; gap: 6px; margin-top: 14px; text-align: center; text-wrap: balance; }
 .spot__slide b { color: var(--ink); font: 600 18px/1.2 var(--sans); letter-spacing: -.01em; }
 .spot__slide .mono { color: var(--ink-mute); font-size: 11px; }
 /* Without motion the queue is a plain swipeable strip. */
