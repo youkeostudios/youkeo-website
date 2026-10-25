@@ -358,9 +358,13 @@ html:not(.js-motion) .spot__now, html:not(.js-motion) .spot__head, html:not(.js-
   .split, .founder__grid { grid-template-columns: minmax(0, 1fr); }
   .founder__photo { max-width: 420px; }
   .crate__stage { display: block; }
-  .crate__pin { display: grid; gap: 32px; margin-top: var(--block); }
+  /* Tighter details on phones leave more height for the sleeves, so the pinned block fits under the nav. */
+  .crate__pin { display: grid; gap: 16px; margin-top: var(--block); }
   .crate__box, .crate__head, .crate__now { grid-area: auto; }
-  .crate__now { margin-top: 0; }
+  .crate__now { margin-top: 0; padding-top: 16px; }
+  .crate__now .crate__t { margin: 8px 0 4px; font-size: 26px; }
+  .crate__now .crate__a { margin-bottom: 8px; }
+  .crate__cta { margin-top: 16px; }
   .sheets { grid-template-columns: minmax(0, 1fr); }
   .sheet--hot .sheet__rows { display: block; }
   .doc__grid { grid-template-columns: minmax(0, 1fr); }

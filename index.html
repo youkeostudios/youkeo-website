@@ -775,9 +775,15 @@
     const proxy = { p: 0 };
     gsap.matchMedia().add({ wide: '(min-width: 760px)', narrow: '(max-width: 759px)', landscape: '(orientation: landscape)' }, ctx => {
       const target = ctx.conditions.wide ? '#crateStage' : '#cratePin';
-      // Pin only when the whole block fits below the nav. On short screens (landscape phones, small Androids,
-      // iPhone SE) the crate stays in the page and the arrows flip it.
-      if ($(target).offsetHeight + 92 > innerHeight) { crate.classList.add('is-static'); return () => crate.classList.remove('is-static'); }
+      // Phones: shrink the sleeves to the screen height so the crate and its details fit under the nav and pin.
+      // 8px spare covers a details line wrapping on a later record. Below 200px sleeves it stays unpinned.
+      if (!ctx.conditions.wide) {
+        const s = Math.min(innerWidth * .8, innerHeight - 92 - 8 - ($(target).offsetHeight - recs[0].offsetWidth));
+        if (s >= 200) crate.style.setProperty('--s', s + 'px');
+      }
+      // Pin only when the whole block fits below the nav. On short screens (landscape phones, iPhone SE)
+      // the crate stays in the page and the arrows flip it.
+      if ($(target).offsetHeight + 92 > innerHeight) { crate.classList.add('is-static'); return () => { crate.classList.remove('is-static'); crate.style.removeProperty('--s'); }; }
       gsap.to(proxy, {
         p: n - 1, ease: 'none', onUpdate: () => renderCrate(proxy.p),
         scrollTrigger: {
@@ -787,7 +793,7 @@
           onRefresh: s => { crateST = s; }
         }
       });
-      return () => { crateST = null; };
+      return () => { crateST = null; crate.style.removeProperty('--s'); };
     });
 
     // Triggers were created out of page order; sort so the ones below the pinned crate measure after its spacer.
