@@ -90,13 +90,17 @@ button { font: inherit; color: inherit; }
 .nav__call { color: var(--fog); font: 500 13px/1 var(--mono); letter-spacing: .02em; padding: 14px 0; }
 .nav__call:hover { color: var(--white); }
 .nav__menu { display: none; width: 44px; height: 44px; border: 0; background: none; cursor: pointer; flex-direction: column; align-items: center; justify-content: center; gap: 6px; }
-.nav__menu span { width: 22px; height: 2px; border-radius: 2px; background: var(--white); }
-.drawer { position: fixed; z-index: 120; inset: 0; display: flex; flex-direction: column; padding: 100px var(--gut) 32px; background: var(--ink); visibility: hidden; opacity: 0; transition: opacity .3s, visibility .3s; }
+.nav__menu span { width: 22px; height: 2px; border-radius: 2px; background: var(--white); transition: transform .3s; }
+/* Open, the burger's two lines cross into the close X in place. */
+.nav__menu[aria-expanded="true"] span:first-child { transform: translateY(4px) rotate(45deg); }
+.nav__menu[aria-expanded="true"] span:last-child { transform: translateY(-4px) rotate(-45deg); }
+/* The mobile menu opens under the nav bar, so the logo, button and burger stay where they are. */
+.drawer { position: fixed; z-index: 90; inset: 0; display: flex; flex-direction: column; padding: calc(var(--nav) + 24px) var(--gut) 32px; overflow-y: auto; background: var(--ink); visibility: hidden; opacity: 0; transition: opacity .3s, visibility .3s; }
 .drawer.is-open { visibility: visible; opacity: 1; }
+html:has(.drawer.is-open) .nav { background: var(--ink); border-color: transparent; }
 .drawer > a:not(.btn) { padding: 16px 0; border-bottom: 1px solid var(--line-d); color: var(--white); font: 600 34px/1.1 var(--sans); letter-spacing: -.03em; }
-.drawer .btn { margin-top: 28px; }
+.drawer .btn { max-width: 420px; margin-top: 28px; }
 .drawer .btn + .btn { margin-top: 12px; }
-.drawer__x { position: absolute; top: 16px; right: calc(var(--gut) - 10px); width: 44px; height: 44px; border: 0; background: none; color: var(--white); font-size: 32px; cursor: pointer; }
 
 /* ── Hero: a take in progress ───────────────────────────────────────── */
 .hero { position: relative; min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-end; overflow: hidden; padding-top: calc(var(--nav) + 40px); }

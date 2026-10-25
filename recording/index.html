@@ -326,8 +326,7 @@
     </div>
   </header>
 
-  <div class="drawer" id="drawer" role="dialog" aria-modal="true" aria-label="Menu">
-    <button class="drawer__x" id="menuClose" type="button" aria-label="Close menu">×</button>
+  <div class="drawer" id="drawer">
     <a href="/studio/">Studio</a>
     <a href="#pricing">Pricing</a>
     <a href="#reviews">Reviews</a>
@@ -670,10 +669,9 @@
     addEventListener('scroll', onScroll, { passive: true }); onScroll();
 
     /* Mobile menu. Move focus only for keyboard use (click detail 0 or Escape), so taps don't leave a focus ring behind. */
-    const setDrawer = (open, kb) => { drawer.classList.toggle('is-open', open); menuBtn.setAttribute('aria-expanded', String(open)); document.body.style.overflow = open ? 'hidden' : ''; if (kb) (open ? $('#menuClose') : menuBtn).focus(); };
-    menuBtn.addEventListener('click', e => setDrawer(true, e.detail === 0));
-    $('#menuClose').addEventListener('click', e => setDrawer(false, e.detail === 0));
-    $$('a', drawer).forEach(a => a.addEventListener('click', () => setDrawer(false)));
+    const setDrawer = (open, kb) => { drawer.classList.toggle('is-open', open); menuBtn.setAttribute('aria-expanded', String(open)); menuBtn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu'); document.body.style.overflow = open ? 'hidden' : ''; if (kb) (open ? $('a', drawer) : menuBtn).focus(); };
+    menuBtn.addEventListener('click', e => setDrawer(!drawer.classList.contains('is-open'), e.detail === 0));
+    $$('#nav a, #drawer a').forEach(a => a.addEventListener('click', () => setDrawer(false)));
     addEventListener('keydown', e => { if (e.key === 'Escape' && drawer.classList.contains('is-open')) setDrawer(false, true); });
 
     /* Hero footage at every screen size (1.2 MB). Skipped on data-saver; reduced motion keeps the still poster. */
