@@ -31,7 +31,7 @@
 
 ## Page Responsibilities
 - Homepage (`/index.html`)
-  - Sections: `top` (hero), `room`, `sessions`, `artists`, `made` (pinned record crate), `spotlight`, `voices`, `founder`, `book`.
+  - Sections: `top` (hero + price and proof facts), `room`, `spotlight`, `sessions`, `voices`, `made` (pinned record crate, in its own light band), `founder`, `book`. Proof comes before price on purpose.
   - JSON-LD for MusicStore/LocalBusiness (with the offer catalogue), Organization and WebSite (no FAQ markup: the page has no visible FAQ).
 
 - Recording page (`/recording/index.html`)

@@ -271,7 +271,7 @@
       <nav class="nav__links" aria-label="Main">
         <a href="/studio/">Studio</a>
         <a href="#sessions">Packages</a>
-        <a href="#artists">Artists</a>
+        <a href="#spotlight">Artists</a>
         <a href="#made">Made here</a>
       </nav>
       <div class="nav__end">
@@ -286,7 +286,7 @@
     <button class="drawer__x" id="menuClose" type="button" aria-label="Close menu">×</button>
     <a href="/studio/">Studio</a>
     <a href="#sessions">Packages</a>
-    <a href="#artists">Artists</a>
+    <a href="#spotlight">Artists</a>
     <a href="#made">Made here</a>
     <a class="btn btn--light" href="https://wa.me/919619192992?text=Hi%2C%20I%27d%20like%20to%20check%20availability%20at%20Youkeo%20Studios." target="_blank" rel="noopener" onclick="gtag('event','contact_click',{method:'whatsapp',location:'mobile_menu',page:'home'}); trackWhatsApp();">Check availability</a>
     <a class="btn btn--ghost" href="tel:+919619192992" onclick="gtag('event','contact_click',{method:'phone',location:'mobile_menu',page:'home'}); trackPhone();">Call +91 96 1919 2992</a>
@@ -306,10 +306,17 @@
         </div>
         <div data-hero>
           <p class="lede">Record, produce, mix and master in one room, with an engineer on every session.</p>
+          <dl class="hero__facts">
+            <div><dt>Studio time from</dt><dd>₹1,200/hr</dd></div>
+            <div><dt>On Google</dt><dd>★ 5.0</dd></div>
+            <div><dt>Artists recorded</dt><dd>200+</dd></div>
+            <div><dt>Streams made here</dt><dd>10M+</dd></div>
+          </dl>
           <div class="btns">
             <a class="btn btn--light" href="https://wa.me/919619192992?text=Hi%2C%20I%27d%20like%20to%20check%20availability%20at%20Youkeo%20Studios." target="_blank" rel="noopener" onclick="gtag('event','contact_click',{method:'whatsapp',location:'hero_cta',page:'home'}); trackWhatsApp();">Check availability</a>
             <a class="btn btn--ghost" href="#sessions">See packages</a>
           </div>
+          <p class="fine">Usually replies within a few hours</p>
         </div>
       </div>
 
@@ -334,6 +341,7 @@
       <div class="gallery">
         <div class="track" data-drag aria-label="Photos of the studio">
           <figure class="shot"><img style="object-position:35% 50%" src="https://media.youkeostudios.com/studio/control-room.webp" alt="Control room desk with two screens between Neumann and Genelec monitors" width="2400" height="1800" loading="lazy" /><figcaption class="mono">Control room</figcaption></figure>
+          <figure class="shot"><img style="object-position:50% 55%" src="https://media.youkeostudios.com/stills/band-session.webp" alt="Band jamming on keys and guitar in the control room" width="1080" height="1920" loading="lazy" /><figcaption class="mono">In session</figcaption></figure>
           <figure class="shot"><img style="object-position:50% 50%" src="https://media.youkeostudios.com/stills/u87-booth.webp" alt="Neumann U87 in the recording booth" width="689" height="918" loading="lazy" /><figcaption class="mono">Neumann U87</figcaption></figure>
           <figure class="shot"><img style="object-position:16% 50%" src="https://media.youkeostudios.com/studio/lounge.webp" alt="Studio lounge with a sofa and armchairs" width="2400" height="1800" loading="lazy" /><figcaption class="mono">Lounge</figcaption></figure>
           <figure class="shot"><img style="object-position:50% 50%" src="https://media.youkeostudios.com/stills/keys-v2.webp" alt="Producer at the keys" width="1440" height="1920" loading="lazy" /><figcaption class="mono">Keys</figcaption></figure>
@@ -346,15 +354,44 @@
     <div class="paper">
       <span class="seam" id="seam" aria-hidden="true"></span>
 
+      <!-- ── Artist spotlight: the people behind the releases ── -->
+      <section class="sec" id="spotlight" aria-labelledby="spotTitle">
+        <div class="wrap split">
+          <div>
+            <p class="trk" data-up><b>Trk 02</b>Artist spotlight</p>
+            <h2 class="h2" id="spotTitle" data-up>On rotation</h2>
+          </div>
+          <p class="lede" data-up>Artists who record and release from this room.</p>
+        </div>
+        <div class="spot__rail" id="spotRail" data-up aria-label="Artists who record at Youkeo">
+          <span class="spot__now mono" aria-hidden="true">Now</span>
+          <span class="spot__head" aria-hidden="true"></span>
+          <figure class="spot__slide"><a class="spot__card" href="https://www.instagram.com/handsoham/" target="_blank" rel="noopener" aria-label="Som on Instagram" onclick="gtag('event','artist_click',{artist:'Som',page:'home'})"><img class="spot__img" src="https://media.youkeostudios.com/stills/artist-som.webp" alt="Som" width="1080" height="1440" loading="lazy" /></a><figcaption><b>Som</b><span class="mono">70K+ followers · 5M+ streams</span></figcaption></figure>
+          <figure class="spot__slide"><a class="spot__card" href="https://www.instagram.com/saahellmusic/" target="_blank" rel="noopener" aria-label="Saahel on Instagram" onclick="gtag('event','artist_click',{artist:'Saahel',page:'home'})"><img class="spot__img" src="https://media.youkeostudios.com/stills/artist-saahel.webp" alt="Saahel" width="1080" height="1440" loading="lazy" /></a><figcaption><b>Saahel</b><span class="mono">250K+ followers · 50M+ streams</span></figcaption></figure>
+          <figure class="spot__slide"><a class="spot__card" href="https://www.instagram.com/gaushmusic/" target="_blank" rel="noopener" aria-label="Gaush on Instagram" onclick="gtag('event','artist_click',{artist:'Gaush',page:'home'})"><img class="spot__img" src="https://media.youkeostudios.com/stills/artist-gaush.webp" alt="Gaush" width="1080" height="1440" loading="lazy" /></a><figcaption><b>Gaush</b><span class="mono">50K+ followers · MTV Hustle</span></figcaption></figure>
+          <figure class="spot__slide"><a class="spot__card" href="https://www.instagram.com/basspeak/" target="_blank" rel="noopener" aria-label="Basspeak on Instagram" onclick="gtag('event','artist_click',{artist:'Basspeak',page:'home'})"><img class="spot__img" src="https://media.youkeostudios.com/stills/artist-basspeak-solo.webp" alt="Basspeak" width="1080" height="1440" loading="lazy" /></a><figcaption><b>Basspeak</b><span class="mono">Mixing credits: Badshah, Panther, Raga</span></figcaption></figure>
+          <figure class="spot__slide"><a class="spot__card" href="https://www.instagram.com/iamgravero/" target="_blank" rel="noopener" aria-label="Gravero on Instagram" onclick="gtag('event','artist_click',{artist:'Gravero',page:'home'})"><img class="spot__img" src="https://media.youkeostudios.com/artworks/dooriyaan-hd.webp" alt="Dooriyan by Gravero, cover art" width="1280" height="1280" loading="lazy" /></a><figcaption><b>Gravero</b><span class="mono">1M+ subscribers · 100M+ streams</span></figcaption></figure>
+          <figure class="spot__slide"><a class="spot__card" href="https://www.instagram.com/nikhilswapnil/" target="_blank" rel="noopener" aria-label="Nikhil-Swapnil on Instagram" onclick="gtag('event','artist_click',{artist:'Nikhil-Swapnil',page:'home'})"><img class="spot__img" src="https://media.youkeostudios.com/stills/artist-swapnil.webp" alt="Swapnil of Nikhil-Swapnil" width="1080" height="1440" loading="lazy" /></a><figcaption><b>Nikhil-Swapnil</b><span class="mono">50M+ streams · KPKWK, Parinda with Panther</span></figcaption></figure>
+        </div>
+      </section>
+
       <!-- ── Packages as session sheets ── -->
       <section class="sec" id="sessions" aria-labelledby="sessionsTitle">
         <div class="wrap">
           <div class="split">
             <div>
-              <p class="trk" data-up><b>Trk 02</b>Sessions</p>
+              <p class="trk" data-up><b>Trk 03</b>Sessions</p>
               <h2 class="h2" id="sessionsTitle" data-up>Four ways to finish a song</h2>
             </div>
-            <p class="lede" data-up>One song per package. Price and scope agreed on WhatsApp before your session.</p>
+            <div data-up>
+              <p class="lede">One song per package. Price and scope agreed on WhatsApp before your session.</p>
+              <ul class="pick" aria-label="Which session fits you">
+                <li>Bringing a beat file?<b>Record &amp; Mix</b></li>
+                <li>Have the beat's stems?<b>Recording to Final</b></li>
+                <li>Need a beat made?<b>Production to Final</b></li>
+                <li>Just recording?<b>By the hour</b></li>
+              </ul>
+            </div>
           </div>
           <div class="sheets">
             <article class="sheet sheet--hot" data-up>
@@ -412,89 +449,11 @@
               <a class="btn btn--dark" href="https://wa.me/919619192992?text=Hi%2C%20I%27d%20like%20to%20book%20a%20recording%20session%20at%20Youkeo%20Studios%20(%E2%82%B91%2C200%2Fhr).%0APreferred%20date%2Ftime%3A%20" target="_blank" rel="noopener" onclick="gtag('event','contact_click',{method:'whatsapp',location:'package_recording',page:'home'}); trackWhatsApp();">Book studio time</a>
             </article>
           </div>
+          <p class="sheets__note"><b>A 20% advance books your slot.</b> Full refund if you cancel 24+ hours ahead.</p>
           <div class="sheets__foot">
             <span>Recorded somewhere else? Mix &amp; master from ₹5,000, mastering only ₹2,000.</span>
             <a href="/pricing/">See all rates →</a>
           </div>
-        </div>
-      </section>
-
-      <!-- ── Who records here ── -->
-      <section class="sec" id="artists" aria-labelledby="artistsTitle">
-        <div class="wrap">
-          <div class="split">
-            <div>
-              <p class="trk" data-up><b>Trk 03</b>Who records here</p>
-              <h2 class="h2" id="artistsTitle" data-up>Made for every kind of artist</h2>
-            </div>
-            <p class="lede" data-up>More than 200 artists have recorded here.</p>
-          </div>
-        </div>
-        <div class="people">
-          <div class="track" data-drag aria-label="Who records here">
-            <figure class="person"><img style="object-position:57% 50%" src="https://media.youkeostudios.com/stills/vocal-booth-hd.webp" alt="Microphone in the vocal booth" width="2400" height="1350" loading="lazy" /><figcaption>Singers</figcaption></figure>
-            <figure class="person"><img style="object-position:50% 50%" src="https://media.youkeostudios.com/stills/jassi-hd.webp" alt="Jassi, rapper, in the control room" width="1080" height="1440" loading="lazy" /><figcaption>Rappers</figcaption></figure>
-            <figure class="person"><img style="object-position:38% 50%" src="https://media.youkeostudios.com/stills/lounge-hd.webp" alt="Artists writing in the lounge" width="2400" height="1350" loading="lazy" /><figcaption>Songwriters</figcaption></figure>
-            <figure class="person"><img style="object-position:40% 50%" src="https://media.youkeostudios.com/stills/keys-v2.webp" alt="Producer at the keys" width="1440" height="1920" loading="lazy" /><figcaption>Producers</figcaption></figure>
-            <figure class="person"><img src="https://media.youkeostudios.com/stills/band-session.webp" alt="Band jamming on keys and guitar in the control room" width="1080" height="1920" loading="lazy" /><figcaption>Bands</figcaption></figure>
-          </div>
-        </div>
-      </section>
-
-      <!-- ── Made here: a crate to flip through ── -->
-      <section class="sec" id="made" aria-labelledby="madeTitle">
-        <div class="wrap">
-          <div class="crate__stage" id="crateStage">
-            <div class="crate__head">
-              <p class="trk" data-up><b>Trk 04</b>Made here</p>
-              <h2 class="h2" id="madeTitle" data-up>10M+ streams, made in this room</h2>
-              <p class="mono crate__hint" data-up>Scroll or use the arrows to flip through</p>
-            </div>
-            <div class="crate__pin" id="cratePin">
-            <div class="crate__box" id="crate">
-              <a class="rec" href="https://www.youtube.com/watch?v=qgHA_3Kr-ac" target="_blank" rel="noopener" data-title="O Sajna" data-artist="Swapnil Chaudhary" data-streams="1M+ streams" onclick="gtag('event','release_click',{track:'O Sajna',page:'home'})"><img src="https://media.youkeostudios.com/artworks/o-sajna-hd.webp" alt="O Sajna by Swapnil Chaudhary, cover art" width="1280" height="1280" loading="lazy" /></a>
-              <a class="rec" href="https://www.youtube.com/watch?v=wSDTy-vXuIg" target="_blank" rel="noopener" data-title="Dooriyan" data-artist="Gravero, Rhyo &amp; Kinara" data-streams="500K+ streams" onclick="gtag('event','release_click',{track:'Dooriyan',page:'home'})"><img src="https://media.youkeostudios.com/artworks/dooriyaan-hd.webp" alt="Dooriyan by Gravero, Rhyo and Kinara, cover art" width="1280" height="1280" loading="lazy" /></a>
-              <a class="rec" href="https://www.youtube.com/watch?v=8gFLby0U0LE" target="_blank" rel="noopener" data-title="Aarzoo" data-artist="Shoonya &amp; Kinara" data-streams="100K+ streams" onclick="gtag('event','release_click',{track:'Aarzoo',page:'home'})"><img src="https://media.youkeostudios.com/artworks/aarzoo-hd.webp" alt="Aarzoo by Shoonya and Kinara, cover art" width="1280" height="1280" loading="lazy" /></a>
-              <div class="rec rec--you" data-title="Your release" data-artist="Recorded, mixed and mastered here" data-streams="Next in the crate"><b>Your<br>record</b><span class="mono">Next in the crate</span></div>
-              <div class="crate__lip mono" aria-hidden="true"><span>Youkeo</span><span>Made here</span></div>
-            </div>
-            <div class="crate__now" aria-live="polite">
-              <p class="mono" id="crateN">01 / 04</p>
-              <h3 class="crate__t" id="crateT">O Sajna</h3>
-              <p class="crate__a" id="crateA">Swapnil Chaudhary</p>
-              <p class="mono crate__s" id="crateS">1M+ streams</p>
-              <div class="crate__cta">
-                <a class="btn btn--dark btn--sm" id="cratePlay" href="https://www.youtube.com/watch?v=qgHA_3Kr-ac" target="_blank" rel="noopener">Play on YouTube</a>
-                <a class="btn btn--dark btn--sm" id="crateBook" hidden href="https://wa.me/919619192992?text=Hi%2C%20I%27d%20like%20to%20start%20a%20release%20at%20Youkeo%20Studios." target="_blank" rel="noopener" onclick="gtag('event','contact_click',{method:'whatsapp',location:'crate',page:'home'}); trackWhatsApp();">Start a project</a>
-                <div class="crate__nav">
-                  <button class="arrow" type="button" id="cratePrev" aria-label="Previous record"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 18l-6-6 6-6"/></svg></button>
-                  <button class="arrow" type="button" id="crateNext" aria-label="Next record"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
-                </div>
-              </div>
-            </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ── Artist spotlight: the people behind the releases ── -->
-      <section class="sec" id="spotlight" aria-labelledby="spotTitle">
-        <div class="wrap split">
-          <div>
-            <p class="trk" data-up><b>Trk 05</b>Artist spotlight</p>
-            <h2 class="h2" id="spotTitle" data-up>On rotation</h2>
-          </div>
-          <p class="lede" data-up>Artists who record and release from this room.</p>
-        </div>
-        <div class="spot__rail" id="spotRail" data-up aria-label="Artists who record at Youkeo">
-          <span class="spot__now mono" aria-hidden="true">Now</span>
-          <span class="spot__head" aria-hidden="true"></span>
-          <figure class="spot__slide"><a class="spot__card" href="https://www.instagram.com/handsoham/" target="_blank" rel="noopener" aria-label="Som on Instagram" onclick="gtag('event','artist_click',{artist:'Som',page:'home'})"><img class="spot__img" src="https://media.youkeostudios.com/stills/artist-som.webp" alt="Som" width="1080" height="1440" loading="lazy" /></a><figcaption><b>Som</b><span class="mono">70K+ followers · 5M+ streams</span></figcaption></figure>
-          <figure class="spot__slide"><a class="spot__card" href="https://www.instagram.com/saahellmusic/" target="_blank" rel="noopener" aria-label="Saahel on Instagram" onclick="gtag('event','artist_click',{artist:'Saahel',page:'home'})"><img class="spot__img" src="https://media.youkeostudios.com/stills/artist-saahel.webp" alt="Saahel" width="1080" height="1440" loading="lazy" /></a><figcaption><b>Saahel</b><span class="mono">250K+ followers · 50M+ streams</span></figcaption></figure>
-          <figure class="spot__slide"><a class="spot__card" href="https://www.instagram.com/gaushmusic/" target="_blank" rel="noopener" aria-label="Gaush on Instagram" onclick="gtag('event','artist_click',{artist:'Gaush',page:'home'})"><img class="spot__img" src="https://media.youkeostudios.com/stills/artist-gaush.webp" alt="Gaush" width="1080" height="1440" loading="lazy" /></a><figcaption><b>Gaush</b><span class="mono">50K+ followers · MTV Hustle</span></figcaption></figure>
-          <figure class="spot__slide"><a class="spot__card" href="https://www.instagram.com/basspeak/" target="_blank" rel="noopener" aria-label="Basspeak on Instagram" onclick="gtag('event','artist_click',{artist:'Basspeak',page:'home'})"><img class="spot__img" src="https://media.youkeostudios.com/stills/artist-basspeak-solo.webp" alt="Basspeak" width="1080" height="1440" loading="lazy" /></a><figcaption><b>Basspeak</b><span class="mono">Mixing credits: Badshah, Panther, Raga</span></figcaption></figure>
-          <figure class="spot__slide"><a class="spot__card" href="https://www.instagram.com/iamgravero/" target="_blank" rel="noopener" aria-label="Gravero on Instagram" onclick="gtag('event','artist_click',{artist:'Gravero',page:'home'})"><img class="spot__img" src="https://media.youkeostudios.com/artworks/dooriyaan-hd.webp" alt="Dooriyan by Gravero, cover art" width="1280" height="1280" loading="lazy" /></a><figcaption><b>Gravero</b><span class="mono">1M+ subscribers · 100M+ streams</span></figcaption></figure>
-          <figure class="spot__slide"><a class="spot__card" href="https://www.instagram.com/nikhilswapnil/" target="_blank" rel="noopener" aria-label="Nikhil-Swapnil on Instagram" onclick="gtag('event','artist_click',{artist:'Nikhil-Swapnil',page:'home'})"><img class="spot__img" src="https://media.youkeostudios.com/stills/artist-swapnil.webp" alt="Swapnil of Nikhil-Swapnil" width="1080" height="1440" loading="lazy" /></a><figcaption><b>Nikhil-Swapnil</b><span class="mono">50M+ streams · KPKWK, Parinda with Panther</span></figcaption></figure>
         </div>
       </section>
     </div>
@@ -504,7 +463,7 @@
       <div class="wrap">
         <div class="split">
           <div>
-            <p class="trk" data-up><b>Trk 06</b>Artist voices</p>
+            <p class="trk" data-up><b>Trk 04</b>Artist voices</p>
             <h2 class="h2" id="voicesTitle" data-up>Heard it from the artists</h2>
           </div>
           <div data-up>
@@ -536,11 +495,49 @@
       </div>
     </section>
 
+    <div class="paper">
+      <!-- ── Made here: a crate to flip through ── -->
+      <section class="sec" id="made" aria-labelledby="madeTitle">
+        <div class="wrap">
+          <div class="crate__stage" id="crateStage">
+            <div class="crate__head">
+              <p class="trk" data-up><b>Trk 05</b>Made here</p>
+              <h2 class="h2" id="madeTitle" data-up>10M+ streams, made in this room</h2>
+              <p class="mono crate__hint" data-up>Scroll or use the arrows to flip through</p>
+            </div>
+            <div class="crate__pin" id="cratePin">
+            <div class="crate__box" id="crate">
+              <a class="rec" href="https://www.youtube.com/watch?v=qgHA_3Kr-ac" target="_blank" rel="noopener" data-title="O Sajna" data-artist="Swapnil Chaudhary" data-streams="1M+ streams" onclick="gtag('event','release_click',{track:'O Sajna',page:'home'})"><img src="https://media.youkeostudios.com/artworks/o-sajna-hd.webp" alt="O Sajna by Swapnil Chaudhary, cover art" width="1280" height="1280" loading="lazy" /></a>
+              <a class="rec" href="https://www.youtube.com/watch?v=wSDTy-vXuIg" target="_blank" rel="noopener" data-title="Dooriyan" data-artist="Gravero, Rhyo &amp; Kinara" data-streams="500K+ streams" onclick="gtag('event','release_click',{track:'Dooriyan',page:'home'})"><img src="https://media.youkeostudios.com/artworks/dooriyaan-hd.webp" alt="Dooriyan by Gravero, Rhyo and Kinara, cover art" width="1280" height="1280" loading="lazy" /></a>
+              <a class="rec" href="https://www.youtube.com/watch?v=8gFLby0U0LE" target="_blank" rel="noopener" data-title="Aarzoo" data-artist="Shoonya &amp; Kinara" data-streams="100K+ streams" onclick="gtag('event','release_click',{track:'Aarzoo',page:'home'})"><img src="https://media.youkeostudios.com/artworks/aarzoo-hd.webp" alt="Aarzoo by Shoonya and Kinara, cover art" width="1280" height="1280" loading="lazy" /></a>
+              <div class="rec rec--you" data-title="Your release" data-artist="Recorded, mixed and mastered here" data-streams="Next in the crate"><b>Your<br>record</b><span class="mono">Next in the crate</span></div>
+              <div class="crate__lip mono" aria-hidden="true"><span>Youkeo</span><span>Made here</span></div>
+            </div>
+            <div class="crate__now" aria-live="polite">
+              <p class="mono" id="crateN">01 / 04</p>
+              <h3 class="crate__t" id="crateT">O Sajna</h3>
+              <p class="crate__a" id="crateA">Swapnil Chaudhary</p>
+              <p class="mono crate__s" id="crateS">1M+ streams</p>
+              <div class="crate__cta">
+                <a class="btn btn--dark btn--sm" id="cratePlay" href="https://www.youtube.com/watch?v=qgHA_3Kr-ac" target="_blank" rel="noopener">Play on YouTube</a>
+                <a class="btn btn--dark btn--sm" id="crateBook" hidden href="https://wa.me/919619192992?text=Hi%2C%20I%27d%20like%20to%20start%20a%20release%20at%20Youkeo%20Studios." target="_blank" rel="noopener" onclick="gtag('event','contact_click',{method:'whatsapp',location:'crate',page:'home'}); trackWhatsApp();">Start a project</a>
+                <div class="crate__nav">
+                  <button class="arrow" type="button" id="cratePrev" aria-label="Previous record"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M11 18l-6-6 6-6"/></svg></button>
+                  <button class="arrow" type="button" id="crateNext" aria-label="Next record"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
     <!-- ── Founder (dark) ── -->
-    <section class="sec" id="founder" aria-labelledby="founderTitle" style="padding-top:0">
+    <section class="sec" id="founder" aria-labelledby="founderTitle">
       <div class="wrap founder__grid">
         <div class="founder__copy">
-          <p class="trk" data-up><b>Trk 07</b>The founder</p>
+          <p class="trk" data-up><b>Trk 06</b>The founder</p>
           <h2 class="h2" id="founderTitle" data-up>Run by an artist who releases music</h2>
           <div data-up style="margin-top:28px">
             <p>Nishchay Beharam produces and releases his own records as Shoonya and Rhyo.</p>
@@ -558,7 +555,7 @@
     <!-- ── CTA (lavender) ── -->
     <section class="cta sec" id="book" aria-labelledby="ctaTitle">
       <div class="wrap">
-        <p class="trk" data-up><b>Trk 08</b>Book</p>
+        <p class="trk" data-up><b>Trk 07</b>Book</p>
         <h2 class="h2" id="ctaTitle" data-up>Your <em>next release</em> starts here</h2>
         <div class="cta__row" data-up>
           <p>Near ICICI Bank, Sector 19, Airoli. 8 minutes from Airoli Station. Open daily, 11:00–22:00 IST.</p>
