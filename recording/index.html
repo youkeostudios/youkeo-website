@@ -387,7 +387,7 @@
             <p class="feat__badge" data-up>50M+ streams · 250K+ followers</p>
           </div>
           <article class="vcard feat__video" data-up data-artist="Saahel">
-            <video src="https://media.youkeostudios.com/reviews/saahel.mp4" poster="https://media.youkeostudios.com/stills/saahel-poster.webp" preload="none" playsinline></video>
+            <video src="https://media.youkeostudios.com/reviews/saahel.mp4" poster="https://media.youkeostudios.com/stills/saahel-poster-v2.webp" preload="none" playsinline></video>
             <span class="vcard__tag mono">Video · Artist</span>
             <span class="vcard__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
             <div class="vcard__in"><p>Hear his studio experience.</p></div>
@@ -627,6 +627,12 @@
     </section>
   </main>
 
+  <!-- ── Video overlay: testimonials open here and play straight away ── -->
+  <dialog class="vplayer" id="vplayer" aria-label="Artist video">
+    <button class="vplayer__x" type="button" aria-label="Close video"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <video controls playsinline></video>
+  </dialog>
+
   <!-- ── Footer ── -->
   <footer class="foot">
     <div class="wrap">
@@ -685,16 +691,19 @@
       vid.play().catch(() => {});
     }
 
-    /* Testimonial video: tap to play with sound */
-    $$('.vcard').forEach(c => {
-      const v = $('video', c);
+    /* Testimonial videos open in an overlay and play with sound straight away */
+    const vp = $('#vplayer'), vpVideo = $('video', vp);
+    $$('.vcard video').forEach(v => {
+      const c = v.closest('.vcard');
       $('.vcard__play', c).addEventListener('click', () => {
-        if (!v.paused) { v.pause(); c.classList.remove('is-playing'); return; }
-        v.play(); c.classList.add('is-playing');
+        vpVideo.poster = v.poster; vpVideo.src = v.currentSrc || v.src;
+        vp.showModal(); vpVideo.play().catch(() => {});
         gtag('event', 'testimonial_play', { artist: c.dataset.artist, page: 'recording' });
       });
-      v.addEventListener('ended', () => c.classList.remove('is-playing'));
     });
+    $('.vplayer__x', vp).addEventListener('click', () => vp.close());
+    vp.addEventListener('click', e => { if (e.target === vp) vp.close(); });
+    vp.addEventListener('close', () => { vpVideo.pause(); vpVideo.removeAttribute('src'); vpVideo.load(); });
 
     if (!hasGsap || !motion) return;
     gsap.registerPlugin(ScrollTrigger, SplitText);

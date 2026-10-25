@@ -473,14 +473,14 @@
         </div>
         <div class="voices__grid">
           <article class="vcard vcard--tall" data-up data-artist="Saahel">
-            <video src="https://media.youkeostudios.com/reviews/saahel.mp4" poster="https://media.youkeostudios.com/stills/saahel-poster.webp" preload="none" playsinline></video>
+            <video src="https://media.youkeostudios.com/reviews/saahel.mp4" poster="https://media.youkeostudios.com/stills/saahel-poster-v2.webp" preload="none" playsinline></video>
             <span class="vcard__tag mono">Video · Artist</span>
             <span class="vcard__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
             <div class="vcard__in"><h3>Saahel</h3><p>On working at Youkeo.</p></div>
             <button class="vcard__play" type="button" aria-label="Play Saahel's video"></button>
           </article>
           <article class="vcard vcard--tall" data-up data-artist="Som">
-            <video src="https://media.youkeostudios.com/reviews/som.mp4" poster="https://media.youkeostudios.com/stills/som-poster.webp" preload="none" playsinline></video>
+            <video src="https://media.youkeostudios.com/reviews/som.mp4" poster="https://media.youkeostudios.com/stills/som-poster-v2.webp" preload="none" playsinline></video>
             <span class="vcard__tag mono">Video · Artist</span>
             <span class="vcard__icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
             <div class="vcard__in"><h3>Som</h3><p>On his sessions here.</p></div>
@@ -570,6 +570,12 @@
       </div>
     </section>
   </main>
+
+  <!-- ── Video overlay: testimonials open here and play straight away ── -->
+  <dialog class="vplayer" id="vplayer" aria-label="Artist video">
+    <button class="vplayer__x" type="button" aria-label="Close video"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+    <video controls playsinline></video>
+  </dialog>
 
   <!-- ── Footer ── -->
   <footer class="foot">
@@ -688,18 +694,19 @@
     $('#cratePrev').addEventListener('click', () => go((crateST ? shown : cur) - 1));
     $('#crateNext').addEventListener('click', () => go((crateST ? shown : cur) + 1));
 
-    /* Testimonial videos: tap to play with sound, one at a time */
-    const vcards = $$('.vcard video').map(v => v.closest('.vcard'));
-    vcards.forEach(c => {
-      const v = $('video', c), b = $('.vcard__play', c);
-      b.addEventListener('click', () => {
-        if (!v.paused) { v.pause(); c.classList.remove('is-playing'); return; }
-        vcards.forEach(o => { if (o !== c) { $('video', o).pause(); o.classList.remove('is-playing'); } });
-        v.play(); c.classList.add('is-playing');
+    /* Testimonial videos open in an overlay and play with sound straight away */
+    const vp = $('#vplayer'), vpVideo = $('video', vp);
+    $$('.vcard video').forEach(v => {
+      const c = v.closest('.vcard');
+      $('.vcard__play', c).addEventListener('click', () => {
+        vpVideo.poster = v.poster; vpVideo.src = v.currentSrc || v.src;
+        vp.showModal(); vpVideo.play().catch(() => {});
         gtag('event', 'testimonial_play', { artist: c.dataset.artist, page: 'home' });
       });
-      v.addEventListener('ended', () => c.classList.remove('is-playing'));
     });
+    $('.vplayer__x', vp).addEventListener('click', () => vp.close());
+    vp.addEventListener('click', e => { if (e.target === vp) vp.close(); });
+    vp.addEventListener('close', () => { vpVideo.pause(); vpVideo.removeAttribute('src'); vpVideo.load(); });
 
     if (!hasGsap || !motion) return;
     gsap.registerPlugin(ScrollTrigger, SplitText);
