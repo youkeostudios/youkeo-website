@@ -245,7 +245,7 @@ Gravero (1M+ subscribers · 100M+ streams) has no portrait; use the Dooriyan cov
 
 ## Facts you may use (nothing else; never invent numbers)
 
-- Studio time from **₹1,200/hr**, engineer included.
+- Studio time from **₹1,500/hr**, engineer included.
 - Packages per song: **Record & Mix ₹7,500** · **Recording to Final ₹14,000** · **Production to
   Final ₹26,000**. A 20% advance books a slot; full refund if cancelled 24+ hours ahead.
 - **200+** artists recorded · **10M+** streams on tracks made here · **★ 5.0** on Google ·
